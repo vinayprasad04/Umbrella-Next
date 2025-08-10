@@ -42,7 +42,6 @@ export default function Header() {
   const router = useRouter();
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState('');
   const [userInitials, setUserInitials] = useState('');
   const [openUserMenu, setOpenUserMenu] = useState(false);
 
@@ -52,7 +51,6 @@ export default function Header() {
     const storedUserName = localStorage.getItem('userName') || 'John Doe';
     
     setIsLoggedIn(loggedIn);
-    setUserName(storedUserName);
     
     // Generate initials from name
     const initials = storedUserName
