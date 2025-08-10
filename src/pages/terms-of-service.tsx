@@ -42,7 +42,7 @@ const TermsOfService = () => {
                 <section className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Agreement to Terms</h2>
                   <p className="text-gray-700 mb-4">
-                    By accessing and using Umbrella ("Service"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                    By accessing and using Umbrella (&quot;Service&quot;), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
                   </p>
                 </section>
 
@@ -117,6 +117,40 @@ const TermsOfService = () => {
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Modifications</h2>
                   <p className="text-gray-700">
                     Umbrella may revise these terms of service at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.
+                  </p>
+                </section>
+
+                <section className="mb-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Commercial Use and Profit Sharing</h2>
+                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-6">
+                    <h3 className="text-lg font-semibold text-yellow-800 mb-3">⚠️ Important Commercial Use Terms</h3>
+                    <p className="text-gray-700 mb-4">
+                      If you use our platform, tools, methodologies, or any part of our intellectual property for commercial purposes or to generate profits:
+                    </p>
+                    <ul className="list-disc pl-6 text-gray-700 mb-4">
+                      <li><strong>Profit Sharing Requirement:</strong> You must provide Umbrella with 50% of all profits generated from the use of our platform or intellectual property</li>
+                      <li><strong>Non-Profit Commercial Use:</strong> If you use our platform commercially but do not generate profits, you must provide Umbrella with 5% equity value annually</li>
+                      <li><strong>Reporting Obligation:</strong> You must provide quarterly financial reports documenting all revenue and profits generated</li>
+                      <li><strong>Prior Written Consent:</strong> Commercial use requires explicit written permission from Umbrella</li>
+                    </ul>
+                    <p className="text-sm text-gray-600">
+                      <strong>Note:</strong> Personal, non-commercial use of our platform is not subject to these profit-sharing requirements.
+                    </p>
+                  </div>
+                  
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Commercial Use Definition</h3>
+                  <p className="text-gray-700 mb-4">Commercial use includes but is not limited to:</p>
+                  <ul className="list-disc pl-6 text-gray-700 mb-4">
+                    <li>Using our tools or methodologies to provide financial services to clients</li>
+                    <li>Incorporating our platform into a business or commercial venture</li>
+                    <li>Monetizing content, tools, or strategies derived from our platform</li>
+                    <li>White-labeling or reselling our services</li>
+                    <li>Using our platform to generate revenue in any form</li>
+                  </ul>
+                  
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">Enforcement</h3>
+                  <p className="text-gray-700 mb-4">
+                    Violation of these commercial use terms may result in immediate termination of your account and legal action to recover damages and enforce profit-sharing obligations.
                   </p>
                 </section>
 

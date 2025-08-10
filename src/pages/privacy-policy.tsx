@@ -42,7 +42,7 @@ const PrivacyPolicy = () => {
                 <section className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
                   <p className="text-gray-700 mb-4">
-                    Welcome to Umbrella ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our financial planning platform.
+                    Welcome to Umbrella (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our financial planning platform.
                   </p>
                   <p className="text-gray-700">
                     By accessing or using our service, you agree to the collection and use of information in accordance with this policy.
@@ -130,7 +130,7 @@ const PrivacyPolicy = () => {
                 </section>
 
                 <section className="mb-8">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Children's Privacy</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Children&apos;s Privacy</h2>
                   <p className="text-gray-700">
                     Our service is not intended for children under 18 years of age. We do not knowingly collect personal information from children under 18. If you become aware that a child has provided us with personal information, please contact us immediately.
                   </p>
@@ -139,7 +139,7 @@ const PrivacyPolicy = () => {
                 <section className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Changes to This Policy</h2>
                   <p className="text-gray-700">
-                    We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. Your continued use of our service after changes constitutes acceptance of the updated policy.
+                    We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date. Your continued use of our service after changes constitutes acceptance of the updated policy.
                   </p>
                 </section>
 

@@ -15,7 +15,7 @@ const AllIconsPage = () => {
             setCopied(name);
             window.alert(`Copied JSX to clipboard!\n${jsxSnippet}`);
             setTimeout(() => setCopied(null), 1000);
-        } catch (err) {
+        } catch {
             window.alert("Failed to copy icon.");
         }
     };

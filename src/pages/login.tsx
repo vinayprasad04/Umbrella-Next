@@ -86,7 +86,7 @@ const Login = () => {
       localStorage.setItem('userEmail', user.email || '');
       
       router.push('/dashboard');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Google sign-in error:', error);
       setGoogleError('Google sign-in failed. Please try again.');
       setIsSubmitting(false);

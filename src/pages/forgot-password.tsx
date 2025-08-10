@@ -99,7 +99,7 @@ const ForgotPassword = () => {
                   <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
                     <div className="text-green-600 font-medium mb-2">Reset Link Sent!</div>
                     <div className="text-sm text-green-600">
-                      We've sent a password reset link to your email address. Please check your inbox and follow the instructions.
+                      We&apos;ve sent a password reset link to your email address. Please check your inbox and follow the instructions.
                     </div>
                   </div>
                   <div className="text-sm text-gray-600">
@@ -109,7 +109,7 @@ const ForgotPassword = () => {
               ) : (
                 <>
                   <p className="text-sm text-gray-600 mb-4">
-                    Enter your email address and we'll send you a link to reset your password.
+                    Enter your email address and we&apos;ll send you a link to reset your password.
                   </p>
                   
                   <form onSubmit={handleSubmit} className="flex flex-col gap-4">

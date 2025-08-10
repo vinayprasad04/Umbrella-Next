@@ -68,11 +68,11 @@ const SignUp = () => {
     setIsSubmitting(true);
     
     try {
-      const { signInWithPopup, User } = await import('firebase/auth');
+      const { signInWithPopup } = await import('firebase/auth');
       const { auth, googleProvider } = await import('@/lib/firebase');
       
       const result = await signInWithPopup(auth, googleProvider);
-      const user: User = result.user;
+      const user = result.user;
       
       // Set authentication state with Google user data
       localStorage.setItem('loggedIn', 'true');
@@ -80,7 +80,7 @@ const SignUp = () => {
       localStorage.setItem('userEmail', user.email || '');
       
       router.push('/dashboard');
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Google sign-up error:', error);
       setGoogleError('Google sign-up failed. Please try again.');
       setIsSubmitting(false);

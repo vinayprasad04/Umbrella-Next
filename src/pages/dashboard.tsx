@@ -76,7 +76,7 @@ const Dashboard = () => {
                     <div className="text-lg font-bold">Unknown</div>
                   </div>
                 </div>
-                <p className="text-xs text-gray-600 mb-4">You may not know what's draining your wealth! Could be your spends, loans or investments. Check using Recipe.</p>
+                <p className="text-xs text-gray-600 mb-4">You may not know what&apos;s draining your wealth! Could be your spends, loans or investments. Check using Recipe.</p>
                 <Link href="/recipe" className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 inline-block text-center hover:bg-gray-800 transition-colors">
                   Go to Recipe
                 </Link>
