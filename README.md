@@ -1,40 +1,178 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Umbrella - Financial Planning Platform
 
-## Getting Started
+Umbrella is a comprehensive financial planning and investment platform built with Next.js. It empowers users with the best tools, research, and knowledge to achieve their financial goals through intelligent planning, investing, and wealth management.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Core Functionality
+- **Dashboard**: Centralized access to all financial tools and services
+- **Recipe (Goal Planning)**: Create and manage financial goals with intelligent recommendations
+- **Wealth Creation**: Comprehensive financial planning with asset allocation
+- **User Management**: Complete authentication system with profile and settings
+
+### Authentication & Security
+- **Firebase Authentication**: Google Sign-in integration
+- **Secure Login/Signup**: Email/password authentication with validation
+- **Protected Routes**: Authentication guards for dashboard and user pages
+- **User Profile Management**: Editable user profiles with account overview
+
+### User Experience
+- **Responsive Design**: Mobile-first design with Tailwind CSS
+- **Dynamic Navigation**: Context-aware header with user dropdown
+- **Breadcrumb Navigation**: Clear navigation paths for dashboard pages
+- **Loading States**: Smooth transitions with loading indicators
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 14 with TypeScript
+- **Styling**: Tailwind CSS
+- **Authentication**: Firebase Auth with Google OAuth
+- **State Management**: React Hooks with localStorage
+- **Icons**: Custom SVG icons and Heroicons
+- **Deployment**: Vercel-ready
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── Header.tsx          # Main navigation with dropdowns
+│   └── Footer.tsx          # Footer with menu sections
+├── pages/
+│   ├── index.tsx           # Homepage with hero section
+│   ├── login.tsx           # Login with Firebase Google Auth
+│   ├── signup.tsx          # User registration
+│   ├── forgot-password.tsx # Password reset
+│   ├── dashboard.tsx       # Main dashboard
+│   ├── profile.tsx         # User profile management
+│   ├── settings.tsx        # Account settings
+│   ├── privacy-policy.tsx  # Privacy policy page
+│   ├── terms-of-service.tsx # Terms of service page
+│   └── recipe/
+│       ├── index.tsx       # Goals overview
+│       └── wealth-creation.tsx # Wealth planning form
+└── lib/
+    └── firebase.ts         # Firebase configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔥 Getting Started
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
+- Node.js 16+ 
+- npm/yarn/pnpm
+- Firebase project with Google Authentication enabled
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Installation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd umbrella/frontend/next-app
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
 
-## Learn More
+3. **Configure Firebase**
+   - Copy `.env.example` to `.env.local`
+   - Add your Firebase configuration:
+   ```env
+   NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+   # ... other Firebase config
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+5. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎯 Key Pages
 
-## Deploy on Vercel
+### Public Pages
+- **Homepage** (`/`): Hero section, features overview, testimonials
+- **Login** (`/login`): Firebase Google Auth + email/password
+- **Sign Up** (`/signup`): User registration with validation
+- **Privacy Policy** (`/privacy-policy`): Data protection information
+- **Terms of Service** (`/terms-of-service`): Usage agreement
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Protected Pages (Requires Authentication)
+- **Dashboard** (`/dashboard`): Main hub with financial product cards
+- **Recipe** (`/recipe`): Goal planning and management
+- **Wealth Creation** (`/recipe/wealth-creation`): Detailed financial planning
+- **Profile** (`/profile`): User account management
+- **Settings** (`/settings`): Account preferences and security
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## 🔐 Authentication Flow
+
+1. **Unauthenticated users**: Redirected to login page when accessing protected routes
+2. **Authenticated users**: Cannot access login/signup pages (redirected to dashboard)
+3. **Google Authentication**: One-click sign-in with Firebase
+4. **Session Management**: localStorage-based auth state with automatic cleanup
+
+## 🎨 Design System
+
+- **Primary Color**: `#FF6B2C` (Orange)
+- **Typography**: System fonts with bold headings
+- **Layout**: Max width 1600px with responsive grid system
+- **Components**: Consistent button styles, form inputs, and card layouts
+- **Responsive**: Mobile-first approach with Tailwind breakpoints
+
+## 📱 Responsive Features
+
+- **Mobile Navigation**: Hamburger menu for mobile devices
+- **Flexible Layouts**: Grid systems that adapt to screen size
+- **Touch-Friendly**: Appropriate button sizes and spacing
+- **Performance**: Optimized images with Next.js Image component
+
+## 🚀 Deployment
+
+This project is optimized for deployment on Vercel:
+
+1. **Connect your repository** to Vercel
+2. **Add environment variables** in Vercel dashboard
+3. **Deploy** with automatic builds on git push
+
+## 📄 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📞 Support
+
+For support and questions:
+- **Email**: support@umbrella.com
+- **Privacy**: privacy@umbrella.com
+- **Legal**: legal@umbrella.com
+
+## 📄 License
+
+This project is proprietary software. All rights reserved.
+
+---
+
+Built with ❤️ by the Umbrella Financial Team
