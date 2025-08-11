@@ -10,7 +10,8 @@
       "Bash(mkdir:*)",
       "Bash(npm run dev:*)",
       "Bash(cp:*)",
-      "Bash(npx tailwindcss init:*)"
+      "Bash(npx tailwindcss init:*)",
+      "Bash(move goal.tsx products/goal.tsx)"
     ],
     "deny": []
   }
