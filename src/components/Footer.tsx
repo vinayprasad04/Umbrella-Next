@@ -6,49 +6,39 @@ const menu = [
   {
     label: 'Products',
     submenu: [
-      'Goal Planning',
-      'Educational Courses',
-      'Market Research',
-      'Expert Insights',
-      'Broker Knowledge',
+      { name: 'Goal Planning', href: '/products/goal' },
+      { name: 'Educational Courses', href: '/products/course' },
+      { name: 'Market Research', href: '/products/shares-research' },
+      { name: 'Expert Insights', href: '/products/blogs' },
+      { name: 'Broker Knowledge', href: '/products/brokers-knowledge' },
     ],
   },
   {
     label: 'Calculators',
     submenu: [
-      'Lumpsum Calculator',
-      'SIP Calculator',
-      'Goal Planner',
-      'EIM Calculator',
-      'FD, RD, PF, NPS, SSY',
-      'Other Tools',
+      { name: 'Lumpsum Calculator', href: '/calculation/lumpsum' },
+      { name: 'SIP Calculator', href: '/calculation/sip' },
+      { name: 'Goal Planner', href: '/calculation/goal-planner' },
+      { name: 'EIM Calculator', href: '/calculation/eim' },
+      { name: 'FD, RD, PF, NPS, SSY', href: '/calculation/fd-rd-pf-nps-ssy' },
+      { name: 'Other Tools', href: '/calculation/other' },
     ],
   },
   {
     label: 'Resources',
     submenu: [
-      'Tax Knowledge',
-      'Investment Guides',
-      'Market Updates',
-      'Financial News',
-    ],
-  },
-  {
-    label: 'Company',
-    submenu: [
-      'About Us',
-      'Our Team',
-      'Careers',
-      'Press Kit',
+      { name: 'Tax Haven Guide', href: '/tax-knowledge/tax-haven' },
+      { name: 'Investment Guides', href: '/recipe/wealth-creation' },
+      { name: 'Market Updates', href: '/dashboard' },
+      { name: 'Financial News', href: '/products/blogs' },
     ],
   },
   {
     label: 'Support',
     submenu: [
-      'Contact Us',
-      'Help Center',
-      'FAQ',
-      'Community',
+      { name: 'About Us', href: '/about' },
+      { name: 'Contact Us', href: '/support/contact-us' },
+      { name: 'FAQ', href: '/support/faq' },
     ],
   }
 ];
@@ -228,26 +218,26 @@ export default function Footer() {
                 {item.label === 'Support' ? (
                   <div className="flex flex-wrap gap-x-4 gap-y-2">
                     {item.submenu.map((subItem, subIndex) => (
-                      <a
+                      <Link
                         key={subIndex}
-                        href="#"
+                        href={subItem.href}
                         className="text-gray-400 hover:text-[#FF6B2C] transition-colors duration-200 text-sm no-underline whitespace-nowrap"
                       >
-                        {subItem}
-                      </a>
+                        {subItem.name}
+                      </Link>
                     ))}
                   </div>
                 ) : (
                   <ul className="space-y-3">
                     {item.submenu.map((subItem, subIndex) => (
                       <li key={subIndex}>
-                        <a 
-                          href="#" 
+                        <Link 
+                          href={subItem.href}
                           className="group text-gray-400 hover:text-white transition-all duration-200 flex items-center gap-2 no-underline"
                         >
                           <span className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-[#FF6B2C] group-hover:scale-150 transition-all duration-200"></span>
-                          {subItem}
-                        </a>
+                          {subItem.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>

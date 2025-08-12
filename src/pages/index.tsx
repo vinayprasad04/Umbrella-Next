@@ -423,38 +423,43 @@ export default function Home() {
                     title: 'Goal Planning', 
                     description: 'Set and track your financial goals',
                     color: 'from-blue-400 to-blue-600',
-                    bgColor: 'from-blue-50 to-blue-100'
+                    bgColor: 'from-blue-50 to-blue-100',
+                    href: '/products/goal'
                   },
                   { 
                     icon: '🎓', 
                     title: 'Educational Courses', 
                     description: 'Learn from financial experts',
                     color: 'from-green-400 to-green-600',
-                    bgColor: 'from-green-50 to-green-100'
+                    bgColor: 'from-green-50 to-green-100',
+                    href: '/products/course'
                   },
                   { 
                     icon: '📈', 
                     title: 'Market Research', 
                     description: 'In-depth stock analysis',
                     color: 'from-purple-400 to-purple-600',
-                    bgColor: 'from-purple-50 to-purple-100'
+                    bgColor: 'from-purple-50 to-purple-100',
+                    href: '/products/shares-research'
                   },
                   { 
                     icon: '📰', 
                     title: 'Expert Insights', 
                     description: 'Latest financial news & blogs',
                     color: 'from-orange-400 to-orange-600',
-                    bgColor: 'from-orange-50 to-orange-100'
+                    bgColor: 'from-orange-50 to-orange-100',
+                    href: '/products/blogs'
                   },
                   { 
                     icon: '🏛️', 
                     title: 'Broker Knowledge', 
                     description: 'Compare and choose brokers',
                     color: 'from-indigo-400 to-indigo-600',
-                    bgColor: 'from-indigo-50 to-indigo-100'
+                    bgColor: 'from-indigo-50 to-indigo-100',
+                    href: '/products/brokers-knowledge'
                   }
                 ].map((product, index) => (
-                  <div key={index} className={`group relative bg-gradient-to-br ${product.bgColor} backdrop-blur-sm border border-white/50 rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer`}>
+                  <div key={index} onClick={() => router.push(product.href)} className={`group relative bg-gradient-to-br ${product.bgColor} backdrop-blur-sm border border-white/50 rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer`}>
                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
                     <div className="relative z-10">

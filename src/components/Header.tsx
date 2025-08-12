@@ -37,6 +37,7 @@ const menu = [
   {
     label: 'Support',
     submenu: [
+      { name: 'About Us', href: '/about' },
       { name: 'Contact Us', href: '/support/contact-us' },
       { name: 'FAQ', href: '/support/faq' }
     ],
