@@ -165,6 +165,22 @@ export default function Header() {
                 >
                   {item.label}
                 </Link>
+              ) : item.label === 'Products' ? (
+                <Link 
+                  href="/products" 
+                  className={`no-underline font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-1 ${
+                    router.pathname === '/products' || router.pathname.startsWith('/products') 
+                      ? 'text-[#FF6B2C] bg-orange-50 shadow-sm' 
+                      : 'text-gray-700 hover:text-[#FF6B2C] hover:bg-gray-50'
+                  }`}
+                >
+                  {item.label}
+                  {item.submenu && (
+                    <svg className={`w-4 h-4 ml-1 transition-transform duration-200 ${openSubmenu === item.label ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  )}
+                </Link>
               ) : (
                 <button 
                   className="no-underline font-medium text-gray-700 hover:text-[#FF6B2C] hover:bg-gray-50 transition-all duration-200 flex items-center gap-1 px-4 py-2 rounded-lg border-0 bg-transparent cursor-pointer"
