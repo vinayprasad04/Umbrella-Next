@@ -7,11 +7,12 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { auth, googleProvider } from '@/lib/firebase';
 import { signInWithPopup, User } from 'firebase/auth';
+import { login } from '@/lib/auth';
 
 const Login = () => {
   const router = useRouter();
-  const [email, setEmail] = useState('vinay@gmail.com');
-  const [password, setPassword] = useState('123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const [googleError, setGoogleError] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '' });
@@ -50,7 +51,7 @@ const Login = () => {
     return !newErrors.email && !newErrors.password;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) return;
@@ -58,18 +59,25 @@ const Login = () => {
     setIsSubmitting(true);
     setLoginError('');
     
-    // Simulate login validation
-    if (email !== 'vinay@gmail.com' || password !== '123') {
-      setLoginError('Invalid username or password.');
+    try {
+      const result = await login({ email, password });
+      
+      // Set authentication state
+      localStorage.setItem('loggedIn', 'true');
+      localStorage.setItem('userToken', result.accessToken || result.token || '');
+      localStorage.setItem('refreshToken', result.refreshToken || '');
+      localStorage.setItem('userName', result.user?.name || '');
+      localStorage.setItem('userEmail', result.user?.email || '');
+      localStorage.setItem('userId', result.user?.id || '');
+      localStorage.setItem('userRole', result.user?.role || 'user');
+      localStorage.setItem('tokenExpiry', new Date(Date.now() + 15 * 60 * 1000).toISOString()); // 15 minutes
+      localStorage.setItem('lastActivity', new Date().toISOString());
+      
+      router.push('/dashboard');
+    } catch (error: any) {
+      setLoginError(error.message || 'Login failed. Please try again.');
       setIsSubmitting(false);
-      return;
     }
-    
-    // Set authentication state
-    localStorage.setItem('loggedIn', 'true');
-    localStorage.setItem('userName', 'Vinay Patel');
-    
-    router.push('/dashboard');
   };
 
   const handleGoogleLogin = async () => {

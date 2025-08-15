@@ -4,13 +4,13 @@ import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBd8VNjAdbmIcrmxwTLpSGTu_EWhXPY69Q",
-  authDomain: "umbrella-04.firebaseapp.com",
-  projectId: "umbrella-04",
-  storageBucket: "umbrella-04.firebasestorage.app",
-  messagingSenderId: "478567464302",
-  appId: "1:478567464302:web:08dad360240449abc5d57f",
-  measurementId: "G-H7NMSPVNPM"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY!,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN!,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID!,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET!,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID!,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID!,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID!
 };
 
 // Initialize Firebase

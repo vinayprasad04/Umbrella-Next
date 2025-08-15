@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Subscribe from './Subscribe';
 
 const menu = [
   {
@@ -102,38 +103,7 @@ export default function Footer() {
       
       <div className="relative">
         {/* Newsletter Section */}
-        <div className="border-b border-gray-700/50 backdrop-blur-sm">
-          <div className="w-full max-w-[1600px] mx-auto px-6 py-16">
-            <div className="bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 backdrop-blur-sm rounded-3xl p-12 border border-white/10">
-              <div className="text-center max-w-2xl mx-auto">
-                <h3 className="text-3xl font-bold text-white mb-4">
-                  Stay Updated with Market Insights
-                </h3>
-                <p className="text-gray-300 mb-8 text-lg">
-                  Get the latest financial news, investment tips, and market analysis delivered to your inbox weekly.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                  <input 
-                    type="email" 
-                    placeholder="Enter your email address"
-                    className="flex-1 px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
-                  />
-                  <button className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
-                    Subscribe
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </button>
-                </div>
-                
-                <p className="text-sm text-gray-400 mt-4">
-                  No spam, unsubscribe anytime. Read our <Link href="/privacy-policy" className="text-[#FF6B2C] hover:underline">Privacy Policy</Link>.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Subscribe variant="footer" />
         
         {/* Main Footer Content */}
         <div className="w-full max-w-[1600px] mx-auto px-6 py-20">

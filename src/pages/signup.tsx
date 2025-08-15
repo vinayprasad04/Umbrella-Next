@@ -5,13 +5,16 @@ import Image from 'next/image';
 import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { signup } from '@/lib/auth';
 
 const SignUp = () => {
   const router = useRouter();
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [signupError, setSignupError] = useState('');
   const [googleError, setGoogleError] = useState('');
-  const [errors, setErrors] = useState({ email: '', password: '' });
+  const [errors, setErrors] = useState({ name: '', email: '', password: '' });
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -31,7 +34,11 @@ const SignUp = () => {
   }, [router]);
 
   const validateForm = () => {
-    const newErrors = { email: '', password: '' };
+    const newErrors = { name: '', email: '', password: '' };
+    
+    if (!name.trim()) {
+      newErrors.name = 'Name is required';
+    }
     
     if (!email) {
       newErrors.email = 'Email is required';
@@ -46,21 +53,36 @@ const SignUp = () => {
     }
     
     setErrors(newErrors);
-    return !newErrors.email && !newErrors.password;
+    return !newErrors.name && !newErrors.email && !newErrors.password;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) return;
     
     setIsSubmitting(true);
+    setSignupError('');
     
-    // Set authentication state after successful signup
-    localStorage.setItem('loggedIn', 'true');
-    localStorage.setItem('userName', 'New User');
-    
-    router.push('/dashboard');
+    try {
+      const result = await signup({ name, email, password });
+      
+      // Set authentication state
+      localStorage.setItem('loggedIn', 'true');
+      localStorage.setItem('userToken', result.accessToken || result.token || '');
+      localStorage.setItem('refreshToken', result.refreshToken || '');
+      localStorage.setItem('userName', result.user?.name || '');
+      localStorage.setItem('userEmail', result.user?.email || '');
+      localStorage.setItem('userId', result.user?.id || '');
+      localStorage.setItem('userRole', result.user?.role || 'user');
+      localStorage.setItem('tokenExpiry', new Date(Date.now() + 15 * 60 * 1000).toISOString()); // 15 minutes
+      localStorage.setItem('lastActivity', new Date().toISOString());
+      
+      router.push('/dashboard');
+    } catch (error: any) {
+      setSignupError(error.message || 'Signup failed. Please try again.');
+      setIsSubmitting(false);
+    }
   };
 
   const handleGoogleSignUp = async () => {
@@ -188,8 +210,31 @@ const SignUp = () => {
                       <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
                     </div>
                     
-                    {/* Email/Password Form */}
+                    {/* Signup Form */}
                     <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="space-y-1">
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                        <div className="relative">
+                          <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className={`w-full border-2 rounded-xl px-4 py-4 pl-12 text-gray-900 bg-white/50 backdrop-blur-sm focus:outline-none focus:border-[#FF6B2C] focus:ring-4 focus:ring-[#FF6B2C]/10 transition-all duration-300 ${errors.name ? 'border-red-400 focus:border-red-400 focus:ring-red-100' : 'border-gray-200'}`}
+                            placeholder="Enter your full name"
+                            autoComplete="name"
+                          />
+                          <svg className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                          </svg>
+                        </div>
+                        {errors.name && <p className="text-red-500 text-sm mt-2 flex items-center gap-1">
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {errors.name}
+                        </p>}
+                      </div>
+
                       <div className="space-y-1">
                         <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
                         <div className="relative">
@@ -236,6 +281,15 @@ const SignUp = () => {
                         </p>}
                         <p className="text-xs text-gray-500 mt-1">Must be at least 6 characters long</p>
                       </div>
+                      
+                      {signupError && (
+                        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
+                          <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {signupError}
+                        </div>
+                      )}
                       
                       <button 
                         type="submit" 
