@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import dynamic from 'next/dynamic';
 import AdminSidebar from '../components/AdminSidebar';
-
-const JoditEditor = dynamic(() => import('jodit-react'), { ssr: false });
+import EmailTemplateEditor from '@/components/EmailTemplateEditor';
 
 interface User {
   _id: string;
@@ -77,10 +75,17 @@ const EmailCompose = () => {
   const [manualEmails, setManualEmails] = useState('');
   const [isSendingEmail, setIsSendingEmail] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [lastSentEmailId, setLastSentEmailId] = useState<string | null>(null);
   const [showManualEmailInput, setShowManualEmailInput] = useState(false);
   const [newManualEmail, setNewManualEmail] = useState('');
   const [newManualName, setNewManualName] = useState('');
   const [isAddingManualEmail, setIsAddingManualEmail] = useState(false);
+
+  // Memoized handlers to prevent unnecessary re-renders
+  const handleHtmlContentChange = useCallback((content: string) => {
+    setEmailComposer(prev => ({ ...prev, htmlContent: content }));
+  }, []);
 
   // Filter recipients based on search and type
   useEffect(() => {
@@ -274,8 +279,10 @@ const EmailCompose = () => {
       }
 
       const result = await response.json();
-      alert(`Email sent successfully to ${result.sentCount} recipients!`);
+      setSuccess(`Email sent successfully to ${result.sentCount} recipients!`);
+      setLastSentEmailId(result.emailHistoryId || null);
       
+      // Reset form
       setEmailComposer({
         templateId: '',
         subject: '',
@@ -345,12 +352,45 @@ const EmailCompose = () => {
                 >
                   Templates
                 </button>
+                <button
+                  onClick={() => router.push('/admin/email-center/history')}
+                  className="px-4 py-2 rounded-lg font-medium bg-gray-200 text-gray-700 hover:bg-gray-300"
+                >
+                  History
+                </button>
               </div>
             </div>
 
             {error && (
               <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
                 {error}
+              </div>
+            )}
+
+            {success && (
+              <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6">
+                <div className="flex justify-between items-center">
+                  <span>{success}</span>
+                  <div className="flex space-x-3">
+                    {lastSentEmailId && (
+                      <button
+                        onClick={() => router.push(`/admin/email-center/history?emailId=${lastSentEmailId}`)}
+                        className="text-green-600 hover:text-green-800 font-medium text-sm"
+                      >
+                        View Details
+                      </button>
+                    )}
+                    <button
+                      onClick={() => {
+                        setSuccess('');
+                        setLastSentEmailId(null);
+                      }}
+                      className="text-green-600 hover:text-green-800 font-medium text-sm"
+                    >
+                      Dismiss
+                    </button>
+                  </div>
+                </div>
               </div>
             )}
 
@@ -415,37 +455,12 @@ const EmailCompose = () => {
                 {/* HTML Content */}
                 <div className="mb-4">
                   <label className="block text-sm font-medium text-gray-700 mb-2">HTML Content</label>
-                  <div className="border border-gray-300 rounded-md">
-                    <JoditEditor
-                      value={emailComposer.htmlContent}
-                      onChange={(content) => setEmailComposer(prev => ({ ...prev, htmlContent: content }))}
-                      config={{
-                        readonly: false,
-                        placeholder: 'Enter HTML content or use template...',
-                        height: 400,
-                        toolbar: true,
-                        spellcheck: true,
-                        language: 'en',
-                        toolbarButtonSize: 'middle',
-                        buttons: [
-                          'source', '|',
-                          'bold', 'italic', 'underline', '|',
-                          'ul', 'ol', '|',
-                          'outdent', 'indent', '|',
-                          'font', 'fontsize', 'brush', 'paragraph', '|',
-                          'image', 'link', 'table', '|',
-                          'align', 'undo', 'redo', '|',
-                          'hr', 'eraser', 'copyformat', '|',
-                          'symbol', 'fullsize'
-                        ],
-                        uploader: {
-                          insertImageAsBase64URI: true
-                        },
-                        removeButtons: ['brush', 'file'],
-                        showXPathInStatusbar: false
-                      }}
-                    />
-                  </div>
+                  <EmailTemplateEditor
+                    content={emailComposer.htmlContent}
+                    onChange={handleHtmlContentChange}
+                    placeholder="Enter HTML content or use template..."
+                    height={400}
+                  />
                 </div>
 
                 {/* Text Content */}

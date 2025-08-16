@@ -15,7 +15,14 @@
       "Bash(node:*)",
       "Bash(curl:*)",
       "Bash(taskkill:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(npm start)",
+      "Bash(for i in {1..7})",
+      "Bash(do echo \"Request $i:\")",
+      "Bash(done)",
+      "Bash(TASKKILL /F /PID 38168)",
+      "Bash(cmd /c:*)",
+      "Bash(powershell:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

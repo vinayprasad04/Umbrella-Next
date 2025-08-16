@@ -17,6 +17,8 @@ export default function ContactUs() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const [contactId, setContactId] = useState('');
 
   // useEffect(() => {
   //   const loggedIn = localStorage.getItem('loggedIn') === 'true';
@@ -34,11 +36,29 @@ export default function ContactUs() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          source: 'website'
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to send message');
+      }
+
+      // Success
       setShowSuccess(true);
+      setContactId(data.contactId);
       setFormData({
         name: '',
         email: '',
@@ -47,11 +67,19 @@ export default function ContactUs() {
         message: '',
         category: 'general'
       });
-      
+
+      // Auto-hide success message after 7 seconds
       setTimeout(() => {
         setShowSuccess(false);
-      }, 5000);
-    }, 2000);
+        setContactId('');
+      }, 7000);
+
+    } catch (error: any) {
+      console.error('Contact form error:', error);
+      setError(error.message || 'Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
@@ -224,7 +252,24 @@ export default function ContactUs() {
                       <div className="text-2xl">✅</div>
                       <div>
                         <h3 className="text-lg font-semibold text-green-800">Message Sent Successfully!</h3>
-                        <p className="text-green-700">Thank you for contacting us. We&apos;ll get back to you within 24 hours.</p>
+                        <p className="text-green-700 mb-2">Thank you for contacting us. We&apos;ll get back to you within 24 hours.</p>
+                        {contactId && (
+                          <p className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded">
+                            Reference ID: {contactId.slice(-8).toUpperCase()}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {error && (
+                  <div className="bg-red-50 border border-red-200 rounded-2xl p-6 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="text-2xl">❌</div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-red-800">Error Sending Message</h3>
+                        <p className="text-red-700">{error}</p>
                       </div>
                     </div>
                   </div>
@@ -290,10 +335,12 @@ export default function ContactUs() {
                           onChange={handleInputChange}
                         >
                           <option value="general">General Inquiry</option>
-                          <option value="investment">Investment Support</option>
-                          <option value="technical">Technical Issue</option>
-                          <option value="feedback">Feedback</option>
+                          <option value="support">Support</option>
+                          <option value="billing">Billing</option>
                           <option value="partnership">Partnership</option>
+                          <option value="feedback">Feedback</option>
+                          <option value="bug_report">Bug Report</option>
+                          <option value="feature_request">Feature Request</option>
                         </select>
                       </div>
                     </div>

@@ -58,10 +58,11 @@ export default async function handler(
     switch (req.method) {
       case 'GET':
         // Get all templates
+        console.log('Fetching email templates...');
         const templates = await EmailTemplate.find({})
-          .sort({ createdAt: -1 })
-          .populate('createdBy', 'name email');
+          .sort({ createdAt: -1 });
         
+        console.log(`Found ${templates.length} templates`);
         const totalTemplates = await EmailTemplate.countDocuments();
         
         res.status(200).json({
@@ -182,6 +183,12 @@ export default async function handler(
     if (error.message === 'No token provided' || error.message === 'Admin access required') {
       return res.status(401).json({ error: error.message });
     }
-    res.status(500).json({ error: 'Internal server error' });
+    if (error.name === 'JsonWebTokenError') {
+      return res.status(401).json({ error: 'Invalid token' });
+    }
+    res.status(500).json({ 
+      error: 'Internal server error',
+      ...(process.env.NODE_ENV === 'development' && { details: error.message })
+    });
   }
 }

@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState } from "react";
+
 export default function BecomePartner() {
   const [formData, setFormData] = useState({
     name: '',
@@ -11,6 +12,10 @@ export default function BecomePartner() {
     partnerType: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const [contactId, setContactId] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -20,11 +25,58 @@ export default function BecomePartner() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Partnership application:', formData);
-    alert('Thank you for your interest! We will contact you soon.');
+    setIsSubmitting(true);
+    setError('');
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: `Partnership Application - ${formData.partnerType}`,
+          message: `Company: ${formData.company}\n\nPartnership Type: ${formData.partnerType}\n\nMessage:\n${formData.message}`,
+          category: 'partnership',
+          source: 'website'
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Failed to submit application');
+      }
+
+      // Success
+      setShowSuccess(true);
+      setContactId(data.contactId);
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        partnerType: '',
+        message: ''
+      });
+
+      // Auto-hide success message after 7 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+        setContactId('');
+      }, 7000);
+
+    } catch (error: any) {
+      console.error('Partnership form error:', error);
+      setError(error.message || 'Failed to submit application. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const partnerTypes = [
@@ -265,6 +317,35 @@ export default function BecomePartner() {
                   </p>
                 </div>
 
+                {showSuccess && (
+                  <div className="bg-green-50 border border-green-200 rounded-2xl p-6 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="text-2xl">✅</div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-green-800">Partnership Application Submitted!</h3>
+                        <p className="text-green-700 mb-2">Thank you for your interest in partnering with us. Our partnership team will review your application and get back to you within 24 hours.</p>
+                        {contactId && (
+                          <p className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded">
+                            Application ID: {contactId.slice(-8).toUpperCase()}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {error && (
+                  <div className="bg-red-50 border border-red-200 rounded-2xl p-6 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="text-2xl">❌</div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-red-800">Error Submitting Application</h3>
+                        <p className="text-red-700">{error}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-8 md:p-12 shadow-xl border border-white/50">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -373,12 +454,22 @@ export default function BecomePartner() {
                     <div className="text-center pt-4">
                       <button
                         type="submit"
-                        className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
+                        disabled={isSubmitting}
+                        className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                       >
-                        Submit Application
-                        <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
+                        {isSubmitting ? (
+                          <>
+                            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                            Submitting...
+                          </>
+                        ) : (
+                          <>
+                            Submit Application
+                            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </>
+                        )}
                       </button>
                     </div>
                   </form>

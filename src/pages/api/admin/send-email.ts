@@ -5,11 +5,13 @@ import dbConnect from '../../../lib/mongodb';
 import User from '../../../models/User';
 import EmailTemplate from '../../../models/EmailTemplate';
 import Subscriber from '../../../models/Subscriber';
+import EmailHistory from '../../../models/EmailHistory';
 
 type Data = {
   message: string;
   sentCount?: number;
   failedEmails?: string[];
+  emailHistoryId?: string;
 } | {
   error: string;
 };
@@ -128,14 +130,98 @@ export default async function handler(
       return res.status(400).json({ error: 'No valid email addresses found' });
     }
 
-    // Create email transporter
-    const transporter = createTransporter();
+    // Get template name if using template
+    let templateName = null;
+    if (templateId) {
+      const template = await EmailTemplate.findById(templateId);
+      templateName = template?.name;
+    }
+
+    // Collect recipient details for history tracking
+    const recipientDetails: any[] = [];
+    
+    // Add user recipients
+    if (selectedUserIds && selectedUserIds.length > 0) {
+      const selectedUsers = await User.find(
+        { _id: { $in: selectedUserIds } },
+        'name email'
+      );
+      selectedUsers.forEach(user => {
+        if (emailAddresses.includes(user.email)) {
+          recipientDetails.push({
+            id: user._id.toString(),
+            email: user.email,
+            name: user.name,
+            type: 'user' as const,
+            status: 'sent' as const,
+            sentAt: new Date(),
+          });
+        }
+      });
+    }
+
+    // Add subscriber recipients
+    if (subscriberEmails && subscriberEmails.length > 0) {
+      const subscribers = await Subscriber.find(
+        { email: { $in: subscriberEmails } },
+        'name email'
+      );
+      subscribers.forEach(subscriber => {
+        if (emailAddresses.includes(subscriber.email)) {
+          recipientDetails.push({
+            id: subscriber._id.toString(),
+            email: subscriber.email,
+            name: subscriber.name || subscriber.email,
+            type: 'subscriber' as const,
+            status: 'sent' as const,
+            sentAt: new Date(),
+          });
+        }
+      });
+    }
+
+    // Add manual recipients (emails not in users or subscribers)
+    const existingEmails = recipientDetails.map(r => r.email);
+    const manualEmails = emailAddresses.filter(email => !existingEmails.includes(email));
+    manualEmails.forEach((email, index) => {
+      recipientDetails.push({
+        id: `manual_${Date.now()}_${index}`,
+        email: email,
+        name: email.split('@')[0],
+        type: 'manual' as const,
+        status: 'sent' as const,
+        sentAt: new Date(),
+      });
+    });
 
     // Replace variables in content if provided
     const finalVariables = variables || {};
     const finalSubject = replaceVariables(subject, finalVariables);
     const finalHtmlContent = replaceVariables(htmlContent, finalVariables);
     const finalTextContent = textContent ? replaceVariables(textContent, finalVariables) : undefined;
+
+    // Create EmailHistory record
+    const emailHistory = new EmailHistory({
+      subject: finalSubject,
+      htmlContent: finalHtmlContent,
+      textContent: finalTextContent,
+      templateId: templateId || undefined,
+      templateName: templateName || undefined,
+      sentBy: adminUser._id,
+      sentByName: adminUser.name,
+      sentByEmail: adminUser.email,
+      totalRecipients: emailAddresses.length,
+      recipients: recipientDetails,
+      variables: finalVariables,
+      status: 'sending',
+      successfulSends: 0,
+      failedSends: 0,
+    });
+
+    await emailHistory.save();
+
+    // Create email transporter
+    const transporter = createTransporter();
 
     // Send emails
     const failedEmails: string[] = [];
@@ -173,9 +259,28 @@ export default async function handler(
       }
     }
 
+    // Update email history with final results
+    emailHistory.successfulSends = sentCount;
+    emailHistory.failedSends = failedEmails.length;
+    emailHistory.status = failedEmails.length === 0 ? 'sent' : 
+                         sentCount === 0 ? 'failed' : 'partially_sent';
+    emailHistory.completedAt = new Date();
+
+    // Update recipient statuses
+    emailHistory.recipients.forEach((recipient: any) => {
+      if (failedEmails.includes(recipient.email)) {
+        recipient.status = 'failed';
+        recipient.errorMessage = 'Failed to send';
+      }
+    });
+
+    await emailHistory.save();
+    await emailHistory.updateAnalytics();
+
     res.status(200).json({
       message: `Email sent successfully to ${sentCount} recipients`,
       sentCount,
+      emailHistoryId: emailHistory._id.toString(),
       ...(failedEmails.length > 0 && { failedEmails }),
     });
 
