@@ -11,12 +11,30 @@ export default function FdRdPfNpsSsy() {
   const [investment, setInvestment] = useState('');
   const [returnRate, setReturnRate] = useState('7');
   const [timePeriod, setTimePeriod] = useState('');
+  const [daughterAge, setDaughterAge] = useState('');
   // const [frequency] = useState('monthly'); // Currently unused
   const [result, setResult] = useState<{
     maturityAmount: number;
     totalInvestment: number;
     totalReturns: number;
     monthlyPension?: number;
+    ssyDetails?: {
+      depositPeriod: number;
+      maturityAge: number;
+      interestEarningPeriod: number;
+      yearlyBreakdown: Array<{
+        year: number;
+        age: number;
+        deposit: number;
+        interest: number;
+        balance: number;
+      }>;
+      taxBenefit: number;
+      partialWithdrawal: {
+        eligibleAge: number;
+        maxAmount: number;
+      };
+    };
   } | null>(null);
 
   const calculatorOptions = useMemo(() => [
@@ -40,7 +58,12 @@ export default function FdRdPfNpsSsy() {
   }, [calculatorType, calculatorOptions]);
 
   const calculateReturns = () => {
-    if (!investment || !returnRate || !timePeriod) return;
+    if (!investment || !returnRate) return;
+    if (calculatorType === 'SSY' && !daughterAge) {
+      alert('Please enter daughter\'s current age for SSY calculation');
+      return;
+    }
+    if (calculatorType !== 'SSY' && !timePeriod) return;
 
     const principal = parseFloat(investment);
     const rate = parseFloat(returnRate) / 100;
@@ -52,8 +75,72 @@ export default function FdRdPfNpsSsy() {
       // Simple compound interest for FD
       maturityAmount = principal * Math.pow(1 + rate, time);
       totalInvestment = principal;
-    } else if (calculatorType === 'RD' || calculatorType === 'PF' || calculatorType === 'SSY') {
-      // Monthly compounding for RD, PF, SSY
+    } else if (calculatorType === 'SSY') {
+      // Detailed SSY calculation
+      const currentAge = parseFloat(daughterAge) || 0;
+      const annualDeposit = principal * 12; // Convert monthly to annual
+      const depositPeriod = 15; // Fixed 15 years for SSY
+      const maturityAge = 21; // Account matures when girl turns 21
+      const interestEarningPeriod = maturityAge - currentAge;
+      
+      const yearlyBreakdown = [];
+      let balance = 0;
+      let totalDeposits = 0;
+      
+      // Calculate year by year for detailed breakdown
+      for (let year = 1; year <= interestEarningPeriod; year++) {
+        const currentAgeInYear = currentAge + year - 1;
+        let yearlyDeposit = 0;
+        
+        // Deposits are made only for first 15 years or until girl turns 18 (whichever is earlier)
+        if (year <= depositPeriod && currentAgeInYear < 18) {
+          yearlyDeposit = annualDeposit;
+          totalDeposits += yearlyDeposit;
+        }
+        
+        // Interest is calculated on the balance at the beginning of the year plus deposit
+        const interest = (balance + yearlyDeposit) * rate;
+        balance = balance + yearlyDeposit + interest;
+        
+        yearlyBreakdown.push({
+          year,
+          age: Math.round(currentAge + year - 1),
+          deposit: yearlyDeposit,
+          interest: Math.round(interest),
+          balance: Math.round(balance)
+        });
+      }
+      
+      maturityAmount = balance;
+      totalInvestment = totalDeposits;
+      
+      // Calculate tax benefit (80C deduction)
+      const maxDeductiblePerYear = Math.min(annualDeposit, 150000);
+      const taxBenefit = maxDeductiblePerYear * 0.3 * depositPeriod; // Assuming 30% tax bracket
+      
+      // Partial withdrawal details
+      const partialWithdrawalEligibleAge = 18;
+      const partialWithdrawalMaxAmount = maturityAmount * 0.5; // 50% of balance
+      
+      setResult({
+        maturityAmount: Math.round(maturityAmount),
+        totalInvestment: Math.round(totalInvestment),
+        totalReturns: Math.round(maturityAmount - totalInvestment),
+        ssyDetails: {
+          depositPeriod,
+          maturityAge,
+          interestEarningPeriod,
+          yearlyBreakdown,
+          taxBenefit: Math.round(taxBenefit),
+          partialWithdrawal: {
+            eligibleAge: partialWithdrawalEligibleAge,
+            maxAmount: Math.round(partialWithdrawalMaxAmount)
+          }
+        }
+      });
+      return;
+    } else if (calculatorType === 'RD' || calculatorType === 'PF') {
+      // Monthly compounding for RD, PF
       const monthlyRate = rate / 12;
       const totalMonths = time * 12;
       maturityAmount = principal * (((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate) * (1 + monthlyRate));
@@ -225,47 +312,75 @@ export default function FdRdPfNpsSsy() {
                         </p>
                       </div>
                       
+                      {calculatorType === 'SSY' && (
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-3">
+                            Daughter&apos;s Current Age (Years)
+                          </label>
+                          <input
+                            type="number"
+                            placeholder="e.g., 5"
+                            min="0"
+                            max="10"
+                            className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                            value={daughterAge}
+                            onChange={(e) => setDaughterAge(e.target.value)}
+                          />
+                          <div className="flex gap-2 mt-3">
+                            {['0', '2', '5', '8', '10'].map(age => (
+                              <button
+                                key={age}
+                                onClick={() => setDaughterAge(age)}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                                  daughterAge === age
+                                    ? 'bg-[#FF6B2C] text-white'
+                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                }`}
+                              >
+                                {age}Y
+                              </button>
+                            ))}
+                          </div>
+                          <p className="text-xs text-gray-500 mt-2">
+                            💡 SSY can be opened for girl child up to 10 years of age
+                          </p>
+                        </div>
+                      )}
+                      
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-3">
-                          Investment Period (Years)
+                          {calculatorType === 'SSY' ? 'Account Duration (Auto-calculated)' : 'Investment Period (Years)'}
                         </label>
-                        <input
-                          type="number"
-                          placeholder="e.g., 10"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
-                          value={timePeriod}
-                          onChange={(e) => setTimePeriod(e.target.value)}
-                        />
-                        <div className="flex gap-2 mt-3">
-                          {calculatorType === 'SSY' ? 
-                            ['15', '21'].map(period => (
-                              <button
-                                key={period}
-                                onClick={() => setTimePeriod(period)}
-                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                                  timePeriod === period
-                                    ? 'bg-[#FF6B2C] text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                                }`}
-                              >
-                                {period}Y
-                              </button>
-                            )) :
-                            ['5', '10', '15', '20'].map(period => (
-                              <button
-                                key={period}
-                                onClick={() => setTimePeriod(period)}
-                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                                  timePeriod === period
-                                    ? 'bg-[#FF6B2C] text-white'
-                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                                }`}
-                              >
-                                {period}Y
-                              </button>
-                            ))
-                          }
-                        </div>
+                        {calculatorType === 'SSY' ? (
+                          <div className="w-full px-4 py-4 bg-gray-50 border border-gray-200 rounded-xl text-lg text-gray-600">
+                            {daughterAge ? `${21 - parseFloat(daughterAge)} years (until daughter turns 21)` : 'Enter daughter&apos;s age first'}
+                          </div>
+                        ) : (
+                          <>
+                            <input
+                              type="number"
+                              placeholder="e.g., 10"
+                              className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                              value={timePeriod}
+                              onChange={(e) => setTimePeriod(e.target.value)}
+                            />
+                            <div className="flex gap-2 mt-3">
+                              {['5', '10', '15', '20'].map(period => (
+                                <button
+                                  key={period}
+                                  onClick={() => setTimePeriod(period)}
+                                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                                    timePeriod === period
+                                      ? 'bg-[#FF6B2C] text-white'
+                                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                  }`}
+                                >
+                                  {period}Y
+                                </button>
+                              ))}
+                            </div>
+                          </>
+                        )}
                       </div>
                       
                       <button 
@@ -320,7 +435,88 @@ export default function FdRdPfNpsSsy() {
                               </div>
                             </div>
                           )}
+                          
+                          {result.ssyDetails && (
+                            <>
+                              <div className="bg-white/60 rounded-xl p-4">
+                                <div className="text-sm text-gray-600">Tax Benefit (Section 80C)</div>
+                                <div className="text-xl font-bold text-purple-600">
+                                  ₹{result.ssyDetails.taxBenefit.toLocaleString()}
+                                </div>
+                                <div className="text-xs text-gray-500">Over {result.ssyDetails.depositPeriod} years</div>
+                              </div>
+                              
+                              <div className="bg-white/60 rounded-xl p-4">
+                                <div className="text-sm text-gray-600">Partial Withdrawal (Age 18+)</div>
+                                <div className="text-xl font-bold text-teal-600">
+                                  ₹{result.ssyDetails.partialWithdrawal.maxAmount.toLocaleString()}
+                                </div>
+                                <div className="text-xs text-gray-500">50% of balance for higher education</div>
+                              </div>
+                            </>
+                          )}
                         </div>
+                        
+                        {result.ssyDetails && (
+                          <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
+                            <h4 className="font-semibold text-blue-800 mb-2">📊 Complete Year-wise Breakdown:</h4>
+                            <div className="max-h-64 overflow-y-auto">
+                              <table className="w-full text-xs text-blue-700">
+                                <thead className="sticky top-0 bg-blue-100">
+                                  <tr>
+                                    <th className="text-left p-2 font-semibold">Year</th>
+                                    <th className="text-left p-2 font-semibold">Age</th>
+                                    <th className="text-right p-2 font-semibold">Deposit</th>
+                                    <th className="text-right p-2 font-semibold">Interest</th>
+                                    <th className="text-right p-2 font-semibold">Balance</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  {result.ssyDetails.yearlyBreakdown.map((year, index) => (
+                                    <tr key={index} className={`border-b border-blue-200 ${year.deposit > 0 ? 'bg-blue-25' : 'bg-gray-25'}`}>
+                                      <td className="p-2 font-medium">{year.year}</td>
+                                      <td className="p-2">{year.age}</td>
+                                      <td className="text-right p-2 font-medium">
+                                        {year.deposit > 0 ? `₹${year.deposit.toLocaleString()}` : '-'}
+                                      </td>
+                                      <td className="text-right p-2 text-green-700 font-medium">₹{year.interest.toLocaleString()}</td>
+                                      <td className="text-right p-2 font-bold text-blue-800">₹{year.balance.toLocaleString()}</td>
+                                    </tr>
+                                  ))}
+                                  <tr className="bg-blue-100 border-t-2 border-blue-300">
+                                    <td colSpan={2} className="p-2 font-bold text-blue-800">Final Maturity</td>
+                                    <td className="text-right p-2 font-bold text-blue-800">
+                                      ₹{result.totalInvestment.toLocaleString()}
+                                    </td>
+                                    <td className="text-right p-2 font-bold text-green-700">
+                                      ₹{result.totalReturns.toLocaleString()}
+                                    </td>
+                                    <td className="text-right p-2 font-bold text-blue-800 text-base">
+                                      ₹{result.maturityAmount.toLocaleString()}
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                            <div className="mt-3 text-xs text-blue-600">
+                              💡 <strong>Note:</strong> Deposits are made for first 15 years or until daughter turns 18 (whichever is earlier). Interest continues to compound until age 21.
+                            </div>
+                          </div>
+                        )}
+                        
+                        {result.ssyDetails && (
+                          <div className="bg-green-50 rounded-xl p-4 border border-green-200">
+                            <h4 className="font-semibold text-green-800 mb-2">🎯 Key SSY Features:</h4>
+                            <ul className="text-xs text-green-700 space-y-1">
+                              <li>• Deposits for first {result.ssyDetails.depositPeriod} years (or until age 18)</li>
+                              <li>• Account matures when daughter turns {result.ssyDetails.maturityAge}</li>
+                              <li>• Tax-free returns under EEE (Exempt-Exempt-Exempt)</li>
+                              <li>• Minimum deposit: ₹250/year, Maximum: ₹1.5 lakh/year</li>
+                              <li>• Partial withdrawal allowed from age {result.ssyDetails.partialWithdrawal.eligibleAge} for higher education</li>
+                              <li>• Premature closure allowed if girl is 18+ for marriage</li>
+                            </ul>
+                          </div>
+                        )}
                         
                         <div className="text-center pt-4">
                           <button 

@@ -10,6 +10,7 @@ export default function EIM() {
   const [monthlyIncome, setMonthlyIncome] = useState('');
   const [currentAge, setCurrentAge] = useState('');
   const [retirementAge, setRetirementAge] = useState('60');
+  const [currentSavings, setCurrentSavings] = useState('0');
   const [inflationRate, setInflationRate] = useState('6');
   const [returnRate, setReturnRate] = useState('12');
   const [result, setResult] = useState<{
@@ -18,6 +19,11 @@ export default function EIM() {
     monthlyInvestment: number;
     totalInvestment: number;
     postRetirementIncome: number;
+    futureValue: number;
+    netGains: number;
+    monthlyIncomeAt60: number;
+    currentSavingsGrowth: number;
+    adjustedMonthlyInvestment: number;
   } | null>(null);
 
   useEffect(() => {
@@ -29,6 +35,7 @@ export default function EIM() {
     if (!monthlyIncome || !currentAge || !retirementAge || !inflationRate || !returnRate) return;
 
     const income = parseFloat(monthlyIncome);
+    const savings = parseFloat(currentSavings) || 0;
     const yearsToRetirement = parseFloat(retirementAge) - parseFloat(currentAge);
     const inflation = parseFloat(inflationRate) / 100;
     const annualReturn = parseFloat(returnRate) / 100;
@@ -45,17 +52,40 @@ export default function EIM() {
     // Assume we need 25 times annual income as corpus (4% withdrawal rule)
     const requiredCorpus = futureMonthlyIncome * 12 * 25;
     
-    // Calculate monthly SIP needed to accumulate this corpus
+    // Calculate how much current savings will grow by retirement
     const totalMonths = yearsToRetirement * 12;
+    const currentSavingsGrowth = savings * Math.pow(1 + monthlyReturn, totalMonths);
+    
+    // Adjust required corpus by subtracting future value of current savings
+    const adjustedRequiredCorpus = Math.max(0, requiredCorpus - currentSavingsGrowth);
+    
+    // Calculate monthly SIP needed for the remaining corpus
+    const adjustedMonthlyInvestment = adjustedRequiredCorpus > 0 
+      ? adjustedRequiredCorpus * monthlyReturn / (Math.pow(1 + monthlyReturn, totalMonths) - 1)
+      : 0;
+    
+    // For display purposes, also calculate what it would be without current savings
     const monthlyInvestment = requiredCorpus * monthlyReturn / (Math.pow(1 + monthlyReturn, totalMonths) - 1);
-    const totalInvestment = monthlyInvestment * totalMonths;
+    const totalInvestment = adjustedMonthlyInvestment * totalMonths;
+    
+    // Calculate future value of monthly investment
+    const futureValue = adjustedMonthlyInvestment * ((Math.pow(1 + monthlyReturn, totalMonths) - 1) / monthlyReturn) + currentSavingsGrowth;
+    const netGains = futureValue - totalInvestment - savings;
+    
+    // Calculate monthly income at retirement age (without inflation adjustment for comparison)
+    const monthlyIncomeAt60 = requiredCorpus * 0.04 / 12; // 4% annual withdrawal rule
     
     setResult({
       yearsToRetirement: Math.round(yearsToRetirement),
       requiredCorpus: Math.round(requiredCorpus),
       monthlyInvestment: Math.round(monthlyInvestment),
       totalInvestment: Math.round(totalInvestment),
-      postRetirementIncome: Math.round(futureMonthlyIncome)
+      postRetirementIncome: Math.round(futureMonthlyIncome),
+      futureValue: Math.round(futureValue),
+      netGains: Math.round(netGains),
+      monthlyIncomeAt60: Math.round(monthlyIncomeAt60),
+      currentSavingsGrowth: Math.round(currentSavingsGrowth),
+      adjustedMonthlyInvestment: Math.round(adjustedMonthlyInvestment)
     });
   };
 
@@ -190,6 +220,37 @@ export default function EIM() {
                       
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-3">
+                          Current Savings/Investments (₹)
+                        </label>
+                        <input
+                          type="number"
+                          placeholder="0"
+                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          value={currentSavings}
+                          onChange={(e) => setCurrentSavings(e.target.value)}
+                        />
+                        <div className="flex gap-2 mt-3">
+                          {['0', '100000', '500000', '1000000', '2000000'].map(amount => (
+                            <button
+                              key={amount}
+                              onClick={() => setCurrentSavings(amount)}
+                              className={`px-3 py-2 rounded-lg text-xs font-medium transition-all duration-300 ${
+                                currentSavings === amount
+                                  ? 'bg-[#FF6B2C] text-white'
+                                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                              }`}
+                            >
+                              {amount === '0' ? '₹0' : `₹${(parseInt(amount) / 100000).toFixed(0)}L`}
+                            </button>
+                          ))}
+                        </div>
+                        <p className="text-xs text-gray-500 mt-2">
+                          💡 Include your existing FD, PPF, mutual funds, stocks, etc.
+                        </p>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-semibold text-gray-700 mb-3">
                           Expected Inflation Rate (%)
                         </label>
                         <input
@@ -269,9 +330,14 @@ export default function EIM() {
                         <div className="bg-white/80 rounded-2xl p-6 shadow-lg">
                           <div className="text-center">
                             <div className="text-sm text-gray-600 mb-2">Monthly Investment Needed</div>
-                            <div className="text-4xl font-bold text-[#FF6B2C] mb-4">
-                              ₹{result.monthlyInvestment.toLocaleString()}
+                            <div className="text-4xl font-bold text-[#FF6B2C] mb-2">
+                              ₹{result.adjustedMonthlyInvestment.toLocaleString()}
                             </div>
+                            {parseFloat(currentSavings) > 0 && (
+                              <div className="text-xs text-green-600">
+                                💡 Reduced from ₹{result.monthlyInvestment.toLocaleString()} due to current savings!
+                              </div>
+                            )}
                           </div>
                         </div>
                         
@@ -297,12 +363,63 @@ export default function EIM() {
                             </div>
                           </div>
                           
+                          {parseFloat(currentSavings) > 0 && (
+                            <div className="bg-white/60 rounded-xl p-4">
+                              <div className="text-sm text-gray-600">Current Savings Growth</div>
+                              <div className="text-xl font-bold text-teal-600">
+                                ₹{result.currentSavingsGrowth.toLocaleString()}
+                              </div>
+                              <div className="text-xs text-gray-500 mt-1">
+                                From ₹{parseFloat(currentSavings).toLocaleString()} today
+                              </div>
+                            </div>
+                          )}
+                          
                           <div className="bg-white/60 rounded-xl p-4">
                             <div className="text-sm text-gray-600">Post-Retirement Income</div>
                             <div className="text-xl font-bold text-purple-600">
                               ₹{result.postRetirementIncome.toLocaleString()}/month
                             </div>
                           </div>
+                          
+                          <div className="bg-white/60 rounded-xl p-4">
+                            <div className="text-sm text-gray-600">Portfolio Value at Retirement</div>
+                            <div className="text-xl font-bold text-indigo-600">
+                              ₹{result.futureValue.toLocaleString()}
+                            </div>
+                          </div>
+                          
+                          <div className="bg-white/60 rounded-xl p-4">
+                            <div className="text-sm text-gray-600">Net Gains from Investment</div>
+                            <div className="text-xl font-bold text-emerald-600">
+                              ₹{result.netGains.toLocaleString()}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl p-4 border border-emerald-200">
+                          <div className="text-center">
+                            <div className="text-sm text-emerald-700 font-medium mb-1">Return on Investment</div>
+                            <div className="text-2xl font-bold text-emerald-700">
+                              {(result.totalInvestment + parseFloat(currentSavings)) > 0 ? ((result.netGains / (result.totalInvestment + parseFloat(currentSavings))) * 100).toFixed(1) : 0}%
+                            </div>
+                            <div className="text-xs text-emerald-600 mt-1">
+                              Total returns over {result.yearsToRetirement} years
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
+                          <h4 className="font-semibold text-blue-800 mb-2">💡 Key Assumptions:</h4>
+                          <ul className="text-xs text-blue-700 space-y-1">
+                            <li>• Uses the 4% withdrawal rule (25x annual income)</li>
+                            <li>• Assumes {inflationRate}% annual inflation</li>
+                            <li>• Expects {returnRate}% annual returns from equity</li>
+                            <li>• Monthly SIP investments with compounding</li>
+                            {parseFloat(currentSavings) > 0 && (
+                              <li>• Current savings of ₹{parseFloat(currentSavings).toLocaleString()} grows at same rate</li>
+                            )}
+                          </ul>
                         </div>
                         
                         <div className="text-center pt-4">
