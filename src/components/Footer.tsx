@@ -30,6 +30,7 @@ const menu = [
   {
     label: 'Resources',
     submenu: [
+      { name: 'Tax Planning Guide', href: '/tax-planning' },
       { name: 'Tax Haven Guide', href: '/tax-knowledge/tax-haven' },
       { name: 'Investment Guides', href: '/recipe/wealth-creation' },
       { name: 'Market Updates', href: '/dashboard' },

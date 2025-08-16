@@ -33,6 +33,7 @@ const menu = [
   {
     label: 'Tax Knowledge',
     submenu: [
+      { name: 'Tax Planning Guide', href: '/tax-planning' },
       { name: 'Tax Haven', href: '/tax-knowledge/tax-haven' }
     ],
   },

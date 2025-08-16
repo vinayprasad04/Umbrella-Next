@@ -11,6 +11,7 @@ interface TaxResult {
     totalDeductions: number;
     incomeTax: number;
     cess: number;
+    capitalGainsTax: number;
     totalTax: number;
     netIncome: number;
     effectiveRate: string;
@@ -27,6 +28,7 @@ interface TaxResult {
     totalDeductions: number;
     incomeTax: number;
     cess: number;
+    capitalGainsTax: number;
     totalTax: number;
     netIncome: number;
     effectiveRate: string;
@@ -37,6 +39,16 @@ interface TaxResult {
       tax: number;
     }>;
   };
+  capitalGainsBreakdown: {
+    stcgEquity: number;
+    stcgEquityTax: number;
+    ltcgEquity: number;
+    ltcgEquityTax: number;
+    stcgOther: number;
+    ltcgOther: number;
+    ltcgOtherTax: number;
+    totalCapitalGainsTax: number;
+  };
   savings: number;
   recommendedRegime: string;
 }
@@ -46,7 +58,7 @@ export default function TaxCalculator() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   // Personal Details
-  const [assessmentYear, setAssessmentYear] = useState('2024-25');
+  const [assessmentYear, setAssessmentYear] = useState('2025-26');
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('male');
   const [residentialStatus, setResidentialStatus] = useState('resident');
@@ -59,6 +71,12 @@ export default function TaxCalculator() {
   const [bonus, setBonus] = useState('');
   const [otherIncome, setOtherIncome] = useState('');
   
+  // Capital Gains from Stock Market
+  const [stcgEquity, setStcgEquity] = useState(''); // Short Term Capital Gains on Equity (>15%)
+  const [ltcgEquity, setLtcgEquity] = useState(''); // Long Term Capital Gains on Equity (>10%)
+  const [stcgOther, setStcgOther] = useState(''); // Short Term Capital Gains on Other investments
+  const [ltcgOther, setLtcgOther] = useState(''); // Long Term Capital Gains on Other investments
+  
   // HRA Details
   const [cityType, setCityType] = useState('metro');
   const [rentPaid, setRentPaid] = useState('');
@@ -69,7 +87,8 @@ export default function TaxCalculator() {
   const [section80DParents, setSection80DParents] = useState('');
   const [section80CCD1B, setSection80CCD1B] = useState('');
   const [section80E, setSection80E] = useState('');
-  const [section80G, setSection80G] = useState('');
+  const [section80G50, setSection80G50] = useState('');
+  const [section80G100, setSection80G100] = useState('');
   const [section24B, setSection24B] = useState('');
   const [otherDeductions, setOtherDeductions] = useState('');
   
@@ -78,6 +97,7 @@ export default function TaxCalculator() {
   
   const [result, setResult] = useState<TaxResult | null>(null);
   const [activeTab, setActiveTab] = useState('comparison');
+  const [showCityListModal, setShowCityListModal] = useState(false);
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('loggedIn') === 'true';
@@ -87,6 +107,31 @@ export default function TaxCalculator() {
   // Tax configuration for different assessment years
   const getTaxConfig = (assessmentYear: string) => {
     const configs = {
+      '2025-26': {
+        standardDeduction: 75000,
+        rebateLimit: 700000,
+        rebateAmount: 25000,
+        oldRegime: {
+          exemptionBelow60: 250000,
+          exemptionBelow80: 300000,
+          exemptionAbove80: 500000,
+          slabs: [
+            { min: 0, max: 500000, rate: 0.05 },
+            { min: 500000, max: 1000000, rate: 0.20 },
+            { min: 1000000, max: Infinity, rate: 0.30 }
+          ]
+        },
+        newRegime: {
+          exemption: 300000,
+          slabs: [
+            { min: 300000, max: 700000, rate: 0.05 },
+            { min: 700000, max: 1000000, rate: 0.10 },
+            { min: 1000000, max: 1200000, rate: 0.15 },
+            { min: 1200000, max: 1500000, rate: 0.20 },
+            { min: 1500000, max: Infinity, rate: 0.30 }
+          ]
+        }
+      },
       '2024-25': {
         standardDeduction: 50000,
         rebateLimit: 700000,
@@ -163,36 +208,10 @@ export default function TaxCalculator() {
             { min: 1500000, max: Infinity, rate: 0.30 }
           ]
         }
-      },
-      '2021-22': {
-        standardDeduction: 50000,
-        rebateLimit: 500000,
-        rebateAmount: 12500,
-        oldRegime: {
-          exemptionBelow60: 250000,
-          exemptionBelow80: 300000,
-          exemptionAbove80: 500000,
-          slabs: [
-            { min: 0, max: 500000, rate: 0.05 },
-            { min: 500000, max: 1000000, rate: 0.20 },
-            { min: 1000000, max: Infinity, rate: 0.30 }
-          ]
-        },
-        newRegime: {
-          exemption: 250000,
-          slabs: [
-            { min: 250000, max: 500000, rate: 0.05 },
-            { min: 500000, max: 750000, rate: 0.10 },
-            { min: 750000, max: 1000000, rate: 0.15 },
-            { min: 1000000, max: 1250000, rate: 0.20 },
-            { min: 1250000, max: 1500000, rate: 0.25 },
-            { min: 1500000, max: Infinity, rate: 0.30 }
-          ]
-        }
       }
     };
     
-    return configs[assessmentYear as keyof typeof configs] || configs['2024-25'];
+    return configs[assessmentYear as keyof typeof configs] || configs['2025-26'];
   };
 
   const calculateHRAExemption = () => {
@@ -217,12 +236,19 @@ export default function TaxCalculator() {
     const userAge = parseInt(age) || 0;
     const config = getTaxConfig(assessmentYear);
     
-    // Tax slabs based on age
+    // Tax slabs based on age and residential status
     let basicExemption = config.oldRegime.exemptionBelow60;
-    if (userAge >= 60 && userAge < 80) {
-      basicExemption = config.oldRegime.exemptionBelow80;
-    } else if (userAge >= 80) {
-      basicExemption = config.oldRegime.exemptionAbove80;
+    
+    // NRIs don't get basic exemption
+    if (residentialStatus === 'nri') {
+      basicExemption = 0;
+    } else {
+      // Residents get age-based exemptions
+      if (userAge >= 60 && userAge < 80) {
+        basicExemption = config.oldRegime.exemptionBelow80;
+      } else if (userAge >= 80) {
+        basicExemption = config.oldRegime.exemptionAbove80;
+      }
     }
     
     let previousMax = basicExemption;
@@ -259,16 +285,20 @@ export default function TaxCalculator() {
     const breakdown = [];
     const config = getTaxConfig(assessmentYear);
     
+    // NRIs don't get basic exemption in new regime either
+    const basicExemption = residentialStatus === 'nri' ? 0 : config.newRegime.exemption;
+    
     for (const slab of config.newRegime.slabs) {
-      if (taxableIncome > slab.min) {
-        const taxableAmount = Math.min(taxableIncome, slab.max) - slab.min;
+      const adjustedMin = Math.max(slab.min, basicExemption);
+      if (taxableIncome > adjustedMin) {
+        const taxableAmount = Math.min(taxableIncome, slab.max) - adjustedMin;
         const slabTax = taxableAmount * slab.rate;
         tax += slabTax;
         
         if (taxableAmount > 0) {
           const slabLabel = slab.max === Infinity 
-            ? `Above ₹${(slab.min/100000).toFixed(0)}L`
-            : `₹${(slab.min/100000).toFixed(0)}L - ₹${(slab.max/100000).toFixed(0)}L`;
+            ? `Above ₹${(adjustedMin/100000).toFixed(0)}L`
+            : `₹${(adjustedMin/100000).toFixed(0)}L - ₹${(slab.max/100000).toFixed(0)}L`;
           
           breakdown.push({
             slab: slabLabel,
@@ -297,7 +327,24 @@ export default function TaxCalculator() {
     const otherIncomeAmount = parseFloat(otherIncome) || 0;
     const profTax = parseFloat(professionalTax) || 0;
 
-    const grossIncome = basic + hraAmount + special + other + bonusAmount + otherIncomeAmount;
+    // Capital Gains calculations
+    const stcgEquityAmount = parseFloat(stcgEquity) || 0;
+    const ltcgEquityAmount = parseFloat(ltcgEquity) || 0;
+    const stcgOtherAmount = parseFloat(stcgOther) || 0;
+    const ltcgOtherAmount = parseFloat(ltcgOther) || 0;
+
+    // STCG from other investments is added to regular income
+    // LTCG and STCG equity are taxed separately
+    const regularIncome = basic + hraAmount + special + other + bonusAmount + otherIncomeAmount + stcgOtherAmount;
+    
+    // Calculate capital gains taxes separately
+    const stcgEquityTax = stcgEquityAmount * 0.156; // 15% + 4% cess
+    const ltcgEquityTax = Math.max(0, ltcgEquityAmount - 100000) * 0.104; // 10% + 4% cess on amount above 1L
+    const ltcgOtherTax = ltcgOtherAmount * 0.208; // 20% + 4% cess with indexation
+
+    const totalCapitalGainsTax = stcgEquityTax + ltcgEquityTax + ltcgOtherTax;
+
+    const grossIncome = regularIncome;
 
     // HRA Exemption
     const hraExemption = calculateHRAExemption();
@@ -308,22 +355,43 @@ export default function TaxCalculator() {
     const section80DParentsAmount = Math.min(parseFloat(section80DParents) || 0, 50000); // Max 50k for parents
     const totalSection80D = section80DSelfAmount + section80DParentsAmount;
 
-    // Old Regime Calculations
-    const oldRegimeDeductions = 
-      (parseFloat(section80C) || 0) +
-      totalSection80D +
-      (parseFloat(section80CCD1B) || 0) +
-      (parseFloat(section80E) || 0) +
-      (parseFloat(section80G) || 0) +
-      (parseFloat(section24B) || 0) +
-      (parseFloat(otherDeductions) || 0) +
-      hraExemption +
-      profTax;
+    // 80G Donations calculation with different deduction rates
+    const section80G50Amount = (parseFloat(section80G50) || 0) * 0.5; // 50% of donation amount
+    const section80G100Amount = parseFloat(section80G100) || 0; // 100% of donation amount
+    const totalSection80G = section80G50Amount + section80G100Amount;
+
+    // Old Regime Calculations - NRIs get limited deductions
+    let oldRegimeDeductions;
+    if (residentialStatus === 'nri') {
+      // NRIs typically only get standard deduction and professional tax
+      oldRegimeDeductions = profTax;
+    } else {
+      // Residents get all deductions
+      oldRegimeDeductions = 
+        (parseFloat(section80C) || 0) +
+        totalSection80D +
+        (parseFloat(section80CCD1B) || 0) +
+        (parseFloat(section80E) || 0) +
+        totalSection80G +
+        (parseFloat(section24B) || 0) +
+        (parseFloat(otherDeductions) || 0) +
+        hraExemption +
+        profTax;
+    }
 
     const oldTaxableIncome = Math.max(0, grossIncome - oldRegimeDeductions);
     const oldTaxResult = calculateOldRegimeTax(oldTaxableIncome);
     const oldCess = oldTaxResult.tax * 0.04;
     const oldTotalTax = oldTaxResult.tax + oldCess;
+
+    // Apply rebate under section 87A for old regime
+    let oldTotalTaxAfterRebate = oldTotalTax;
+    if (oldTaxableIncome <= 500000) { // Old regime rebate limit is ₹5L
+      const oldRebate = Math.min(oldTaxResult.tax, 12500); // Old regime rebate is ₹12,500
+      oldTotalTaxAfterRebate = Math.max(0, oldTotalTax - oldRebate);
+    }
+    // Add capital gains tax to old regime
+    oldTotalTaxAfterRebate += totalCapitalGainsTax;
 
     // New Regime Calculations (only standard deduction and professional tax)
     const newRegimeDeductions = config.standardDeduction + profTax;
@@ -335,35 +403,51 @@ export default function TaxCalculator() {
     // Apply rebate under section 87A for new regime
     let newTotalTaxAfterRebate = newTotalTax;
     if (newTaxableIncome <= config.rebateLimit) {
-      const rebate = Math.min(newTaxResult.tax, config.rebateAmount);
-      newTotalTaxAfterRebate = Math.max(0, newTotalTax - rebate);
+      const newRebate = Math.min(newTaxResult.tax, config.rebateAmount);
+      newTotalTaxAfterRebate = Math.max(0, newTotalTax - newRebate);
     }
+    // Add capital gains tax to new regime
+    newTotalTaxAfterRebate += totalCapitalGainsTax;
 
-    const savings = oldTotalTax - newTotalTaxAfterRebate;
+    const savings = oldTotalTaxAfterRebate - newTotalTaxAfterRebate;
     const recommendedRegime = savings > 0 ? 'New Tax Regime' : 'Old Tax Regime';
+
+    const totalGrossIncome = grossIncome + stcgEquityAmount + ltcgEquityAmount + ltcgOtherAmount;
 
     setResult({
       oldRegime: {
-        grossIncome,
+        grossIncome: totalGrossIncome,
         taxableIncome: oldTaxableIncome,
         totalDeductions: oldRegimeDeductions,
         incomeTax: oldTaxResult.tax,
         cess: oldCess,
-        totalTax: oldTotalTax,
-        netIncome: grossIncome - oldTotalTax,
-        effectiveRate: ((oldTotalTax / grossIncome) * 100).toFixed(2),
+        capitalGainsTax: totalCapitalGainsTax,
+        totalTax: oldTotalTaxAfterRebate,
+        netIncome: totalGrossIncome - oldTotalTaxAfterRebate,
+        effectiveRate: ((oldTotalTaxAfterRebate / totalGrossIncome) * 100).toFixed(2),
         breakdown: oldTaxResult.breakdown
       },
       newRegime: {
-        grossIncome,
+        grossIncome: totalGrossIncome,
         taxableIncome: newTaxableIncome,
         totalDeductions: newRegimeDeductions,
         incomeTax: newTaxResult.tax,
         cess: newCess,
+        capitalGainsTax: totalCapitalGainsTax,
         totalTax: newTotalTaxAfterRebate,
-        netIncome: grossIncome - newTotalTaxAfterRebate,
-        effectiveRate: ((newTotalTaxAfterRebate / grossIncome) * 100).toFixed(2),
+        netIncome: totalGrossIncome - newTotalTaxAfterRebate,
+        effectiveRate: ((newTotalTaxAfterRebate / totalGrossIncome) * 100).toFixed(2),
         breakdown: newTaxResult.breakdown
+      },
+      capitalGainsBreakdown: {
+        stcgEquity: stcgEquityAmount,
+        stcgEquityTax: stcgEquityTax,
+        ltcgEquity: ltcgEquityAmount,
+        ltcgEquityTax: ltcgEquityTax,
+        stcgOther: stcgOtherAmount,
+        ltcgOther: ltcgOtherAmount,
+        ltcgOtherTax: ltcgOtherTax,
+        totalCapitalGainsTax: totalCapitalGainsTax
       },
       savings: Math.abs(savings),
       recommendedRegime
@@ -462,10 +546,10 @@ export default function TaxCalculator() {
                               value={assessmentYear}
                               onChange={(e) => setAssessmentYear(e.target.value)}
                             >
-                              <option value="2024-25">AY 2024-25 (FY 2023-24) - Current</option>
+                              <option value="2025-26">AY 2025-26 (FY 2024-25) - Current</option>
+                              <option value="2024-25">AY 2024-25 (FY 2023-24)</option>
                               <option value="2023-24">AY 2023-24 (FY 2022-23)</option>
                               <option value="2022-23">AY 2022-23 (FY 2021-22)</option>
-                              <option value="2021-22">AY 2021-22 (FY 2020-21)</option>
                             </select>
                             <p className="text-xs text-blue-600 mt-1">
                               💡 Different years have different tax slabs and rates
@@ -474,7 +558,34 @@ export default function TaxCalculator() {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Age</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              Age
+                              <div className="group relative inline-block ml-1">
+                                <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
+                                  <div className="font-semibold mb-2">Age-Based Tax Benefits:</div>
+                                  <div className="space-y-2">
+                                    <div>
+                                      <span className="font-medium text-green-300">• Below 60 years:</span>
+                                      <div className="ml-2">- Basic exemption: ₹2.5L (Old Regime)</div>
+                                      <div className="ml-2">- Health insurance: ₹25,000 limit</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-yellow-300">• 60-80 years (Senior Citizen):</span>
+                                      <div className="ml-2">- Basic exemption: ₹3L (Old Regime)</div>
+                                      <div className="ml-2">- Health insurance: ₹50,000 limit</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-orange-300">• Above 80 years (Super Senior):</span>
+                                      <div className="ml-2">- Basic exemption: ₹5L (Old Regime)</div>
+                                      <div className="ml-2">- Health insurance: ₹50,000 limit</div>
+                                      <div className="ml-2">- Additional medical benefits</div>
+                                    </div>
+                                  </div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                                </div>
+                              </div>
+                            </label>
                             <input
                               type="number"
                               placeholder="e.g., 30"
@@ -482,9 +593,40 @@ export default function TaxCalculator() {
                               value={age}
                               onChange={(e) => setAge(e.target.value)}
                             />
+                            <p className="text-xs text-gray-500 mt-1">
+                              💡 {parseInt(age) >= 80 ? 'Super Senior: ₹5L exemption, ₹50K health insurance' : 
+                                  parseInt(age) >= 60 ? 'Senior Citizen: ₹3L exemption, ₹50K health insurance' : 
+                                  'Below 60: ₹2.5L exemption, ₹25K health insurance'}
+                            </p>
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Gender</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              Gender
+                              <div className="group relative inline-block ml-1">
+                                <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
+                                  <div className="font-semibold mb-2">Gender & Tax Implications:</div>
+                                  <div className="space-y-2">
+                                    <div>
+                                      <span className="font-medium text-green-300">• Tax Slabs:</span>
+                                      <div className="ml-2">- Same tax rates for all genders</div>
+                                      <div className="ml-2">- No gender-based exemptions</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-blue-300">• Equal Treatment:</span>
+                                      <div className="ml-2">- Indian tax law is gender-neutral</div>
+                                      <div className="ml-2">- Age is the only demographic factor</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-yellow-300">• Collection Purpose:</span>
+                                      <div className="ml-2">- Required for tax filing compliance</div>
+                                      <div className="ml-2">- Used for statistical analysis only</div>
+                                    </div>
+                                  </div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                                </div>
+                              </div>
+                            </label>
                             <select
                               className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={gender}
@@ -494,17 +636,47 @@ export default function TaxCalculator() {
                               <option value="female">Female</option>
                               <option value="other">Other</option>
                             </select>
+                            <p className="text-xs text-gray-500 mt-1">
+                              💡 Gender does not affect tax rates - all citizens have equal tax treatment
+                            </p>
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Residential Status</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              Residential Status
+                              <div className="group relative inline-block ml-1">
+                                <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
+                                  <div className="font-semibold mb-2">Tax Implications:</div>
+                                  <div className="space-y-2">
+                                    <div>
+                                      <span className="font-medium text-green-300">• Resident:</span>
+                                      <div className="ml-2">- Taxed on worldwide income</div>
+                                      <div className="ml-2">- All deductions available</div>
+                                      <div className="ml-2">- Standard exemption limits</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-orange-300">• Non-Resident:</span>
+                                      <div className="ml-2">- Taxed only on Indian income</div>
+                                      <div className="ml-2">- Limited deductions</div>
+                                      <div className="ml-2">- No basic exemption</div>
+                                      <div className="ml-2">- Tax from ₹1 (no ₹2.5L exemption)</div>
+                                    </div>
+                                  </div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                                </div>
+                              </div>
+                            </label>
                             <select
                               className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={residentialStatus}
                               onChange={(e) => setResidentialStatus(e.target.value)}
                             >
-                              <option value="resident">Resident</option>
-                              <option value="nri">Non-Resident</option>
+                              <option value="resident">Resident Indian</option>
+                              <option value="nri">Non-Resident Indian (NRI)</option>
                             </select>
+                            <p className="text-xs text-gray-500 mt-1">
+                              💡 {residentialStatus === 'nri' ? 'NRIs: Taxed on Indian income only, no basic exemption' : 'Residents: Taxed on global income with full exemptions'}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -576,6 +748,171 @@ export default function TaxCalculator() {
                         </div>
                       </div>
 
+                      {/* Capital Gains from Stock Market */}
+                      <div className="bg-red-50 rounded-2xl p-6 border border-red-200">
+                        <h3 className="text-lg font-bold text-red-800 mb-4">📈 Capital Gains from Stock Market (Annual)</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              STCG - Equity Shares (₹)
+                              <div className="group relative inline-block ml-1">
+                                <span className="w-4 h-4 bg-red-100 text-red-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
+                                  <div className="font-semibold mb-2">Short Term Capital Gains - Equity:</div>
+                                  <div className="space-y-2">
+                                    <div>
+                                      <span className="font-medium text-red-300">• Definition:</span>
+                                      <div className="ml-2">- Gains from equity shares held ≤ 12 months</div>
+                                      <div className="ml-2">- Gains from equity mutual funds held ≤ 12 months</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-yellow-300">• Tax Rate:</span>
+                                      <div className="ml-2">- 15% + 4% cess = 15.6% total</div>
+                                      <div className="ml-2">- Taxed separately from other income</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-green-300">• Example:</span>
+                                      <div className="ml-2">- Buy: ₹1L, Sell: ₹1.2L in 6 months</div>
+                                      <div className="ml-2">- STCG: ₹20,000, Tax: ₹3,120</div>
+                                    </div>
+                                  </div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                                </div>
+                              </div>
+                            </label>
+                            <input
+                              type="number"
+                              placeholder="e.g., 50000"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                              value={stcgEquity}
+                              onChange={(e) => setStcgEquity(e.target.value)}
+                            />
+                            <p className="text-xs text-red-600 mt-1">
+                              💡 Equity/MF held ≤12 months - 15.6% tax rate
+                            </p>
+                          </div>
+                          <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              LTCG - Equity Shares (₹)
+                              <div className="group relative inline-block ml-1">
+                                <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
+                                  <div className="font-semibold mb-2">Long Term Capital Gains - Equity:</div>
+                                  <div className="space-y-2">
+                                    <div>
+                                      <span className="font-medium text-green-300">• Definition:</span>
+                                      <div className="ml-2">- Gains from equity shares held &gt; 12 months</div>
+                                      <div className="ml-2">- Gains from equity mutual funds held &gt; 12 months</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-blue-300">• Tax Structure:</span>
+                                      <div className="ml-2">- First ₹1L per year: Tax-free</div>
+                                      <div className="ml-2">- Above ₹1L: 10% + 4% cess = 10.4%</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-yellow-300">• Example:</span>
+                                      <div className="ml-2">- LTCG: ₹1.5L, Tax: (₹1.5L-₹1L) × 10.4%</div>
+                                      <div className="ml-2">- Tax: ₹50,000 × 10.4% = ₹5,200</div>
+                                    </div>
+                                  </div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                                </div>
+                              </div>
+                            </label>
+                            <input
+                              type="number"
+                              placeholder="e.g., 150000"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                              value={ltcgEquity}
+                              onChange={(e) => setLtcgEquity(e.target.value)}
+                            />
+                            <p className="text-xs text-green-600 mt-1">
+                              💡 Equity/MF held &gt;12 months - ₹1L exempt, then 10.4%
+                            </p>
+                          </div>
+                          <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              STCG - Other Investments (₹)
+                              <div className="group relative inline-block ml-1">
+                                <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
+                                  <div className="font-semibold mb-2">STCG - Other Investments:</div>
+                                  <div className="space-y-2">
+                                    <div>
+                                      <span className="font-medium text-purple-300">• Includes:</span>
+                                      <div className="ml-2">- Debt mutual funds held ≤ 36 months</div>
+                                      <div className="ml-2">- Gold, property, bonds held ≤ threshold</div>
+                                      <div className="ml-2">- Cryptocurrency gains</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-orange-300">• Tax Rate:</span>
+                                      <div className="ml-2">- Added to total income</div>
+                                      <div className="ml-2">- Taxed at your regular income tax slab</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-blue-300">• Important:</span>
+                                      <div className="ml-2">- No separate tax rate</div>
+                                      <div className="ml-2">- Increases your total taxable income</div>
+                                    </div>
+                                  </div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                                </div>
+                              </div>
+                            </label>
+                            <input
+                              type="number"
+                              placeholder="e.g., 25000"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                              value={stcgOther}
+                              onChange={(e) => setStcgOther(e.target.value)}
+                            />
+                            <p className="text-xs text-purple-600 mt-1">
+                              💡 Debt MF, gold, crypto - taxed at your income slab
+                            </p>
+                          </div>
+                          <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              LTCG - Other Investments (₹)
+                              <div className="group relative inline-block ml-1">
+                                <span className="w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
+                                  <div className="font-semibold mb-2">LTCG - Other Investments:</div>
+                                  <div className="space-y-2">
+                                    <div>
+                                      <span className="font-medium text-indigo-300">• Includes:</span>
+                                      <div className="ml-2">- Debt mutual funds held &gt; 36 months</div>
+                                      <div className="ml-2">- Gold held &gt; 36 months</div>
+                                      <div className="ml-2">- Property held &gt; 24 months</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-green-300">• Tax Rate:</span>
+                                      <div className="ml-2">- 20% + 4% cess = 20.8% total</div>
+                                      <div className="ml-2">- With indexation benefit (inflation adjustment)</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-yellow-300">• Benefit:</span>
+                                      <div className="ml-2">- Cost price adjusted for inflation</div>
+                                      <div className="ml-2">- Reduces taxable gains significantly</div>
+                                    </div>
+                                  </div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                                </div>
+                              </div>
+                            </label>
+                            <input
+                              type="number"
+                              placeholder="e.g., 75000"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                              value={ltcgOther}
+                              onChange={(e) => setLtcgOther(e.target.value)}
+                            />
+                            <p className="text-xs text-indigo-600 mt-1">
+                              💡 Debt MF, gold, property &gt;threshold - 20.8% with indexation
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
                       {/* HRA Details */}
                       <div className="bg-purple-50 rounded-2xl p-6 border border-purple-200">
                         <h3 className="text-lg font-bold text-purple-800 mb-4">🏠 HRA Exemption Details</h3>
@@ -590,6 +927,18 @@ export default function TaxCalculator() {
                               <option value="metro">Metro City (50% of Basic)</option>
                               <option value="non-metro">Non-Metro City (40% of Basic)</option>
                             </select>
+                            <div className="mt-2">
+                              <button
+                                type="button"
+                                onClick={() => setShowCityListModal(true)}
+                                className="text-sm text-blue-600 hover:text-blue-800 cursor-pointer bg-transparent border-none flex items-center gap-1"
+                              >
+                                📍 View Metro vs Non-Metro City List
+                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                              </button>
+                            </div>
                           </div>
                           <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">Annual Rent Paid (₹)</label>
@@ -665,13 +1014,79 @@ export default function TaxCalculator() {
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">80G (Donations) (₹)</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              80G Donations (50% deduction) (₹)
+                              <div className="group relative inline-block ml-1">
+                                <span className="w-4 h-4 bg-orange-100 text-orange-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
+                                  <div className="font-semibold mb-2">50% Deduction Category:</div>
+                                  <div className="space-y-2">
+                                    <div>
+                                      <span className="font-medium text-orange-300">• Government Funds:</span>
+                                      <div className="ml-2">- PM National Relief Fund</div>
+                                      <div className="ml-2">- National Defence Fund</div>
+                                      <div className="ml-2">- State Government Relief Funds</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-yellow-300">• Educational Institutions:</span>
+                                      <div className="ml-2">- Government schools/colleges</div>
+                                      <div className="ml-2">- Some approved private institutions</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-blue-300">• Other Organizations:</span>
+                                      <div className="ml-2">- Some NGOs without 100% exemption</div>
+                                      <div className="ml-2">- Certain charitable trusts</div>
+                                    </div>
+                                  </div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                                </div>
+                              </div>
+                            </label>
                             <input
                               type="number"
-                              placeholder="Various limits"
+                              placeholder="Donation amount (50% deductible)"
                               className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
-                              value={section80G}
-                              onChange={(e) => setSection80G(e.target.value)}
+                              value={section80G50}
+                              onChange={(e) => setSection80G50(e.target.value)}
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              80G Donations (100% deduction) (₹)
+                              <div className="group relative inline-block ml-1">
+                                <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
+                                  <div className="font-semibold mb-2">100% Deduction Category:</div>
+                                  <div className="space-y-2">
+                                    <div>
+                                      <span className="font-medium text-green-300">• Prime Minister&apos;s Funds:</span>
+                                      <div className="ml-2">- PM CARES Fund</div>
+                                      <div className="ml-2">- PM National Relief Fund</div>
+                                      <div className="ml-2">- Clean Ganga Fund</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-blue-300">• Government Schemes:</span>
+                                      <div className="ml-2">- Swachh Bharat Kosh</div>
+                                      <div className="ml-2">- National Heritage Fund</div>
+                                      <div className="ml-2">- Pradhan Mantri Kaushal Vikas Yojana</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-purple-300">• Special Categories:</span>
+                                      <div className="ml-2">- Government libraries</div>
+                                      <div className="ml-2">- Government museums</div>
+                                      <div className="ml-2">- Government zoos</div>
+                                    </div>
+                                  </div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                                </div>
+                              </div>
+                            </label>
+                            <input
+                              type="number"
+                              placeholder="Donation amount (100% deductible)"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                              value={section80G100}
+                              onChange={(e) => setSection80G100(e.target.value)}
                             />
                           </div>
                           <div>
@@ -726,10 +1141,10 @@ export default function TaxCalculator() {
                     </h3>
                     <div className="text-center mb-6">
                       <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-                        {assessmentYear === '2024-25' ? 'AY 2024-25 (FY 2023-24) - Current' :
+                        {assessmentYear === '2025-26' ? 'AY 2025-26 (FY 2024-25) - Current' :
+                         assessmentYear === '2024-25' ? 'AY 2024-25 (FY 2023-24)' :
                          assessmentYear === '2023-24' ? 'AY 2023-24 (FY 2022-23)' :
-                         assessmentYear === '2022-23' ? 'AY 2022-23 (FY 2021-22)' :
-                         'AY 2021-22 (FY 2020-21)'}
+                         'AY 2022-23 (FY 2021-22)'}
                       </span>
                     </div>
                     
@@ -739,7 +1154,7 @@ export default function TaxCalculator() {
                         <div className="flex rounded-xl bg-white p-1">
                           <button
                             onClick={() => setActiveTab('comparison')}
-                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
+                            className={`flex-1 py-2 px-2 rounded-lg text-xs font-medium transition-all ${
                               activeTab === 'comparison'
                                 ? 'bg-[#FF6B2C] text-white'
                                 : 'text-gray-600 hover:text-gray-800'
@@ -749,7 +1164,7 @@ export default function TaxCalculator() {
                           </button>
                           <button
                             onClick={() => setActiveTab('old')}
-                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
+                            className={`flex-1 py-2 px-2 rounded-lg text-xs font-medium transition-all ${
                               activeTab === 'old'
                                 ? 'bg-[#FF6B2C] text-white'
                                 : 'text-gray-600 hover:text-gray-800'
@@ -759,13 +1174,23 @@ export default function TaxCalculator() {
                           </button>
                           <button
                             onClick={() => setActiveTab('new')}
-                            className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
+                            className={`flex-1 py-2 px-2 rounded-lg text-xs font-medium transition-all ${
                               activeTab === 'new'
                                 ? 'bg-[#FF6B2C] text-white'
                                 : 'text-gray-600 hover:text-gray-800'
                             }`}
                           >
                             New Regime
+                          </button>
+                          <button
+                            onClick={() => setActiveTab('capital')}
+                            className={`flex-1 py-2 px-2 rounded-lg text-xs font-medium transition-all ${
+                              activeTab === 'capital'
+                                ? 'bg-[#FF6B2C] text-white'
+                                : 'text-gray-600 hover:text-gray-800'
+                            }`}
+                          >
+                            Capital Gains
                           </button>
                         </div>
 
@@ -907,6 +1332,115 @@ export default function TaxCalculator() {
                           </div>
                         )}
 
+                        {activeTab === 'capital' && (
+                          <div className="space-y-4">
+                            <div className="bg-white/80 rounded-2xl p-6 shadow-lg text-center">
+                              <div className="text-sm text-gray-600 mb-2">Total Capital Gains Tax</div>
+                              <div className="text-3xl font-bold text-[#FF6B2C] mb-2">
+                                ₹{result.capitalGainsBreakdown.totalCapitalGainsTax.toLocaleString()}
+                              </div>
+                              <div className="text-sm text-gray-600">
+                                Same for both Old & New regime
+                              </div>
+                            </div>
+                            
+                            <div className="space-y-3 text-sm">
+                              {result.capitalGainsBreakdown.stcgEquity > 0 && (
+                                <div className="bg-red-50 rounded-xl p-4 border border-red-200">
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="font-semibold text-red-800">STCG - Equity (≤12 months)</span>
+                                    <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">15.6% tax</span>
+                                  </div>
+                                  <div className="space-y-1">
+                                    <div className="flex justify-between">
+                                      <span>Capital Gains:</span>
+                                      <span className="font-bold">₹{result.capitalGainsBreakdown.stcgEquity.toLocaleString()}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span>Tax:</span>
+                                      <span className="font-bold text-red-600">₹{result.capitalGainsBreakdown.stcgEquityTax.toLocaleString()}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {result.capitalGainsBreakdown.ltcgEquity > 0 && (
+                                <div className="bg-green-50 rounded-xl p-4 border border-green-200">
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="font-semibold text-green-800">LTCG - Equity (&gt;12 months)</span>
+                                    <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">₹1L exempt, then 10.4%</span>
+                                  </div>
+                                  <div className="space-y-1">
+                                    <div className="flex justify-between">
+                                      <span>Capital Gains:</span>
+                                      <span className="font-bold">₹{result.capitalGainsBreakdown.ltcgEquity.toLocaleString()}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span>Exemption:</span>
+                                      <span className="text-green-600">₹{Math.min(result.capitalGainsBreakdown.ltcgEquity, 100000).toLocaleString()}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span>Taxable Amount:</span>
+                                      <span className="font-medium">₹{Math.max(0, result.capitalGainsBreakdown.ltcgEquity - 100000).toLocaleString()}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span>Tax:</span>
+                                      <span className="font-bold text-green-600">₹{result.capitalGainsBreakdown.ltcgEquityTax.toLocaleString()}</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {result.capitalGainsBreakdown.stcgOther > 0 && (
+                                <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="font-semibold text-purple-800">STCG - Other Investments</span>
+                                    <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">Added to income</span>
+                                  </div>
+                                  <div className="space-y-1">
+                                    <div className="flex justify-between">
+                                      <span>Capital Gains:</span>
+                                      <span className="font-bold">₹{result.capitalGainsBreakdown.stcgOther.toLocaleString()}</span>
+                                    </div>
+                                    <div className="text-xs text-purple-600 mt-1">
+                                      💡 Added to regular income and taxed at your income slab rate
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {result.capitalGainsBreakdown.ltcgOther > 0 && (
+                                <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-200">
+                                  <div className="flex justify-between items-center mb-2">
+                                    <span className="font-semibold text-indigo-800">LTCG - Other Investments</span>
+                                    <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full">20.8% with indexation</span>
+                                  </div>
+                                  <div className="space-y-1">
+                                    <div className="flex justify-between">
+                                      <span>Capital Gains:</span>
+                                      <span className="font-bold">₹{result.capitalGainsBreakdown.ltcgOther.toLocaleString()}</span>
+                                    </div>
+                                    <div className="flex justify-between">
+                                      <span>Tax:</span>
+                                      <span className="font-bold text-indigo-600">₹{result.capitalGainsBreakdown.ltcgOtherTax.toLocaleString()}</span>
+                                    </div>
+                                    <div className="text-xs text-indigo-600 mt-1">
+                                      💡 Includes indexation benefit for inflation adjustment
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {result.capitalGainsBreakdown.totalCapitalGainsTax === 0 && (
+                                <div className="text-center py-8">
+                                  <div className="text-gray-500 text-lg">No capital gains declared</div>
+                                  <div className="text-sm text-gray-400 mt-2">Enter your stock market gains in the form to see tax breakdown</div>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        )}
+
                         <div className="text-center pt-4">
                           <button 
                             onClick={handleGetStarted}
@@ -947,12 +1481,13 @@ export default function TaxCalculator() {
                                 <span className="w-2 h-2 bg-red-500 rounded-full"></span>
                                 Old Regime
                               </h5>
-                              <div className="space-y-2 text-xs">
+                              <div className="space-y-2 text-sm">
                                 {/* Basic Exemption */}
                                 <div className="flex justify-between items-center py-1 border-b border-gray-100">
                                   <span className="text-gray-600">Basic Exemption:</span>
                                   <span className="font-medium text-red-600">
                                     ₹{(
+                                      residentialStatus === 'nri' ? 0 :
                                       userAge >= 80 ? config.oldRegime.exemptionAbove80 :
                                       userAge >= 60 ? config.oldRegime.exemptionBelow80 :
                                       config.oldRegime.exemptionBelow60
@@ -961,9 +1496,14 @@ export default function TaxCalculator() {
                                 </div>
                                 {/* Tax Slabs */}
                                 {config.oldRegime.slabs.map((slab, index) => {
-                                  const basicExemption = userAge >= 80 ? config.oldRegime.exemptionAbove80 :
-                                                        userAge >= 60 ? config.oldRegime.exemptionBelow80 :
-                                                        config.oldRegime.exemptionBelow60;
+                                  let basicExemption = config.oldRegime.exemptionBelow60;
+                                  if (residentialStatus === 'nri') {
+                                    basicExemption = 0;
+                                  } else {
+                                    basicExemption = userAge >= 80 ? config.oldRegime.exemptionAbove80 :
+                                                    userAge >= 60 ? config.oldRegime.exemptionBelow80 :
+                                                    config.oldRegime.exemptionBelow60;
+                                  }
                                   const adjustedMin = Math.max(slab.min, basicExemption);
                                   
                                   return (
@@ -986,34 +1526,59 @@ export default function TaxCalculator() {
                                 <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                                 New Regime
                               </h5>
-                              <div className="space-y-2 text-xs">
+                              <div className="space-y-2 text-sm">
                                 {/* Basic Exemption */}
                                 <div className="flex justify-between items-center py-1 border-b border-gray-100">
                                   <span className="text-gray-600">Basic Exemption:</span>
-                                  <span className="font-medium text-green-600">₹{config.newRegime.exemption.toLocaleString()}</span>
+                                  <span className="font-medium text-green-600">
+                                    ₹{(residentialStatus === 'nri' ? 0 : config.newRegime.exemption).toLocaleString()}
+                                  </span>
                                 </div>
                                 {/* Tax Slabs */}
-                                {config.newRegime.slabs.map((slab, index) => (
-                                  <div key={index} className="flex justify-between items-center py-1">
-                                    <span className="text-gray-600">
-                                      {slab.max === Infinity 
-                                        ? `Above ₹${(slab.min/100000).toFixed(0)}L` 
-                                        : `₹${(slab.min/100000).toFixed(0)}L - ₹${(slab.max/100000).toFixed(0)}L`}
-                                    </span>
-                                    <span className="font-medium text-green-600">{(slab.rate * 100).toFixed(0)}%</span>
-                                  </div>
-                                ))}
+                                {config.newRegime.slabs.map((slab, index) => {
+                                  const basicExemption = residentialStatus === 'nri' ? 0 : config.newRegime.exemption;
+                                  const adjustedMin = Math.max(slab.min, basicExemption);
+                                  
+                                  return (
+                                    <div key={index} className="flex justify-between items-center py-1">
+                                      <span className="text-gray-600">
+                                        {slab.max === Infinity 
+                                          ? `Above ₹${(adjustedMin/100000).toFixed(0)}L` 
+                                          : `₹${(adjustedMin/100000).toFixed(0)}L - ₹${(slab.max/100000).toFixed(0)}L`}
+                                      </span>
+                                      <span className="font-medium text-green-600">{(slab.rate * 100).toFixed(0)}%</span>
+                                    </div>
+                                  );
+                                })}
                               </div>
                             </div>
                             
                             {/* Additional Info */}
                             <div className="bg-yellow-50 rounded-xl p-3 border border-yellow-200">
-                              <div className="text-xs space-y-1">
-                                <div className="font-semibold text-yellow-800 mb-2 text-center">Additional Info:</div>
+                              <div className="text-sm space-y-2">
+                                <div className="font-semibold text-yellow-800 mb-2 text-center">Rebates & Additional Info:</div>
+                                
+                                {/* Rebate Information */}
+                                <div className="bg-green-100 rounded-lg p-2 border border-green-300">
+                                  <div className="font-semibold text-green-800 mb-1 text-center">Section 87A Rebates:</div>
+                                  <div className="space-y-1">
+                                    <div className="text-green-700 text-center">
+                                      <span className="font-medium">Old Regime:</span> ₹12,500 rebate if taxable income ≤ ₹5L
+                                    </div>
+                                    <div className="text-green-700 text-center">
+                                      <span className="font-medium">New Regime:</span> ₹{config.rebateAmount.toLocaleString()} rebate if taxable income ≤ ₹{(config.rebateLimit/100000).toFixed(0)}L
+                                    </div>
+                                    <div className="text-green-600 text-xs italic text-center mt-1">
+                                      💡 Result: Zero tax if rebate covers full tax liability
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Other Info */}
                                 <div className="grid grid-cols-1 gap-1 text-center">
-                                  <div className="text-yellow-700">• Cess: 4% on tax</div>
-                                  <div className="text-yellow-700">• Std. Deduction: ₹{config.standardDeduction.toLocaleString()}</div>
-                                  <div className="text-yellow-700">• Rebate: ₹{config.rebateAmount.toLocaleString()} (≤₹{config.rebateLimit.toLocaleString()})</div>
+                                  <div className="text-yellow-700">• Health & Education Cess: 4% on income tax</div>
+                                  <div className="text-yellow-700">• Standard Deduction: ₹{config.standardDeduction.toLocaleString()} (New Regime)</div>
+                                  <div className="text-yellow-700">• Surcharge: Applicable on income above ₹50L/₹1Cr</div>
                                 </div>
                               </div>
                             </div>
@@ -1037,9 +1602,20 @@ export default function TaxCalculator() {
                     Tips & Strategies
                   </span>
                 </h2>
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
                   Smart strategies to optimize your tax liability and maximize savings
                 </p>
+                <div className="flex justify-center">
+                  <button
+                    onClick={() => router.push('/tax-planning')}
+                    className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center gap-2"
+                  >
+                    View Complete Tax Planning Guide
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </button>
+                </div>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -1077,24 +1653,60 @@ export default function TaxCalculator() {
                   {
                     icon: '❤️',
                     title: 'Donations (80G)',
-                    description: 'Deductions for donations to approved charitable institutions with 50% or 100% benefit options.',
+                    description: '50% deduction: PM Relief Fund, educational institutions. 100% deduction: PM CARES, Swachh Bharat Kosh, Clean Ganga Fund.',
                     color: 'from-teal-400 to-teal-600'
+                  },
+                  {
+                    icon: '🎯',
+                    title: 'Section 87A Rebates',
+                    description: 'New Regime: ₹25K rebate for income ≤₹7L (effectively no tax up to ₹12L). Old Regime: ₹12.5K rebate for income ≤₹5L.',
+                    color: 'from-pink-400 to-pink-600'
                   }
-                ].map((item, index) => (
-                  <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <span className="drop-shadow-sm">{item.icon}</span>
+                ].map((item, index) => {
+                  // Map each tip to its corresponding section ID in the tax planning page
+                  const sectionMap: {[key: string]: string} = {
+                    'Section 80C Investments': 'section-80c',
+                    'Health Insurance (80D)': 'health-insurance',
+                    'Home Loan Benefits': 'home-loan',
+                    'Education Loan (80E)': 'education-loan',
+                    'NPS Additional (80CCD1B)': 'nps-additional',
+                    'Donations (80G)': 'donations',
+                    'Section 87A Rebates': 'rebates'
+                  };
+                  
+                  const sectionId = sectionMap[item.title];
+                  
+                  return (
+                    <div 
+                      key={index} 
+                      onClick={() => sectionId && router.push(`/tax-planning?section=${sectionId}`)}
+                      className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
+                    >
+                      <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                        <span className="drop-shadow-sm">{item.icon}</span>
+                      </div>
+                      
+                      <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">
+                        {item.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 leading-relaxed text-center text-sm mb-4">
+                        {item.description}
+                      </p>
+                      
+                      {sectionId && (
+                        <div className="text-center">
+                          <span className="inline-flex items-center gap-1 text-[#FF6B2C] text-xs font-medium group-hover:gap-2 transition-all duration-300">
+                            Learn More
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                          </span>
+                        </div>
+                      )}
                     </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">
-                      {item.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 leading-relaxed text-center text-sm">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </section>
@@ -1126,6 +1738,173 @@ export default function TaxCalculator() {
 
         <Footer />
       </div>
+
+      {/* City List Modal */}
+      {showCityListModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[10000] p-4">
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="p-6">
+              {/* Modal Header */}
+              <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
+                <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
+                  🏙️ Metro vs Non-Metro Cities for HRA Exemption
+                </h2>
+                <button
+                  onClick={() => setShowCityListModal(false)}
+                  className="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200"
+                >
+                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="space-y-6">
+                {/* Overview */}
+                <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
+                  <h3 className="font-bold text-blue-800 mb-2">📋 HRA Exemption Rules:</h3>
+                  <div className="text-sm text-blue-700 space-y-1">
+                    <div>• <strong>Metro Cities:</strong> 50% of Basic Salary exemption limit</div>
+                    <div>• <strong>Non-Metro Cities:</strong> 40% of Basic Salary exemption limit</div>
+                    <div>• HRA exemption = Minimum of (HRA received, 50%/40% of Basic, Rent - 10% of Basic)</div>
+                  </div>
+                </div>
+
+                {/* City Lists */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* Metro Cities */}
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+                    <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center gap-2">
+                      🏙️ Metro Cities (50% HRA exemption)
+                    </h3>
+                    <div className="space-y-3">
+                      <div className="bg-white/80 rounded-lg p-4">
+                        <h4 className="font-semibold text-blue-700 mb-2">Tier 1 Metro Cities:</h4>
+                        <div className="grid grid-cols-2 gap-2 text-sm">
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <span>Mumbai</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <span>Delhi</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <span>Kolkata</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                            <span>Chennai</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="bg-white/80 rounded-lg p-4">
+                        <h4 className="font-semibold text-blue-700 mb-2">Other Major Metro Cities:</h4>
+                        <div className="grid grid-cols-2 gap-2 text-sm">
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                            <span>Bangalore</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                            <span>Hyderabad</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                            <span>Ahmedabad</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                            <span>Pune</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Non-Metro Cities */}
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
+                    <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center gap-2">
+                      🏘️ Non-Metro Cities (40% HRA exemption)
+                    </h3>
+                    <div className="space-y-3">
+                      <div className="bg-white/80 rounded-lg p-4">
+                        <h4 className="font-semibold text-green-700 mb-2">Definition:</h4>
+                        <p className="text-sm text-green-600 mb-3">All cities in India except the 8 metro cities listed on the left</p>
+                        
+                        <h4 className="font-semibold text-green-700 mb-2">Popular Non-Metro Cities:</h4>
+                        <div className="grid grid-cols-1 gap-2 text-sm">
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                            <span>Jaipur, Lucknow, Kanpur, Agra</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                            <span>Indore, Bhopal, Nagpur, Surat</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                            <span>Coimbatore, Kochi, Mysore, Trichy</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                            <span>Chandigarh, Vadodara, Rajkot</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                            <span>Visakhapatnam, Nashik, Guwahati</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                            <span>Bhubaneswar, Dehradun, Shimla</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Important Notes */}
+                <div className="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
+                  <h3 className="font-bold text-yellow-800 mb-3 flex items-center gap-2">
+                    💡 Important Notes
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700">
+                    <div>
+                      <div className="font-semibold mb-1">📍 How to Choose:</div>
+                      <div>If your city is NOT in the metro list (left column), select &quot;Non-Metro City&quot; for accurate HRA calculation.</div>
+                    </div>
+                    <div>
+                      <div className="font-semibold mb-1">🏢 Employer Policy:</div>
+                      <div>Some employers may have different classifications. Check your HR policy for company-specific rules.</div>
+                    </div>
+                    <div>
+                      <div className="font-semibold mb-1">📅 Updates:</div>
+                      <div>This list is based on current income tax rules and may be updated by the government periodically.</div>
+                    </div>
+                    <div>
+                      <div className="font-semibold mb-1">🧮 Calculation:</div>
+                      <div>The HRA exemption is calculated as the minimum of the three values mentioned above.</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Close Button */}
+                <div className="text-center pt-4">
+                  <button
+                    onClick={() => setShowCityListModal(false)}
+                    className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  >
+                    Got it, Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
