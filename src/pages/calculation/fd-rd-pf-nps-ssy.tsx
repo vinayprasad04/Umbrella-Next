@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { useRouter } from "next/router";
 
 export default function FdRdPfNpsSsy() {
@@ -12,6 +12,45 @@ export default function FdRdPfNpsSsy() {
   const [returnRate, setReturnRate] = useState('7');
   const [timePeriod, setTimePeriod] = useState('');
   const [daughterAge, setDaughterAge] = useState('');
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear().toString());
+  const [showRateHistoryModal, setShowRateHistoryModal] = useState(false);
+
+  // SSY Historical Interest Rates
+  const ssyInterestRates = [
+    { startDate: '2014-12-03', endDate: '2015-03-31', rate: 9.1, period: '03.12.2014 TO 31.03.2015' },
+    { startDate: '2015-04-01', endDate: '2016-03-31', rate: 9.2, period: '01.04.2015 TO 31.03.2016' },
+    { startDate: '2016-04-01', endDate: '2016-09-30', rate: 8.6, period: '01.04.2016 TO 30.09.2016' },
+    { startDate: '2016-10-01', endDate: '2017-03-31', rate: 8.5, period: '01.10.2016 TO 31.03.2017' },
+    { startDate: '2017-04-01', endDate: '2017-06-30', rate: 8.4, period: '01.04.2017 TO 30.06.2017' },
+    { startDate: '2017-07-01', endDate: '2017-12-31', rate: 8.3, period: '01.07.2017 TO 31.12.2017' },
+    { startDate: '2018-01-01', endDate: '2018-09-30', rate: 8.1, period: '01.01.2018 TO 30.09.2018' },
+    { startDate: '2018-10-01', endDate: '2019-06-30', rate: 8.5, period: '01.10.2018 TO 30.06.2019' },
+    { startDate: '2019-07-01', endDate: '2020-03-31', rate: 8.4, period: '01.07.2019 TO 31.03.2020' },
+    { startDate: '2020-04-01', endDate: '2023-03-31', rate: 7.6, period: '01.04.2020 TO 31.03.2023' },
+    { startDate: '2023-04-01', endDate: '2023-12-31', rate: 8.0, period: '01.04.2023 TO 31.12.2023' },
+    { startDate: '2024-01-01', endDate: '2025-09-30', rate: 8.2, period: '01.01.2024 TO 30.09.2025' }
+  ];
+
+  // Function to get SSY interest rate for a given year
+  const getSSYInterestRate = useCallback((year: number) => {
+    // For future years beyond 2025, assume current rate continues
+    if (year > 2025) {
+      return 8.2;
+    }
+    
+    // For historical years, find the appropriate rate
+    for (const rateInfo of ssyInterestRates) {
+      const startYear = new Date(rateInfo.startDate).getFullYear();
+      const endYear = new Date(rateInfo.endDate).getFullYear();
+      
+      if (year >= startYear && year <= endYear) {
+        return rateInfo.rate;
+      }
+    }
+    
+    // Default to earliest available rate for years before 2014
+    return 9.1;
+  }, [ssyInterestRates]);
   // const [frequency] = useState('monthly'); // Currently unused
   const [result, setResult] = useState<{
     maturityAmount: number;
@@ -24,6 +63,7 @@ export default function FdRdPfNpsSsy() {
       interestEarningPeriod: number;
       yearlyBreakdown: Array<{
         year: number;
+        calendarYear: number;
         age: number;
         deposit: number;
         interest: number;
@@ -53,17 +93,33 @@ export default function FdRdPfNpsSsy() {
   useEffect(() => {
     const selectedOption = calculatorOptions.find(option => option.value === calculatorType);
     if (selectedOption) {
-      setReturnRate(selectedOption.rate);
+      if (calculatorType === 'SSY') {
+        // Set SSY rate based on start year
+        const year = parseInt(currentYear) || new Date().getFullYear();
+        const ssyRate = getSSYInterestRate(year);
+        setReturnRate(ssyRate.toString());
+      } else {
+        setReturnRate(selectedOption.rate);
+      }
     }
-  }, [calculatorType, calculatorOptions]);
+  }, [calculatorType, calculatorOptions, currentYear, getSSYInterestRate]);
 
   const calculateReturns = () => {
     if (!investment || !returnRate) return;
-    if (calculatorType === 'SSY' && !daughterAge) {
-      alert('Please enter daughter\'s current age for SSY calculation');
+    if (calculatorType === 'SSY' && (!daughterAge || !currentYear)) {
+      alert('Please enter daughter\'s current age and start year for SSY calculation');
       return;
     }
     if (calculatorType !== 'SSY' && !timePeriod) return;
+    
+    // Validate year range for SSY
+    if (calculatorType === 'SSY') {
+      const year = parseInt(currentYear);
+      if (year < 2000 || year > 2050) {
+        alert('Please enter a year between 2000 and 2050');
+        return;
+      }
+    }
 
     const principal = parseFloat(investment);
     const rate = parseFloat(returnRate) / 100;
@@ -78,6 +134,7 @@ export default function FdRdPfNpsSsy() {
     } else if (calculatorType === 'SSY') {
       // Detailed SSY calculation
       const currentAge = parseFloat(daughterAge) || 0;
+      const startYear = parseInt(currentYear);
       const annualDeposit = principal * 12; // Convert monthly to annual
       const depositPeriod = 15; // Fixed 15 years for SSY
       const maturityAge = 21; // Account matures when girl turns 21
@@ -104,6 +161,7 @@ export default function FdRdPfNpsSsy() {
         
         yearlyBreakdown.push({
           year,
+          calendarYear: startYear + year - 1,
           age: Math.round(currentAge + year - 1),
           deposit: yearlyDeposit,
           interest: Math.round(interest),
@@ -307,9 +365,54 @@ export default function FdRdPfNpsSsy() {
                           value={returnRate}
                           onChange={(e) => setReturnRate(e.target.value)}
                         />
-                        <p className="text-sm text-gray-500 mt-2">
-                          Current rate: {calculatorOptions.find(opt => opt.value === calculatorType)?.rate}% (as per latest updates)
-                        </p>
+                        {calculatorType === 'SSY' ? (
+                          <div className="mt-2">
+                            <p className="text-sm text-gray-500">
+                              Historical SSY rate for {currentYear}: {returnRate}%
+                            </p>
+                            {(() => {
+                              const year = parseInt(currentYear) || new Date().getFullYear();
+                              const rateInfo = ssyInterestRates.find(info => {
+                                const startYear = new Date(info.startDate).getFullYear();
+                                const endYear = new Date(info.endDate).getFullYear();
+                                return year >= startYear && year <= endYear;
+                              });
+                              
+                              if (rateInfo) {
+                                return (
+                                  <button
+                                    onClick={() => setShowRateHistoryModal(true)}
+                                    className="text-xs text-blue-600 bg-blue-50 px-2 py-1 rounded mt-1 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200 cursor-pointer border border-blue-200 hover:border-blue-300"
+                                  >
+                                    📅 Rate Period: {rateInfo.period} (Click for full history)
+                                  </button>
+                                );
+                              } else if (year > 2025) {
+                                return (
+                                  <button
+                                    onClick={() => setShowRateHistoryModal(true)}
+                                    className="text-xs text-purple-600 bg-purple-50 px-2 py-1 rounded mt-1 hover:bg-purple-100 hover:text-purple-700 transition-colors duration-200 cursor-pointer border border-purple-200 hover:border-purple-300"
+                                  >
+                                    🔮 Future projection: 8.2% (assumed) (Click for history)
+                                  </button>
+                                );
+                              } else {
+                                return (
+                                  <button
+                                    onClick={() => setShowRateHistoryModal(true)}
+                                    className="text-xs text-orange-600 bg-orange-50 px-2 py-1 rounded mt-1 hover:bg-orange-100 hover:text-orange-700 transition-colors duration-200 cursor-pointer border border-orange-200 hover:border-orange-300"
+                                  >
+                                    ⚠️ Using earliest available rate: 9.1% (Click for history)
+                                  </button>
+                                );
+                              }
+                            })()}
+                          </div>
+                        ) : (
+                          <p className="text-sm text-gray-500 mt-2">
+                            Current rate: {calculatorOptions.find(opt => opt.value === calculatorType)?.rate}% (as per latest updates)
+                          </p>
+                        )}
                       </div>
                       
                       {calculatorType === 'SSY' && (
@@ -343,6 +446,41 @@ export default function FdRdPfNpsSsy() {
                           </div>
                           <p className="text-xs text-gray-500 mt-2">
                             💡 SSY can be opened for girl child up to 10 years of age
+                          </p>
+                        </div>
+                      )}
+                      
+                      {calculatorType === 'SSY' && (
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-3">
+                            Start Year
+                          </label>
+                          <input
+                            type="number"
+                            placeholder="e.g., 2024"
+                            min="2000"
+                            max="2050"
+                            className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                            value={currentYear}
+                            onChange={(e) => setCurrentYear(e.target.value)}
+                          />
+                          <div className="flex gap-2 mt-3">
+                            {['2022', '2023', '2024', '2025', '2026'].map(year => (
+                              <button
+                                key={year}
+                                onClick={() => setCurrentYear(year)}
+                                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                                  currentYear === year
+                                    ? 'bg-[#FF6B2C] text-white'
+                                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                }`}
+                              >
+                                {year}
+                              </button>
+                            ))}
+                          </div>
+                          <p className="text-xs text-gray-500 mt-2">
+                            💡 Year range: 2000 to 2050 (for realistic calculations)
                           </p>
                         </div>
                       )}
@@ -465,6 +603,7 @@ export default function FdRdPfNpsSsy() {
                                 <thead className="sticky top-0 bg-blue-100">
                                   <tr>
                                     <th className="text-left p-2 font-semibold">Year</th>
+                                    <th className="text-left p-2 font-semibold">Calendar</th>
                                     <th className="text-left p-2 font-semibold">Age</th>
                                     <th className="text-right p-2 font-semibold">Deposit</th>
                                     <th className="text-right p-2 font-semibold">Interest</th>
@@ -475,6 +614,7 @@ export default function FdRdPfNpsSsy() {
                                   {result.ssyDetails.yearlyBreakdown.map((year, index) => (
                                     <tr key={index} className={`border-b border-blue-200 ${year.deposit > 0 ? 'bg-blue-25' : 'bg-gray-25'}`}>
                                       <td className="p-2 font-medium">{year.year}</td>
+                                      <td className="p-2 font-medium text-purple-700">{year.calendarYear}</td>
                                       <td className="p-2">{year.age}</td>
                                       <td className="text-right p-2 font-medium">
                                         {year.deposit > 0 ? `₹${year.deposit.toLocaleString()}` : '-'}
@@ -484,7 +624,7 @@ export default function FdRdPfNpsSsy() {
                                     </tr>
                                   ))}
                                   <tr className="bg-blue-100 border-t-2 border-blue-300">
-                                    <td colSpan={2} className="p-2 font-bold text-blue-800">Final Maturity</td>
+                                    <td colSpan={3} className="p-2 font-bold text-blue-800">Final Maturity</td>
                                     <td className="text-right p-2 font-bold text-blue-800">
                                       ₹{result.totalInvestment.toLocaleString()}
                                     </td>
@@ -611,6 +751,134 @@ export default function FdRdPfNpsSsy() {
             </div>
           </section>
         </main>
+
+        {/* SSY Rate History Modal */}
+        {showRateHistoryModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4">
+            <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+              <div className="p-6 border-b border-gray-200">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-2xl font-bold text-gray-800">
+                    📊 SSY Historical Interest Rates
+                  </h2>
+                  <button
+                    onClick={() => setShowRateHistoryModal(false)}
+                    className="text-gray-500 hover:text-gray-700 text-2xl font-bold w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors duration-200"
+                  >
+                    ×
+                  </button>
+                </div>
+                <p className="text-gray-600 mt-2">
+                  Complete history of Sukanya Samriddhi Yojana interest rates as announced by the Government of India
+                </p>
+              </div>
+              
+              <div className="p-6">
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse border border-gray-300">
+                    <thead className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white">
+                      <tr>
+                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Sr. No.</th>
+                        <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Rate Period</th>
+                        <th className="border border-gray-300 px-4 py-3 text-center font-semibold">Interest Rate (% per annum)</th>
+                        <th className="border border-gray-300 px-4 py-3 text-center font-semibold">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {ssyInterestRates.map((rate, index) => {
+                        const year = parseInt(currentYear) || new Date().getFullYear();
+                        const startYear = new Date(rate.startDate).getFullYear();
+                        const endYear = new Date(rate.endDate).getFullYear();
+                        const isCurrentRate = year >= startYear && year <= endYear;
+                        
+                        return (
+                          <tr 
+                            key={index} 
+                            className={`${
+                              isCurrentRate 
+                                ? 'bg-yellow-50 border-yellow-200' 
+                                : index % 2 === 0 
+                                  ? 'bg-gray-50' 
+                                  : 'bg-white'
+                            } hover:bg-blue-50 transition-colors duration-200`}
+                          >
+                            <td className="border border-gray-300 px-4 py-3 font-medium text-gray-700">
+                              {index + 1}
+                            </td>
+                            <td className="border border-gray-300 px-4 py-3 text-gray-700">
+                              {rate.period}
+                            </td>
+                            <td className="border border-gray-300 px-4 py-3 text-center">
+                              <span className={`font-bold text-lg ${
+                                isCurrentRate ? 'text-[#FF6B2C]' : 'text-gray-800'
+                              }`}>
+                                {rate.rate}%
+                              </span>
+                            </td>
+                            <td className="border border-gray-300 px-4 py-3 text-center">
+                              {isCurrentRate ? (
+                                <span className="bg-[#FF6B2C] text-white px-3 py-1 rounded-full text-xs font-semibold">
+                                  Current Rate
+                                </span>
+                              ) : endYear < new Date().getFullYear() ? (
+                                <span className="bg-gray-400 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                                  Historical
+                                </span>
+                              ) : (
+                                <span className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                                  Future
+                                </span>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                      {/* Future rate row */}
+                      <tr className="bg-purple-50 border-purple-200">
+                        <td className="border border-gray-300 px-4 py-3 font-medium text-gray-700">
+                          {ssyInterestRates.length + 1}
+                        </td>
+                        <td className="border border-gray-300 px-4 py-3 text-gray-700">
+                          01.10.2025 onwards (Projected)
+                        </td>
+                        <td className="border border-gray-300 px-4 py-3 text-center">
+                          <span className="font-bold text-lg text-purple-600">8.2%</span>
+                        </td>
+                        <td className="border border-gray-300 px-4 py-3 text-center">
+                          <span className="bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                            Assumed
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                
+                <div className="mt-6 bg-blue-50 border border-blue-200 rounded-xl p-4">
+                  <h3 className="font-semibold text-blue-800 mb-2">📝 Important Notes:</h3>
+                  <ul className="text-sm text-blue-700 space-y-1">
+                    <li>• Interest rates are compounded annually</li>
+                    <li>• Rates are set by the Government of India and may change quarterly</li>
+                    <li>• All rates shown are official government-announced rates</li>
+                    <li>• Future rates beyond Sep 2025 are projections based on current rate</li>
+                    <li>• The highlighted row shows the rate applicable for your selected start year ({currentYear})</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="p-6 border-t border-gray-200 bg-gray-50 rounded-b-2xl">
+                <div className="flex justify-center">
+                  <button
+                    onClick={() => setShowRateHistoryModal(false)}
+                    className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         <Footer />
       </div>

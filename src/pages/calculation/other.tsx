@@ -31,24 +31,6 @@ export default function Other() {
     futureValue?: number;
     inflationImpact?: number;
     purchasingPower?: number;
-    
-    // Tax Calculator
-    grossIncome?: number;
-    tax?: number;
-    netIncome?: number;
-    taxPercentage?: string;
-    
-    // Bond Calculator
-    faceValue?: number;
-    annualCoupon?: number;
-    totalCoupons?: number;
-    maturityValue?: number;
-    
-    // Gratuity Calculator
-    lastSalary?: number;
-    yearsOfService?: number;
-    gratuity?: number;
-    eligibility?: string;
   }
   
   const [result, setResult] = useState<CalculationResult | null>(null);
@@ -56,10 +38,7 @@ export default function Other() {
   const calculatorOptions = [
     { value: 'EMI', label: 'EMI Calculator', description: 'Calculate loan EMI and payment schedule' },
     { value: 'CAGR', label: 'CAGR Calculator', description: 'Compound Annual Growth Rate calculator' },
-    { value: 'INFLATION', label: 'Inflation Calculator', description: 'Calculate inflation impact on your money' },
-    { value: 'TAX', label: 'Tax Calculator', description: 'Calculate income tax liability' },
-    { value: 'BOND', label: 'Bond Calculator', description: 'Calculate bond yields and returns' },
-    { value: 'GRATUITY', label: 'Gratuity Calculator', description: 'Calculate gratuity amount' }
+    { value: 'INFLATION', label: 'Inflation Calculator', description: 'Calculate inflation impact on your money' }
   ];
 
   useEffect(() => {
@@ -74,11 +53,6 @@ export default function Other() {
     // CAGR requires currentValue, others need rate and tenure
     if (calculatorType === 'CAGR') {
       if (!currentValue || !tenure) return;
-    } else if (calculatorType === 'TAX') {
-      // Tax calculator only needs principal (income)
-    } else if (calculatorType === 'GRATUITY') {
-      // Gratuity calculator needs principal (salary) and tenure (years of service)
-      if (!tenure) return;
     } else {
       // Other calculators need rate and tenure
       if (!rate || !tenure) return;
@@ -137,55 +111,6 @@ export default function Other() {
         };
         break;
 
-      case 'TAX':
-        // Simplified tax calculation (assuming new tax regime)
-        let tax = 0;
-        const income = p;
-        
-        if (income > 300000) tax += (Math.min(income, 600000) - 300000) * 0.05;
-        if (income > 600000) tax += (Math.min(income, 900000) - 600000) * 0.10;
-        if (income > 900000) tax += (Math.min(income, 1200000) - 900000) * 0.15;
-        if (income > 1200000) tax += (Math.min(income, 1500000) - 1200000) * 0.20;
-        if (income > 1500000) tax += (income - 1500000) * 0.30;
-        
-        calculationResult = {
-          grossIncome: income,
-          tax: Math.round(tax),
-          netIncome: Math.round(income - tax),
-          taxPercentage: ((tax / income) * 100).toFixed(2)
-        };
-        break;
-
-      case 'BOND':
-        // Simple bond yield calculation
-        const faceValue = p;
-        const couponRate = r / 100;
-        const yearsToMaturity = t;
-        const annualCoupon = faceValue * couponRate;
-        const totalCoupons = annualCoupon * yearsToMaturity;
-        const maturityValue = faceValue + totalCoupons;
-        
-        calculationResult = {
-          faceValue: faceValue,
-          annualCoupon: Math.round(annualCoupon),
-          totalCoupons: Math.round(totalCoupons),
-          maturityValue: Math.round(maturityValue)
-        };
-        break;
-
-      case 'GRATUITY':
-        // Gratuity = (Last salary × 15 × Number of years) / 26
-        const lastSalary = p;
-        const yearsOfService = t;
-        const gratuity = (lastSalary * 15 * yearsOfService) / 26;
-        
-        calculationResult = {
-          lastSalary: lastSalary,
-          yearsOfService: yearsOfService,
-          gratuity: Math.round(gratuity),
-          eligibility: yearsOfService >= 5 ? 'Eligible' : 'Not Eligible (Min 5 years required)'
-        };
-        break;
     }
 
     setResult(calculationResult);
@@ -224,30 +149,6 @@ export default function Other() {
           rate: 'Inflation Rate (% per annum)',
           tenure: 'Number of Years',
           principalPlaceholder: 'e.g., 100000',
-          showCurrentValue: false
-        };
-      case 'TAX':
-        return {
-          principal: 'Annual Income (₹)',
-          rate: 'Not Used',
-          tenure: 'Not Used',
-          principalPlaceholder: 'e.g., 1000000',
-          showCurrentValue: false
-        };
-      case 'BOND':
-        return {
-          principal: 'Face Value (₹)',
-          rate: 'Coupon Rate (% per annum)',
-          tenure: 'Years to Maturity',
-          principalPlaceholder: 'e.g., 100000',
-          showCurrentValue: false
-        };
-      case 'GRATUITY':
-        return {
-          principal: 'Last Drawn Salary (₹)',
-          rate: 'Not Used',
-          tenure: 'Years of Service',
-          principalPlaceholder: 'e.g., 50000',
           showCurrentValue: false
         };
       default:
@@ -378,116 +279,6 @@ export default function Other() {
           </>
         );
 
-      case 'TAX':
-        return (
-          <>
-            <div className="bg-white/80 rounded-2xl p-6 shadow-lg">
-              <div className="text-center">
-                <div className="text-sm text-gray-600 mb-2">Income Tax</div>
-                <div className="text-4xl font-bold text-[#FF6B2C] mb-4">
-                  ₹{(result.tax || 0).toLocaleString()}
-                </div>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 gap-4">
-              <div className="bg-white/60 rounded-xl p-4">
-                <div className="text-sm text-gray-600">Gross Income</div>
-                <div className="text-xl font-bold text-gray-800">
-                  ₹{(result.grossIncome || 0).toLocaleString()}
-                </div>
-              </div>
-              
-              <div className="bg-white/60 rounded-xl p-4">
-                <div className="text-sm text-gray-600">Net Income</div>
-                <div className="text-xl font-bold text-green-600">
-                  ₹{(result.netIncome || 0).toLocaleString()}
-                </div>
-              </div>
-              
-              <div className="bg-white/60 rounded-xl p-4">
-                <div className="text-sm text-gray-600">Tax Rate</div>
-                <div className="text-xl font-bold text-red-600">
-                  {result.taxPercentage || '0.00'}%
-                </div>
-              </div>
-            </div>
-          </>
-        );
-
-      case 'BOND':
-        return (
-          <>
-            <div className="bg-white/80 rounded-2xl p-6 shadow-lg">
-              <div className="text-center">
-                <div className="text-sm text-gray-600 mb-2">Maturity Value</div>
-                <div className="text-4xl font-bold text-[#FF6B2C] mb-4">
-                  ₹{(result.maturityValue || 0).toLocaleString()}
-                </div>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 gap-4">
-              <div className="bg-white/60 rounded-xl p-4">
-                <div className="text-sm text-gray-600">Face Value</div>
-                <div className="text-xl font-bold text-gray-800">
-                  ₹{(result.faceValue || 0).toLocaleString()}
-                </div>
-              </div>
-              
-              <div className="bg-white/60 rounded-xl p-4">
-                <div className="text-sm text-gray-600">Annual Coupon</div>
-                <div className="text-xl font-bold text-green-600">
-                  ₹{(result.annualCoupon || 0).toLocaleString()}
-                </div>
-              </div>
-              
-              <div className="bg-white/60 rounded-xl p-4">
-                <div className="text-sm text-gray-600">Total Coupons</div>
-                <div className="text-xl font-bold text-blue-600">
-                  ₹{(result.totalCoupons || 0).toLocaleString()}
-                </div>
-              </div>
-            </div>
-          </>
-        );
-
-      case 'GRATUITY':
-        return (
-          <>
-            <div className="bg-white/80 rounded-2xl p-6 shadow-lg">
-              <div className="text-center">
-                <div className="text-sm text-gray-600 mb-2">Gratuity Amount</div>
-                <div className="text-4xl font-bold text-[#FF6B2C] mb-4">
-                  ₹{(result.gratuity || 0).toLocaleString()}
-                </div>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 gap-4">
-              <div className="bg-white/60 rounded-xl p-4">
-                <div className="text-sm text-gray-600">Last Salary</div>
-                <div className="text-xl font-bold text-gray-800">
-                  ₹{(result.lastSalary || 0).toLocaleString()}
-                </div>
-              </div>
-              
-              <div className="bg-white/60 rounded-xl p-4">
-                <div className="text-sm text-gray-600">Years of Service</div>
-                <div className="text-xl font-bold text-blue-600">
-                  {result.yearsOfService || 0} years
-                </div>
-              </div>
-              
-              <div className="bg-white/60 rounded-xl p-4">
-                <div className="text-sm text-gray-600">Eligibility</div>
-                <div className={`text-xl font-bold ${(result.eligibility || '').includes('Eligible') && !(result.eligibility || '').includes('Not') ? 'text-green-600' : 'text-red-600'}`}>
-                  {result.eligibility || 'Not Eligible'}
-                </div>
-              </div>
-            </div>
-          </>
-        );
 
       default:
         return (
@@ -502,7 +293,7 @@ export default function Other() {
     <>
       <Head>
         <title>Other Calculators - Umbrella Financial</title>
-        <meta name="description" content="Access various financial calculators including EMI, CAGR, Inflation, Tax, Bond, and Gratuity calculators." />
+        <meta name="description" content="Access various financial calculators including EMI, CAGR, and Inflation calculators for your financial planning needs." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -532,8 +323,8 @@ export default function Other() {
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                Comprehensive collection of financial calculators for EMI, CAGR, Inflation, Tax, 
-                Bond yields, Gratuity and more to help with your financial planning needs.
+                Comprehensive collection of financial calculators for EMI, CAGR, Inflation 
+                and more to help with your financial planning needs.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
