@@ -25,7 +25,7 @@ const menu = [
       { name: 'Goal Planner', href: '/calculation/goal-planner' },
       { name: 'Retirement Plan', href: '/calculation/eim' },
       { name: 'FD, RD, PF, NPS, SSY', href: '/calculation/fd-rd-pf-nps-ssy' },
-      { name: 'Tax Calculator', href: '/calculation/tax' },
+      { name: 'Income Tax Calculator', href: '/calculation/tax' },
       { name: 'Gratuity Calculator', href: '/calculation/gratuity' },
       { name: 'OTHER', href: '/calculation/other' },
     ],

@@ -16,8 +16,8 @@ export default function Section87ARebates() {
   return (
     <>
       <Head>
-        <title>Section 87A Tax Rebate Guide 2025 - ₹12,500 Tax Relief | Umbrella Financial</title>
-        <meta name="description" content="Complete Section 87A tax rebate guide 2025. Get ₹12,500 rebate on income up to ₹5 lakh. Understand eligibility, calculation & how to claim rebate." />
+        <title>Section 87A Tax Rebate Guide FY 2025-26 - Up to ₹12L Tax Free | Umbrella Financial</title>
+        <meta name="description" content="Latest Section 87A tax rebate guide FY 2025-26. Get ₹60,000 rebate and complete tax exemption up to ₹12 lakh. Revolutionary benefits for middle class." />
         <meta name="keywords" content="Section 87A, tax rebate, ₹12500 rebate, income tax relief, low income, tax savings, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -45,11 +45,11 @@ export default function Section87ARebates() {
                   Section 87A Tax Rebate
                 </span>
                 <br />
-                <span className="text-gray-800">Complete Guide 2025</span>
+                <span className="text-gray-800">FY 2025-26 Revolution</span>
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                Get up to ₹12,500 tax rebate under Section 87A for income up to ₹5 lakh. Complete eligibility and calculation guide for maximum tax relief.
+                Revolutionary update for FY 2025-26! Section 87A now provides ₹60,000 rebate and complete tax exemption up to ₹12 lakh. Middle-class taxpayers save thousands!
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -78,7 +78,7 @@ export default function Section87ARebates() {
                     💰 Section 87A Tax Rebate
                   </h2>
                   <p className="text-lg text-amber-700 mb-6">
-                    Section 87A provides tax rebate to individual taxpayers with total income up to ₹5,00,000, offering significant relief to middle-class earners.
+                    Section 87A has been revolutionized for FY 2025-26! The rebate has increased from ₹25,000 to ₹60,000, and the income limit has jumped from ₹7 lakh to ₹12 lakh, making it a game-changer for middle-class taxpayers.
                   </p>
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -86,15 +86,27 @@ export default function Section87ARebates() {
                       <h3 className="text-xl font-bold text-gray-800 mb-4">🎯 Eligibility & Rebate Amount</h3>
                       <div className="space-y-4">
                         <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                          <h4 className="font-semibold text-gray-800 mb-2">Income up to ₹5,00,000</h4>
+                          <h4 className="font-semibold text-gray-800 mb-2">Old Regime: Income up to ₹5,00,000</h4>
                           <p className="text-sm text-gray-600 mb-2">Rebate: 100% of tax or ₹12,500 (whichever is lower)</p>
                           <div className="text-xs text-green-600">💡 Effective zero tax for income ≤ ₹5L (old regime)</div>
                         </div>
                         
                         <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                          <h4 className="font-semibold text-gray-800 mb-2">New Tax Regime</h4>
-                          <p className="text-sm text-gray-600 mb-2">Rebate limit increased to ₹25,000</p>
-                          <div className="text-xs text-blue-600">💡 Zero tax up to ₹7 lakh income (new regime)</div>
+                          <h4 className="font-semibold text-gray-800 mb-2">FY 2024-25: Income up to ₹7,00,000</h4>
+                          <p className="text-sm text-gray-600 mb-2">Rebate: ₹25,000 (complete tax exemption up to ₹7L)</p>
+                          <div className="text-xs text-blue-600">💡 Zero tax liability for income ≤ ₹7L</div>
+                        </div>
+                        
+                        <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                          <h4 className="font-semibold text-gray-800 mb-2">🎉 FY 2025-26: Income up to ₹12,00,000</h4>
+                          <p className="text-sm text-gray-600 mb-2">Rebate: ₹60,000 (complete tax exemption up to ₹12L)</p>
+                          <div className="text-xs text-purple-600">🚀 Revolutionary enhancement for middle class!</div>
+                        </div>
+                        
+                        <div className="p-4 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                          <h4 className="font-semibold text-gray-800 mb-2">Marginal Relief Benefits</h4>
+                          <p className="text-sm text-gray-600 mb-2">For income slightly above ₹12L, tax limited to excess amount</p>
+                          <div className="text-xs text-emerald-600">💡 Prevents sudden tax jumps beyond threshold</div>
                         </div>
                         
                         <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
@@ -116,19 +128,19 @@ export default function Section87ARebates() {
                             </div>
                             <div className="flex justify-between">
                               <span>Less: Standard Deduction:</span>
-                              <span>₹50,000</span>
+                              <span>₹75,000</span>
                             </div>
                             <div className="flex justify-between">
                               <span>Taxable Income:</span>
-                              <span>₹4,00,000</span>
+                              <span>₹3,75,000</span>
                             </div>
                             <div className="flex justify-between">
                               <span>Tax (Old Regime):</span>
-                              <span>₹5,000</span>
+                              <span>₹6,250</span>
                             </div>
                             <div className="flex justify-between">
                               <span>87A Rebate:</span>
-                              <span className="text-green-600">-₹5,000</span>
+                              <span className="text-green-600">-₹6,250</span>
                             </div>
                             <div className="flex justify-between border-t pt-1 font-semibold">
                               <span>Final Tax:</span>
@@ -138,25 +150,60 @@ export default function Section87ARebates() {
                         </div>
                         
                         <div className="p-4 bg-gray-50 rounded-lg">
-                          <h4 className="font-semibold text-gray-800 mb-2">Example 2: Income ₹6,00,000</h4>
+                          <h4 className="font-semibold text-gray-800 mb-2">Example 2: Income ₹10,00,000 (FY 2025-26)</h4>
                           <div className="text-sm space-y-1">
                             <div className="flex justify-between">
+                              <span>Gross Income:</span>
+                              <span>₹10,00,000</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Less: Standard Deduction:</span>
+                              <span>₹75,000</span>
+                            </div>
+                            <div className="flex justify-between">
                               <span>Taxable Income:</span>
-                              <span>₹5,50,000</span>
+                              <span>₹9,25,000</span>
                             </div>
                             <div className="flex justify-between">
-                              <span>Tax (Old Regime):</span>
-                              <span>₹30,000</span>
+                              <span>Tax Calculation:</span>
+                              <span>₹52,500</span>
                             </div>
                             <div className="flex justify-between">
-                              <span>87A Rebate:</span>
-                              <span className="text-red-600">₹0</span>
+                              <span>87A Rebate (FY 2025-26):</span>
+                              <span className="text-green-600">-₹52,500</span>
                             </div>
                             <div className="flex justify-between border-t pt-1 font-semibold">
                               <span>Final Tax:</span>
-                              <span>₹30,000</span>
+                              <span className="text-green-600">₹0</span>
                             </div>
-                            <p className="text-xs text-red-600 mt-2">No rebate as income exceeds ₹5L limit</p>
+                            <p className="text-xs text-green-600 mt-2">Complete rebate as income ≤ ₹12L (FY 2025-26)</p>
+                          </div>
+                        </div>
+                        
+                        <div className="p-4 bg-gray-50 rounded-lg">
+                          <h4 className="font-semibold text-gray-800 mb-2">Example 3: Income ₹12,25,000 (Marginal Relief)</h4>
+                          <div className="text-sm space-y-1">
+                            <div className="flex justify-between">
+                              <span>Taxable Income:</span>
+                              <span>₹11,50,000</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Excess above ₹12L:</span>
+                              <span>₹25,000</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Tax on total income:</span>
+                              <span>₹67,500</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>87A Rebate:</span>
+                              <span className="text-green-600">-₹42,500</span>
+                            </div>
+                            <div className="flex justify-between border-t pt-1 font-semibold">
+                              <span>Final Tax (= Excess):</span>
+                              <span className="text-orange-600">₹25,000</span>
+                            </div>
+                            <p className="text-xs text-orange-600 mt-2">Marginal relief: Tax = excess above ₹12L</p>
                           </div>
                         </div>
                       </div>
@@ -193,20 +240,26 @@ export default function Section87ARebates() {
                         <h4 className="font-semibold text-gray-800 mb-3">🆕 New Tax Regime</h4>
                         <div className="space-y-2 text-sm">
                           <div className="flex justify-between">
-                            <span>Income Limit:</span>
+                            <span>FY 2024-25 Limit:</span>
                             <span className="font-medium">₹7,00,000</span>
                           </div>
                           <div className="flex justify-between">
-                            <span>Maximum Rebate:</span>
-                            <span className="font-medium">₹25,000</span>
+                            <span>FY 2025-26 Limit:</span>
+                            <span className="font-medium text-green-600">₹12,00,000</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span>Enhanced Rebate:</span>
+                            <span className="font-medium text-purple-600">₹60,000</span>
                           </div>
                           <div className="flex justify-between">
                             <span>Zero Tax Income:</span>
-                            <span className="font-medium text-green-600">Up to ₹7L</span>
+                            <span className="font-medium text-green-600">Up to ₹12L</span>
                           </div>
                           <p className="text-xs text-green-600 mt-2">
-                            • Higher income limit for rebate
-                            <br />• No deductions allowed except standard deduction
+                            • Revolutionary 71% increase in rebate limit (₹7L → ₹12L)
+                            <br />• Marginal relief available beyond ₹12L
+                            <br />• Massive benefit for middle-class taxpayers
+                            <br />• Standard deduction ₹75,000
                           </p>
                         </div>
                       </div>

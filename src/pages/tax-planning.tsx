@@ -1428,7 +1428,7 @@ export default function TaxPlanning() {
                 🎯 Section 87A Tax Rebates
               </h2>
               <p className="text-lg text-emerald-700 mb-6">
-                Understand tax rebates that can reduce your tax liability to zero for lower income taxpayers.
+                Section 87A rebate has been revolutionized for FY 2025-26! New regime now offers ₹60,000 rebate for income up to ₹12 lakhs, providing complete tax exemption to a much larger taxpayer base.
               </p>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -1453,15 +1453,24 @@ export default function TaxPlanning() {
                   <h3 className="text-xl font-bold text-gray-800 mb-4">🆕 New Tax Regime Rebates</h3>
                   <div className="space-y-4">
                     <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Enhanced Section 87A</h4>
+                      <h4 className="font-semibold text-gray-800 mb-2">FY 2024-25: Rebate up to ₹7L</h4>
                       <p className="text-sm text-gray-600 mb-2">₹25,000 rebate if total income ≤ ₹7 lakhs</p>
-                      <div className="text-xs text-purple-600">💡 Higher rebate amount in new regime</div>
+                      <div className="text-xs text-purple-600">💡 Complete tax exemption up to ₹7L</div>
                     </div>
                     
-                    <div className="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Higher Tax-Free Limit</h4>
-                      <p className="text-sm text-gray-600 mb-2">Up to ₹7 lakhs income with zero tax</p>
-                      <div className="text-xs text-orange-600">💡 No additional deductions needed</div>
+                    <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                      <h4 className="font-semibold text-gray-800 mb-2">FY 2025-26: MAJOR ENHANCEMENT!</h4>
+                      <p className="text-sm text-gray-600 mb-2">₹60,000 rebate if total income ≤ ₹12 lakhs</p>
+                      <div className="text-xs text-green-600">🎉 Complete tax exemption up to ₹12L!</div>
+                    </div>
+                    
+                    <div className="p-4 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
+                      <h4 className="font-semibold text-gray-800 mb-2">Marginal Relief</h4>
+                      <div className="text-xs text-emerald-600 space-y-1">
+                        <div>• FY 2024-25: Relief for income just above ₹7L</div>
+                        <div>• FY 2025-26: Relief for income just above ₹12L</div>
+                        <div>• Tax limited to excess income above threshold</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1485,19 +1494,49 @@ export default function TaxPlanning() {
                         <td className="py-3 px-4 text-green-600">No Tax</td>
                       </tr>
                       <tr className="border-b border-gray-100">
-                        <td className="py-3 px-4">₹2.5L - ₹5L</td>
-                        <td className="py-3 px-4 text-green-600">Rebate Available</td>
+                        <td className="py-3 px-4">₹2.5L - ₹3L</td>
+                        <td className="py-3 px-4 text-green-600">5% Tax</td>
                         <td className="py-3 px-4 text-green-600">No Tax</td>
                       </tr>
                       <tr className="border-b border-gray-100">
-                        <td className="py-3 px-4">₹5L - ₹7L</td>
-                        <td className="py-3 px-4 text-orange-600">Tax Applicable</td>
-                        <td className="py-3 px-4 text-green-600">Rebate Available</td>
+                        <td className="py-3 px-4">₹3L - ₹5L</td>
+                        <td className="py-3 px-4 text-green-600">5% Tax (87A Rebate)</td>
+                        <td className="py-3 px-4 text-green-600">5% Tax</td>
+                      </tr>
+                      <tr className="border-b border-gray-100">
+                        <td className="py-3 px-4">₹5L - ₹6L</td>
+                        <td className="py-3 px-4 text-orange-600">20% Tax</td>
+                        <td className="py-3 px-4 text-green-600">5% Tax</td>
+                      </tr>
+                      <tr className="border-b border-gray-100">
+                        <td className="py-3 px-4">₹6L - ₹7L</td>
+                        <td className="py-3 px-4 text-orange-600">20% Tax</td>
+                        <td className="py-3 px-4 text-green-600">10% Tax (FY24-25: 87A Rebate)</td>
+                      </tr>
+                      <tr className="border-b border-gray-100">
+                        <td className="py-3 px-4">₹7L - ₹9L</td>
+                        <td className="py-3 px-4 text-red-600">20% Tax</td>
+                        <td className="py-3 px-4 text-green-600">10% Tax (FY25-26: 87A Rebate)</td>
+                      </tr>
+                      <tr className="border-b border-gray-100">
+                        <td className="py-3 px-4">₹9L - ₹10L</td>
+                        <td className="py-3 px-4 text-red-600">20% Tax</td>
+                        <td className="py-3 px-4 text-green-600">15% Tax (FY25-26: 87A Rebate)</td>
+                      </tr>
+                      <tr className="border-b border-gray-100">
+                        <td className="py-3 px-4">₹10L - ₹12L</td>
+                        <td className="py-3 px-4 text-red-600">30% Tax</td>
+                        <td className="py-3 px-4 text-green-600">15% Tax (FY25-26: 87A Rebate)</td>
+                      </tr>
+                      <tr className="border-b border-gray-100 bg-yellow-50">
+                        <td className="py-3 px-4 font-semibold">Up to ₹12L</td>
+                        <td className="py-3 px-4 text-red-600 font-semibold">Tax Applicable</td>
+                        <td className="py-3 px-4 text-green-600 font-semibold">₹0 Tax (FY25-26)</td>
                       </tr>
                       <tr>
-                        <td className="py-3 px-4">Above ₹7L</td>
-                        <td className="py-3 px-4 text-red-600">Tax Applicable</td>
-                        <td className="py-3 px-4 text-red-600">Tax Applicable</td>
+                        <td className="py-3 px-4">Above ₹12L</td>
+                        <td className="py-3 px-4 text-red-600">30% Tax</td>
+                        <td className="py-3 px-4 text-orange-600">20% Tax + Marginal Relief</td>
                       </tr>
                     </tbody>
                   </table>
@@ -1505,12 +1544,40 @@ export default function TaxPlanning() {
               </div>
               
               <div className="mt-8 bg-yellow-50 rounded-xl p-6 border border-yellow-200">
-                <h3 className="text-lg font-bold text-yellow-800 mb-3">💡 Important Points</h3>
+                <h3 className="text-lg font-bold text-yellow-800 mb-3">🎉 MAJOR UPDATE for FY 2025-26</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700">
-                  <div>• Rebate reduces tax liability, not taxable income</div>
-                  <div>• Available to resident individuals only</div>
-                  <div>• Cannot exceed the total tax liability</div>
-                  <div>• New regime generally better for lower incomes</div>
+                  <div>• Zero tax up to ₹12L in new regime (FY 2025-26)</div>
+                  <div>• Enhanced rebate: ₹60,000 (vs ₹25,000 in FY 2024-25)</div>
+                  <div>• Marginal relief now available for income above ₹12L</div>
+                  <div>• Massive benefit for middle-class earning ₹7L-₹15L</div>
+                  <div>• Rebate cannot be adjusted against special rates</div>
+                  <div>• Only resident individuals eligible for rebate</div>
+                </div>
+              </div>
+              
+              <div className="mt-6 bg-blue-50 rounded-xl p-6 border border-blue-200">
+                <h3 className="text-lg font-bold text-blue-800 mb-3">🎯 Who Benefits Most from New Regime?</h3>
+                <div className="space-y-3 text-sm text-blue-700">
+                  <div className="flex items-start gap-2">
+                    <span className="text-green-500 mt-1">✓</span>
+                    <span><strong>Income up to ₹12L (FY 2025-26):</strong> Complete tax exemption with ₹60,000 rebate</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-green-500 mt-1">✓</span>
+                    <span><strong>Income ₹12L-₹15L:</strong> Massive savings with marginal relief provision</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-green-500 mt-1">✓</span>
+                    <span><strong>Middle-class families:</strong> Earning ₹7-15 lakhs benefit the most</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-green-500 mt-1">✓</span>
+                    <span><strong>Salaried employees:</strong> Who don&apos;t have significant 80C investments</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-orange-500 mt-1">⚠</span>
+                    <span><strong>High investors:</strong> Old regime may still be better if you maximize 80C, 80D deductions</span>
+                  </div>
                 </div>
               </div>
               

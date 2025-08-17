@@ -16,8 +16,8 @@ export default function OldVsNewRegime() {
   return (
     <>
       <Head>
-        <title>Old vs New Tax Regime Comparison 2025 - Which is Better? | Umbrella Financial</title>
-        <meta name="description" content="Complete old vs new tax regime comparison 2025. Compare tax rates, deductions, rebates. Calculate which regime saves more tax with examples & calculator." />
+        <title>Old vs New Tax Regime Comparison FY 2025-26 - Zero Tax up to ₹12L | Umbrella Financial</title>
+        <meta name="description" content="Updated old vs new tax regime comparison FY 2025-26. New regime offers zero tax up to ₹12L with ₹60,000 rebate. Compare with examples & calculator." />
         <meta name="keywords" content="old tax regime, new tax regime, tax comparison, tax calculator, Section 80C, rebate, tax planning, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -45,11 +45,11 @@ export default function OldVsNewRegime() {
                   Old vs New Tax Regime
                 </span>
                 <br />
-                <span className="text-gray-800">Complete Comparison 2025</span>
+                <span className="text-gray-800">FY 2025-26 Revolution</span>
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                Comprehensive comparison between old and new tax regimes. Find out which regime saves you more money with detailed analysis and examples.
+                Revolutionary update for FY 2025-26! New regime now offers complete tax exemption up to ₹12 lakh with ₹60,000 rebate. Compare regimes with updated examples.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -79,7 +79,7 @@ export default function OldVsNewRegime() {
                     ⚖️ Tax Rates Comparison
                   </h2>
                   <p className="text-lg text-slate-700 mb-6">
-                    Compare income tax slabs and rates between old and new tax regimes for FY 2024-25.
+                    Compare income tax slabs and rates between old and new tax regimes for FY 2025-26 with revolutionary Section 87A benefits.
                   </p>
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -108,7 +108,7 @@ export default function OldVsNewRegime() {
                             <div>• Section 80C: ₹1.5 lakh</div>
                             <div>• Section 80D: ₹25,000-₹50,000</div>
                             <div>• HRA, LTA, and other allowances</div>
-                            <div>• Standard deduction: ₹50,000</div>
+                            <div>• Standard deduction: ₹75,000</div>
                           </div>
                         </div>
                       </div>
@@ -141,12 +141,13 @@ export default function OldVsNewRegime() {
                           <span className="font-medium">Above ₹15L</span>
                           <span className="font-bold text-red-600">30%</span>
                         </div>
-                        <div className="mt-4 p-3 bg-red-50 rounded-lg">
-                          <h4 className="font-semibold text-gray-800 mb-2">Limited Deductions</h4>
-                          <div className="text-sm text-red-700 space-y-1">
+                        <div className="mt-4 p-3 bg-green-50 rounded-lg">
+                          <h4 className="font-semibold text-gray-800 mb-2">FY 2025-26 Revolutionary Benefits</h4>
+                          <div className="text-sm text-green-700 space-y-1">
                             <div>• Standard deduction: ₹75,000</div>
                             <div>• NPS employer contribution: ₹50,000</div>
-                            <div>• No other deductions allowed</div>
+                            <div>🎉 <strong>Section 87A: ₹60,000 rebate up to ₹12L income</strong></div>
+                            <div>🎯 <strong>Zero tax up to ₹12 lakh income!</strong></div>
                           </div>
                         </div>
                       </div>
@@ -175,7 +176,7 @@ export default function OldVsNewRegime() {
                         </tr>
                         <tr className="bg-gray-50">
                           <td className="border border-gray-300 p-4 font-medium">Standard deduction</td>
-                          <td className="border border-gray-300 p-4 text-center">₹50,000</td>
+                          <td className="border border-gray-300 p-4 text-center">₹75,000</td>
                           <td className="border border-gray-300 p-4 text-center text-green-600">₹75,000</td>
                         </tr>
                         <tr>
@@ -194,14 +195,19 @@ export default function OldVsNewRegime() {
                           <td className="border border-gray-300 p-4 text-center text-red-600">Not allowed</td>
                         </tr>
                         <tr className="bg-gray-50">
-                          <td className="border border-gray-300 p-4 font-medium">87A rebate limit</td>
+                          <td className="border border-gray-300 p-4 font-medium">87A rebate limit (FY 2025-26)</td>
                           <td className="border border-gray-300 p-4 text-center">₹12,500 (₹5L income)</td>
-                          <td className="border border-gray-300 p-4 text-center text-green-600">₹25,000 (₹7L income)</td>
+                          <td className="border border-gray-300 p-4 text-center text-green-600"><strong>₹60,000 (₹12L income)</strong></td>
                         </tr>
                         <tr>
                           <td className="border border-gray-300 p-4 font-medium">Education loan interest</td>
                           <td className="border border-gray-300 p-4 text-center text-blue-600">Unlimited (80E)</td>
                           <td className="border border-gray-300 p-4 text-center text-red-600">Not allowed</td>
+                        </tr>
+                        <tr className="bg-green-50">
+                          <td className="border border-gray-300 p-4 font-medium"><strong>🎉 Zero Tax Income (FY 2025-26)</strong></td>
+                          <td className="border border-gray-300 p-4 text-center">Up to ₹6.5L (with deductions)</td>
+                          <td className="border border-gray-300 p-4 text-center text-green-600"><strong>Up to ₹12L (complete exemption!)</strong></td>
                         </tr>
                       </tbody>
                     </table>
@@ -210,8 +216,40 @@ export default function OldVsNewRegime() {
 
                 {/* Calculation Examples */}
                 <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-200">
-                  <h2 className="text-2xl font-bold text-indigo-800 mb-6">💰 Tax Calculation Examples</h2>
+                  <h2 className="text-2xl font-bold text-indigo-800 mb-6">💰 Tax Calculation Examples (Updated for FY 2025-26)</h2>
                   
+                  <div className="mb-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-2 border-green-200">
+                    <h3 className="text-xl font-bold text-green-800 mb-4 text-center">🎉 FY 2025-26 Revolutionary Example</h3>
+                    <div className="bg-white rounded-lg p-4">
+                      <h4 className="text-lg font-bold text-gray-800 mb-3">💰 Income: ₹12 Lakh - Complete Tax Exemption!</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="p-3 bg-blue-50 rounded-lg">
+                          <h5 className="font-semibold text-blue-800 mb-2">Old Regime</h5>
+                          <div className="text-sm space-y-1">
+                            <div>Gross Income: ₹12,00,000</div>
+                            <div>80C + 80D: ₹1,75,000</div>
+                            <div>Standard Deduction: ₹75,000</div>
+                            <div>Taxable Income: ₹9,50,000</div>
+                            <div className="font-bold text-blue-600">Tax: ₹1,50,000</div>
+                          </div>
+                        </div>
+                        <div className="p-3 bg-green-50 rounded-lg">
+                          <h5 className="font-semibold text-green-800 mb-2">New Regime (FY 2025-26)</h5>
+                          <div className="text-sm space-y-1">
+                            <div>Gross Income: ₹12,00,000</div>
+                            <div>Standard Deduction: ₹75,000</div>
+                            <div>Taxable Income: ₹11,25,000</div>
+                            <div>Tax Calculated: ₹60,000</div>
+                            <div className="font-bold text-green-600">After 87A Rebate: ₹0</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-center mt-4 p-3 bg-green-100 rounded-lg">
+                        <span className="text-lg font-bold text-green-700">💰 SAVE ₹1,50,000 with New Regime!</span>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Example 1 - Low Income */}
                     <div className="bg-white rounded-xl p-6 shadow-md">
@@ -222,20 +260,20 @@ export default function OldVsNewRegime() {
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹6,00,000</div>
                             <div>80C Investment: ₹1,50,000</div>
-                            <div>Standard Deduction: ₹50,000</div>
-                            <div>Taxable Income: ₹4,00,000</div>
-                            <div className="font-bold text-blue-600">Tax: ₹5,000</div>
-                            <div className="font-bold text-green-600">After 87A: ₹0</div>
+                            <div>Standard Deduction: ₹75,000</div>
+                            <div>Taxable Income: ₹3,75,000</div>
+                            <div>Tax: ₹6,250</div>
+                            <div className="font-bold text-green-600">After 87A Rebate: ₹0</div>
                           </div>
                         </div>
                         <div className="p-3 bg-green-50 rounded-lg">
-                          <h4 className="font-semibold text-green-800 mb-2">New Regime</h4>
+                          <h4 className="font-semibold text-green-800 mb-2">New Regime (FY 2025-26)</h4>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹6,00,000</div>
                             <div>Standard Deduction: ₹75,000</div>
                             <div>Taxable Income: ₹5,25,000</div>
-                            <div className="font-bold text-green-600">Tax: ₹11,250</div>
-                            <div className="font-bold text-green-600">After 87A: ₹0</div>
+                            <div>Tax: ₹11,250</div>
+                            <div className="font-bold text-green-600">After 87A Rebate: ₹0</div>
                           </div>
                         </div>
                         <div className="text-center font-bold text-lg text-green-600">
@@ -253,22 +291,23 @@ export default function OldVsNewRegime() {
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹10,00,000</div>
                             <div>80C + 80D: ₹1,75,000</div>
-                            <div>Standard Deduction: ₹50,000</div>
-                            <div>Taxable Income: ₹7,75,000</div>
-                            <div className="font-bold text-blue-600">Tax: ₹67,500</div>
+                            <div>Standard Deduction: ₹75,000</div>
+                            <div>Taxable Income: ₹7,50,000</div>
+                            <div className="font-bold text-blue-600">Tax: ₹1,00,000</div>
                           </div>
                         </div>
                         <div className="p-3 bg-green-50 rounded-lg">
-                          <h4 className="font-semibold text-green-800 mb-2">New Regime</h4>
+                          <h4 className="font-semibold text-green-800 mb-2">New Regime (FY 2025-26)</h4>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹10,00,000</div>
                             <div>Standard Deduction: ₹75,000</div>
                             <div>Taxable Income: ₹9,25,000</div>
-                            <div className="font-bold text-green-600">Tax: ₹55,000</div>
+                            <div>Tax: ₹52,500</div>
+                            <div className="font-bold text-green-600">After 87A Rebate: ₹0</div>
                           </div>
                         </div>
                         <div className="text-center font-bold text-lg text-green-600">
-                          Winner: New Regime (₹12,500 saved)
+                          Winner: New Regime (₹1,00,000 saved!)
                         </div>
                       </div>
                     </div>
@@ -281,22 +320,23 @@ export default function OldVsNewRegime() {
                           <h4 className="font-semibold text-blue-800 mb-2">Old Regime</h4>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹20,00,000</div>
-                            <div>All Deductions: ₹3,00,000</div>
-                            <div>Taxable Income: ₹17,00,000</div>
-                            <div className="font-bold text-blue-600">Tax: ₹3,12,500</div>
+                            <div>80C + 80D + Others: ₹3,00,000</div>
+                            <div>Standard Deduction: ₹75,000</div>
+                            <div>Taxable Income: ₹16,25,000</div>
+                            <div className="font-bold text-blue-600">Tax: ₹2,87,500</div>
                           </div>
                         </div>
                         <div className="p-3 bg-green-50 rounded-lg">
-                          <h4 className="font-semibold text-green-800 mb-2">New Regime</h4>
+                          <h4 className="font-semibold text-green-800 mb-2">New Regime (FY 2025-26)</h4>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹20,00,000</div>
                             <div>Standard Deduction: ₹75,000</div>
                             <div>Taxable Income: ₹19,25,000</div>
-                            <div className="font-bold text-green-600">Tax: ₹3,37,500</div>
+                            <div className="font-bold text-green-600">Tax: ₹2,85,000</div>
                           </div>
                         </div>
-                        <div className="text-center font-bold text-lg text-blue-600">
-                          Winner: Old Regime (₹25,000 saved)
+                        <div className="text-center font-bold text-lg text-green-600">
+                          Winner: New Regime (₹2,500 saved)
                         </div>
                       </div>
                     </div>
@@ -329,7 +369,7 @@ export default function OldVsNewRegime() {
                         </div>
                         <div className="flex items-start gap-2">
                           <span className="text-green-500 mt-1">✅</span>
-                          <span>Your total deductions exceed ₹2.5 lakh</span>
+                          <span>Your total deductions exceed ₹3 lakh and income &gt; ₹15L</span>
                         </div>
                       </div>
                     </div>
@@ -337,6 +377,10 @@ export default function OldVsNewRegime() {
                     <div className="p-6 bg-green-50 rounded-xl border border-green-200">
                       <h3 className="text-xl font-bold text-green-800 mb-4">Choose New Regime If:</h3>
                       <div className="space-y-3 text-green-700">
+                        <div className="flex items-start gap-2">
+                          <span className="text-green-500 mt-1">🎉</span>
+                          <span><strong>Your income is up to ₹12 lakhs (FY 2025-26): ZERO TAX!</strong></span>
+                        </div>
                         <div className="flex items-start gap-2">
                           <span className="text-green-500 mt-1">✅</span>
                           <span>You don&apos;t have many tax-saving investments</span>
@@ -347,15 +391,11 @@ export default function OldVsNewRegime() {
                         </div>
                         <div className="flex items-start gap-2">
                           <span className="text-green-500 mt-1">✅</span>
-                          <span>Your income is between ₹7-15 lakhs</span>
+                          <span>Your income is between ₹7-20 lakhs (massive savings)</span>
                         </div>
                         <div className="flex items-start gap-2">
                           <span className="text-green-500 mt-1">✅</span>
-                          <span>You don&apos;t want to be tied to investment commitments</span>
-                        </div>
-                        <div className="flex items-start gap-2">
-                          <span className="text-green-500 mt-1">✅</span>
-                          <span>You prefer lower tax rates over deductions</span>
+                          <span>You prefer guaranteed benefits over investment commitments</span>
                         </div>
                       </div>
                     </div>
