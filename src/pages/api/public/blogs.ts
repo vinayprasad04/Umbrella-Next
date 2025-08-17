@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '../../../lib/mongodb';
 import Blog from '../../../models/Blog';
+import User from '../../../models/User';
 
 type BlogData = {
   blogs?: any[];
@@ -36,7 +37,6 @@ export default async function handler(
     
     // Fetch blogs
     const blogs = await Blog.find(query)
-      .populate('author', 'name')
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limitNum)
@@ -68,7 +68,7 @@ export default async function handler(
       id: blog._id.toString(),
       title: blog.title,
       excerpt: blog.excerpt,
-      author: blog.author?.name || 'Unknown',
+      author: 'Umbrella Financial',
       date: new Date(blog.createdAt).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',

@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '../../../../lib/mongodb';
 import Blog from '../../../../models/Blog';
+import User from '../../../../models/User';
 
 type BlogDetailData = {
   blog?: any;
@@ -29,7 +30,6 @@ export default async function handler(
     
     // Get the specific blog
     const blog = await Blog.findOne({ slug, status: 'live' })
-      .populate('author', 'name')
       .lean();
     
     if (!blog) {
@@ -44,7 +44,6 @@ export default async function handler(
       status: 'live', 
       _id: { $ne: (blog as any)._id } 
     })
-      .populate('author', 'name')
       .sort({ createdAt: -1 })
       .limit(5)
       .lean();
@@ -74,7 +73,7 @@ export default async function handler(
       title: blogData.title,
       excerpt: blogData.excerpt,
       content: blogData.content,
-      author: blogData.author?.name || 'Unknown',
+      author: 'Umbrella Financial',
       date: new Date(blogData.createdAt).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
@@ -97,7 +96,7 @@ export default async function handler(
       id: recentBlog._id.toString(),
       title: recentBlog.title,
       excerpt: recentBlog.excerpt,
-      author: recentBlog.author?.name || 'Unknown',
+      author: 'Umbrella Financial',
       date: new Date(recentBlog.createdAt).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',

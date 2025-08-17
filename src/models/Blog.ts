@@ -80,8 +80,7 @@ const BlogSchema = new mongoose.Schema<IBlog>({
   timestamps: true,
 });
 
-// Create slug index for better performance
-BlogSchema.index({ slug: 1 });
+// Create indexes for better performance
 BlogSchema.index({ status: 1 });
 BlogSchema.index({ category: 1 });
 BlogSchema.index({ tags: 1 });
