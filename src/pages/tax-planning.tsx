@@ -13,6 +13,12 @@ interface MenuItem {
 
 const menuItems: MenuItem[] = [
   {
+    id: 'itr-filing-guide',
+    title: 'ITR Filing Guide',
+    icon: '📋',
+    description: 'Choose the right ITR form based on your income sources'
+  },
+  {
     id: 'section-80c',
     title: 'Section 80C Investments',
     icon: '💰',
@@ -77,7 +83,7 @@ const menuItems: MenuItem[] = [
 export default function TaxPlanning() {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [activeSection, setActiveSection] = useState('section-80c');
+  const [activeSection, setActiveSection] = useState('itr-filing-guide');
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('loggedIn') === 'true';
@@ -101,6 +107,138 @@ export default function TaxPlanning() {
 
   const renderContent = () => {
     switch (activeSection) {
+      case 'itr-filing-guide':
+        return (
+          <div className="space-y-8">
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-200">
+              <h2 className="text-3xl font-bold text-purple-800 mb-4 flex items-center gap-3">
+                📋 ITR Filing Guide
+              </h2>
+              <p className="text-lg text-purple-700 mb-6">
+                Choose the correct Income Tax Return (ITR) form based on your income sources. Filing the wrong ITR can lead to penalties and delays.
+              </p>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* ITR Forms Overview */}
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">🎯 ITR Forms Overview</h3>
+                  
+                  <div className="space-y-4">
+                    <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                      <h4 className="font-semibold text-gray-800 mb-2">ITR-1 (Sahaj)</h4>
+                      <p className="text-sm text-gray-600 mb-2">For salaried individuals with simple income</p>
+                      <div className="text-xs text-green-600">
+                        ✓ Only salary income<br/>
+                        ✓ One house property<br/>
+                        ✓ Income up to ₹50 lakhs<br/>
+                        ✓ No capital gains/business income
+                      </div>
+                    </div>
+                    
+                    <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                      <h4 className="font-semibold text-gray-800 mb-2">ITR-2</h4>
+                      <p className="text-sm text-gray-600 mb-2">For individuals with capital gains/multiple properties</p>
+                      <div className="text-xs text-blue-600">
+                        ✓ Capital gains from stocks/mutual funds<br/>
+                        ✓ Multiple house properties<br/>
+                        ✓ Foreign income/assets<br/>
+                        ✓ Income above ₹50 lakhs
+                      </div>
+                    </div>
+                    
+                    <div className="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                      <h4 className="font-semibold text-gray-800 mb-2">ITR-3</h4>
+                      <p className="text-sm text-gray-600 mb-2">For business/professional income</p>
+                      <div className="text-xs text-orange-600">
+                        ✓ Business income<br/>
+                        ✓ Professional income<br/>
+                        ✓ Partnership firm income<br/>
+                        ✓ Presumptive taxation (44AD/44ADA)
+                      </div>
+                    </div>
+                    
+                    <div className="p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
+                      <h4 className="font-semibold text-gray-800 mb-2">ITR-4 (Sugam)</h4>
+                      <p className="text-sm text-gray-600 mb-2">For presumptive business income</p>
+                      <div className="text-xs text-red-600">
+                        ✓ Business income under Section 44AD<br/>
+                        ✓ Professional income under Section 44ADA<br/>
+                        ✓ Total income up to ₹50 lakhs<br/>
+                        ✓ Simplified for small businesses
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick Decision Tree */}
+                <div className="space-y-6">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">🤔 Which ITR Should You File?</h3>
+                  
+                  <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+                    <div className="space-y-4">
+                      <div className="p-3 bg-white rounded border-l-4 border-purple-500">
+                        <h4 className="font-semibold text-purple-800 mb-2">💼 Only Salary Income?</h4>
+                        <p className="text-sm text-gray-600 mb-2">
+                          Income from salary, pension, one house property
+                        </p>
+                        <div className="text-xs bg-green-100 text-green-800 p-2 rounded">
+                          <strong>Use ITR-1</strong> (if income ≤ ₹50L)
+                        </div>
+                      </div>
+                      
+                      <div className="p-3 bg-white rounded border-l-4 border-blue-500">
+                        <h4 className="font-semibold text-blue-800 mb-2">📈 Stock Market Profits?</h4>
+                        <p className="text-sm text-gray-600 mb-2">
+                          Capital gains from shares, mutual funds, property
+                        </p>
+                        <div className="text-xs bg-blue-100 text-blue-800 p-2 rounded">
+                          <strong>Use ITR-2</strong> (mandatory for capital gains)
+                        </div>
+                      </div>
+                      
+                      <div className="p-3 bg-white rounded border-l-4 border-orange-500">
+                        <h4 className="font-semibold text-orange-800 mb-2">🏪 Business Income?</h4>
+                        <p className="text-sm text-gray-600 mb-2">
+                          Trading, freelancing, consulting, shop business
+                        </p>
+                        <div className="text-xs bg-orange-100 text-orange-800 p-2 rounded">
+                          <strong>Use ITR-3</strong> (for regular books)<br/>
+                          <strong>Use ITR-4</strong> (for presumptive scheme)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                    <h4 className="font-semibold text-yellow-800 mb-2">⚠️ Common Mistakes to Avoid</h4>
+                    <ul className="text-xs text-yellow-700 space-y-1">
+                      <li>• Don&apos;t use ITR-1 if you have capital gains</li>
+                      <li>• Don&apos;t forget to report small stock profits</li>
+                      <li>• Multiple house properties need ITR-2</li>
+                      <li>• Crypto trading requires ITR-2 or ITR-3</li>
+                      <li>• Foreign income/assets need ITR-2</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={() => router.push('/tax-planning/itr-filing-guide')}
+                  className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Read Complete ITR Filing Guide →
+                </button>
+                <button
+                  onClick={() => router.push('/calculation/tax')}
+                  className="bg-white text-purple-600 border-2 border-purple-200 px-8 py-3 rounded-xl font-semibold hover:bg-purple-50 transition-all duration-300"
+                >
+                  Calculate Your Tax →
+                </button>
+              </div>
+            </div>
+          </div>
+        );
       case 'section-80c':
         return (
           <div className="space-y-8">

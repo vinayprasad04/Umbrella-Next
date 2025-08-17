@@ -22,7 +22,8 @@
       "Bash(done)",
       "Bash(TASKKILL /F /PID 38168)",
       "Bash(cmd /c:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(npm run lint:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

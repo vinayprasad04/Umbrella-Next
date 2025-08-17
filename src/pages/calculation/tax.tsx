@@ -529,9 +529,19 @@ export default function TaxCalculator() {
                   
                   {/* Input Form */}
                   <div className="lg:col-span-3 bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl border border-gray-100">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                    <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                       Tax Calculator
                     </h2>
+                    
+                    {/* Link to Complete Tax Planning Guide */}
+                    <div className="text-center mb-8">
+                      <button
+                        onClick={() => router.push('/tax-planning')}
+                        className="text-sm text-gray-600 hover:text-[#FF6B2C] underline underline-offset-2 transition-colors duration-200"
+                      >
+                        View Complete Tax Planning Guide →
+                      </button>
+                    </div>
                     
                     <div className="space-y-8">
                       
@@ -540,7 +550,34 @@ export default function TaxCalculator() {
                         <h3 className="text-lg font-bold text-blue-800 mb-4">👤 Personal Details</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                           <div className="md:col-span-2">
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Assessment Year</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                              Assessment Year
+                              <div className="group relative inline-block ml-1">
+                                <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
+                                  <div className="font-semibold mb-2">Assessment Year vs Financial Year:</div>
+                                  <div className="space-y-2">
+                                    <div>
+                                      <span className="font-medium text-green-300">• Financial Year (FY):</span>
+                                      <div className="ml-2">- Period when income is earned (April 1 to March 31)</div>
+                                      <div className="ml-2">- Example: FY 2024-25 = April 1, 2024 to March 31, 2025</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-yellow-300">• Assessment Year (AY):</span>
+                                      <div className="ml-2">- Period when you file tax return for previous FY</div>
+                                      <div className="ml-2">- Always next year after FY</div>
+                                      <div className="ml-2">- Example: AY 2025-26 for income earned in FY 2024-25</div>
+                                    </div>
+                                    <div>
+                                      <span className="font-medium text-blue-300">• Key Point:</span>
+                                      <div className="ml-2">- Tax rules and slabs are based on the Assessment Year</div>
+                                      <div className="ml-2">- Select the AY for which you want to calculate tax</div>
+                                    </div>
+                                  </div>
+                                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                                </div>
+                              </div>
+                            </label>
                             <select
                               className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm font-medium"
                               value={assessmentYear}
