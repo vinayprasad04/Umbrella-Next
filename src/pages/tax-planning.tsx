@@ -249,6 +249,16 @@ export default function TaxPlanning() {
                   <div>• ELSS has the shortest lock-in of just 3 years</div>
                 </div>
               </div>
+              
+              {/* Read More Button */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => router.push('/tax-planning/section-80c')}
+                  className="bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Read Complete Section 80C Guide →
+                </button>
+              </div>
             </div>
           </div>
         );
@@ -371,6 +381,16 @@ export default function TaxPlanning() {
                     <div className="text-blue-600">Save up to ₹5,000</div>
                   </div>
                 </div>
+              </div>
+              
+              {/* Read More Button */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => router.push('/tax-planning/health-insurance-80d')}
+                  className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Read Complete Health Insurance Guide →
+                </button>
               </div>
             </div>
           </div>
@@ -496,6 +516,16 @@ export default function TaxPlanning() {
                   </div>
                 </div>
               </div>
+              
+              {/* Read More Button */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => router.push('/tax-planning/home-loan-benefits')}
+                  className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Read Complete Home Loan Guide →
+                </button>
+              </div>
             </div>
           </div>
         );
@@ -573,6 +603,16 @@ export default function TaxPlanning() {
                     </div>
                   </div>
                 </div>
+              </div>
+              
+              {/* Read More Button */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => router.push('/tax-planning/education-loan-80e')}
+                  className="bg-gradient-to-r from-purple-500 to-indigo-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Read Complete Education Loan Guide →
+                </button>
               </div>
             </div>
           </div>
@@ -898,6 +938,16 @@ export default function TaxPlanning() {
                   </p>
                 </div>
               </div>
+              
+              {/* Read More Button */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => router.push('/tax-planning/donations-80g')}
+                  className="bg-gradient-to-r from-pink-500 to-red-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Read Complete Donations Guide →
+                </button>
+              </div>
             </div>
           </div>
         );
@@ -968,6 +1018,16 @@ export default function TaxPlanning() {
                     </div>
                   </div>
                 </div>
+              </div>
+              
+              {/* Read More Button */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => router.push('/tax-planning/capital-gains-planning')}
+                  className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Read Complete Capital Gains Guide →
+                </button>
               </div>
             </div>
           </div>
@@ -1094,6 +1154,16 @@ export default function TaxPlanning() {
                   <div>• Tax on withdrawal depends on corpus amount</div>
                 </div>
               </div>
+              
+              {/* Read More Button */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => router.push('/tax-planning/nps-additional-80ccd1b')}
+                  className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Read Complete NPS Guide →
+                </button>
+              </div>
             </div>
           </div>
         );
@@ -1198,6 +1268,16 @@ export default function TaxPlanning() {
                   <div>• Opt for employer NPS contribution under 80CCD(2)</div>
                 </div>
               </div>
+              
+              {/* Read More Button */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => router.push('/tax-planning/salary-restructuring')}
+                  className="bg-gradient-to-r from-violet-500 to-purple-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Read Complete Salary Restructuring Guide →
+                </button>
+              </div>
             </div>
           </div>
         );
@@ -1294,6 +1374,16 @@ export default function TaxPlanning() {
                   <div>• Cannot exceed the total tax liability</div>
                   <div>• New regime generally better for lower incomes</div>
                 </div>
+              </div>
+              
+              {/* Read More Button */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => router.push('/tax-planning/section-87a-rebates')}
+                  className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Read Complete Section 87A Guide →
+                </button>
               </div>
             </div>
           </div>
@@ -1426,6 +1516,16 @@ export default function TaxPlanning() {
                   <div>• Default is New Regime for new taxpayers</div>
                   <div>• Use our tax calculator to compare both</div>
                 </div>
+              </div>
+              
+              {/* Read More Button */}
+              <div className="mt-8 text-center">
+                <button
+                  onClick={() => router.push('/tax-planning/old-vs-new-regime')}
+                  className="bg-gradient-to-r from-slate-500 to-gray-600 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Read Complete Regime Comparison Guide →
+                </button>
               </div>
             </div>
           </div>

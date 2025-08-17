@@ -4,102 +4,74 @@ import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
+interface BlogPost {
+  id: string;
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  readTime: string;
+  category: string;
+  image: string;
+  tags: string[];
+  color: string;
+  slug: string;
+}
+
+interface Category {
+  id: string;
+  name: string;
+  count: number;
+}
+
 export default function Blogs() {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const loggedIn = localStorage.getItem('loggedIn') === 'true';
     setIsLoggedIn(loggedIn);
+    
+    // Check for category parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    if (categoryParam) {
+      setSelectedCategory(categoryParam);
+    }
+    
+    fetchBlogs();
   }, []);
 
-  const categories = [
-    { id: 'all', name: 'All Posts', count: 45 },
-    { id: 'investing', name: 'Investing', count: 18 },
-    { id: 'market-news', name: 'Market News', count: 12 },
-    { id: 'personal-finance', name: 'Personal Finance', count: 10 },
-    { id: 'tips', name: 'Tips & Strategies', count: 8 }
-  ];
-
-  const blogPosts = [
-    {
-      id: 1,
-      title: "10 Best Blue Chip Stocks to Invest in 2024",
-      excerpt: "Discover the top blue chip stocks that offer stability and consistent returns for long-term investors.",
-      author: "Rajesh Kumar",
-      date: "Dec 15, 2024",
-      readTime: "8 min read",
-      category: "investing",
-      image: "📈",
-      tags: ["Stocks", "Blue Chip", "Long-term"],
-      color: "from-blue-400 to-blue-600"
-    },
-    {
-      id: 2,
-      title: "Understanding SIP: A Complete Guide for Beginners",
-      excerpt: "Learn everything about Systematic Investment Plans and how they can help you build wealth systematically.",
-      author: "Priya Sharma",
-      date: "Dec 12, 2024",
-      readTime: "6 min read",
-      category: "personal-finance",
-      image: "💰",
-      tags: ["SIP", "Mutual Funds", "Beginner"],
-      color: "from-green-400 to-green-600"
-    },
-    {
-      id: 3,
-      title: "Market Volatility: How to Protect Your Portfolio",
-      excerpt: "Strategies to safeguard your investments during market downturns and volatile conditions.",
-      author: "Amit Singh",
-      date: "Dec 10, 2024",
-      readTime: "10 min read",
-      category: "tips",
-      image: "🛡️",
-      tags: ["Risk Management", "Portfolio", "Strategy"],
-      color: "from-purple-400 to-purple-600"
-    },
-    {
-      id: 4,
-      title: "RBI Policy Impact on Banking Stocks",
-      excerpt: "Analysis of how recent RBI policy changes are affecting banking sector stocks and future outlook.",
-      author: "Dr. Neha Gupta",
-      date: "Dec 8, 2024",
-      readTime: "7 min read",
-      category: "market-news",
-      image: "🏦",
-      tags: ["Banking", "RBI", "Policy"],
-      color: "from-orange-400 to-orange-600"
-    },
-    {
-      id: 5,
-      title: "Tax-Saving Investments: ELSS vs ULIP vs PPF",
-      excerpt: "Complete comparison of tax-saving investment options to help you make the right choice.",
-      author: "Vikash Jain",
-      date: "Dec 5, 2024",
-      readTime: "9 min read",
-      category: "personal-finance",
-      image: "🧾",
-      tags: ["Tax Saving", "ELSS", "ULIP", "PPF"],
-      color: "from-pink-400 to-pink-600"
-    },
-    {
-      id: 6,
-      title: "Crypto Investment: Risks and Opportunities",
-      excerpt: "Understanding the cryptocurrency market and how to approach crypto investments safely.",
-      author: "Arjun Patel",
-      date: "Dec 3, 2024",
-      readTime: "12 min read",
-      category: "investing",
-      image: "₿",
-      tags: ["Cryptocurrency", "Bitcoin", "Alternative Investment"],
-      color: "from-yellow-400 to-orange-500"
+  const fetchBlogs = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetch(`/api/public/blogs?category=${selectedCategory}`);
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch blogs');
+      }
+      
+      const data = await response.json();
+      setBlogPosts(data.blogs || []);
+      setCategories(data.categories || []);
+    } catch (error: any) {
+      console.error('Failed to fetch blogs:', error);
+      setError('Failed to load blogs');
+    } finally {
+      setIsLoading(false);
     }
-  ];
+  };
 
-  const filteredPosts = selectedCategory === 'all' 
-    ? blogPosts 
-    : blogPosts.filter(post => post.category === selectedCategory);
+  useEffect(() => {
+    fetchBlogs();
+  }, [selectedCategory]);
+
+  const filteredPosts = blogPosts;
 
   const handleGetStarted = () => {
     if (isLoggedIn) {
@@ -230,10 +202,54 @@ export default function Blogs() {
                   Stay informed with our latest insights on investing, market trends, and financial planning
                 </p>
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredPosts.map((post) => (
-                  <article key={post.id} className="group bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-100">
+
+              {error && (
+                <div className="text-center mb-8">
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg inline-block">
+                    {error}
+                  </div>
+                </div>
+              )}
+
+              {isLoading ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {[1, 2, 3, 4, 5, 6].map((i) => (
+                    <div key={i} className="bg-white rounded-3xl p-6 shadow-lg animate-pulse">
+                      <div className="w-16 h-16 bg-gray-200 rounded-2xl mb-4"></div>
+                      <div className="space-y-3 mb-4">
+                        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                      </div>
+                      <div className="h-6 bg-gray-200 rounded mb-3"></div>
+                      <div className="space-y-2 mb-4">
+                        <div className="h-3 bg-gray-200 rounded"></div>
+                        <div className="h-3 bg-gray-200 rounded w-5/6"></div>
+                      </div>
+                      <div className="h-10 bg-gray-200 rounded"></div>
+                    </div>
+                  ))}
+                </div>
+              ) : filteredPosts.length === 0 ? (
+                <div className="text-center py-16">
+                  <div className="text-6xl mb-4">📝</div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">No articles found</h3>
+                  <p className="text-gray-600 mb-6">
+                    {selectedCategory === 'all' 
+                      ? 'No blog posts available at the moment.'
+                      : `No articles found in the ${categories.find(c => c.id === selectedCategory)?.name || selectedCategory} category.`
+                    }
+                  </p>
+                  <button
+                    onClick={() => router.push('/debug/seed-blogs')}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold"
+                  >
+                    Seed Sample Blogs
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredPosts.map((post) => (
+                  <article key={post.id} className="group bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-100 cursor-pointer" onClick={() => router.push(`/products/blogs/${post.slug}`)}>
                     {/* Post Header */}
                     <div className="mb-6">
                       <div className={`w-16 h-16 bg-gradient-to-r ${post.color} rounded-2xl flex items-center justify-center mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
@@ -277,7 +293,10 @@ export default function Blogs() {
                       </div>
                       
                       {/* Read More Button */}
-                      <button className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn">
+                      <button 
+                        onClick={() => router.push(`/products/blogs/${post.slug}`)}
+                        className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                      >
                         Read More
                         <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -285,15 +304,18 @@ export default function Blogs() {
                       </button>
                     </div>
                   </article>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
               
               {/* Load More Button */}
-              <div className="text-center mt-16">
-                <button className="bg-white text-gray-700 px-8 py-4 border-2 border-gray-200 rounded-xl text-lg font-semibold cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:border-gray-300 transition-all duration-300">
-                  Load More Articles
-                </button>
-              </div>
+              {!isLoading && filteredPosts.length > 0 && (
+                <div className="text-center mt-16">
+                  <button className="bg-white text-gray-700 px-8 py-4 border-2 border-gray-200 rounded-xl text-lg font-semibold cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:border-gray-300 transition-all duration-300">
+                    Load More Articles
+                  </button>
+                </div>
+              )}
             </div>
           </section>
 
