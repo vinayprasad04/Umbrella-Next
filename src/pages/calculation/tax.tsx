@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import jsPDF from 'jspdf';
 
 interface TaxResult {
   oldRegime: {
@@ -243,7 +244,7 @@ export default function TaxCalculator() {
       if (taxableIncome > 0) {
         tax = taxableIncome * 0.30;
         breakdown.push({
-          slab: `₹0 - ₹${taxableIncome.toLocaleString()}`,
+          slab: `Rs.0 - Rs.${taxableIncome.toLocaleString()}`,
           rate: '30%',
           taxableAmount: taxableIncome,
           tax: tax
@@ -260,7 +261,7 @@ export default function TaxCalculator() {
       if (taxableIncome > 0) {
         tax = taxableIncome * rate;
         breakdown.push({
-          slab: `₹0 - ₹${taxableIncome.toLocaleString()}`,
+          slab: `Rs.0 - Rs.${taxableIncome.toLocaleString()}`,
           rate: `${rate * 100}%`,
           taxableAmount: taxableIncome,
           tax: tax
@@ -295,8 +296,8 @@ export default function TaxCalculator() {
         
         if (taxableAmount > 0) {
           const slabLabel = slab.max === Infinity 
-            ? `Above ₹${(previousMax/100000).toFixed(0)}L`
-            : `₹${(previousMax/100000).toFixed(0)}L - ₹${(slab.max/100000).toFixed(0)}L`;
+            ? `Above Rs.${(previousMax/100000).toFixed(0)}L`
+            : `Rs.${(previousMax/100000).toFixed(0)}L - Rs.${(slab.max/100000).toFixed(0)}L`;
           
           breakdown.push({
             slab: slabLabel,
@@ -331,8 +332,8 @@ export default function TaxCalculator() {
         
         if (taxableAmount > 0) {
           const slabLabel = slab.max === Infinity 
-            ? `Above ₹${(adjustedMin/100000).toFixed(0)}L`
-            : `₹${(adjustedMin/100000).toFixed(0)}L - ₹${(slab.max/100000).toFixed(0)}L`;
+            ? `Above Rs.${(adjustedMin/100000).toFixed(0)}L`
+            : `Rs.${(adjustedMin/100000).toFixed(0)}L - Rs.${(slab.max/100000).toFixed(0)}L`;
           
           breakdown.push({
             slab: slabLabel,
@@ -437,8 +438,8 @@ export default function TaxCalculator() {
 
     // Apply rebate under section 87A for old regime (only for individuals/HUF)
     let oldTotalTaxAfterRebate = oldTotalTax;
-    if ((entityType === 'individual' || entityType === 'huf') && oldTaxableIncome <= 500000) { // Old regime rebate limit is ₹5L
-      const oldRebate = Math.min(oldTaxResult.tax, 12500); // Old regime rebate is ₹12,500
+    if ((entityType === 'individual' || entityType === 'huf') && oldTaxableIncome <= 500000) { // Old regime rebate limit is Rs.5L
+      const oldRebate = Math.min(oldTaxResult.tax, 12500); // Old regime rebate is Rs.12,500
       oldTotalTaxAfterRebate = Math.max(0, oldTotalTax - oldRebate);
     }
     // Add capital gains tax to old regime
@@ -522,6 +523,401 @@ export default function TaxCalculator() {
     });
   };
 
+  // PDF Generation Functions - Modern Professional Design
+  const generatePDF = async (type: 'old' | 'new' | 'capital') => {
+    if (!result) return;
+
+    const doc = new jsPDF();
+    const pageWidth = doc.internal.pageSize.width;
+    const pageHeight = doc.internal.pageSize.height;
+    let yPosition = 20;
+
+    // Color scheme
+    const primaryColor = [255, 107, 44]; // Orange
+    const secondaryColor = [52, 73, 94]; // Dark blue-gray
+    const accentColor = [230, 230, 230]; // Light gray
+
+    // Helper function to add new page
+    const addNewPage = () => {
+      doc.addPage();
+      yPosition = 20;
+      addWatermark(); // Add watermark to new page
+    };
+
+    // Helper function to add watermark
+    const addWatermark = () => {
+      doc.setFontSize(40);
+      doc.setTextColor(250, 250, 250);
+      doc.text('UMBRELLA FINANCIAL', pageWidth / 2, pageHeight / 2, { 
+        align: 'center'
+      });
+    };
+
+    // Helper function to check if we need new page
+    const checkPageBreak = (requiredSpace = 20) => {
+      if (yPosition + requiredSpace > pageHeight - 30) {
+        addNewPage();
+      }
+    };
+
+    // Helper function to draw modern card-style section
+    const drawCard = (title: string, content: Array<{label: string, value: string}>, cardColor = accentColor) => {
+      checkPageBreak(content.length * 7 + 20);
+      
+      // Card background
+      doc.setFillColor(cardColor[0], cardColor[1], cardColor[2]);
+      doc.rect(15, yPosition, pageWidth - 30, content.length * 7 + 15, 'F');
+      
+      // Card border
+      doc.setDrawColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.setLineWidth(0.5);
+      doc.rect(15, yPosition, pageWidth - 30, content.length * 7 + 15);
+      
+      // Title bar
+      doc.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.rect(15, yPosition, pageWidth - 30, 8, 'F');
+      
+      // Title text
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(10);
+      doc.setTextColor(255, 255, 255);
+      doc.text(title, 20, yPosition + 5, { charSpace: 0 });
+      
+      yPosition += 12;
+      
+      // Content
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(9);
+      doc.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
+      
+      content.forEach((item) => {
+        doc.setFont("helvetica", "bold");
+        doc.text(item.label + ":", 20, yPosition);
+        doc.setFont("helvetica", "normal");
+        doc.text(item.value, 90, yPosition);
+        yPosition += 6;
+      });
+      
+      yPosition += 8;
+    };
+
+    // Helper function to draw modern table
+    const drawModernTable = (title: string, headers: string[], data: string[][]) => {
+      const colWidth = (pageWidth - 30) / headers.length;
+      const rowHeight = 8;
+      
+      checkPageBreak(data.length * rowHeight + 25);
+      
+      // Table title
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
+      doc.text(title, 15, yPosition, { charSpace: 0 });
+      yPosition += 12;
+      
+      // Header row
+      doc.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.rect(15, yPosition, pageWidth - 30, rowHeight, 'F');
+      
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(9);
+      doc.setTextColor(255, 255, 255);
+      
+      headers.forEach((header, index) => {
+        const x = 15 + (index * colWidth);
+        doc.text(header, x + 3, yPosition + 5, { charSpace: 0 });
+      });
+      
+      yPosition += rowHeight;
+      
+      // Data rows
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      doc.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
+      
+      data.forEach((row, rowIndex) => {
+        // Alternating row colors
+        if (rowIndex % 2 === 0) {
+          doc.setFillColor(248, 249, 250);
+          doc.rect(15, yPosition, pageWidth - 30, rowHeight, 'F');
+        }
+        
+        // Row borders
+        doc.setDrawColor(220, 220, 220);
+        doc.setLineWidth(0.1);
+        doc.rect(15, yPosition, pageWidth - 30, rowHeight);
+        
+        row.forEach((cell, colIndex) => {
+          const x = 15 + (colIndex * colWidth);
+          if (colIndex === 0) {
+            doc.text(cell, x + 3, yPosition + 5);
+          } else {
+            doc.text(cell, x + colWidth - 3, yPosition + 5, { align: 'right' });
+          }
+        });
+        
+        yPosition += rowHeight;
+      });
+      
+      yPosition += 10;
+    };
+
+    // Generate Modern Header
+    const generateModernHeader = () => {
+      // Add watermark
+      addWatermark();
+      
+      // Header background gradient effect
+      doc.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.rect(0, 0, pageWidth, 50, 'F');
+      
+      // Company logo area (placeholder)
+      doc.setFillColor(255, 255, 255);
+      doc.circle(25, 25, 8, 'F');
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.text('U', 25, 28, { align: 'center' });
+      
+      // Main title
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(18);
+      doc.setTextColor(255, 255, 255);
+      const titleText = type === 'capital' ? 'Capital Gains Tax Report' :
+                       type === 'old' ? `${entityType === 'individual' ? 'Personal' : entityType.toUpperCase()} Tax Report - Old Regime` :
+                       `${entityType === 'individual' ? 'Personal' : entityType.toUpperCase()} Tax Report - New Regime`;
+      doc.text(titleText, 40, 20, { charSpace: 0 });
+      
+      // Subtitle
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(10);
+      doc.text(`Assessment Year ${assessmentYear} • Generated on ${new Date().toLocaleDateString()}`, 40, 30);
+      
+      // Company name
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(12);
+      doc.text('UMBRELLA FINANCIAL', pageWidth - 15, 20, { align: 'right', charSpace: 0 });
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(8);
+      doc.text('Professional Tax Consultation', pageWidth - 15, 28, { align: 'right' });
+      doc.text('www.umbrella.com', pageWidth - 15, 35, { align: 'right' });
+      
+      yPosition = 60;
+      
+      // Entity information card
+      const entityInfo = [
+        { label: "Entity Type", value: entityType === 'individual' ? 'Individual Taxpayer' : 
+                                     entityType === 'huf' ? 'Hindu Undivided Family' :
+                                     entityType === 'firm' ? 'Partnership Firm' : 'Private Company' },
+        { label: "Assessment Year", value: assessmentYear },
+        { label: "Financial Year", value: assessmentYear === '2025-26' ? '2024-25' : '2023-24' },
+        { label: "Report Type", value: type === 'capital' ? 'Capital Gains Analysis' : 
+                                      type === 'old' ? 'Old Tax Regime Computation' : 'New Tax Regime Computation' }
+      ];
+      
+      if (age && entityType === 'individual') {
+        entityInfo.push({ label: "Age Category", value: `${age} years` });
+      }
+      
+      drawCard("TAXPAYER INFORMATION", entityInfo, [240, 248, 255]);
+    };
+
+    if (type === 'capital') {
+      generateModernHeader();
+      
+      // Capital Gains Summary Card
+      const capitalSummary = [
+        { label: "Total Capital Gains", value: `Rs. ${(result.capitalGainsBreakdown.stcgEquity + result.capitalGainsBreakdown.ltcgEquity + result.capitalGainsBreakdown.ltcgOther).toLocaleString()}` },
+        { label: "Total Tax Liability", value: `Rs. ${result.capitalGainsBreakdown.totalCapitalGainsTax.toLocaleString()}` },
+        { label: "Effective Tax Rate", value: `${(result.capitalGainsBreakdown.totalCapitalGainsTax / (result.capitalGainsBreakdown.stcgEquity + result.capitalGainsBreakdown.ltcgEquity + result.capitalGainsBreakdown.ltcgOther) * 100 || 0).toFixed(2)}%` }
+      ];
+      
+      drawCard("CAPITAL GAINS SUMMARY", capitalSummary, [232, 245, 233]);
+
+      // Capital Gains Breakdown Table
+      const capitalHeaders = ['Asset Type', 'Amount (Rs.)', 'Tax Rate', 'Tax Amount (Rs.)'];
+      const capitalData = [
+        ['Equity Shares (Short Term)', result.capitalGainsBreakdown.stcgEquity.toLocaleString(), '15%', result.capitalGainsBreakdown.stcgEquityTax.toLocaleString()],
+        ['Equity Shares (Long Term)', result.capitalGainsBreakdown.ltcgEquity.toLocaleString(), '10% (>Rs.1L)', result.capitalGainsBreakdown.ltcgEquityTax.toLocaleString()],
+        ['Other Assets (Short Term)', result.capitalGainsBreakdown.stcgOther.toLocaleString(), 'As per Slab', '0'],
+        ['Other Assets (Long Term)', result.capitalGainsBreakdown.ltcgOther.toLocaleString(), '20% + Indexation', result.capitalGainsBreakdown.ltcgOtherTax.toLocaleString()]
+      ];
+
+      drawModernTable('CAPITAL GAINS BREAKDOWN', capitalHeaders, capitalData);
+
+      // Investment Tips Card
+      const investmentTips = [
+        { label: "Tax Saving Tip 1", value: "Hold equity investments for >12 months to get LTCG benefit" },
+        { label: "Tax Saving Tip 2", value: "Use Section 54/54F exemptions for real estate gains" },
+        { label: "Tax Saving Tip 3", value: "Consider ELSS investments for 80C deduction + LTCG benefit" },
+        { label: "Tax Saving Tip 4", value: "Invest LTCG in bonds under Section 54EC (Rs.50L/year limit)" }
+      ];
+      
+      drawCard("SMART INVESTMENT STRATEGIES", investmentTips, [255, 248, 220]);
+
+    } else {
+      // Income Tax Computation
+      generateModernHeader();
+      
+      const regime = type === 'old' ? result.oldRegime : result.newRegime;
+      
+      // Tax Summary Card
+      const taxSummary = [
+        { label: "Gross Total Income", value: `Rs. ${regime.grossIncome.toLocaleString()}` },
+        { label: "Total Deductions", value: `Rs. ${regime.totalDeductions.toLocaleString()}` },
+        { label: "Taxable Income", value: `Rs. ${regime.taxableIncome.toLocaleString()}` },
+        { label: "Total Tax Liability", value: `Rs. ${regime.totalTax.toLocaleString()}` },
+        { label: "Net Income After Tax", value: `Rs. ${regime.netIncome.toLocaleString()}` },
+        { label: "Effective Tax Rate", value: regime.effectiveRate }
+      ];
+      
+      drawCard("TAX COMPUTATION SUMMARY", taxSummary, [232, 245, 233]);
+
+      // Income Breakdown Table
+      const incomeHeaders = ['Income Source', 'Amount (Rs.)'];
+      const incomeData = [
+        ['Basic Salary', (parseFloat(basicSalary) || 0).toLocaleString()],
+        ['House Rent Allowance', (parseFloat(hra) || 0).toLocaleString()],
+        ['Special Allowance', (parseFloat(specialAllowance) || 0).toLocaleString()],
+        ['Other Allowances', (parseFloat(otherAllowances) || 0).toLocaleString()],
+        ['Bonus & Incentives', (parseFloat(bonus) || 0).toLocaleString()],
+        ['Other Income Sources', (parseFloat(otherIncome) || 0).toLocaleString()],
+        ['House Property Income', (parseFloat(housePropertyIncome) || 0).toLocaleString()]
+      ];
+
+      drawModernTable('INCOME BREAKDOWN', incomeHeaders, incomeData);
+
+      // HRA Exemption Details (if applicable)
+      if (parseFloat(hra) > 0 && (entityType === 'individual')) {
+        const hraExemption = Math.min(
+          parseFloat(hra) || 0,
+          Math.max(0, (parseFloat(rentPaid) || 0) - (parseFloat(basicSalary) || 0) * 0.1),
+          (parseFloat(basicSalary) || 0) * (cityType === 'metro' ? 0.5 : 0.4)
+        );
+        
+        const hraDetails = [
+          { label: "HRA Received", value: `Rs. ${(parseFloat(hra) || 0).toLocaleString()}` },
+          { label: "Rent - 10% Basic", value: `Rs. ${Math.max(0, (parseFloat(rentPaid) || 0) - (parseFloat(basicSalary) || 0) * 0.1).toLocaleString()}` },
+          { label: `${cityType === 'metro' ? '50%' : '40%'} of Basic (${cityType === 'metro' ? 'Metro' : 'Non-Metro'})`, 
+            value: `Rs. ${((parseFloat(basicSalary) || 0) * (cityType === 'metro' ? 0.5 : 0.4)).toLocaleString()}` },
+          { label: "HRA Exemption (Minimum)", value: `Rs. ${hraExemption.toLocaleString()}` }
+        ];
+        
+        drawCard("HRA EXEMPTION CALCULATION", hraDetails, [255, 248, 220]);
+      }
+
+      // Deductions Section
+      if (type === 'old' || entityType === 'firm' || entityType === 'company') {
+        if (entityType === 'firm' || entityType === 'company') {
+          // Business Deductions
+          const businessDeductions = [
+            { label: "Depreciation", value: "As per IT Act rates" },
+            { label: "Interest on Capital", value: entityType === 'firm' ? "Max 12% p.a." : "Fully deductible" },
+            { label: "Employee Benefits", value: "Salaries, PF, ESI" },
+            { label: "Operating Expenses", value: "Rent, utilities, repairs" },
+            { label: "Professional Fees", value: "Audit, legal, consulting" }
+          ];
+          
+          if (entityType === 'firm') {
+            businessDeductions.push({ label: "Partner Remuneration", value: "As per partnership deed" });
+          } else {
+            businessDeductions.push({ label: "CSR Expenses", value: "2% of average profit" });
+          }
+          
+          drawCard(`${entityType === 'firm' ? 'PARTNERSHIP FIRM' : 'COMPANY'} DEDUCTIONS`, businessDeductions, [245, 245, 245]);
+        } else {
+          // Personal Deductions
+          const deductionHeaders = ['Section', 'Description', 'Limit (Rs.)', 'Claimed (Rs.)'];
+          const deductionData = [
+            ['80C', 'PF, PPF, ELSS, Insurance', '1,50,000', (parseFloat(section80C) || 0).toLocaleString()],
+            ['80D', 'Health Insurance - Self/Family', '25,000', (parseFloat(section80DSelf) || 0).toLocaleString()],
+            ['80D', 'Health Insurance - Parents', '50,000', (parseFloat(section80DParents) || 0).toLocaleString()],
+            ['80CCD(1B)', 'Additional NPS', '50,000', (parseFloat(section80CCD1B) || 0).toLocaleString()],
+            ['80E', 'Education Loan Interest', 'No Limit', (parseFloat(section80E) || 0).toLocaleString()],
+            ['24(b)', 'Home Loan Interest', '2,00,000', (parseFloat(section24B) || 0).toLocaleString()],
+            ['Others', 'Professional Tax, Donations', '', (parseFloat(professionalTax) || 0 + parseFloat(otherDeductions) || 0).toLocaleString()]
+          ];
+
+          drawModernTable('TAX DEDUCTIONS (CHAPTER VI-A)', deductionHeaders, deductionData);
+        }
+      }
+
+      // Tax Slab Calculation
+      if (regime.breakdown && regime.breakdown.length > 0) {
+        const slabHeaders = ['Income Slab', 'Tax Rate', 'Amount (Rs.)', 'Tax (Rs.)'];
+        const slabData: string[][] = [];
+        
+        regime.breakdown.forEach(slab => {
+          slabData.push([
+            slab.slab,
+            slab.rate,
+            slab.taxableAmount.toLocaleString(),
+            slab.tax.toLocaleString()
+          ]);
+        });
+
+        drawModernTable('TAX CALCULATION SLABS', slabHeaders, slabData);
+      }
+
+      // Tax Planning Tips
+      const taxTips = type === 'new' ? [
+        { label: "Benefit 1", value: "Higher basic exemption limit (Rs.3L vs Rs.2.5L)" },
+        { label: "Benefit 2", value: "87A Rebate up to Rs.12L income (Rs.60,000 max)" },
+        { label: "Benefit 3", value: "Simplified tax structure with fewer complexities" },
+        { label: "Benefit 4", value: "Standard deduction of Rs.75,000 available" },
+        { label: "Note", value: "No Chapter VI-A deductions allowed in new regime" }
+      ] : [
+        { label: "Benefit 1", value: "All Chapter VI-A deductions available (80C, 80D, etc.)" },
+        { label: "Benefit 2", value: "HRA exemption for salaried employees" },
+        { label: "Benefit 3", value: "Education loan interest deduction (80E)" },
+        { label: "Benefit 4", value: "Home loan interest deduction (24b)" },
+        { label: "Note", value: "Higher basic exemption in new regime - compare both" }
+      ];
+
+      drawCard(`${type.toUpperCase()} REGIME ADVANTAGES`, taxTips, [240, 248, 255]);
+    }
+
+    // Add modern footer to all pages
+    const totalPages = doc.internal.pages.length - 1;
+    for (let i = 1; i <= totalPages; i++) {
+      doc.setPage(i);
+      
+      // Footer background
+      doc.setFillColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+      doc.rect(0, pageHeight - 25, pageWidth, 25, 'F');
+      
+      // Footer content
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(8);
+      doc.setTextColor(255, 255, 255);
+      doc.text('UMBRELLA FINANCIAL SERVICES', 15, pageHeight - 15, { charSpace: 0 });
+      doc.text(`Page ${i} of ${totalPages}`, pageWidth - 15, pageHeight - 15, { align: 'right' });
+      
+      doc.setFont("helvetica", "normal");
+      doc.setFontSize(7);
+      doc.text('Professional Tax Consultation & Financial Planning', 15, pageHeight - 10);
+      doc.text(`Generated: ${new Date().toLocaleDateString()}`, pageWidth - 15, pageHeight - 10, { align: 'right' });
+      
+      // Footer disclaimer
+      doc.setTextColor(200, 200, 200);
+      doc.setFontSize(6);
+      doc.text('This is a computer-generated report. Please consult a tax advisor for professional advice.', pageWidth / 2, pageHeight - 5, { align: 'center' });
+    }
+
+    // Save the PDF with modern filename
+    const entityLabel = entityType === 'individual' ? 'Personal' : 
+                       entityType === 'huf' ? 'HUF' : 
+                       entityType === 'firm' ? 'Partnership' : 'Corporate';
+    
+    const reportType = type === 'capital' ? 'CapitalGains' : 
+                      type === 'old' ? 'OldRegime' : 'NewRegime';
+    
+    const timestamp = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+    const filename = `${entityLabel}_${reportType}_Tax_Report_AY${assessmentYear}_${timestamp}.pdf`;
+    
+    doc.save(filename);
+  };
+
   const handleGetStarted = () => {
     if (isLoggedIn) {
       router.push('/dashboard');
@@ -552,7 +948,7 @@ export default function TaxCalculator() {
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
               <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-50 to-emerald-50 rounded-full border border-green-200 mb-8">
-                <span className="text-sm font-semibold text-green-600">🧾 Comprehensive Tax Calculator</span>
+                <span className="text-sm font-semibold text-green-600">Comprehensive Tax Calculator</span>
               </div>
               
               <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -615,13 +1011,13 @@ export default function TaxCalculator() {
                       
                       {/* Entity Type Selection */}
                       <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                        <h3 className="text-lg font-bold text-gray-800 mb-4">🏢 Entity Type</h3>
+                        <h3 className="text-lg font-bold text-gray-800 mb-4">Entity Type</h3>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                           {[
-                            { id: 'individual', label: 'Individual', icon: '👤', description: 'Personal tax filing' },
-                            { id: 'huf', label: 'HUF', icon: '👨‍👩‍👧‍👦', description: 'Hindu Undivided Family' },
-                            { id: 'firm', label: 'Firm', icon: '🤝', description: 'Partnership Firm' },
-                            { id: 'company', label: 'Company', icon: '🏢', description: 'Corporate Entity' }
+                            { id: 'individual', label: 'Individual', icon: '', description: 'Personal tax filing' },
+                            { id: 'huf', label: 'HUF', icon: '', description: 'Hindu Undivided Family' },
+                            { id: 'firm', label: 'Firm', icon: '', description: 'Partnership Firm' },
+                            { id: 'company', label: 'Company', icon: '', description: 'Corporate Entity' }
                           ].map((entity) => (
                             <button
                               key={entity.id}
@@ -647,7 +1043,7 @@ export default function TaxCalculator() {
                         {entityType !== 'individual' && (
                           <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
                             <div className="flex items-start gap-2">
-                              <span className="text-yellow-600 mt-0.5">⚠️</span>
+                              <span className="text-yellow-600 mt-0.5">!</span>
                               <div>
                                 <div className="font-semibold text-yellow-800 text-sm">
                                   {entityType === 'huf' && 'HUF Tax Rates Apply'}
@@ -667,7 +1063,7 @@ export default function TaxCalculator() {
                       
                       {/* Personal Details */}
                       <div className="bg-blue-50 rounded-2xl p-6 border border-blue-200">
-                        <h3 className="text-lg font-bold text-blue-800 mb-4">👤 Personal Details</h3>
+                        <h3 className="text-lg font-bold text-blue-800 mb-4">Personal Details</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                           <div className="md:col-span-2">
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -725,18 +1121,18 @@ export default function TaxCalculator() {
                                   <div className="space-y-2">
                                     <div>
                                       <span className="font-medium text-green-300">• Below 60 years:</span>
-                                      <div className="ml-2">- Basic exemption: ₹2.5L (Old Regime)</div>
-                                      <div className="ml-2">- Health insurance: ₹25,000 limit</div>
+                                      <div className="ml-2">- Basic exemption: Rs.2.5L (Old Regime)</div>
+                                      <div className="ml-2">- Health insurance: Rs.25,000 limit</div>
                                     </div>
                                     <div>
                                       <span className="font-medium text-yellow-300">• 60-80 years (Senior Citizen):</span>
-                                      <div className="ml-2">- Basic exemption: ₹3L (Old Regime)</div>
-                                      <div className="ml-2">- Health insurance: ₹50,000 limit</div>
+                                      <div className="ml-2">- Basic exemption: Rs.3L (Old Regime)</div>
+                                      <div className="ml-2">- Health insurance: Rs.50,000 limit</div>
                                     </div>
                                     <div>
                                       <span className="font-medium text-orange-300">• Above 80 years (Super Senior):</span>
-                                      <div className="ml-2">- Basic exemption: ₹5L (Old Regime)</div>
-                                      <div className="ml-2">- Health insurance: ₹50,000 limit</div>
+                                      <div className="ml-2">- Basic exemption: Rs.5L (Old Regime)</div>
+                                      <div className="ml-2">- Health insurance: Rs.50,000 limit</div>
                                       <div className="ml-2">- Additional medical benefits</div>
                                     </div>
                                   </div>
@@ -752,9 +1148,9 @@ export default function TaxCalculator() {
                               onChange={(e) => setAge(e.target.value)}
                             />
                             <p className="text-xs text-gray-500 mt-1">
-                              💡 {parseInt(age) >= 80 ? 'Super Senior: ₹5L exemption, ₹50K health insurance' : 
-                                  parseInt(age) >= 60 ? 'Senior Citizen: ₹3L exemption, ₹50K health insurance' : 
-                                  'Below 60: ₹2.5L exemption, ₹25K health insurance'}
+                              {parseInt(age) >= 80 ? 'Super Senior: Rs.5L exemption, Rs.50K health insurance' : 
+                                  parseInt(age) >= 60 ? 'Senior Citizen: Rs.3L exemption, Rs.50K health insurance' : 
+                                  'Below 60: Rs.2.5L exemption, Rs.25K health insurance'}
                             </p>
                           </div>
                           )}
@@ -820,7 +1216,7 @@ export default function TaxCalculator() {
                                       <div className="ml-2">- Taxed only on Indian income</div>
                                       <div className="ml-2">- Limited deductions</div>
                                       <div className="ml-2">- No basic exemption</div>
-                                      <div className="ml-2">- Tax from ₹1 (no ₹2.5L exemption)</div>
+                                      <div className="ml-2">- Tax from Rs.1 (no Rs.2.5L exemption)</div>
                                     </div>
                                   </div>
                                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
@@ -836,7 +1232,7 @@ export default function TaxCalculator() {
                               <option value="nri">Non-Resident Indian (NRI)</option>
                             </select>
                             <p className="text-xs text-gray-500 mt-1">
-                              💡 {residentialStatus === 'nri' ? 'NRIs: Taxed on Indian income only, no basic exemption' : 'Residents: Taxed on global income with full exemptions'}
+                              {residentialStatus === 'nri' ? 'NRIs: Taxed on Indian income only, no basic exemption' : 'Residents: Taxed on global income with full exemptions'}
                             </p>
                           </div>
                         </div>
@@ -845,7 +1241,7 @@ export default function TaxCalculator() {
                       {/* Income Details */}
                       <div className="bg-green-50 rounded-2xl p-6 border border-green-200">
                         <h3 className="text-lg font-bold text-green-800 mb-4">
-                          💰 {entityType === 'individual' || entityType === 'huf' ? 'Income Details (Annual)' : 
+                          {entityType === 'individual' || entityType === 'huf' ? 'Income Details (Annual)' : 
                               entityType === 'firm' ? 'Business Income (Annual)' : 
                               'Corporate Income (Annual)'}
                         </h3>
@@ -854,7 +1250,7 @@ export default function TaxCalculator() {
                             <>
                           <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
-                              Basic Salary (₹)
+                              Basic Salary (Rs.)
                               <div className="group relative inline-block ml-1">
                                 <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
                                 <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
@@ -876,7 +1272,7 @@ export default function TaxCalculator() {
                                     <div>• Used for HRA exemption calculation (50%/40% of basic)</div>
                                     <div className="mt-2 pt-2 border-t border-gray-600">
                                       <strong>Important:</strong> Higher basic = Higher HRA exemption potential<br/>
-                                      <strong>PF Contribution:</strong> 12% of basic salary (up to ₹1.8L basic)
+                                      <strong>PF Contribution:</strong> 12% of basic salary (up to Rs.1.8L basic)
                                     </div>
                                   </div>
                                 </div>
@@ -892,7 +1288,7 @@ export default function TaxCalculator() {
                           </div>
                           <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
-                              HRA (₹)
+                              HRA (Rs.)
                               <div className="group relative inline-block ml-1">
                                 <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
                                 <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
@@ -909,7 +1305,7 @@ export default function TaxCalculator() {
                                     <div className="mt-2"><strong>Required Documents:</strong></div>
                                     <div>• Rent receipts from landlord</div>
                                     <div>• Rental agreement copy</div>
-                                    <div>• Landlord&apos;s PAN (if rent &gt;₹1L annually)</div>
+                                    <div>• Landlord&apos;s PAN (if rent &gt;Rs.1L annually)</div>
                                     <div className="mt-2"><strong>Key Points:</strong></div>
                                     <div>• Even if living in own house, HRA is still taxable</div>
                                     <div>• Can claim HRA + home loan deduction together</div>
@@ -931,7 +1327,7 @@ export default function TaxCalculator() {
                           </div>
                           <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
-                              Special Allowance (₹)
+                              Special Allowance (Rs.)
                               <div className="group relative inline-block ml-1">
                                 <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
                                 <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
@@ -971,7 +1367,7 @@ export default function TaxCalculator() {
                           </div>
                           <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
-                              Other Allowances (₹)
+                              Other Allowances (Rs.)
                               <div className="group relative inline-block ml-1">
                                 <span className="w-4 h-4 bg-yellow-100 text-yellow-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
                                 <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
@@ -985,8 +1381,8 @@ export default function TaxCalculator() {
                                     <div>• Travel allowance</div>
                                     <div>• Overtime allowance</div>
                                     <div className="mt-2"><strong>Partially Exempt Allowances:</strong></div>
-                                    <div>• <strong>Transport:</strong> ₹1,600/month (₹19,200 annual)</div>
-                                    <div>• <strong>Medical:</strong> ₹15,000/year</div>
+                                    <div>• <strong>Transport:</strong> Rs.1,600/month (Rs.19,200 annual)</div>
+                                    <div>• <strong>Medical:</strong> Rs.15,000/year</div>
                                     <div>• <strong>LTA:</strong> For actual travel expenses</div>
                                     <div className="mt-2"><strong>Fully Taxable:</strong></div>
                                     <div>• Dearness allowance</div>
@@ -1013,7 +1409,7 @@ export default function TaxCalculator() {
                           </div>
                           <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
-                              Bonus (₹)
+                              Bonus (Rs.)
                               <div className="group relative inline-block ml-1">
                                 <span className="w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
                                 <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
@@ -1027,9 +1423,9 @@ export default function TaxCalculator() {
                                     <div>• Variable pay/incentives</div>
                                     <div>• Commission on sales</div>
                                     <div className="mt-2"><strong>Statutory Bonus Rules:</strong></div>
-                                    <div>• Minimum 8.33% of salary (up to ₹21,000 salary limit)</div>
-                                    <div>• Maximum ₹7,000 per year</div>
-                                    <div>• Only for employees earning ≤₹21,000/month</div>
+                                    <div>• Minimum 8.33% of salary (up to Rs.21,000 salary limit)</div>
+                                    <div>• Maximum Rs.7,000 per year</div>
+                                    <div>• Only for employees earning ≤Rs.21,000/month</div>
                                     <div className="mt-2"><strong>Tax Treatment:</strong></div>
                                     <div>• <strong>Fully taxable</strong> as salary income</div>
                                     <div>• Subject to TDS if applicable</div>
@@ -1061,7 +1457,7 @@ export default function TaxCalculator() {
                             <>
                           <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
-                              {entityType === 'firm' ? 'Partnership Income (₹)' : 'Corporate Turnover (₹)'}
+                              {entityType === 'firm' ? 'Partnership Income (Rs.)' : 'Corporate Turnover (Rs.)'}
                               <div className="group relative inline-block ml-1">
                                 <span className="w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
                                 <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
@@ -1084,7 +1480,7 @@ export default function TaxCalculator() {
                                         <div>• Total business revenue/turnover</div>
                                         <div>• Before deducting expenses</div>
                                         <div className="mt-2"><strong>Tax Rates:</strong></div>
-                                        <div>• Turnover ≤₹400 crore: 25% + cess</div>
+                                        <div>• Turnover ≤Rs.400 crore: 25% + cess</div>
                                         <div>• Turnover &gt;₹400 crore: 30% + cess</div>
                                         <div>• Different rates for new companies</div>
                                       </>
@@ -1220,7 +1616,7 @@ export default function TaxCalculator() {
                               onChange={(e) => setHousePropertyIncome(e.target.value)}
                             />
                             <p className="text-xs text-gray-500 mt-1">
-                              💡 Enter income AFTER 30% standard deduction as per Section 24(a)
+                              Enter income AFTER 30% standard deduction as per Section 24(a)
                             </p>
                           </div>
                         </div>
@@ -1228,7 +1624,7 @@ export default function TaxCalculator() {
 
                       {/* Capital Gains from Stock Market */}
                       <div className="bg-red-50 rounded-2xl p-6 border border-red-200">
-                        <h3 className="text-lg font-bold text-red-800 mb-4">📈 Capital Gains from Stock Market (Annual)</h3>
+                        <h3 className="text-lg font-bold text-red-800 mb-4">Capital Gains from Stock Market (Annual)</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -1266,7 +1662,7 @@ export default function TaxCalculator() {
                               onChange={(e) => setStcgEquity(e.target.value)}
                             />
                             <p className="text-xs text-red-600 mt-1">
-                              💡 Equity/MF held ≤12 months - 15.6% tax rate
+                              Equity/MF held ≤12 months - 15.6% tax rate
                             </p>
                           </div>
                           <div>
@@ -1305,7 +1701,7 @@ export default function TaxCalculator() {
                               onChange={(e) => setLtcgEquity(e.target.value)}
                             />
                             <p className="text-xs text-green-600 mt-1">
-                              💡 Equity/MF held &gt;12 months - ₹1L exempt, then 10.4%
+                              Equity/MF held &gt;12 months - Rs.1L exempt, then 10.4%
                             </p>
                           </div>
                           <div>
@@ -1345,7 +1741,7 @@ export default function TaxCalculator() {
                               onChange={(e) => setStcgOther(e.target.value)}
                             />
                             <p className="text-xs text-purple-600 mt-1">
-                              💡 Debt MF, gold, crypto - taxed at your income slab
+                              Debt MF, gold, crypto - taxed at your income slab
                             </p>
                           </div>
                           <div>
@@ -1385,7 +1781,7 @@ export default function TaxCalculator() {
                               onChange={(e) => setLtcgOther(e.target.value)}
                             />
                             <p className="text-xs text-indigo-600 mt-1">
-                              💡 Debt MF, gold, property &gt;threshold - 20.8% with indexation
+                              Debt MF, gold, property &gt;threshold - 20.8% with indexation
                             </p>
                           </div>
                         </div>
@@ -1393,7 +1789,7 @@ export default function TaxCalculator() {
 
                       {/* HRA Details */}
                       <div className="bg-purple-50 rounded-2xl p-6 border border-purple-200">
-                        <h3 className="text-lg font-bold text-purple-800 mb-4">🏠 HRA Exemption Details</h3>
+                        <h3 className="text-lg font-bold text-purple-800 mb-4">HRA Exemption Details</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
                             <label className="block text-sm font-semibold text-gray-700 mb-2">City Type</label>
@@ -1411,7 +1807,7 @@ export default function TaxCalculator() {
                                 onClick={() => setShowCityListModal(true)}
                                 className="text-sm text-blue-600 hover:text-blue-800 cursor-pointer bg-transparent border-none flex items-center gap-1"
                               >
-                                📍 View Metro vs Non-Metro City List
+                                View Metro vs Non-Metro City List
                                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                 </svg>
@@ -1435,7 +1831,7 @@ export default function TaxCalculator() {
                       {(entityType === 'individual' || entityType === 'huf') && (
                       <div className="bg-orange-50 rounded-2xl p-6 border border-orange-200">
                         <h3 className="text-lg font-bold text-orange-800 mb-4">
-                          📋 {entityType === 'individual' ? 'Deductions (Old Regime Only)' : 'HUF Deductions (Old Regime Only)'}
+                          {entityType === 'individual' ? 'Deductions (Old Regime Only)' : 'HUF Deductions (Old Regime Only)'}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
@@ -1799,7 +2195,7 @@ export default function TaxCalculator() {
                       {(entityType === 'firm' || entityType === 'company') && (
                       <div className="bg-purple-50 rounded-2xl p-6 border border-purple-200">
                         <h3 className="text-lg font-bold text-purple-800 mb-4">
-                          📋 {entityType === 'firm' ? 'Partnership Firm Deductions' : 'Corporate Deductions'}
+                          {entityType === 'firm' ? 'Partnership Firm Deductions' : 'Corporate Deductions'}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
@@ -2413,7 +2809,7 @@ export default function TaxCalculator() {
                                       <span className="font-medium">New Regime:</span> ₹{config.rebateAmount.toLocaleString()} rebate if taxable income ≤ ₹{(config.rebateLimit/100000).toFixed(0)}L
                                     </div>
                                     <div className="text-green-600 text-xs italic text-center mt-1">
-                                      💡 Result: Zero tax if rebate covers full tax liability
+                                      Result: Zero tax if rebate covers full tax liability
                                     </div>
                                   </div>
                                 </div>
@@ -2562,6 +2958,56 @@ export default function TaxCalculator() {
                         );
                       })()}
                     </div>
+
+                    {/* PDF Generation Section */}
+                    <div className="mt-8 p-6 bg-white rounded-2xl border border-gray-200 shadow-lg">
+                      <h4 className="text-lg font-bold text-gray-800 mb-4 text-center">Download Detailed Tax Reports (Form 16 Style)</h4>
+                      <p className="text-sm text-gray-600 text-center mb-6">
+                        Get comprehensive tax calculation reports with complete breakdowns, deductions, and tax slabs - Similar to Form 16 format
+                      </p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {/* Old Regime PDF */}
+                        {(entityType === 'individual' || entityType === 'huf') && (
+                        <button
+                          onClick={() => generatePDF('old')}
+                          className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          {entityType === 'huf' ? 'HUF Tax (Old)' : 'Old Regime'} PDF
+                        </button>
+                        )}
+
+                        {/* New Regime PDF */}
+                        <button
+                          onClick={() => generatePDF('new')}
+                          className="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          {entityType === 'individual' || entityType === 'huf' ? 'New Regime' : 
+                           entityType === 'firm' ? 'Partnership Tax' : 'Corporate Tax'} PDF
+                        </button>
+
+                        {/* Capital Gains PDF */}
+                        <button
+                          onClick={() => generatePDF('capital')}
+                          className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-4 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                          Capital Gains PDF
+                        </button>
+                      </div>
+
+                      <div className="mt-4 text-xs text-gray-500 text-center">
+                        PDFs include: Income breakdown, deduction details, tax slabs, effective rates, and professional tax computation format
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2597,45 +3043,45 @@ export default function TaxCalculator() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {[
                   {
-                    icon: '💰',
+                    icon: '',
                     title: 'Section 80C Investments',
                     description: 'Invest up to ₹1.5L in PPF, ELSS, NSC, tax-saving FDs, and life insurance to save up to ₹46,800 in taxes.',
                     color: 'from-blue-400 to-blue-600'
                   },
                   {
-                    icon: '🏥',
+                    icon: '',
                     title: 'Health Insurance (80D)',
                     description: 'Self/Family: ₹25K (₹50K if 60+), Parents: ₹50K additional. Total max ₹1L with proper planning.',
                     color: 'from-green-400 to-green-600'
                   },
                   {
-                    icon: '🏠',
+                    icon: '',
                     title: 'Home Loan Benefits',
                     description: 'Claim up to ₹2L interest deduction under Section 24(b) and ₹1.5L principal repayment under 80C.',
                     color: 'from-purple-400 to-purple-600'
                   },
                   {
-                    icon: '🎓',
+                    icon: '',
                     title: 'Education Loan (80E)',
                     description: 'Full interest deduction on education loans with no upper limit for self, spouse, or children.',
                     color: 'from-orange-400 to-orange-600'
                   },
                   {
-                    icon: '👴',
+                    icon: '',
                     title: 'NPS Additional (80CCD1B)',
                     description: 'Extra ₹50K deduction over and above 80C limit by investing in National Pension System.',
                     color: 'from-red-400 to-red-600'
                   },
                   {
-                    icon: '❤️',
+                    icon: '',
                     title: 'Donations (80G)',
                     description: '50% deduction: PM Relief Fund, educational institutions. 100% deduction: PM CARES, Swachh Bharat Kosh, Clean Ganga Fund.',
                     color: 'from-teal-400 to-teal-600'
                   },
                   {
-                    icon: '🎯',
+                    icon: '',
                     title: 'Section 87A Rebates',
-                    description: 'New Regime: ₹25K rebate for income ≤₹7L (effectively no tax up to ₹12L). Old Regime: ₹12.5K rebate for income ≤₹5L.',
+                    description: 'New Regime: Rs.25K rebate for income ≤Rs.7L (effectively no tax up to Rs.12L). Old Regime: Rs.12.5K rebate for income ≤Rs.5L.',
                     color: 'from-pink-400 to-pink-600'
                   }
                 ].map((item, index) => {
