@@ -55,6 +55,12 @@ const menuItems: MenuItem[] = [
     description: '50% or 100% deduction on donations'
   },
   {
+    id: 'other-deductions',
+    title: 'Other Deductions',
+    icon: '📝',
+    description: 'Additional savings under 80TTA, 80TTB, 80EE & more'
+  },
+  {
     id: 'capital-gains',
     title: 'Capital Gains Planning',
     icon: '📈',
@@ -1085,6 +1091,130 @@ export default function TaxPlanning() {
                 >
                   Read Complete Donations Guide →
                 </button>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'other-deductions':
+        return (
+          <div className="space-y-8">
+            <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-2xl p-8 border border-teal-200">
+              <h2 className="text-3xl font-bold text-teal-800 mb-4 flex items-center gap-3">
+                📝 Other Tax Deductions
+              </h2>
+              <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-yellow-600 font-semibold">⚠️ Important Note:</span>
+                </div>
+                <p className="text-yellow-800 font-medium">
+                  These deductions are available only under the <strong>Old Tax Regime</strong>. 
+                  New tax regime does not allow these deductions.
+                </p>
+              </div>
+              <p className="text-lg text-teal-700 mb-6">
+                Additional tax savings beyond standard deductions through specialized sections for specific expenses and investments.
+              </p>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">💰 Interest & Savings Deductions</h3>
+                  <div className="space-y-4">
+                    <div className="border-l-4 border-blue-500 pl-4">
+                      <h4 className="font-semibold text-gray-800">Section 80TTA - Savings Interest</h4>
+                      <p className="text-sm text-gray-600 mb-2">Up to ₹10,000 deduction on savings account interest</p>
+                      <div className="text-xs text-blue-600">💡 Available for individuals and HUFs across multiple accounts</div>
+                    </div>
+                    
+                    <div className="border-l-4 border-purple-500 pl-4">
+                      <h4 className="font-semibold text-gray-800">Section 80TTB - Senior Citizens</h4>
+                      <p className="text-sm text-gray-600 mb-2">Up to ₹50,000 deduction for senior citizens (60+ years)</p>
+                      <div className="text-xs text-purple-600">💡 Covers savings, FD, RD interest income</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">🏠 Property & Vehicle Deductions</h3>
+                  <div className="space-y-4">
+                    <div className="border-l-4 border-green-500 pl-4">
+                      <h4 className="font-semibold text-gray-800">Section 80EE - Home Loan (First-time)</h4>
+                      <p className="text-sm text-gray-600 mb-2">Additional ₹50,000 deduction for first-time home buyers</p>
+                      <div className="text-xs text-green-600">⚠️ Only for loans sanctioned between Apr 2016 - Mar 2017</div>
+                    </div>
+                    
+                    <div className="border-l-4 border-teal-500 pl-4">
+                      <h4 className="font-semibold text-gray-800">Section 80EEB - Electric Vehicle</h4>
+                      <p className="text-sm text-gray-600 mb-2">Up to ₹1.5 lakh deduction on EV loan interest</p>
+                      <div className="text-xs text-teal-600">⚠️ Only for loans sanctioned between Apr 2019 - Mar 2023</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">🏥 Medical & Care Deductions</h3>
+                  <div className="space-y-4">
+                    <div className="border-l-4 border-orange-500 pl-4">
+                      <h4 className="font-semibold text-gray-800">Section 80DD - Disabled Dependent</h4>
+                      <p className="text-sm text-gray-600 mb-2">₹75,000 (40% disability) or ₹1.25 lakh (80% disability)</p>
+                      <div className="text-xs text-orange-600">💡 Fixed deduction amount based on disability percentage</div>
+                    </div>
+                    
+                    <div className="border-l-4 border-red-500 pl-4">
+                      <h4 className="font-semibold text-gray-800">Section 80DDB - Medical Treatment</h4>
+                      <p className="text-sm text-gray-600 mb-2">₹40,000 (below 60) or ₹1 lakh (senior citizens)</p>
+                      <div className="text-xs text-red-600">💡 For specified diseases like cancer, kidney ailments, etc.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 shadow-md">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">💡 Tax Savings Calculator</h3>
+                  <div className="space-y-4">
+                    <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                      <h4 className="font-semibold text-gray-800 mb-2">Potential Annual Savings</h4>
+                      <div className="space-y-2 text-sm text-gray-600">
+                        <div>• 20% tax slab: Save 20% of deduction amount</div>
+                        <div>• 30% tax slab: Save 30% of deduction amount</div>
+                        <div>• Example: ₹50,000 deductions = ₹10,000-₹15,000 tax savings</div>
+                      </div>
+                    </div>
+                    
+                    <div className="p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                      <h4 className="font-semibold text-gray-800 mb-2">⚠️ Important Conditions</h4>
+                      <div className="space-y-1 text-xs text-gray-600">
+                        <div>• 80EE: Specific loan sanction dates</div>
+                        <div>• 80EEB: Specific loan sanction dates</div>
+                        <div>• 80TTB: Only for 60+ age group</div>
+                        <div>• All sections: Valid supporting documents required</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 p-6 bg-gradient-to-r from-teal-100 to-cyan-100 rounded-xl border border-teal-300">
+                <h3 className="text-xl font-bold text-teal-800 mb-4">🎯 Key Takeaways</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-2">✅ Best Practices</h4>
+                    <ul className="space-y-1 text-sm text-gray-700">
+                      <li>• Maintain proper documentation</li>
+                      <li>• Check eligibility criteria carefully</li>
+                      <li>• Combine with other deductions for maximum benefit</li>
+                      <li>• Consider old vs new regime impact</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-800 mb-2">⚠️ Common Mistakes</h4>
+                    <ul className="space-y-1 text-sm text-gray-700">
+                      <li>• Claiming expired section benefits</li>
+                      <li>• Missing age criteria for 80TTB</li>
+                      <li>• Not maintaining medical certificates for 80DD/80DDB</li>
+                      <li>• Choosing new regime without calculating benefit loss</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

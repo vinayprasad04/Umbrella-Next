@@ -198,8 +198,8 @@ export default function Header() {
               )}
               
               {item.submenu && openSubmenu === item.label && (
-                <div className="absolute top-full left-0 mt-0 bg-white border border-gray-100 rounded-xl shadow-xl py-3 min-w-[220px] z-50 animate-in slide-in-from-top-2 duration-200">
-                  <div className="px-3 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-100 mb-2">
+                <div className="absolute top-full left-0 mt-0 bg-white border border-gray-100 rounded-xl shadow-xl py-2 min-w-[220px] z-50 animate-in slide-in-from-top-2 duration-200">
+                  <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-100 mb-2">
                     {item.label}
                   </div>
                   {item.submenu.map((subItem, subIndex) => {
