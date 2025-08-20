@@ -10,3 +10,8 @@ export { default as BusinessDeductions } from './businessDeductions';
 export { default as Results } from './results';
 export { default as TaxPlanningTips } from './taxPlanningTips';
 export { default as CityWiseHRAList } from './cityHRAList';
+
+// Default export required for Next.js pages
+export default function ComponentsIndex() {
+  return null;
+}
