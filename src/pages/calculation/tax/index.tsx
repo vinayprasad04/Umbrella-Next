@@ -17,7 +17,7 @@ import {
   TaxPlanningTips,
   Deductions,
   BusinessDeductions
-} from './components';
+} from './../../../components/calculation/tax';
 
 interface TaxResult {
   oldRegime: {
