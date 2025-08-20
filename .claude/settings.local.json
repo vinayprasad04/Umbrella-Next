@@ -24,7 +24,8 @@
       "Bash(cmd /c:*)",
       "Bash(powershell:*)",
       "Bash(npm run lint:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "WebSearch"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

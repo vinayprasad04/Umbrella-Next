@@ -17,74 +17,74 @@ export default function Course() {
     {
       id: 1,
       title: "Stock Market Fundamentals",
-      description: "Learn the basics of stock market investing, from reading financial statements to understanding market trends.",
+      description: "Master the Stock Market with Engaging, Comprehensive, and Fun Lectures! Learn from basics to advanced investment strategies.",
       duration: "6 weeks",
       level: "Beginner",
-      price: "₹2,999",
       rating: 4.8,
-      students: 1250,
+      students: "400,000+",
       image: "📈",
-      color: "from-blue-400 to-blue-600"
+      color: "from-blue-400 to-blue-600",
+      udemyUrl: "https://www.udemy.com/course/the-beginners-guide-to-the-stock-market/"
     },
     {
       id: 2,
       title: "Mutual Fund Mastery",
-      description: "Complete guide to mutual fund investing, SIP strategies, and portfolio diversification.",
+      description: "Complete guide to mutual fund investing, SIP strategies, and portfolio diversification for beginners to experts.",
       duration: "4 weeks",
-      level: "Intermediate",
-      price: "₹3,999",
+      level: "Beginner",
       rating: 4.9,
-      students: 890,
+      students: "50,000+",
       image: "📊",
-      color: "from-green-400 to-green-600"
+      color: "from-green-400 to-green-600",
+      udemyUrl: "https://www.udemy.com/course/mutual-fund-from-scratch-for-complete-beginners/"
     },
     {
       id: 3,
       title: "Options Trading Strategies",
-      description: "Advanced options trading techniques, risk management, and profitable trading strategies.",
-      duration: "8 weeks",
+      description: "Advanced options trading techniques, risk management, Greeks, and profitable trading strategies with live trades.",
+      duration: "11 hours",
       level: "Advanced",
-      price: "₹5,999",
       rating: 4.7,
-      students: 540,
+      students: "25,000+",
       image: "⚡",
-      color: "from-purple-400 to-purple-600"
+      color: "from-purple-400 to-purple-600",
+      udemyUrl: "https://www.udemy.com/course/the-advanced-options-trading-course/"
     },
     {
       id: 4,
       title: "Personal Finance Planning",
-      description: "Master budgeting, saving, tax planning, and building wealth for financial freedom.",
+      description: "Master budgeting, saving, investing, and wealth-building strategies to achieve financial independence in 2025.",
       duration: "5 weeks",
       level: "Beginner",
-      price: "₹2,499",
       rating: 4.9,
-      students: 2100,
+      students: "100,000+",
       image: "💰",
-      color: "from-orange-400 to-orange-600"
+      color: "from-orange-400 to-orange-600",
+      udemyUrl: "https://www.udemy.com/course/the-ultimate-guide-to-personal-finance-for-beginners-2025/"
     },
     {
       id: 5,
       title: "Cryptocurrency & Blockchain",
-      description: "Understanding digital assets, blockchain technology, and crypto investment strategies.",
+      description: "Complete investing course for Bitcoin, altcoins, DeFi, and blockchain technology with proven strategies.",
       duration: "6 weeks",
       level: "Intermediate",
-      price: "₹4,499",
       rating: 4.6,
-      students: 780,
+      students: "75,000+",
       image: "₿",
-      color: "from-yellow-400 to-orange-500"
+      color: "from-yellow-400 to-orange-500",
+      udemyUrl: "https://www.udemy.com/course/cryptocurrency-complete-course/"
     },
     {
       id: 6,
       title: "Real Estate Investment",
-      description: "Learn property investment, REIT analysis, and real estate portfolio building.",
+      description: "Complete REIT investing course - Generate passive income with Real Estate Investment Trusts analysis.",
       duration: "7 weeks",
       level: "Intermediate",
-      price: "₹4,999",
       rating: 4.8,
-      students: 650,
+      students: "30,000+",
       image: "🏠",
-      color: "from-indigo-400 to-indigo-600"
+      color: "from-indigo-400 to-indigo-600",
+      udemyUrl: "https://www.udemy.com/course/reit-investing-how-to-value-reits/"
     }
   ];
 
@@ -94,6 +94,16 @@ export default function Course() {
     } else {
       router.push('/signup');
     }
+  };
+
+  const handleEnrollCourse = (udemyUrl: string) => {
+    window.open(udemyUrl, '_blank');
+  };
+
+  const handleCoursePreview = () => {
+    document.getElementById('courses-section')?.scrollIntoView({ 
+      behavior: 'smooth' 
+    });
   };
 
   return (
@@ -145,10 +155,13 @@ export default function Course() {
                   </svg>
                 </button>
                 
-                <button className="group bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 border-2 border-gray-200 rounded-xl text-lg font-semibold cursor-pointer hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2">
+                <button 
+                  onClick={handleCoursePreview}
+                  className="group bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 border-2 border-gray-200 rounded-xl text-lg font-semibold cursor-pointer hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2"
+                >
                   Course Preview
                   <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m-6-8h1m4 0h1M9 6h6a2 2 0 012 2v8a2 2 0 01-2 2H9a2 2 0 01-2-2V8a2 2 0 012-2z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m-6-8h1m4 0h1M9 6h6a2 2 0 012 2v8a2 2 0 01-2-2V8a2 2 0 012-2z" />
                   </svg>
                 </button>
               </div>
@@ -172,7 +185,7 @@ export default function Course() {
           </section>
 
           {/* Courses Section */}
-          <section className="py-24 bg-white relative overflow-hidden">
+          <section id="courses-section" className="py-24 bg-white relative overflow-hidden">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-16">
                 <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full border border-blue-200 mb-6">
@@ -225,12 +238,12 @@ export default function Course() {
                           </div>
                         </div>
                         
-                        {/* Price and Enroll */}
-                        <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                          <div className="text-2xl font-bold text-[#FF6B2C]">
-                            {course.price}
-                          </div>
-                          <button className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-2 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
+                        {/* Enroll Button */}
+                        <div className="flex justify-center pt-4 border-t border-gray-100">
+                          <button 
+                            onClick={() => handleEnrollCourse(course.udemyUrl)}
+                            className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 w-full"
+                          >
                             Enroll Now
                           </button>
                         </div>
