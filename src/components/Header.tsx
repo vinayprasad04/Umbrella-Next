@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 const menu = [
   {
     label: 'Home'
-  },
+  }, 
   {
     label: 'Products',
     submenu: [
