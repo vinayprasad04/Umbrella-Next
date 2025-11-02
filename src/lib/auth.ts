@@ -27,39 +27,72 @@ export interface AuthError {
 }
 
 export const login = async (data: LoginData): Promise<AuthResponse> => {
-  const response = await fetch('/api/auth/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
+  try {
+    const response = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
 
-  const result = await response.json();
-  
-  if (!response.ok) {
-    throw new Error(result.error || 'Login failed');
+    const contentType = response.headers.get('content-type');
+
+    // Check if response is JSON
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      console.error('Non-JSON response received:', text.substring(0, 200));
+      throw new Error('Server error: Expected JSON response but received HTML. Please check if the API is running correctly.');
+    }
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || 'Login failed');
+    }
+
+    return result;
+  } catch (error: any) {
+    // If it's a network error or parsing error
+    if (error.message.includes('JSON')) {
+      throw new Error('Server configuration error. Please contact support.');
+    }
+    throw error;
   }
-
-  return result;
 };
 
 export const signup = async (data: SignupData): Promise<AuthResponse> => {
-  const response = await fetch('/api/auth/signup', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
+  try {
+    const response = await fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
 
-  const result = await response.json();
-  
-  if (!response.ok) {
-    throw new Error(result.error || 'Signup failed');
+    const contentType = response.headers.get('content-type');
+
+    // Check if response is JSON
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      console.error('Non-JSON response received:', text.substring(0, 200));
+      throw new Error('Server error: Expected JSON response but received HTML. Please check if the API is running correctly.');
+    }
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      throw new Error(result.error || 'Signup failed');
+    }
+
+    return result;
+  } catch (error: any) {
+    if (error.message.includes('JSON')) {
+      throw new Error('Server configuration error. Please contact support.');
+    }
+    throw error;
   }
-
-  return result;
 };
 
 export const requestPasswordReset = async (email: string): Promise<{ message: string }> => {

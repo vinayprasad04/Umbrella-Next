@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Subscribe from './Subscribe';
@@ -96,6 +96,12 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const [currentDate, setCurrentDate] = useState<string>('');
+
+  useEffect(() => {
+    setCurrentDate(new Date().toLocaleDateString());
+  }, []);
+
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
       {/* Background decoration */}
@@ -264,7 +270,7 @@ export default function Footer() {
                 </div>
                 <div className="text-gray-600">|</div>
                 <div className="text-sm text-gray-400">
-                  Last updated: {new Date().toLocaleDateString()}
+                  Last updated: {currentDate}
                 </div>
               </div>
             </div>
