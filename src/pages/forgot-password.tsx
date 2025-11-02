@@ -6,9 +6,11 @@ import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { requestPasswordReset } from '@/lib/auth';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const ForgotPassword = () => {
   const router = useRouter();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [email, setEmail] = useState('');
   const [errors, setErrors] = useState({ email: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -46,16 +48,38 @@ const ForgotPassword = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
     setSubmitError('');
-    
+
     try {
+      // Execute reCAPTCHA v3
+      if (!executeRecaptcha) {
+        throw new Error('reCAPTCHA not loaded. Please refresh the page.');
+      }
+
+      const recaptchaToken = await executeRecaptcha('forgot_password');
+
+      // Verify reCAPTCHA token
+      const recaptchaResponse = await fetch('/api/verify-recaptcha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: recaptchaToken }),
+      });
+
+      const recaptchaData = await recaptchaResponse.json();
+
+      if (!recaptchaData.success) {
+        throw new Error('reCAPTCHA verification failed. Please try again.');
+      }
+
       await requestPasswordReset(email);
       setIsSubmitted(true);
-      
+
       // Redirect to login after 5 seconds
       setTimeout(() => {
         router.push('/login');

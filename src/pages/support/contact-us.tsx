@@ -3,9 +3,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 export default function ContactUs() {
   const router = useRouter();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   // const [isLoggedIn] = useState(false); // Currently unused
   const [formData, setFormData] = useState({
     name: '',
@@ -37,8 +39,31 @@ export default function ContactUs() {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
-    
+
     try {
+      // Execute reCAPTCHA v3
+      if (!executeRecaptcha) {
+        throw new Error('reCAPTCHA not loaded. Please refresh the page.');
+      }
+
+      const recaptchaToken = await executeRecaptcha('contact_form');
+
+      // Verify reCAPTCHA token
+      const recaptchaResponse = await fetch('/api/verify-recaptcha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: recaptchaToken }),
+      });
+
+      const recaptchaData = await recaptchaResponse.json();
+
+      if (!recaptchaData.success) {
+        throw new Error('reCAPTCHA verification failed. Please try again.');
+      }
+
+      // Submit contact form
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -46,7 +71,8 @@ export default function ContactUs() {
         },
         body: JSON.stringify({
           ...formData,
-          source: 'website'
+          source: 'website',
+          recaptchaToken
         }),
       });
 

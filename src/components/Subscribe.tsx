@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 interface SubscribeProps {
   variant?: 'footer' | 'inline' | 'modal';
@@ -14,10 +15,11 @@ const Subscribe: React.FC<SubscribeProps> = ({ variant = 'footer', className = '
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
   const router = useRouter();
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!email) {
       setMessage('Please enter your email address');
       setIsSuccess(false);
@@ -28,6 +30,29 @@ const Subscribe: React.FC<SubscribeProps> = ({ variant = 'footer', className = '
     setMessage('');
 
     try {
+      // Execute reCAPTCHA v3
+      if (!executeRecaptcha) {
+        throw new Error('reCAPTCHA not loaded. Please refresh the page.');
+      }
+
+      const recaptchaToken = await executeRecaptcha('subscribe_newsletter');
+
+      // Verify reCAPTCHA token
+      const recaptchaResponse = await fetch('/api/verify-recaptcha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: recaptchaToken }),
+      });
+
+      const recaptchaData = await recaptchaResponse.json();
+
+      if (!recaptchaData.success) {
+        throw new Error('reCAPTCHA verification failed. Please try again.');
+      }
+
+      // Submit subscription
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: {
@@ -37,6 +62,7 @@ const Subscribe: React.FC<SubscribeProps> = ({ variant = 'footer', className = '
           email,
           name: name || undefined,
           page: router.pathname,
+          recaptchaToken
         }),
       });
 
@@ -51,8 +77,8 @@ const Subscribe: React.FC<SubscribeProps> = ({ variant = 'footer', className = '
         setMessage(data.error || 'Failed to subscribe');
         setIsSuccess(false);
       }
-    } catch (error) {
-      setMessage('Something went wrong. Please try again.');
+    } catch (error: any) {
+      setMessage(error.message || 'Something went wrong. Please try again.');
       setIsSuccess(false);
     } finally {
       setIsSubmitting(false);

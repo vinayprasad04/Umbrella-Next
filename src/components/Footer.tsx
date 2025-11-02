@@ -183,7 +183,7 @@ export default function Footer() {
                       href={social.href} 
                       className="group w-11 h-11 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-[#FF6B2C] hover:to-[#FF8A50] hover:border-[#FF6B2C]/50 transition-all duration-300 hover:scale-110"
                       title={social.name}
-                    >
+                    >k
                       {social.icon}
                     </a>
                   ))}

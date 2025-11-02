@@ -1,13 +1,21 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import AuthManager from "@/components/AuthManager";
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <GoogleReCaptchaProvider
+      reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}
+      scriptProps={{
+        async: true,
+        defer: true,
+        appendTo: 'head',
+      }}
+    >
       <AuthManager />
       <Component {...pageProps} />
-    </>
+    </GoogleReCaptchaProvider>
   );
 }
 

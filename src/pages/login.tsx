@@ -8,9 +8,11 @@ import Footer from '@/components/Footer';
 import { auth, googleProvider } from '@/lib/firebase';
 import { signInWithPopup, User } from 'firebase/auth';
 import { login } from '@/lib/auth';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const Login = () => {
   const router = useRouter();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
@@ -53,15 +55,37 @@ const Login = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
     setLoginError('');
-    
+
     try {
+      // Execute reCAPTCHA v3
+      if (!executeRecaptcha) {
+        throw new Error('reCAPTCHA not loaded. Please refresh the page.');
+      }
+
+      const recaptchaToken = await executeRecaptcha('login');
+
+      // Verify reCAPTCHA token
+      const recaptchaResponse = await fetch('/api/verify-recaptcha', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: recaptchaToken }),
+      });
+
+      const recaptchaData = await recaptchaResponse.json();
+
+      if (!recaptchaData.success) {
+        throw new Error('reCAPTCHA verification failed. Please try again.');
+      }
+
       const result = await login({ email, password });
-      
+
       // Set authentication state
       localStorage.setItem('loggedIn', 'true');
       localStorage.setItem('userToken', result.accessToken || result.token || '');
@@ -72,7 +96,7 @@ const Login = () => {
       localStorage.setItem('userRole', result.user?.role || 'user');
       localStorage.setItem('tokenExpiry', new Date(Date.now() + 15 * 60 * 1000).toISOString()); // 15 minutes
       localStorage.setItem('lastActivity', new Date().toISOString());
-      
+
       router.push('/dashboard');
     } catch (error: any) {
       setLoginError(error.message || 'Login failed. Please try again.');
