@@ -1,7 +1,7 @@
-import Head from "next/head";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
@@ -23,13 +23,8 @@ export default function Home() {
   };
   return (
     <>
-      <Head>
-        <title>IncomeGrow - Empowering Your Financial Journey</title>
-        <meta name="description" content="IncomeGrow brings you the best tools, research, and knowledge to achieve your financial goals. Plan, invest, and grow with confidence." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-      </Head>
-      
+      <SEO />
+
       <div className="font-sans m-0 p-0 bg-white">
         <Header />
 
