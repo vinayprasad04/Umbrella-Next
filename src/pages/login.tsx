@@ -9,6 +9,7 @@ import { auth, googleProvider } from '@/lib/firebase';
 import { signInWithPopup, User } from 'firebase/auth';
 import { login } from '@/lib/auth';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { logActivity } from '@/lib/activityLogger';
 
 const Login = () => {
   const router = useRouter();
@@ -97,6 +98,18 @@ const Login = () => {
       localStorage.setItem('tokenExpiry', new Date(Date.now() + 15 * 60 * 1000).toISOString()); // 15 minutes
       localStorage.setItem('lastActivity', new Date().toISOString());
 
+      // Log login activity
+      logActivity({
+        userId: result.user?.id || '',
+        userEmail: result.user?.email || email,
+        activityType: 'login',
+        description: 'Logged in successfully',
+        metadata: {
+          ipAddress: window.location.hostname,
+          userAgent: navigator.userAgent,
+        },
+      });
+
       router.push('/dashboard');
     } catch (error: any) {
       setLoginError(error.message || 'Login failed. Please try again.');
@@ -107,16 +120,30 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     setGoogleError('');
     setIsSubmitting(true);
-    
+
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const user: User = result.user;
-      
+
       // Set authentication state with Google user data
       localStorage.setItem('loggedIn', 'true');
       localStorage.setItem('userName', user.displayName || 'Google User');
       localStorage.setItem('userEmail', user.email || '');
-      
+      localStorage.setItem('userId', user.uid || '');
+
+      // Log Google login activity
+      logActivity({
+        userId: user.uid || '',
+        userEmail: user.email || '',
+        activityType: 'login',
+        description: 'Logged in with Google',
+        metadata: {
+          ipAddress: window.location.hostname,
+          userAgent: navigator.userAgent,
+          authProvider: 'Google',
+        },
+      });
+
       router.push('/dashboard');
     } catch (error: unknown) {
       console.error('Google sign-in error:', error);

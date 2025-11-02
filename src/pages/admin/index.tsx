@@ -43,17 +43,19 @@ const AdminUsers = () => {
     const checkAdminAccess = () => {
       const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
       const userRole = localStorage.getItem('userRole');
-      
+      const userEmail = localStorage.getItem('userEmail');
+
       if (!isLoggedIn) {
         router.push('/login');
         return;
       }
-      
-      if (userRole !== 'admin') {
+
+      // Only allow access for admin role AND specific email
+      if (userRole !== 'admin' || userEmail !== 'vinay.qss@gmail.com') {
         router.push('/dashboard');
         return;
       }
-      
+
       setIsAdmin(true);
       setIsLoading(false);
       fetchUsers();

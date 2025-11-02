@@ -4,6 +4,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { logActivity } from '@/lib/activityLogger';
 
 const Dashboard = () => {
   const router = useRouter();
@@ -14,14 +15,30 @@ const Dashboard = () => {
     const checkAuth = () => {
       const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
       const userRole = localStorage.getItem('userRole');
-      
+      const userEmail = localStorage.getItem('userEmail') || '';
+      const userId = localStorage.getItem('userId') || '';
+
       if (!isLoggedIn) {
         router.push('/login');
         return;
       }
-      
-      setIsAdmin(userRole === 'admin');
+
+      // Only show admin panel for users with admin role AND specific email
+      setIsAdmin(userRole === 'admin' && userEmail === 'vinay.qss@gmail.com');
       setIsLoading(false);
+
+      // Log dashboard access activity
+      if (userId && userEmail) {
+        logActivity({
+          userId,
+          userEmail,
+          activityType: 'dashboard_access',
+          description: 'Accessed dashboard',
+          metadata: {
+            userRole,
+          },
+        });
+      }
     };
 
     checkAuth();

@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { logActivity } from "@/lib/activityLogger";
 
 export default function GoalPlanner() {
   const router = useRouter();
@@ -47,6 +48,23 @@ export default function GoalPlanner() {
       totalInvestment: Math.round(totalInvestment),
       targetAmount: Math.round(targetAmount)
     });
+
+    // Log calculator usage activity
+    const userId = localStorage.getItem('userId') || '';
+    const userEmail = localStorage.getItem('userEmail') || '';
+    if (userId && userEmail) {
+      logActivity({
+        userId,
+        userEmail,
+        activityType: 'calculator_usage',
+        description: 'Used goal planner calculator',
+        metadata: {
+          calculatorType: 'goal_planner',
+          goalAmount: targetAmount,
+          yearsToGoal: Math.round(yearsToGoal),
+        },
+      });
+    }
   };
 
   const handleGetStarted = () => {
