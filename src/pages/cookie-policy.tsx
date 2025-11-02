@@ -9,10 +9,10 @@ export default function CookiePolicy() {
   return (
     <>
       <Head>
-        <title>Cookie Policy - Umbrella Financial Platform</title>
-        <meta name="description" content="Learn about how Umbrella uses cookies to improve your experience on our financial platform. Understand your choices regarding cookie usage." />
+        <title>Cookie Policy - IncomeGrow Financial Platform</title>
+        <meta name="description" content="Learn about how IncomeGrow uses cookies to improve your experience on our financial platform. Understand your choices regarding cookie usage." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -38,7 +38,7 @@ export default function CookiePolicy() {
               </h1>
               
               <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                This Cookie Policy explains how Umbrella Financial Platform uses cookies and similar tracking technologies 
+                This Cookie Policy explains how IncomeGrow Financial Platform uses cookies and similar tracking technologies 
                 to recognize you when you visit our website and use our services.
               </p>
               
@@ -250,15 +250,15 @@ export default function CookiePolicy() {
                     <div className="space-y-2 text-gray-700">
                       <div className="flex items-center gap-2">
                         <span className="text-[#FF6B2C]">📧</span>
-                        <span>Email: privacy@umbrella.in</span>
+                        <span>Email: vinay.qss@gmail.com</span>
                       </div>
-                      <div className="flex items-center gap-2">
+                      {/* <div className="flex items-center gap-2">
                         <span className="text-[#FF6B2C]">📞</span>
                         <span>Phone: +91-800-123-4567</span>
-                      </div>
+                      </div> */}
                       <div className="flex items-center gap-2">
                         <span className="text-[#FF6B2C]">📍</span>
-                        <span>Address: Umbrella Financial Services, Mumbai, India</span>
+                        <span>Address: IncomeGrow Financial Services krishan vihar, Delhi, India</span>
                       </div>
                     </div>
                   </div>

@@ -239,10 +239,10 @@ export default function SharesResearch() {
   return (
     <>
       <Head>
-        <title>Market Research Hub - Live Data & Investment Insights | Umbrella</title>
+        <title>Market Research Hub - Live Data & Investment Insights | IncomeGrow</title>
         <meta name="description" content="Advanced stock market research platform with real-time data, professional charts, and expert analysis. Your gateway to smarter investing." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">

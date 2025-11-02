@@ -548,7 +548,7 @@ export default function TaxCalculator() {
     const addWatermark = () => {
       doc.setFontSize(40);
       doc.setTextColor(250, 250, 250);
-      doc.text('UMBRELLA FINANCIAL', pageWidth / 2, pageHeight / 2, { 
+      doc.text('IncomeGrow Financial', pageWidth / 2, pageHeight / 2, { 
         align: 'center'
       });
     };
@@ -696,11 +696,11 @@ export default function TaxCalculator() {
       // Company name
       doc.setFont("helvetica", "bold");
       doc.setFontSize(12);
-      doc.text('UMBRELLA FINANCIAL', pageWidth - 15, 20, { align: 'right', charSpace: 0 });
+      doc.text('IncomeGrow Financial', pageWidth - 15, 20, { align: 'right', charSpace: 0 });
       doc.setFont("helvetica", "normal");
       doc.setFontSize(8);
       doc.text('Professional Tax Consultation', pageWidth - 15, 28, { align: 'right' });
-      doc.text('www.umbrella.com', pageWidth - 15, 35, { align: 'right' });
+      doc.text('www.incomegrow.in', pageWidth - 15, 35, { align: 'right' });
       
       yPosition = 60;
       
@@ -890,7 +890,7 @@ export default function TaxCalculator() {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(8);
       doc.setTextColor(255, 255, 255);
-      doc.text('UMBRELLA FINANCIAL SERVICES', 15, pageHeight - 15, { charSpace: 0 });
+      doc.text('IncomeGrow Financial SERVICES', 15, pageHeight - 15, { charSpace: 0 });
       doc.text(`Page ${i} of ${totalPages}`, pageWidth - 15, pageHeight - 15, { align: 'right' });
       
       doc.setFont("helvetica", "normal");
@@ -929,10 +929,10 @@ export default function TaxCalculator() {
   return (
     <>
       <Head>
-        <title>Comprehensive Indian Tax Calculator - Umbrella Financial</title>
+        <title>Comprehensive Indian Tax Calculator - IncomeGrow Financial</title>
         <meta name="description" content="Complete Indian income tax calculator with Old vs New regime comparison for multiple assessment years, HRA, 80C, 80D deductions and detailed tax planning." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

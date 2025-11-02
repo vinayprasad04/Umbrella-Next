@@ -100,10 +100,10 @@ export default function EIM() {
   return (
     <>
       <Head>
-        <title>EIM Calculator - Umbrella Financial</title>
+        <title>EIM Calculator - IncomeGrow Financial</title>
         <meta name="description" content="Calculate your Equity Investment Management strategy and plan for retirement with our comprehensive EIM calculator." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

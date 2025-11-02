@@ -109,10 +109,10 @@ export default function Course() {
   return (
     <>
       <Head>
-        <title>Educational Courses - Umbrella Financial</title>
+        <title>Educational Courses - IncomeGrow Financial</title>
         <meta name="description" content="Learn from financial experts with our comprehensive courses on stock market, mutual funds, options trading, and personal finance." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

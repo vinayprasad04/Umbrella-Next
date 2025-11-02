@@ -250,10 +250,10 @@ export default function FdRdPfNpsSsy() {
   return (
     <>
       <Head>
-        <title>{calculatorType} Calculator - Umbrella Financial</title>
+        <title>{calculatorType} Calculator - IncomeGrow Financial</title>
         <meta name="description" content={`Calculate your ${calculatorOptions.find(opt => opt.value === calculatorType)?.label} returns with our comprehensive calculator.`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

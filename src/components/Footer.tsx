@@ -9,7 +9,7 @@ const menu = [
     submenu: [
       { name: 'Goal Planning', href: '/products/goal' },
       { name: 'Educational Courses', href: '/products/course' },
-      { name: 'Market Research', href: '/products/shares-research' },
+      { name: 'Market Research', href: 'https://www.stock.incomegrow.in/', external: true },
       { name: 'Expert Insights', href: '/products/blogs' },
       { name: 'Broker Knowledge', href: '/products/brokers-knowledge' },
     ],
@@ -31,9 +31,9 @@ const menu = [
     label: 'Resources',
     submenu: [
       { name: 'Tax Planning Guide', href: '/tax-planning' },
-      { name: 'Tax Haven Guide', href: '/tax-knowledge/tax-haven' },
-      { name: 'Investment Guides', href: '/recipe/wealth-creation' },
-      { name: 'Market Updates', href: '/dashboard' },
+      // { name: 'Tax Haven Guide', href: '/tax-knowledge/tax-haven' },
+      // { name: 'Investment Guides', href: '/recipe/wealth-creation' },
+      // { name: 'Market Updates', href: '/dashboard' },
       { name: 'Financial News', href: '/products/blogs' },
     ],
   },
@@ -124,7 +124,7 @@ export default function Footer() {
                   <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-xl shadow-lg flex items-center justify-center">
                     <Image
                       src="/logo.png"
-                      alt="Umbrella Financial Logo"
+                      alt="IncomeGrow Financial Logo"
                       width={28}
                       height={26}
                       priority
@@ -132,14 +132,19 @@ export default function Footer() {
                     />
                   </div>
                   <div>
-                    <span className="text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Umbrella</span>
-                    <div className="text-xs text-gray-400 font-medium">Financial Freedom</div>
+                   <Image
+                      src="/logo_white.svg"
+                      alt="incomeGrow Financial Logo"
+                      width={150}
+                      height={50}
+                      priority
+                    />
                   </div>
                 </div>
                 
                 <p className="text-gray-300 leading-relaxed mb-8">
                   Empowering your financial journey with cutting-edge tools, expert research, and personalized guidance. 
-                  Join thousands who trust Umbrella for smarter financial decisions.
+                  Join thousands who trust IncomeGrow for smarter financial decisions.
                 </p>
                 
                 {/* Contact Info */}
@@ -149,27 +154,27 @@ export default function Footer() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                    <span>Mumbai, Maharashtra, India</span>
+                    <span>Krishan Vihar, Delhi, India</span>
                   </div>
                   
                   <div className="flex items-center gap-3 text-gray-300">
                     <svg className="w-5 h-5 text-[#FF6B2C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <span>hello@umbrella.com</span>
+                    <span>vinay.qss@gmail.com</span>
                   </div>
                   
-                  <div className="flex items-center gap-3 text-gray-300">
+                  {/* <div className="flex items-center gap-3 text-gray-300">
                     <svg className="w-5 h-5 text-[#FF6B2C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                     <span>+91 98765 43210</span>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               
               {/* Social Links */}
-              <div>
+              {/* <div>
                 <h4 className="text-white font-semibold mb-4">Follow Us</h4>
                 <div className="flex items-center gap-3">
                   {socialLinks.map((social, index) => (
@@ -183,7 +188,7 @@ export default function Footer() {
                     </a>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
             
             {/* Navigation Menus */}
@@ -197,26 +202,50 @@ export default function Footer() {
                 {item.label === 'Support' ? (
                   <div className="flex flex-wrap gap-x-4 gap-y-2">
                     {item.submenu.map((subItem, subIndex) => (
-                      <Link
-                        key={subIndex}
-                        href={subItem.href}
-                        className="text-gray-400 hover:text-[#FF6B2C] transition-colors duration-200 text-sm no-underline whitespace-nowrap"
-                      >
-                        {subItem.name}
-                      </Link>
+                      subItem.external ? (
+                        <a
+                          key={subIndex}
+                          href={subItem.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-[#FF6B2C] transition-colors duration-200 text-sm no-underline whitespace-nowrap"
+                        >
+                          {subItem.name}
+                        </a>
+                      ) : (
+                        <Link
+                          key={subIndex}
+                          href={subItem.href}
+                          className="text-gray-400 hover:text-[#FF6B2C] transition-colors duration-200 text-sm no-underline whitespace-nowrap"
+                        >
+                          {subItem.name}
+                        </Link>
+                      )
                     ))}
                   </div>
                 ) : (
                   <ul className="space-y-3">
                     {item.submenu.map((subItem, subIndex) => (
                       <li key={subIndex}>
-                        <Link 
-                          href={subItem.href}
-                          className="group text-gray-400 hover:text-white transition-all duration-200 flex items-center gap-2 no-underline"
-                        >
-                          <span className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-[#FF6B2C] group-hover:scale-150 transition-all duration-200"></span>
-                          {subItem.name}
-                        </Link>
+                        {subItem.external ? (
+                          <a
+                            href={subItem.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group text-gray-400 hover:text-white transition-all duration-200 flex items-center gap-2 no-underline"
+                          >
+                            <span className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-[#FF6B2C] group-hover:scale-150 transition-all duration-200"></span>
+                            {subItem.name}
+                          </a>
+                        ) : (
+                          <Link
+                            href={subItem.href}
+                            className="group text-gray-400 hover:text-white transition-all duration-200 flex items-center gap-2 no-underline"
+                          >
+                            <span className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-[#FF6B2C] group-hover:scale-150 transition-all duration-200"></span>
+                            {subItem.name}
+                          </Link>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -232,7 +261,7 @@ export default function Footer() {
             <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
               <div className="flex flex-col sm:flex-row items-center gap-6">
                 <p className="text-gray-400">
-                  © 2025 Umbrella Financial Services. All rights reserved.
+                  © 2025 IncomeGrow Financial Services. All rights reserved.
                 </p>
                 <div className="flex items-center gap-1">
                   <span className="text-sm text-gray-500">Secured by</span>

@@ -221,7 +221,7 @@ const AdminUsers = () => {
         <title>User Management - Admin Panel</title>
         <meta name="description" content="Admin panel for managing users" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="min-h-screen bg-gray-50">

@@ -123,10 +123,10 @@ const SignUp = () => {
   return (
     <>
       <Head>
-        <title>Sign Up - Umbrella Financial</title>
-        <meta name="description" content="Join Umbrella Financial and start your journey to financial freedom with our powerful investment tools" />
+        <title>Sign Up - IncomeGrow Financial</title>
+        <meta name="description" content="Join IncomeGrow Financial and start your journey to financial freedom with our powerful investment tools" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -155,7 +155,7 @@ const SignUp = () => {
                         <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-xl shadow-lg flex items-center justify-center">
                           <Image
                             src="/logo.png"
-                            alt="Umbrella Financial Logo"
+                            alt="IncomeGrow Financial Logo"
                             width={28}
                             height={26}
                             priority
@@ -163,12 +163,12 @@ const SignUp = () => {
                           />
                         </div>
                         <div>
-                          <span className="text-2xl font-bold bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">Umbrella</span>
+                          <span className="text-2xl font-bold bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">IncomeGrow</span>
                           <div className="text-xs text-gray-500 font-medium">Financial Freedom</div>
                         </div>
                       </div>
                       
-                      <h1 className="text-3xl font-bold text-gray-800 mb-2">Join Umbrella!</h1>
+                      <h1 className="text-3xl font-bold text-gray-800 mb-2">Join IncomeGrow!</h1>
                       <p className="text-gray-600">Create your account and start building wealth today</p>
                     </div>
                     

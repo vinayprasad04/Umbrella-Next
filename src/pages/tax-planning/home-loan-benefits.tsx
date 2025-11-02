@@ -16,12 +16,12 @@ export default function HomeLoanBenefits() {
   return (
     <>
       <Head>
-        <title>Home Loan Tax Benefits Guide 2025 - Save ₹3.5 Lakh Annually | Umbrella Financial</title>
+        <title>Home Loan Tax Benefits Guide 2025 - Save ₹3.5 Lakh Annually | IncomeGrow Financial</title>
         <meta name="description" content="Complete home loan tax benefits guide 2025. Section 80C & 24B deductions. Save up to ₹3.5 lakh on principal & interest. Best home loan providers & rates." />
         <meta name="keywords" content="home loan, tax benefits, Section 80C, Section 24B, principal repayment, interest deduction, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://umbrella.com/tax-planning/home-loan-benefits" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="http://incomegrow.in//tax-planning/home-loan-benefits" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

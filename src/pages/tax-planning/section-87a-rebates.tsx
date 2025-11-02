@@ -16,12 +16,12 @@ export default function Section87ARebates() {
   return (
     <>
       <Head>
-        <title>Section 87A Tax Rebate Guide FY 2025-26 - Up to ₹12L Tax Free | Umbrella Financial</title>
+        <title>Section 87A Tax Rebate Guide FY 2025-26 - Up to ₹12L Tax Free | IncomeGrow Financial</title>
         <meta name="description" content="Latest Section 87A tax rebate guide FY 2025-26. Get ₹60,000 rebate and complete tax exemption up to ₹12 lakh. Revolutionary benefits for middle class." />
         <meta name="keywords" content="Section 87A, tax rebate, ₹12500 rebate, income tax relief, low income, tax savings, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://umbrella.com/tax-planning/section-87a-rebates" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="http://incomegrow.in//tax-planning/section-87a-rebates" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

@@ -68,10 +68,10 @@ const Settings = () => {
   return (
     <>
       <Head>
-        <title>Settings - Umbrella</title>
-        <meta name="description" content="Manage your Umbrella account settings" />
+        <title>Settings - IncomeGrow</title>
+        <meta name="description" content="Manage your IncomeGrow account settings" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

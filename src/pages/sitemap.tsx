@@ -11,7 +11,7 @@ export default function Sitemap() {
       color: "from-blue-400 to-blue-600",
       bgColor: "from-blue-50 to-blue-100",
       pages: [
-        { name: "Home", href: "/", description: "Welcome to Umbrella Financial Platform" },
+        { name: "Home", href: "/", description: "Welcome to IncomeGrow Financial Platform" },
         { name: "About Us", href: "/about", description: "Learn about our mission and team" },
         { name: "Products", href: "/products", description: "Explore our financial tools and services" },
         { name: "Testimonials", href: "/testimonials", description: "Read what our users say about us" },
@@ -26,7 +26,7 @@ export default function Sitemap() {
       pages: [
         { name: "Goal Planning", href: "/products/goal", description: "Set and track your financial goals" },
         { name: "Educational Courses", href: "/products/course", description: "Learn from financial experts" },
-        { name: "Shares Research", href: "/products/shares-research", description: "In-depth stock analysis and research" },
+        { name: "Shares Research", href: "https://www.stock.incomegrow.in/", description: "In-depth stock analysis and research", external: true },
         { name: "Expert Blogs", href: "/products/blogs", description: "Latest financial insights and news" },
         { name: "Broker Knowledge", href: "/products/brokers-knowledge", description: "Compare and choose brokers" }
       ]
@@ -98,10 +98,10 @@ export default function Sitemap() {
   return (
     <>
       <Head>
-        <title>Sitemap - Umbrella Financial Platform Navigation</title>
-        <meta name="description" content="Complete sitemap of Umbrella Financial Platform. Find all our pages including products, calculators, support, and legal information." />
+        <title>Sitemap - IncomeGrow Financial Platform Navigation</title>
+        <meta name="description" content="Complete sitemap of IncomeGrow Financial Platform. Find all our pages including products, calculators, support, and legal information." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -127,7 +127,7 @@ export default function Sitemap() {
               </h1>
               
               <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                Explore all the pages and features available on Umbrella Financial Platform. 
+                Explore all the pages and features available on IncomeGrow Financial Platform. 
                 Find exactly what you&apos;re looking for with our comprehensive site navigation.
               </p>
               
@@ -168,31 +168,61 @@ export default function Sitemap() {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {section.pages.map((page, pageIndex) => (
-                        <Link
-                          key={pageIndex}
-                          href={page.href}
-                          className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-white/50 hover:shadow-lg hover:scale-105 transition-all duration-300 no-underline"
-                        >
-                          <div className="flex items-start justify-between mb-3">
-                            <h3 className="text-lg font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-200">
-                              {page.name}
-                            </h3>
-                            <svg 
-                              className="w-5 h-5 text-gray-400 group-hover:text-[#FF6B2C] group-hover:translate-x-1 transition-all duration-200" 
-                              fill="none" 
-                              stroke="currentColor" 
-                              viewBox="0 0 24 24"
-                            >
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                          </div>
-                          <p className="text-gray-600 text-sm leading-relaxed">
-                            {page.description}
-                          </p>
-                          <div className="mt-4 text-xs text-gray-500">
-                            {page.href}
-                          </div>
-                        </Link>
+                        page.external ? (
+                          <a
+                            key={pageIndex}
+                            href={page.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-white/50 hover:shadow-lg hover:scale-105 transition-all duration-300 no-underline"
+                          >
+                            <div className="flex items-start justify-between mb-3">
+                              <h3 className="text-lg font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-200">
+                                {page.name}
+                              </h3>
+                              <svg
+                                className="w-4 h-4 text-gray-400 group-hover:text-[#FF6B2C] transition-all duration-200"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                            </div>
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                              {page.description}
+                            </p>
+                            <div className="mt-4 text-xs text-gray-500">
+                              {page.href}
+                            </div>
+                          </a>
+                        ) : (
+                          <Link
+                            key={pageIndex}
+                            href={page.href}
+                            className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-white/50 hover:shadow-lg hover:scale-105 transition-all duration-300 no-underline"
+                          >
+                            <div className="flex items-start justify-between mb-3">
+                              <h3 className="text-lg font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-200">
+                                {page.name}
+                              </h3>
+                              <svg
+                                className="w-5 h-5 text-gray-400 group-hover:text-[#FF6B2C] group-hover:translate-x-1 transition-all duration-200"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </svg>
+                            </div>
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                              {page.description}
+                            </p>
+                            <div className="mt-4 text-xs text-gray-500">
+                              {page.href}
+                            </div>
+                          </Link>
+                        )
                       ))}
                     </div>
                   </div>

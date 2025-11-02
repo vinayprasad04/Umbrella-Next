@@ -9,7 +9,7 @@ export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
-      text: "Umbrella's calculators made my investment planning so much easier. The interface is clean and the results are reliable! It's like having a financial advisor in my pocket.",
+      text: "IncomeGrow's calculators made my investment planning so much easier. The interface is clean and the results are reliable! It's like having a financial advisor in my pocket.",
       author: "Amit Sharma",
       role: "Software Engineer",
       location: "Mumbai",
@@ -19,7 +19,7 @@ export default function Testimonials() {
     },
     {
       id: 2,
-      text: "The research and blogs on Umbrella are top notch. I feel more confident in my financial decisions now. The educational content is gold!",
+      text: "The research and blogs on IncomeGrow are top notch. I feel more confident in my financial decisions now. The educational content is gold!",
       author: "Priya Reddy",
       role: "Content Creator",
       location: "Bangalore",
@@ -69,7 +69,7 @@ export default function Testimonials() {
     },
     {
       id: 7,
-      text: "Umbrella transformed my financial literacy completely. From knowing nothing about investments to building a diversified portfolio in just 6 months!",
+      text: "IncomeGrow transformed my financial literacy completely. From knowing nothing about investments to building a diversified portfolio in just 6 months!",
       author: "Rohit Kumar",
       role: "Teacher",
       location: "Kolkata",
@@ -119,7 +119,7 @@ export default function Testimonials() {
     },
     {
       id: 12,
-      text: "The SIP calculator helped me plan my retirement perfectly. Now I'm confident about my financial future thanks to Umbrella's guidance.",
+      text: "The SIP calculator helped me plan my retirement perfectly. Now I'm confident about my financial future thanks to IncomeGrow's guidance.",
       author: "Sunita Rao",
       role: "Government Employee",
       location: "Mysore",
@@ -155,10 +155,10 @@ export default function Testimonials() {
   return (
     <>
       <Head>
-        <title>Testimonials - What Our Users Say | Umbrella Financial</title>
-        <meta name="description" content="Read real testimonials from our satisfied users. Discover how Umbrella has helped thousands achieve their financial goals and build wealth." />
+        <title>Testimonials - What Our Users Say | IncomeGrow Financial</title>
+        <meta name="description" content="Read real testimonials from our satisfied users. Discover how IncomeGrow has helped thousands achieve their financial goals and build wealth." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -185,7 +185,7 @@ export default function Testimonials() {
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                Discover how Umbrella has transformed financial journeys across India. 
+                Discover how IncomeGrow has transformed financial journeys across India. 
                 Read real stories from our community of successful investors and learners.
               </p>
               
@@ -270,7 +270,7 @@ export default function Testimonials() {
               </h2>
               
               <p className="text-xl text-white/90 leading-relaxed max-w-2xl mx-auto mb-8">
-                Join thousands of satisfied users who have transformed their financial future with Umbrella.
+                Join thousands of satisfied users who have transformed their financial future with IncomeGrow.
                 Start your journey today!
               </p>
               

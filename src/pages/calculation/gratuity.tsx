@@ -69,10 +69,10 @@ export default function GratuityCalculator() {
   return (
     <>
       <Head>
-        <title>Gratuity Calculator - Umbrella Financial</title>
+        <title>Gratuity Calculator - IncomeGrow Financial</title>
         <meta name="description" content="Calculate your gratuity amount based on last drawn salary and years of service. Understand gratuity eligibility and payment rules." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

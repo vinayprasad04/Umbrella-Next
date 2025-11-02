@@ -87,28 +87,28 @@ export default function ContactUs() {
       icon: '📧',
       title: 'Email Support',
       description: 'Get help via email within 24 hours',
-      contact: 'support@umbrellafinancial.com',
+      contact: 'vinay.qss@gmail.com',
       available: '24/7'
     },
-    {
-      icon: '📞',
-      title: 'Phone Support',
-      description: 'Speak directly with our experts',
-      contact: '+91-9876543210',
-      available: 'Mon-Fri, 9 AM - 6 PM IST'
-    },
+    // {
+    //   icon: '📞',
+    //   title: 'Phone Support',
+    //   description: 'Speak directly with our experts',
+    //   contact: '+91-9876543210',
+    //   available: 'Mon-Fri, 9 AM - 6 PM IST'
+    // },
     {
       icon: '💬',
       title: 'Live Chat',
       description: 'Instant support through live chat',
-      contact: 'Available on website',
+      contact: 'Not Available',
       available: 'Mon-Fri, 9 AM - 6 PM IST'
     },
     {
       icon: '📍',
       title: 'Visit Office',
       description: 'Meet us at our office location',
-      contact: '123 Financial District, Mumbai, India',
+      contact: 'Krishan Vihar, Delhi, India',
       available: 'Mon-Fri, 10 AM - 5 PM IST'
     }
   ];
@@ -143,10 +143,10 @@ export default function ContactUs() {
   return (
     <>
       <Head>
-        <title>Contact Us - Umbrella Financial</title>
-        <meta name="description" content="Get in touch with Umbrella Financial. Contact our support team for help with investments, calculators, and financial planning." />
+        <title>Contact Us - IncomeGrow Financial</title>
+        <meta name="description" content="Get in touch with IncomeGrow Financial. Contact our support team for help with investments, calculators, and financial planning." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -211,7 +211,7 @@ export default function ContactUs() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {contactMethods.map((method, index) => (
                   <div key={index} className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
                     <div className="text-center">

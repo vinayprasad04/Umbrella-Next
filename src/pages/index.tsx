@@ -24,10 +24,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Umbrella - Empowering Your Financial Journey</title>
-        <meta name="description" content="Umbrella brings you the best tools, research, and knowledge to achieve your financial goals. Plan, invest, and grow with confidence." />
+        <title>IncomeGrow - Empowering Your Financial Journey</title>
+        <meta name="description" content="IncomeGrow brings you the best tools, research, and knowledge to achieve your financial goals. Plan, invest, and grow with confidence." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -61,7 +61,7 @@ export default function Home() {
                 </h1>
                 
                 <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
-                  Umbrella brings you the best tools, research, and knowledge to 
+                  IncomeGrow brings you the best tools, research, and knowledge to 
                   achieve your financial goals. Plan, invest, and grow with confidence 
                   using our comprehensive platform.
                 </p>
@@ -284,7 +284,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* About Umbrella Section */}
+          {/* About IncomeGrow Section */}
           <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative">
             <div className="w-full max-w-[1600px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
               <div className="space-y-8">
@@ -296,13 +296,13 @@ export default function Home() {
                   <h2 className="text-4xl lg:text-5xl font-bold mb-6">
                     <span className="text-gray-800">Why Choose </span>
                     <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
-                      Umbrella?
+                      IncomeGrow?
                     </span>
                   </h2>
                 </div>
                 
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Umbrella is dedicated to making financial knowledge accessible and 
+                  IncomeGrow is dedicated to making financial knowledge accessible and 
                   actionable for everyone. Our platform combines expert research, 
                   powerful calculators, and a vibrant community to help you make smarter 
                   financial decisions.
@@ -372,11 +372,11 @@ export default function Home() {
                   <div className="relative w-80 h-80 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-3xl flex items-center justify-center shadow-2xl border-4 border-white/20 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/10 rounded-3xl"></div>
                     
-                    {/* Umbrella Logo instead of U text */}
+                    {/* IncomeGrow Logo instead of U text */}
                     <div className="relative z-10">
                       <Image
                         src="/logo.png"
-                        alt="Umbrella Financial Logo"
+                        alt="IncomeGrow Financial Logo"
                         width={120}
                         height={114}
                         priority
@@ -444,13 +444,14 @@ export default function Home() {
                     bgColor: 'from-green-50 to-green-100',
                     href: '/products/course'
                   },
-                  { 
-                    icon: '📈', 
-                    title: 'Market Research', 
+                  {
+                    icon: '📈',
+                    title: 'Market Research',
                     description: 'In-depth stock analysis',
                     color: 'from-purple-400 to-purple-600',
                     bgColor: 'from-purple-50 to-purple-100',
-                    href: '/products/shares-research'
+                    href: 'https://www.stock.incomegrow.in/',
+                    external: true
                   },
                   { 
                     icon: '📰', 
@@ -469,7 +470,11 @@ export default function Home() {
                     href: '/products/brokers-knowledge'
                   }
                 ].map((product, index) => (
-                  <div key={index} onClick={() => router.push(product.href)} className={`group relative bg-gradient-to-br ${product.bgColor} backdrop-blur-sm border border-white/50 rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer`}>
+                  <div
+                    key={index}
+                    onClick={() => product.external ? window.open(product.href, '_blank', 'noopener,noreferrer') : router.push(product.href)}
+                    className={`group relative bg-gradient-to-br ${product.bgColor} backdrop-blur-sm border border-white/50 rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer`}
+                  >
                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
                     <div className="relative z-10">
@@ -533,14 +538,14 @@ export default function Home() {
                 </h2>
                 
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Discover how Umbrella has transformed financial journeys across India
+                  Discover how IncomeGrow has transformed financial journeys across India
                 </p>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {[
                   {
-                    text: "Umbrella's calculators made my investment planning so much easier. The interface is clean and the results are reliable! It's like having a financial advisor in my pocket.",
+                    text: "IncomeGrow's calculators made my investment planning so much easier. The interface is clean and the results are reliable! It's like having a financial advisor in my pocket.",
                     author: "Amit Sharma",
                     role: "Software Engineer",
                     location: "Mumbai",
@@ -548,7 +553,7 @@ export default function Home() {
                     avatar: "AS"
                   },
                   {
-                    text: "The research and blogs on Umbrella are top notch. I feel more confident in my financial decisions now. The educational content is gold!",
+                    text: "The research and blogs on IncomeGrow are top notch. I feel more confident in my financial decisions now. The educational content is gold!",
                     author: "Priya Reddy",
                     role: "Content Creator",
                     location: "Bangalore",
@@ -640,7 +645,7 @@ export default function Home() {
                 </h2>
                 
                 <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Join thousands of professionals and organizations who trust Umbrella for their financial needs
+                  Join thousands of professionals and organizations who trust IncomeGrow for their financial needs
                 </p>
               </div>
               

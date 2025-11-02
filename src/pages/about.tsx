@@ -112,10 +112,10 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Us - Umbrella Financial</title>
-        <meta name="description" content="Learn about Umbrella Financial's mission to democratize investing and help millions achieve financial freedom through smart investment strategies." />
+        <title>About Us - IncomeGrow Financial</title>
+        <meta name="description" content="Learn about IncomeGrow Financial's mission to democratize investing and help millions achieve financial freedom through smart investment strategies." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -131,7 +131,7 @@ export default function About() {
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
               <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-full border border-orange-200 mb-8">
-                <span className="text-sm font-semibold text-orange-600">🏢 About Umbrella Financial</span>
+                <span className="text-sm font-semibold text-orange-600">🏢 About IncomeGrow Financial</span>
               </div>
               
               <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -172,7 +172,7 @@ export default function About() {
                   
                   <div className="space-y-6">
                     <p className="text-lg text-gray-600 leading-relaxed">
-                      At Umbrella Financial, we believe that everyone deserves access to professional-grade 
+                      At IncomeGrow Financial, we believe that everyone deserves access to professional-grade 
                       investment tools and strategies, regardless of their wealth or background.
                     </p>
                     
@@ -328,7 +328,7 @@ export default function About() {
               </h2>
               
               <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
-                Join thousands of smart investors who trust Umbrella Financial for their wealth-building journey
+                Join thousands of smart investors who trust IncomeGrow Financial for their wealth-building journey
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

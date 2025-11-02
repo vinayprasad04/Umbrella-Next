@@ -1,6 +1,6 @@
-# Umbrella - Financial Planning Platform
+# IncomeGrow - Financial Planning Platform
 
-Umbrella is a comprehensive financial planning and investment platform built with Next.js. It empowers users with the best tools, research, and knowledge to achieve their financial goals through intelligent planning, investing, and wealth management.
+IncomeGrow is a comprehensive financial planning and investment platform built with Next.js. It empowers users with the best tools, research, and knowledge to achieve their financial goals through intelligent planning, investing, and wealth management.
 
 ## 🚀 Features
 
@@ -165,9 +165,7 @@ This project is optimized for deployment on Vercel:
 ## 📞 Support
 
 For support and questions:
-- **Email**: support@umbrella.com
-- **Privacy**: privacy@umbrella.com
-- **Legal**: legal@umbrella.com
+
 
 ## 📄 License
 
@@ -175,4 +173,4 @@ This project is proprietary software. All rights reserved.
 
 ---
 
-Built with ❤️ by the Umbrella Financial Team
+Built with ❤️ by the IncomeGrow Financial Team

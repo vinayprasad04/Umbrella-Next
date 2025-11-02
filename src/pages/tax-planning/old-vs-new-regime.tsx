@@ -17,12 +17,12 @@ export default function OldVsNewRegime() {
   return (
     <>
       <Head>
-        <title>Old vs New Tax Regime Comparison FY 2025-26 - Zero Tax up to ₹12L | Umbrella Financial</title>
+        <title>Old vs New Tax Regime Comparison FY 2025-26 - Zero Tax up to ₹12L | IncomeGrow Financial</title>
         <meta name="description" content="Updated old vs new tax regime comparison FY 2025-26. New regime offers zero tax up to ₹12L with ₹60,000 rebate. Compare with examples & calculator." />
         <meta name="keywords" content="old tax regime, new tax regime, tax comparison, tax calculator, Section 80C, rebate, tax planning, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://umbrella.com/tax-planning/old-vs-new-regime" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="http://incomegrow.in//tax-planning/old-vs-new-regime" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

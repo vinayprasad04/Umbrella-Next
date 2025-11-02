@@ -16,12 +16,12 @@ export default function SalaryRestructuring() {
   return (
     <>
       <Head>
-        <title>Salary Restructuring for Tax Savings Guide 2025 - HRA LTA Allowances | Umbrella Financial</title>
+        <title>Salary Restructuring for Tax Savings Guide 2025 - HRA LTA Allowances | IncomeGrow Financial</title>
         <meta name="description" content="Complete salary restructuring guide 2025. Maximize tax savings with HRA, LTA, food allowance, conveyance. Expert tips to reduce tax liability legally." />
         <meta name="keywords" content="salary restructuring, HRA, LTA, tax savings, allowances, conveyance, food allowance, tax planning, 2025" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://umbrella.com/tax-planning/salary-restructuring" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="http://incomegrow.in//tax-planning/salary-restructuring" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

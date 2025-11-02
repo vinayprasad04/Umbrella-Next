@@ -54,10 +54,10 @@ export default function SIP() {
   return (
     <>
       <Head>
-        <title>SIP Calculator - Umbrella Financial</title>
+        <title>SIP Calculator - IncomeGrow Financial</title>
         <meta name="description" content="Calculate your SIP investment returns with our free online calculator. Plan your systematic investment plan and see potential growth over time." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

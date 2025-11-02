@@ -6,13 +6,13 @@ import { useRouter } from 'next/router';
 const menu = [
   {
     label: 'Home'
-  }, 
+  },
   {
     label: 'Products',
     submenu: [
       { name: 'Goal', href: '/products/goal' },
       { name: 'Course', href: '/products/course' },
-      { name: 'Shares Research', href: '/products/shares-research' },
+      { name: 'Shares Research', href: 'https://www.stock.incomegrow.in/', external: true },
       { name: 'Blogs', href: '/products/blogs' },
       { name: 'Brokers Knowledge', href: '/products/brokers-knowledge' },
     ],
@@ -119,7 +119,7 @@ export default function Header() {
             <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
               <Image
                 src="/logo.png"
-                alt="Umbrella Financial Logo"
+                alt="incomeGrow Financial Logo"
                 width={28}
                 height={26}
                 priority
@@ -128,10 +128,13 @@ export default function Header() {
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent group-hover:from-[#FF6B2C] group-hover:to-[#FF8A50] transition-all duration-300">
-              Umbrella
-            </span>
-            <span className="text-xs text-gray-500 font-medium -mt-1">Financial Freedom</span>
+             <Image
+                src="/logo.svg"
+                alt="incomeGrow Financial Logo"
+                 width={150}
+                height={50}
+                priority
+              />
           </div>
         </Link>
         
@@ -204,6 +207,24 @@ export default function Header() {
                   </div>
                   {item.submenu.map((subItem, subIndex) => {
                     if (typeof subItem === 'object' && subItem.href) {
+                      // Check if it's an external link
+                      if (subItem.external) {
+                        return (
+                          <a
+                            key={subIndex}
+                            href={subItem.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center px-4 py-2.5 mx-2 text-gray-700 hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-50 hover:text-[#FF6B2C] transition-all duration-200 no-underline rounded-lg group/item"
+                          >
+                            <span className="w-2 h-2 bg-gray-300 rounded-full mr-3 group-hover/item:bg-[#FF6B2C] transition-colors duration-200"></span>
+                            {subItem.name}
+                            <svg className="w-3 h-3 ml-1 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </a>
+                        );
+                      }
                       return (
                         <Link
                           key={subIndex}

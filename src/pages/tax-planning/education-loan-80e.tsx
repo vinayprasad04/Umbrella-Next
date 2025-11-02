@@ -16,12 +16,12 @@ export default function EducationLoan80E() {
   return (
     <>
       <Head>
-        <title>Education Loan Tax Benefits Section 80E Guide 2025 - Interest Deduction | Umbrella Financial</title>
+        <title>Education Loan Tax Benefits Section 80E Guide 2025 - Interest Deduction | IncomeGrow Financial</title>
         <meta name="description" content="Complete Section 80E education loan tax benefits guide 2025. Get unlimited interest deduction on education loans. Best education loan providers & rates." />
         <meta name="keywords" content="Section 80E, education loan, tax benefits, interest deduction, student loan, higher education, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://umbrella.com/tax-planning/education-loan-80e" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="http://incomegrow.in//tax-planning/education-loan-80e" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

@@ -33,19 +33,19 @@ export default function FAQ() {
       icon: '❓',
       faqs: [
         {
-          question: 'What is Umbrella Financial?',
-          answer: 'Umbrella Financial is a comprehensive financial platform that provides investment tools, calculators, financial planning services, and educational resources to help individuals make informed financial decisions.'
+          question: 'What is IncomeGrow Financial?',
+          answer: 'IncomeGrow Financial is a comprehensive financial platform that provides investment tools, calculators, financial planning services, and educational resources to help individuals make informed financial decisions.'
         },
         {
-          question: 'Is Umbrella Financial regulated?',
+          question: 'Is IncomeGrow Financial regulated?',
           answer: 'Yes, we are regulated by relevant financial authorities and comply with all applicable financial regulations. We maintain the highest standards of security and transparency.'
         },
         {
-          question: 'How do I get started with Umbrella Financial?',
+          question: 'How do I get started with IncomeGrow Financial?',
           answer: 'Simply create a free account on our platform. Once registered, you can access our calculators, educational resources, and begin exploring investment opportunities.'
         },
         {
-          question: 'What services does Umbrella Financial offer?',
+          question: 'What services does IncomeGrow Financial offer?',
           answer: 'We offer financial calculators, investment planning tools, educational resources, market research, portfolio management services, and personalized financial advice.'
         }
       ]
@@ -189,13 +189,30 @@ export default function FAQ() {
     }
   };
 
+  const handleCategoryClick = (categoryId: string) => {
+    setActiveCategory(categoryId);
+    setSearchTerm('');
+    setOpenFAQ(null);
+
+    // Scroll to FAQ content section
+    setTimeout(() => {
+      const faqSection = document.getElementById('faq-content');
+      if (faqSection) {
+        faqSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }, 100);
+  };
+
   return (
     <>
       <Head>
-        <title>FAQ - Umbrella Financial</title>
-        <meta name="description" content="Frequently asked questions about Umbrella Financial. Find answers to common questions about our services, calculators, investments, and more." />
+        <title>FAQ - IncomeGrow Financial</title>
+        <meta name="description" content="Frequently asked questions about IncomeGrow Financial. Find answers to common questions about our services, calculators, investments, and more." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -272,7 +289,7 @@ export default function FAQ() {
           </section>
 
           {/* FAQ Content */}
-          <section className="py-24 bg-gray-50">
+          <section id="faq-content" className="py-24 bg-gray-50">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-4xl mx-auto">
                 {filteredFAQs.length > 0 ? (
@@ -386,7 +403,7 @@ export default function FAQ() {
                   
                   return (
                     <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer"
-                         onClick={() => setActiveCategory(category.id)}>
+                         onClick={() => handleCategoryClick(category.id)}>
                       <div className="flex items-center justify-between mb-4">
                         <div className="flex items-center gap-3">
                           <div className="text-2xl">{category.icon}</div>

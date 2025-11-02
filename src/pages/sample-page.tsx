@@ -6,10 +6,10 @@ export default function SamplePage() {
   return (
     <>
       <Head>
-        <title>Sample Page - Umbrella</title>
+        <title>Sample Page - IncomeGrow</title>
         <meta name="description" content="Sample page showing reusable Header and Footer components" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div style={{ fontFamily: 'Arial, sans-serif', margin: 0, padding: 0, backgroundColor: 'white' }}>

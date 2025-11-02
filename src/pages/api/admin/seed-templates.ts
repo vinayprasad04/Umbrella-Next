@@ -7,18 +7,18 @@ import EmailTemplate from '../../../models/EmailTemplate';
 const defaultTemplates = [
   {
     name: 'Welcome Email',
-    subject: 'Welcome to Umbrella Financial!',
+    subject: 'Welcome to IncomeGrow Financial!',
     htmlContent: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="text-align: center; margin-bottom: 30px;">
-          <h1 style="color: #FF6B2C; margin-bottom: 10px;">Welcome to Umbrella Financial!</h1>
+          <h1 style="color: #FF6B2C; margin-bottom: 10px;">Welcome to IncomeGrow Financial!</h1>
           <p style="color: #666; font-size: 16px;">Your journey to financial freedom starts here</p>
         </div>
         
         <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; margin-bottom: 20px;">
           <h2 style="color: #333; margin-bottom: 15px;">Hello {{userName}}!</h2>
           <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">
-            Thank you for joining Umbrella Financial. We're excited to help you achieve your financial goals with our comprehensive suite of investment tools and resources.
+            Thank you for joining IncomeGrow Financial. We're excited to help you achieve your financial goals with our comprehensive suite of investment tools and resources.
           </p>
           <p style="color: #555; line-height: 1.6;">
             Get started by exploring our dashboard where you'll find calculators, investment insights, and personalized recommendations.
@@ -33,12 +33,12 @@ const defaultTemplates = [
         
         <div style="border-top: 1px solid #eee; padding-top: 20px; text-align: center;">
           <p style="color: #999; font-size: 12px;">
-            © 2024 Umbrella Financial. All rights reserved.
+            © 2024 IncomeGrow Financial. All rights reserved.
           </p>
         </div>
       </div>
     `,
-    textContent: 'Welcome to Umbrella Financial! Hello {{userName}}, thank you for joining us. Visit {{dashboardUrl}} to get started.',
+    textContent: 'Welcome to IncomeGrow Financial! Hello {{userName}}, thank you for joining us. Visit {{dashboardUrl}} to get started.',
     variables: ['userName', 'dashboardUrl'],
     category: 'welcome',
   },
@@ -79,7 +79,7 @@ const defaultTemplates = [
   },
   {
     name: 'Password Reset',
-    subject: 'Reset Your Umbrella Financial Password',
+    subject: 'Reset Your IncomeGrow Financial Password',
     htmlContent: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <div style="text-align: center; margin-bottom: 30px;">
@@ -89,7 +89,7 @@ const defaultTemplates = [
         <div style="background: #f8f9fa; padding: 25px; border-radius: 10px; margin-bottom: 20px;">
           <h2 style="color: #333; margin-bottom: 15px;">Hello {{userName}},</h2>
           <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">
-            We received a request to reset your password for your Umbrella Financial account.
+            We received a request to reset your password for your IncomeGrow Financial account.
           </p>
           <p style="color: #555; line-height: 1.6;">
             Click the button below to reset your password. This link will expire in 1 hour.

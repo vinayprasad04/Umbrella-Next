@@ -16,12 +16,12 @@ export default function CapitalGainsPlanning() {
   return (
     <>
       <Head>
-        <title>Capital Gains Tax Planning Guide 2025 - STCG LTCG Tax Optimization | Umbrella Financial</title>
+        <title>Capital Gains Tax Planning Guide 2025 - STCG LTCG Tax Optimization | IncomeGrow Financial</title>
         <meta name="description" content="Complete capital gains tax planning guide 2025. Learn STCG, LTCG rates, tax-saving strategies, indexation benefits. Expert tips for equity, property, mutual funds." />
         <meta name="keywords" content="capital gains, STCG, LTCG, tax planning, equity, mutual funds, property, indexation, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://umbrella.com/tax-planning/capital-gains-planning" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="http://incomegrow.in//tax-planning/capital-gains-planning" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

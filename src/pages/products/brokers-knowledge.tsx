@@ -283,12 +283,12 @@ export default function BrokersKnowledge() {
   return (
     <>
       <Head>
-        <title>Best Stock Brokers in India 2025 - Compare Brokerage, Features & Reviews | Umbrella Financial</title>
+        <title>Best Stock Brokers in India 2025 - Compare Brokerage, Features & Reviews | IncomeGrow Financial</title>
         <meta name="description" content="Compare top stock brokers in India 2025. Find best brokerage rates, features, and reviews for Zerodha, Groww, Angel One, Upstox and more. Start trading today!" />
         <meta name="keywords" content="stock brokers India, best stock broker, zerodha, groww, angel one, upstox, brokerage comparison, stock trading, demat account" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://umbrella.com/products/brokers-knowledge" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="http://incomegrow.in//products/brokers-knowledge" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

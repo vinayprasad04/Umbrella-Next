@@ -8,10 +8,10 @@ const PrivacyPolicy = () => {
   return (
     <>
       <Head>
-        <title>Privacy Policy - Umbrella</title>
-        <meta name="description" content="Umbrella Privacy Policy - How we collect, use, and protect your information" />
+        <title>Privacy Policy - IncomeGrow</title>
+        <meta name="description" content="IncomeGrow Privacy Policy - How we collect, use, and protect your information" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -42,7 +42,7 @@ const PrivacyPolicy = () => {
                 <section className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Introduction</h2>
                   <p className="text-gray-700 mb-4">
-                    Welcome to Umbrella (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our financial planning platform.
+                    Welcome to IncomeGrow (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our financial planning platform.
                   </p>
                   <p className="text-gray-700">
                     By accessing or using our service, you agree to the collection and use of information in accordance with this policy.
@@ -149,9 +149,9 @@ const PrivacyPolicy = () => {
                     If you have any questions about this Privacy Policy or our data practices, please contact us:
                   </p>
                   <div className="bg-gray-50 p-6 rounded-lg">
-                    <p className="text-gray-700 mb-2"><strong>Email:</strong> privacy@umbrella.com</p>
-                    <p className="text-gray-700 mb-2"><strong>Address:</strong> Umbrella Financial Services, Mumbai, India</p>
-                    <p className="text-gray-700"><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+                    <p className="text-gray-700 mb-2"><strong>Email:</strong> vinay.qss@gmail.com</p>
+                    <p className="text-gray-700 mb-2"><strong>Address:</strong> IncomeGrow Financial Services, krishan Vihar Delhi, India</p>
+                    {/* <p className="text-gray-700"><strong>Phone:</strong> +91 XXXXX XXXXX</p> */}
                   </div>
                 </section>
               </div>

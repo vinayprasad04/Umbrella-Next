@@ -74,10 +74,10 @@ export default function TaxHaven() {
   return (
     <>
       <Head>
-        <title>Tax Haven Guide - Umbrella Financial</title>
+        <title>Tax Haven Guide - IncomeGrow Financial</title>
         <meta name="description" content="Learn about tax havens, offshore financial centers, and legal tax planning strategies. Understand the implications and requirements." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

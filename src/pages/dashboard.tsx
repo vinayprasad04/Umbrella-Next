@@ -41,10 +41,10 @@ const Dashboard = () => {
   return (
     <>
       <Head>
-        <title>Dashboard - Umbrella</title>
-        <meta name="description" content="Welcome to your Umbrella dashboard. Access our financial tools and services." />
+        <title>Dashboard - IncomeGrow</title>
+        <meta name="description" content="Welcome to your IncomeGrow dashboard. Access our financial tools and services." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="flex flex-col min-h-screen bg-[#fafbfc]">
@@ -58,7 +58,7 @@ const Dashboard = () => {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-black mb-1">Dashboard</h1>
-              <p className="text-base text-gray-700">Welcome to Umbrella. Access our state of the art products from here.</p>
+              <p className="text-base text-gray-700">Welcome to IncomeGrow. Access our state of the art products from here.</p>
             </div>
             {isAdmin && (
               <div className="mt-4 sm:mt-0">

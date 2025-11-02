@@ -35,7 +35,8 @@ export default function Products() {
       features: ['Stock Analysis', 'Market Trends', 'Risk Assessment', 'Performance Reports'],
       color: 'from-purple-400 to-purple-600',
       bgColor: 'from-purple-50 to-purple-100',
-      href: '/products/shares-research'
+      href: 'https://www.stock.incomegrow.in/',
+      external: true
     },
     {
       id: 'blogs',
@@ -59,17 +60,21 @@ export default function Products() {
     }
   ];
 
-  const handleProductClick = (href: string) => {
-    router.push(href);
+  const handleProductClick = (href: string, external?: boolean) => {
+    if (external) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+    } else {
+      router.push(href);
+    }
   };
 
   return (
     <>
       <Head>
-        <title>Products - Umbrella Financial Tools & Services</title>
+        <title>Products - IncomeGrow Financial Tools & Services</title>
         <meta name="description" content="Explore our comprehensive range of financial products including goal planning, educational courses, market research, expert insights, and broker knowledge." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -125,9 +130,9 @@ export default function Products() {
             <div className="relative w-full max-w-[1600px] mx-auto px-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {products.map((product) => (
-                  <div 
-                    key={product.id} 
-                    onClick={() => handleProductClick(product.href)}
+                  <div
+                    key={product.id}
+                    onClick={() => handleProductClick(product.href, product.external)}
                     className={`group relative bg-gradient-to-br ${product.bgColor} backdrop-blur-sm border border-white/50 rounded-3xl p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer`}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -162,12 +167,18 @@ export default function Products() {
                         <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <div className="inline-flex items-center text-base font-semibold text-gray-700 group-hover:text-gray-800">
                             Explore {product.title}
-                            <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
+                            {product.external ? (
+                              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                            ) : (
+                              <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </svg>
+                            )}
                           </div>
                         </div>
-                        
+
                         <div className="flex items-center gap-2 text-sm text-gray-500">
                           <span>Free to start</span>
                           <div className="w-2 h-2 bg-green-400 rounded-full"></div>
@@ -196,7 +207,7 @@ export default function Products() {
               </h2>
               
               <p className="text-xl text-white/90 leading-relaxed max-w-2xl mx-auto mb-8">
-                Join thousands of users who trust Umbrella for their financial planning and investment decisions.
+                Join thousands of users who trust IncomeGrow for their financial planning and investment decisions.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

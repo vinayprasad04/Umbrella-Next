@@ -24,12 +24,12 @@ export default function Section80C() {
   return (
     <>
       <Head>
-        <title>Section 80C Tax Savings Guide 2025 - Save ₹46,800 Annually | Umbrella Financial</title>
+        <title>Section 80C Tax Savings Guide 2025 - Save ₹46,800 Annually | IncomeGrow Financial</title>
         <meta name="description" content="Complete Section 80C tax savings guide for 2025. Learn about PPF, ELSS, EPF, NSC investments. Save up to ₹46,800 with ₹1.5L deductions. Expert tips & best platforms." />
         <meta name="keywords" content="Section 80C, tax savings, PPF, ELSS, EPF, NSC, tax deduction, investment, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://umbrella.com/tax-planning/section-80c" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="http://incomegrow.in//tax-planning/section-80c" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

@@ -24,12 +24,12 @@ export default function NPSAdditional80CCD1B() {
   return (
     <>
       <Head>
-        <title>NPS Additional Tax Benefits Section 80CCD1B Guide 2025 - Extra ₹50K Deduction | Umbrella Financial</title>
+        <title>NPS Additional Tax Benefits Section 80CCD1B Guide 2025 - Extra ₹50K Deduction | IncomeGrow Financial</title>
         <meta name="description" content="Complete NPS Section 80CCD1B guide 2025. Get additional ₹50,000 tax deduction on National Pension System investments. Best NPS platforms & investment tips." />
         <meta name="keywords" content="NPS, Section 80CCD1B, National Pension System, tax benefits, retirement planning, ₹50000 deduction, 2025" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://umbrella.com/tax-planning/nps-additional-80ccd1b" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="http://incomegrow.in//tax-planning/nps-additional-80ccd1b" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

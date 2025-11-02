@@ -24,12 +24,12 @@ export default function HealthInsurance80D() {
   return (
     <>
       <Head>
-        <title>Health Insurance Tax Benefits Section 80D Guide 2025 - Save ₹1 Lakh | Umbrella Financial</title>
+        <title>Health Insurance Tax Benefits Section 80D Guide 2025 - Save ₹1 Lakh | IncomeGrow Financial</title>
         <meta name="description" content="Complete Section 80D health insurance tax benefits guide 2025. Save up to ₹1 lakh on health insurance premiums. Best insurance providers & tax calculator." />
         <meta name="keywords" content="Section 80D, health insurance, tax benefits, medical insurance, tax deduction, 2025, India, premium" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://umbrella.com/tax-planning/health-insurance-80d" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="http://incomegrow.in//tax-planning/health-insurance-80d" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

@@ -47,7 +47,7 @@ const SeedBlogs = () => {
         <title>Seed Blogs - Debug</title>
         <meta name="description" content="Seed blog data from products page to database" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">

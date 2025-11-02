@@ -84,10 +84,10 @@ export default function Blogs() {
   return (
     <>
       <Head>
-        <title>Financial Blogs - Umbrella Financial</title>
+        <title>Financial Blogs - IncomeGrow Financial</title>
         <meta name="description" content="Stay updated with latest financial insights, investment tips, market news, and expert advice from our financial blog." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -320,7 +320,7 @@ export default function Blogs() {
           </section>
 
           {/* Newsletter Section */}
-          <section className="py-24 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
+          {/* <section className="py-24 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
               <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
@@ -351,7 +351,7 @@ export default function Blogs() {
                 Join 50,000+ readers. Unsubscribe anytime.
               </p>
             </div>
-          </section>
+          </section> */}
         </main>
 
         <Footer />

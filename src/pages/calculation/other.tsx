@@ -292,10 +292,10 @@ export default function Other() {
   return (
     <>
       <Head>
-        <title>Other Calculators - Umbrella Financial</title>
+        <title>Other Calculators - IncomeGrow Financial</title>
         <meta name="description" content="Access various financial calculators including EMI, CAGR, and Inflation calculators for your financial planning needs." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

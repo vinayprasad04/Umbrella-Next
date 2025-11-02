@@ -1878,10 +1878,10 @@ export default function TaxPlanning() {
   return (
     <>
       <Head>
-        <title>Tax Planning Tips & Strategies - Umbrella Financial</title>
+        <title>Tax Planning Tips & Strategies - IncomeGrow Financial</title>
         <meta name="description" content="Comprehensive tax planning guide with investment options, deductions, and strategies to minimize your tax liability legally." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

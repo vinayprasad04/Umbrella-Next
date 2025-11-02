@@ -121,10 +121,10 @@ export default function BecomePartner() {
   return (
     <>
       <Head>
-        <title>Become a Partner - Umbrella Financial Partnership Program</title>
-        <meta name="description" content="Join Umbrella's partnership program and grow your business with our comprehensive financial platform. Partner with us to expand your reach and revenue." />
+        <title>Become a Partner - IncomeGrow Financial Partnership Program</title>
+        <meta name="description" content="Join IncomeGrow's partnership program and grow your business with our comprehensive financial platform. Partner with us to expand your reach and revenue." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -152,7 +152,7 @@ export default function BecomePartner() {
               </h1>
               
               <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                Join Umbrella&apos;s growing network of partners and unlock new opportunities for your business. 
+                Join IncomeGrow&apos;s growing network of partners and unlock new opportunities for your business. 
                 Together, we can empower more people to achieve financial freedom.
               </p>
               

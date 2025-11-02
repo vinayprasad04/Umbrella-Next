@@ -114,20 +114,74 @@ export default function Goal() {
   const scrollToHowItWorks = () => {
     const howItWorksSection = document.getElementById('how-it-works');
     if (howItWorksSection) {
-      howItWorksSection.scrollIntoView({ 
+      howItWorksSection.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
     }
   };
 
+  const scrollToCalculator = () => {
+    const calculatorSection = document.getElementById('goal-calculator');
+    if (calculatorSection) {
+      calculatorSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  const handleGoalSelection = (goalId: string) => {
+    setSelectedGoal(goalId);
+    // Reset all fields when goal changes
+    setTargetAmount('');
+    setTimeFrame('');
+    setShowCalculation(false);
+    setMonthlyInvestment('');
+    // Scroll to calculator form after a brief delay to allow state update
+    setTimeout(() => {
+      scrollToCalculator();
+    }, 100);
+  };
+
+  const handleGoalChange = (goalId: string) => {
+    setSelectedGoal(goalId);
+    // Reset all fields when goal changes from dropdown
+    setTargetAmount('');
+    setTimeFrame('');
+    setShowCalculation(false);
+    setMonthlyInvestment('');
+  };
+
+  const handleTargetAmountChange = (value: string) => {
+    setTargetAmount(value);
+    // Reset calculation when target amount changes
+    setShowCalculation(false);
+    setMonthlyInvestment('');
+  };
+
+  const handleTimeFrameChange = (value: string) => {
+    setTimeFrame(value);
+    // Reset calculation when time frame changes
+    setShowCalculation(false);
+    setMonthlyInvestment('');
+  };
+
+  const handleReset = () => {
+    setSelectedGoal('');
+    setTargetAmount('');
+    setTimeFrame('');
+    setMonthlyInvestment('');
+    setShowCalculation(false);
+  };
+
   return (
     <>
       <Head>
-        <title>Goal Planning - Umbrella Financial</title>
-        <meta name="description" content="Plan and achieve your financial goals with Umbrella's comprehensive goal planning tools. Set targets, calculate investments, and track progress." />
+        <title>Goal Planning - IncomeGrow Financial</title>
+        <meta name="description" content="Plan and achieve your financial goals with IncomeGrow's comprehensive goal planning tools. Set targets, calculate investments, and track progress." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -205,10 +259,10 @@ export default function Goal() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                 {goalTypes.map((goal, index) => (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className={`group relative bg-gradient-to-br ${goal.bgColor} backdrop-blur-sm border border-white/50 rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer ${selectedGoal === goal.id ? 'ring-2 ring-[#FF6B2C] shadow-xl scale-105' : ''}`}
-                    onClick={() => setSelectedGoal(goal.id)}
+                    onClick={() => handleGoalSelection(goal.id)}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
@@ -241,7 +295,7 @@ export default function Goal() {
           </section>
 
           {/* Goal Calculator Section */}
-          <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+          <section id="goal-calculator" className="py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-16">
                 <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200 mb-6">
@@ -269,10 +323,10 @@ export default function Goal() {
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
                           Goal Type
                         </label>
-                        <select 
+                        <select
                           className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
                           value={selectedGoal}
-                          onChange={(e) => setSelectedGoal(e.target.value)}
+                          onChange={(e) => handleGoalChange(e.target.value)}
                         >
                           <option value="">Select a goal</option>
                           {goalTypes.map(goal => (
@@ -292,7 +346,7 @@ export default function Goal() {
                           placeholder="e.g., 5000000"
                           className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
                           value={targetAmount}
-                          onChange={(e) => setTargetAmount(e.target.value)}
+                          onChange={(e) => handleTargetAmountChange(e.target.value)}
                         />
                       </div>
                       
@@ -300,10 +354,10 @@ export default function Goal() {
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
                           Time Frame (Years)
                         </label>
-                        <select 
+                        <select
                           className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
                           value={timeFrame}
-                          onChange={(e) => setTimeFrame(e.target.value)}
+                          onChange={(e) => handleTimeFrameChange(e.target.value)}
                         >
                           <option value="">Select timeframe</option>
                           <option value="1">1 Year</option>
@@ -316,16 +370,28 @@ export default function Goal() {
                           <option value="20">20 Years</option>
                         </select>
                       </div>
-                      
-                      <button 
-                        className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
-                        onClick={handleCalculate}
-                      >
-                        Calculate Investment
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                        </svg>
-                      </button>
+
+                      <div className="flex gap-3">
+                        <button
+                          className="flex-1 bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                          onClick={handleCalculate}
+                        >
+                          Calculate
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                          </svg>
+                        </button>
+
+                        <button
+                          className="px-6 py-4 bg-gray-100 hover:bg-gray-200 text-gray-700 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                          onClick={handleReset}
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                          </svg>
+                          Reset
+                        </button>
+                      </div>
                     </div>
                     
                     {/* Results */}
@@ -477,7 +543,7 @@ export default function Goal() {
               </h2>
               
               <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
-                Join thousands of users who are already on their way to achieving their financial dreams with Umbrella
+                Join thousands of users who are already on their way to achieving their financial dreams with IncomeGrow
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

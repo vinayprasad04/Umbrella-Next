@@ -105,7 +105,7 @@ export default function BlogDetails() {
     return (
       <>
         <Head>
-          <title>Loading... - Umbrella Financial</title>
+          <title>Loading... - IncomeGrow Financial</title>
         </Head>
         <div className="font-sans m-0 p-0 bg-white">
           <Header />
@@ -139,7 +139,7 @@ export default function BlogDetails() {
     return (
       <>
         <Head>
-          <title>Error - Umbrella Financial</title>
+          <title>Error - IncomeGrow Financial</title>
         </Head>
         <div className="font-sans m-0 p-0 bg-white">
           <Header />
@@ -169,19 +169,19 @@ export default function BlogDetails() {
   return (
     <>
       <Head>
-        <title>{blog.title} - Umbrella Financial</title>
+        <title>{blog.title} - IncomeGrow Financial</title>
         <meta name="description" content={blog.metaDescription || blog.excerpt} />
         <meta name="keywords" content={blog.tags.join(', ')} />
         <meta name="author" content={blog.author} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href={`https://umbrella.com/products/blogs/${blog.slug}`} />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href={`http://incomegrow.in//products/blogs/${blog.slug}`} />
         
         {/* Open Graph tags */}
         <meta property="og:title" content={blog.title} />
         <meta property="og:description" content={blog.metaDescription || blog.excerpt} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://umbrella.com/products/blogs/${blog.slug}`} />
+        <meta property="og:url" content={`http://incomegrow.in//products/blogs/${blog.slug}`} />
         {blog.featuredImage && <meta property="og:image" content={blog.featuredImage} />}
         
         {/* Twitter Card tags */}

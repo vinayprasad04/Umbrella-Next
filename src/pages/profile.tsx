@@ -86,10 +86,10 @@ const Profile = () => {
   return (
     <>
       <Head>
-        <title>Profile - Umbrella</title>
-        <meta name="description" content="Manage your Umbrella profile" />
+        <title>Profile - IncomeGrow</title>
+        <meta name="description" content="Manage your IncomeGrow profile" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -232,7 +232,7 @@ const Profile = () => {
                       <div className="border border-gray-200 rounded-lg p-4">
                         <h3 className="font-medium text-gray-900 mb-2">Preferences</h3>
                         <p className="text-sm text-gray-600 mb-3">
-                          Customize your Umbrella experience
+                          Customize your IncomeGrow experience
                         </p>
                         <button className="text-[#FF6B2C] hover:text-[#e85d1f] text-sm font-medium">
                           Notification Settings

@@ -69,10 +69,10 @@ const Recipe = () => {
   return (
     <>
       <Head>
-        <title>Recipe - My Goals - Umbrella</title>
-        <meta name="description" content="Calculate and manage your financial goals with Umbrella Recipe" />
+        <title>Recipe - My Goals - IncomeGrow</title>
+        <meta name="description" content="Calculate and manage your financial goals with IncomeGrow Recipe" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="flex flex-col min-h-screen bg-[#fafbfc]">

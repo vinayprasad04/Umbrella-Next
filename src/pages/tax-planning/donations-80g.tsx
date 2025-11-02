@@ -16,12 +16,12 @@ export default function Donations80G() {
   return (
     <>
       <Head>
-        <title>Donation Tax Benefits Section 80G Guide 2025 - Charity Deductions | Umbrella Financial</title>
+        <title>Donation Tax Benefits Section 80G Guide 2025 - Charity Deductions | IncomeGrow Financial</title>
         <meta name="description" content="Complete Section 80G donation tax benefits guide 2025. Get 50-100% deduction on charity donations. Best NGOs, PM CARES Fund & donation platforms." />
         <meta name="keywords" content="Section 80G, donation, charity, tax benefits, NGO, PM CARES Fund, tax deduction, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="canonical" href="https://umbrella.com/tax-planning/donations-80g" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="http://incomegrow.in//tax-planning/donations-80g" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

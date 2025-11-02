@@ -24,11 +24,11 @@ export default function ITRFilingGuide() {
   return (
     <>
       <Head>
-        <title>ITR Filing Guide - Choose the Right Income Tax Return Form | Umbrella Financial</title>
+        <title>ITR Filing Guide - Choose the Right Income Tax Return Form | IncomeGrow Financial</title>
         <meta name="description" content="Complete guide to choosing the correct ITR form based on your income sources. Learn the difference between ITR-1, ITR-2, ITR-3, and ITR-4 with examples." />
         <meta name="keywords" content="ITR filing, income tax return, ITR-1, ITR-2, ITR-3, ITR-4, tax filing guide, capital gains tax, business income tax" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
 
       <div className="min-h-screen bg-gray-50">

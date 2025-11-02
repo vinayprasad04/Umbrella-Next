@@ -77,7 +77,7 @@ export default function SharesResearchHeader() {
               <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
                 <Image
                   src="/logo.png"
-                  alt="Umbrella Financial Logo"
+                  alt="IncomeGrow Financial Logo"
                   width={28}
                   height={26}
                   priority
@@ -87,7 +87,7 @@ export default function SharesResearchHeader() {
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold text-white group-hover:text-[#FF6B2C] transition-all duration-300">
-                Umbrella
+                IncomeGrow
               </span>
               <span className="text-xs text-gray-300 font-medium -mt-1">Financial Freedom </span>
             </div>

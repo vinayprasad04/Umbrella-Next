@@ -73,7 +73,7 @@ export default async function handler(
       title: blogData.title,
       excerpt: blogData.excerpt,
       content: blogData.content,
-      author: 'Umbrella Financial',
+      author: 'IncomeGrow Financial',
       date: new Date(blogData.createdAt).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'long',
@@ -96,7 +96,7 @@ export default async function handler(
       id: recentBlog._id.toString(),
       title: recentBlog.title,
       excerpt: recentBlog.excerpt,
-      author: 'Umbrella Financial',
+      author: 'IncomeGrow Financial',
       date: new Date(recentBlog.createdAt).toLocaleDateString('en-US', {
         year: 'numeric',
         month: 'short',

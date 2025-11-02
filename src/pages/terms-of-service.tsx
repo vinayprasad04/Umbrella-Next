@@ -8,10 +8,10 @@ const TermsOfService = () => {
   return (
     <>
       <Head>
-        <title>Terms of Service - Umbrella</title>
-        <meta name="description" content="Umbrella Terms of Service - Agreement for using our financial planning platform" />
+        <title>Terms of Service - IncomeGrow</title>
+        <meta name="description" content="IncomeGrow Terms of Service - Agreement for using our financial planning platform" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -42,14 +42,14 @@ const TermsOfService = () => {
                 <section className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Agreement to Terms</h2>
                   <p className="text-gray-700 mb-4">
-                    By accessing and using Umbrella (&quot;Service&quot;), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
+                    By accessing and using IncomeGrow (&quot;Service&quot;), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.
                   </p>
                 </section>
 
                 <section className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Use License</h2>
                   <p className="text-gray-700 mb-4">
-                    Permission is granted to temporarily access Umbrella for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                    Permission is granted to temporarily access IncomeGrow for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
                   </p>
                   <ul className="list-disc pl-6 text-gray-700 mb-4">
                     <li>Modify or copy the materials</li>
@@ -62,7 +62,7 @@ const TermsOfService = () => {
                 <section className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Financial Disclaimer</h2>
                   <p className="text-gray-700 mb-4">
-                    Umbrella provides financial planning tools and educational content. However:
+                    IncomeGrow provides financial planning tools and educational content. However:
                   </p>
                   <ul className="list-disc pl-6 text-gray-700 mb-4">
                     <li>We are not a registered investment advisor or financial planner</li>
@@ -102,21 +102,21 @@ const TermsOfService = () => {
                 <section className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Limitation of Liability</h2>
                   <p className="text-gray-700 mb-4">
-                    In no event shall Umbrella, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, punitive, consequential, or special damages, including lost profits, arising from your use of the service.
+                    In no event shall IncomeGrow, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, punitive, consequential, or special damages, including lost profits, arising from your use of the service.
                   </p>
                 </section>
 
                 <section className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Accuracy of Materials</h2>
                   <p className="text-gray-700">
-                    The materials appearing on Umbrella could include technical, typographical, or photographic errors. We do not warrant that any of the materials on its website are accurate, complete, or current. We may make changes to the materials contained on its website at any time without notice.
+                    The materials appearing on IncomeGrow could include technical, typographical, or photographic errors. We do not warrant that any of the materials on its website are accurate, complete, or current. We may make changes to the materials contained on its website at any time without notice.
                   </p>
                 </section>
 
                 <section className="mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-4">Modifications</h2>
                   <p className="text-gray-700">
-                    Umbrella may revise these terms of service at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.
+                    IncomeGrow may revise these terms of service at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.
                   </p>
                 </section>
 
@@ -128,10 +128,10 @@ const TermsOfService = () => {
                       If you use our platform, tools, methodologies, or any part of our intellectual property for commercial purposes or to generate profits:
                     </p>
                     <ul className="list-disc pl-6 text-gray-700 mb-4">
-                      <li><strong>Profit Sharing Requirement:</strong> You must provide Umbrella with 50% of all profits generated from the use of our platform or intellectual property</li>
-                      <li><strong>Non-Profit Commercial Use:</strong> If you use our platform commercially but do not generate profits, you must provide Umbrella with 5% equity value annually</li>
+                      <li><strong>Profit Sharing Requirement:</strong> You must provide IncomeGrow with 50% of all profits generated from the use of our platform or intellectual property</li>
+                      <li><strong>Non-Profit Commercial Use:</strong> If you use our platform commercially but do not generate profits, you must provide IncomeGrow with 5% equity value annually</li>
                       <li><strong>Reporting Obligation:</strong> You must provide quarterly financial reports documenting all revenue and profits generated</li>
-                      <li><strong>Prior Written Consent:</strong> Commercial use requires explicit written permission from Umbrella</li>
+                      <li><strong>Prior Written Consent:</strong> Commercial use requires explicit written permission from IncomeGrow</li>
                     </ul>
                     <p className="text-sm text-gray-600">
                       <strong>Note:</strong> Personal, non-commercial use of our platform is not subject to these profit-sharing requirements.
@@ -167,9 +167,9 @@ const TermsOfService = () => {
                     If you have any questions about these Terms of Service, please contact us:
                   </p>
                   <div className="bg-gray-50 p-6 rounded-lg">
-                    <p className="text-gray-700 mb-2"><strong>Email:</strong> legal@umbrella.com</p>
-                    <p className="text-gray-700 mb-2"><strong>Address:</strong> Umbrella Financial Services, Mumbai, India</p>
-                    <p className="text-gray-700"><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+                    <p className="text-gray-700 mb-2"><strong>Email:</strong> vinay.qss@gmail.com</p>
+                    <p className="text-gray-700 mb-2"><strong>Address:</strong> IncomeGrow Financial Services, Krishan Vihar Delhi, India</p>
+                    {/* <p className="text-gray-700"><strong>Phone:</strong> +91 XXXXX XXXXX</p> */}
                   </div>
                 </section>
               </div>
