@@ -39,11 +39,11 @@ export default async function handler(
       user = new User({
         name: name || 'Google User',
         email,
-        password: '', // No password for Google users
-        role: 'user',
-        isVerified: true, // Google accounts are pre-verified
         provider: 'google',
         providerId: uid,
+        password: '', // No password for Google users (provider is set first)
+        role: 'user',
+        isVerified: true, // Google accounts are pre-verified
       });
 
       await user.save();
