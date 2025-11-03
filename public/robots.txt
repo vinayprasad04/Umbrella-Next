@@ -1,5 +1,5 @@
 # robots.txt for IncomeGrow
-# https://incomegrow.in
+# https://www.incomegrow.in
 
 # Allow all search engines to crawl the site
 User-agent: *
@@ -29,7 +29,7 @@ Allow: /support/
 Allow: /recipe/
 
 # Sitemap location
-Sitemap: https://incomegrow.in/sitemap.xml
+Sitemap: https://www.incomegrow.in/sitemap.xml
 
 # Crawl-delay for specific bots (optional)
 User-agent: Googlebot

@@ -36,7 +36,7 @@ const SEO: React.FC<SEOProps> = ({
   const finalOgTitle = ogTitle || pageSEO.ogTitle || finalTitle;
   const finalOgDescription = ogDescription || pageSEO.ogDescription || finalDescription;
   const finalOgImage = ogImage || pageSEO.ogImage || '/og-image.png';
-  const finalCanonical = canonical || pageSEO.canonical || `https://incomegrow.in${router.pathname}`;
+  const finalCanonical = canonical || pageSEO.canonical || `https://www.incomegrow.in${router.pathname}`;
 
   // Robots meta tag
   const robotsContent = `${noindex ? 'noindex' : 'index'}, ${nofollow ? 'nofollow' : 'follow'}`;
@@ -94,8 +94,8 @@ const SEO: React.FC<SEOProps> = ({
             '@context': 'https://schema.org',
             '@type': 'Organization',
             name: 'IncomeGrow',
-            url: 'https://incomegrow.in',
-            logo: 'https://incomegrow.in/logo.png',
+            url: 'https://www.incomegrow.in',
+            logo: 'https://www.incomegrow.in/logo.png',
             description: 'Smart Investment & Financial Planning Platform',
             address: {
               '@type': 'PostalAddress',
@@ -121,7 +121,7 @@ const SEO: React.FC<SEOProps> = ({
             '@context': 'https://schema.org',
             '@type': 'WebSite',
             name: 'IncomeGrow',
-            url: 'https://incomegrow.in',
+            url: 'https://www.incomegrow.in',
             description: finalDescription,
             publisher: {
               '@type': 'Organization',
