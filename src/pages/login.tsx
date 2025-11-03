@@ -125,15 +125,43 @@ const Login = () => {
       const result = await signInWithPopup(auth, googleProvider);
       const user: User = result.user;
 
-      // Set authentication state with Google user data
+      // Get Firebase ID token
+      const idToken = await user.getIdToken();
+
+      // Verify and sync user with backend
+      const backendResponse = await fetch('/api/auth/google-login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          idToken,
+          email: user.email,
+          name: user.displayName,
+          uid: user.uid,
+        }),
+      });
+
+      if (!backendResponse.ok) {
+        throw new Error('Failed to authenticate with server');
+      }
+
+      const backendData = await backendResponse.json();
+
+      // Set authentication state with complete user data
       localStorage.setItem('loggedIn', 'true');
       localStorage.setItem('userName', user.displayName || 'Google User');
       localStorage.setItem('userEmail', user.email || '');
-      localStorage.setItem('userId', user.uid || '');
+      localStorage.setItem('userId', backendData.user?.id || user.uid);
+      localStorage.setItem('userRole', backendData.user?.role || 'user');
+      localStorage.setItem('userToken', idToken);
+      localStorage.setItem('refreshToken', idToken);
+      localStorage.setItem('tokenExpiry', new Date(Date.now() + 60 * 60 * 1000).toISOString()); // 1 hour
+      localStorage.setItem('lastActivity', new Date().toISOString());
 
       // Log Google login activity
       logActivity({
-        userId: user.uid || '',
+        userId: backendData.user?.id || user.uid,
         userEmail: user.email || '',
         activityType: 'login',
         description: 'Logged in with Google',
