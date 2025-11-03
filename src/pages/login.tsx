@@ -125,11 +125,26 @@ const Login = () => {
       const result = await signInWithPopup(auth, googleProvider);
       const user: User = result.user;
 
-      // Get Firebase ID token
-      const idToken = await user.getIdToken();
+      // Get Firebase ID token and make backend call in parallel
+      const [idToken, _] = await Promise.all([
+        user.getIdToken(),
+        // Preload the next page while getting token
+        router.prefetch('/dashboard')
+      ]);
 
-      // Verify and sync user with backend
-      const backendResponse = await fetch('/api/auth/google-login', {
+      // Store basic auth immediately for faster perceived performance
+      localStorage.setItem('loggedIn', 'true');
+      localStorage.setItem('userName', user.displayName || 'Google User');
+      localStorage.setItem('userEmail', user.email || '');
+      localStorage.setItem('userToken', idToken);
+      localStorage.setItem('tokenExpiry', new Date(Date.now() + 60 * 60 * 1000).toISOString());
+      localStorage.setItem('lastActivity', new Date().toISOString());
+
+      // Navigate immediately for better UX
+      router.push('/dashboard');
+
+      // Sync with backend and update user data in background
+      fetch('/api/auth/google-login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -140,39 +155,34 @@ const Login = () => {
           name: user.displayName,
           uid: user.uid,
         }),
-      });
+      })
+        .then(res => res.json())
+        .then(backendData => {
+          // Update with backend data
+          localStorage.setItem('userId', backendData.user?.id || user.uid);
+          localStorage.setItem('userRole', backendData.user?.role || 'user');
+          localStorage.setItem('refreshToken', idToken);
 
-      if (!backendResponse.ok) {
-        throw new Error('Failed to authenticate with server');
-      }
-
-      const backendData = await backendResponse.json();
-
-      // Set authentication state with complete user data
-      localStorage.setItem('loggedIn', 'true');
-      localStorage.setItem('userName', user.displayName || 'Google User');
-      localStorage.setItem('userEmail', user.email || '');
-      localStorage.setItem('userId', backendData.user?.id || user.uid);
-      localStorage.setItem('userRole', backendData.user?.role || 'user');
-      localStorage.setItem('userToken', idToken);
-      localStorage.setItem('refreshToken', idToken);
-      localStorage.setItem('tokenExpiry', new Date(Date.now() + 60 * 60 * 1000).toISOString()); // 1 hour
-      localStorage.setItem('lastActivity', new Date().toISOString());
-
-      // Log Google login activity
-      logActivity({
-        userId: backendData.user?.id || user.uid,
-        userEmail: user.email || '',
-        activityType: 'login',
-        description: 'Logged in with Google',
-        metadata: {
-          ipAddress: window.location.hostname,
-          userAgent: navigator.userAgent,
-          authProvider: 'Google',
-        },
-      });
-
-      router.push('/dashboard');
+          // Log activity in background
+          logActivity({
+            userId: backendData.user?.id || user.uid,
+            userEmail: user.email || '',
+            activityType: 'login',
+            description: 'Logged in with Google',
+            metadata: {
+              ipAddress: window.location.hostname,
+              userAgent: navigator.userAgent,
+              authProvider: 'Google',
+            },
+          });
+        })
+        .catch(err => {
+          console.error('Background sync error:', err);
+          // Set defaults if backend fails
+          localStorage.setItem('userId', user.uid);
+          localStorage.setItem('userRole', 'user');
+          localStorage.setItem('refreshToken', idToken);
+        });
     } catch (error: unknown) {
       console.error('Google sign-in error:', error);
       setGoogleError('Google sign-in failed. Please try again.');
