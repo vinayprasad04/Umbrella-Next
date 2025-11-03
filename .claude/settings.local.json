@@ -28,7 +28,8 @@
       "WebSearch",
       "Bash(test:*)",
       "Bash(find:*)",
-      "Bash(kill:*)"
+      "Bash(kill:*)",
+      "Bash(git checkout:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

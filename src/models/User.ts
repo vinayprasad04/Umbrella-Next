@@ -6,6 +6,8 @@ export interface IUser extends Document {
   name: string;
   role: 'user' | 'admin';
   isVerified: boolean;
+  provider?: 'email' | 'google';
+  providerId?: string;
   resetPasswordToken?: string;
   resetPasswordExpires?: Date;
   refreshTokens: Array<{
@@ -28,7 +30,10 @@ const UserSchema: Schema = new Schema({
   },
   password: {
     type: String,
-    required: [true, 'Password is required'],
+    required: function(this: IUser) {
+      // Password is only required if not using Google login
+      return this.provider !== 'google';
+    },
     minlength: [6, 'Password must be at least 6 characters long'],
   },
   name: {
@@ -44,6 +49,14 @@ const UserSchema: Schema = new Schema({
   isVerified: {
     type: Boolean,
     default: false,
+  },
+  provider: {
+    type: String,
+    enum: ['email', 'google'],
+    default: 'email',
+  },
+  providerId: {
+    type: String,
   },
   resetPasswordToken: {
     type: String,
