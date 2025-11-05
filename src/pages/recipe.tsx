@@ -37,11 +37,22 @@ interface WealthCreationData {
   createdAt?: string;
 }
 
+interface RetirementData {
+  currentAge: number;
+  retirementAge: number;
+  expectedLifespan: number;
+  currentSavings: number;
+  monthlyExpenses: number;
+  goalPossibility: string;
+  createdAt?: string;
+}
+
 const Recipe = () => {
   const router = useRouter();
   const [filter, setFilter] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [wealthData, setWealthData] = useState<WealthCreationData | null>(null);
+  const [retirementData, setRetirementData] = useState<RetirementData | null>(null);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -52,10 +63,13 @@ const Recipe = () => {
         return;
       }
 
-      // Fetch wealth creation data
+      // Fetch wealth creation and retirement data
       const userId = localStorage.getItem('userId');
       if (userId) {
-        await fetchWealthCreationData(userId);
+        await Promise.all([
+          fetchWealthCreationData(userId),
+          fetchRetirementData(userId)
+        ]);
       }
 
       setIsLoading(false);
@@ -80,6 +94,27 @@ const Recipe = () => {
       }
     } catch (error) {
       console.error('Error fetching wealth creation data:', error);
+    }
+  };
+
+  const fetchRetirementData = async (userId: string) => {
+    try {
+      const response = await fetch(`/api/retirement?userId=${userId}`);
+      const result = await response.json();
+
+      if (response.ok && result.data) {
+        setRetirementData({
+          currentAge: result.data.currentAge || 30,
+          retirementAge: result.data.retirementAge || 60,
+          expectedLifespan: result.data.expectedLifespan || 85,
+          currentSavings: result.data.currentSavings || 0,
+          monthlyExpenses: result.data.monthlyExpenses || 0,
+          goalPossibility: result.data.goalPossibility || '',
+          createdAt: result.data.createdAt,
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching retirement data:', error);
     }
   };
 
@@ -190,18 +225,34 @@ const Recipe = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
               {filteredGoals.map((goal) => {
                 const isWealthCreation = goal.label === 'Wealth Creation';
-                const hasData = isWealthCreation && wealthData && wealthData.goalAmount > 0;
-                const yearsRequired = hasData && wealthData.targetYear ? wealthData.targetYear - new Date().getFullYear() : 0;
+                const isRetirement = goal.label === 'Retirement';
+
+                // Check if data exists
+                const wealthHasData = isWealthCreation && wealthData && wealthData.goalAmount > 0;
+                const retirementHasData = isRetirement && retirementData && retirementData.currentSavings >= 0;
+                const hasData = wealthHasData || retirementHasData;
+
+                // Calculate years required
+                const wealthYearsRequired = wealthHasData && wealthData.targetYear ? wealthData.targetYear - new Date().getFullYear() : 0;
+                const retirementYearsRequired = retirementHasData ? retirementData.retirementAge - retirementData.currentAge : 0;
 
                 // Determine goal status color
                 let statusColor = 'border-gray-400'; // Not created yet
-                if (hasData) {
+                if (wealthHasData) {
                   if (wealthData.goalPossibility?.toLowerCase().includes('possible') || wealthData.goalPossibility?.toLowerCase().includes('achievable')) {
                     statusColor = 'bg-purple-400';
                   } else if (wealthData.goalPossibility?.toLowerCase().includes('not')) {
                     statusColor = 'bg-gray-300';
                   } else {
-                    statusColor = 'bg-purple-400'; // Default to possible if status exists
+                    statusColor = 'bg-purple-400';
+                  }
+                } else if (retirementHasData) {
+                  if (retirementData.goalPossibility?.toLowerCase().includes('possible') || retirementData.goalPossibility?.toLowerCase().includes('achievable')) {
+                    statusColor = 'bg-purple-400';
+                  } else if (retirementData.goalPossibility?.toLowerCase().includes('not')) {
+                    statusColor = 'bg-gray-300';
+                  } else {
+                    statusColor = 'bg-purple-400';
                   }
                 }
 
@@ -217,31 +268,84 @@ const Recipe = () => {
                         {hasData ? 'Created' : 'Not created yet'}
                       </div>
                       <div className="flex flex-col gap-1 w-full text-xs text-gray-700 mb-2">
-                        <div className="flex justify-between">
-                          <span>Budget</span>
-                          <span>{hasData ? `₹${(wealthData.goalAmount / 10000000).toFixed(2)} Cr` : '-'}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Target Year</span>
-                          <span>{hasData ? wealthData.targetYear : '-'}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Required in</span>
-                          <span>{hasData ? `${yearsRequired} years` : '-'}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>Goal Possibility</span>
-                          <span className="font-semibold">
-                            {hasData ? wealthData.goalPossibility || 'Calculated' : '-'}
-                          </span>
-                        </div>
+                        {isWealthCreation && (
+                          <>
+                            <div className="flex justify-between">
+                              <span>Budget</span>
+                              <span>{wealthHasData ? `₹${(wealthData.goalAmount / 10000000).toFixed(2)} Cr` : '-'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Target Year</span>
+                              <span>{wealthHasData ? wealthData.targetYear : '-'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Required in</span>
+                              <span>{wealthHasData ? `${wealthYearsRequired} years` : '-'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Goal Possibility</span>
+                              <span className="font-semibold">
+                                {wealthHasData ? wealthData.goalPossibility || 'Calculated' : '-'}
+                              </span>
+                            </div>
+                          </>
+                        )}
+                        {isRetirement && (
+                          <>
+                            <div className="flex justify-between">
+                              <span>Current Age</span>
+                              <span>{retirementHasData ? retirementData.currentAge : '-'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Retirement Age</span>
+                              <span>{retirementHasData ? retirementData.retirementAge : '-'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Years to Retire</span>
+                              <span>{retirementHasData ? `${retirementYearsRequired} years` : '-'}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Goal Possibility</span>
+                              <span className="font-semibold">
+                                {retirementHasData ? retirementData.goalPossibility || 'Calculated' : '-'}
+                              </span>
+                            </div>
+                          </>
+                        )}
+                        {!isWealthCreation && !isRetirement && (
+                          <>
+                            <div className="flex justify-between">
+                              <span>Budget</span>
+                              <span>-</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Target Year</span>
+                              <span>-</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Required in</span>
+                              <span>-</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Goal Possibility</span>
+                              <span className="font-semibold">-</span>
+                            </div>
+                          </>
+                        )}
                       </div>
                       {isWealthCreation ? (
                         <Link
                           href="/recipe/wealth-creation"
                           className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full text-center hover:bg-gray-800 transition-colors"
                         >
-                          {hasData ? 'View / Edit' : 'Create'}
+                          {wealthHasData ? 'View / Edit' : 'Create'}
+                        </Link>
+                      ) : isRetirement ? (
+                        <Link
+                          href="/recipe/retirement"
+                          className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full text-center hover:bg-gray-800 transition-colors"
+                        >
+                          {retirementHasData ? 'View / Edit' : 'Create'}
                         </Link>
                       ) : (
                         <button className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full hover:bg-gray-800 transition-colors">
