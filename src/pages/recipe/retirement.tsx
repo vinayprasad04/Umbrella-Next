@@ -23,7 +23,6 @@ interface RetirementData {
   retirementAge: number;
   currentSavings: number;
   monthlyExpenses: number;
-  expectedLifespan: number;
   inflationRate: number;
   returnRate: number;
   postRetirementReturn: number;
@@ -70,7 +69,6 @@ const Retirement = () => {
     retirementAge: 60,
     currentSavings: 0,
     monthlyExpenses: 0,
-    expectedLifespan: 85,
     inflationRate: 6,
     returnRate: 12,
     postRetirementReturn: 8,
@@ -118,7 +116,6 @@ const Retirement = () => {
           retirementAge: result.data.retirementAge || 60,
           currentSavings: result.data.currentSavings || 0,
           monthlyExpenses: result.data.monthlyExpenses || 0,
-          expectedLifespan: result.data.expectedLifespan || 85,
           inflationRate: result.data.inflationRate || 6,
           returnRate: result.data.returnRate || 12,
           postRetirementReturn: result.data.postRetirementReturn || 8,
@@ -155,15 +152,9 @@ const Retirement = () => {
 
   const calculateRetirement = () => {
     const yearsToRetirement = formData.retirementAge - formData.currentAge;
-    const yearsInRetirement = formData.expectedLifespan - formData.retirementAge;
 
     if (yearsToRetirement <= 0) {
       setErrorMessage('Retirement age must be greater than current age');
-      return;
-    }
-
-    if (yearsInRetirement <= 0) {
-      setErrorMessage('Expected lifespan must be greater than retirement age');
       return;
     }
 
@@ -171,23 +162,22 @@ const Retirement = () => {
 
     const inflation = formData.inflationRate / 100;
     const annualReturn = formData.returnRate / 100;
-    const postReturnRate = formData.postRetirementReturn / 100;
     const monthlyReturn = annualReturn / 12;
 
     // Calculate future monthly expenses at retirement (adjusted for inflation)
     const monthlyExpensesAtRetirement = formData.monthlyExpenses * Math.pow(1 + inflation, yearsToRetirement);
 
-    // Calculate additional passive income at retirement
-    const totalPassiveIncome = (formData.pension + formData.rentalIncome + formData.otherIncome) *
-                               Math.pow(1 + inflation, yearsToRetirement);
+    // Monthly Pension is the desired pension amount at retirement (in today's value)
+    // We need to adjust it for inflation to get the actual amount needed at retirement
+    const pensionAtRetirement = formData.pension * Math.pow(1 + inflation, yearsToRetirement);
 
-    // Net monthly expenses after passive income
-    const netMonthlyExpenses = Math.max(0, monthlyExpensesAtRetirement - totalPassiveIncome);
-
-    // Required corpus calculation using 4% withdrawal rule (same as EIM calculator)
-    // This assumes corpus will last indefinitely with 4% annual withdrawal
-    // Formula: Required Corpus = Annual Expenses × 25 (where 25 = 1/0.04)
-    const requiredCorpus = netMonthlyExpenses * 12 * 25;
+    // The pension amount represents the DESIRED monthly income at retirement
+    // So the required corpus needs to generate this amount using 4% withdrawal rule
+    // Required corpus calculation using 4% withdrawal rule
+    // With 4% annual withdrawal, the corpus needed = Annual Income Required ÷ 0.04 = Annual Income × 25
+    // This assumes the corpus generates enough returns to sustain 4% withdrawal indefinitely
+    const annualPensionRequired = pensionAtRetirement * 12;
+    const requiredCorpus = annualPensionRequired * 25;
 
     // Calculate future value of current savings
     const totalMonths = yearsToRetirement * 12;
@@ -271,7 +261,7 @@ const Retirement = () => {
 
     setResults({
       yearsToRetirement,
-      yearsInRetirement,
+      yearsInRetirement: 0, // Not used with 4% rule
       requiredCorpus: Math.round(requiredCorpus),
       adjustedMonthlyInvestment: Math.round(adjustedMonthlyInvestment),
       totalInvestment: Math.round(totalInvestment),
@@ -424,18 +414,6 @@ const Retirement = () => {
                     />
                   </div>
                   <div>
-                    <label className={labelClass}>Expected Lifespan <InfoIcon tooltip="Your expected lifespan in years. Average life expectancy in India is around 70-75 years, but plan for 80-85 for safety." /></label>
-                    <input
-                      className={inputClass}
-                      placeholder="85"
-                      type="number"
-                      min="60"
-                      max="120"
-                      value={formData.expectedLifespan || ''}
-                      onChange={(e) => handleInputChange('expectedLifespan', e.target.value)}
-                    />
-                  </div>
-                  <div>
                     <label className={labelClass}>Monthly Income <span className="text-red-500">*</span> <InfoIcon tooltip="Your current gross monthly income from salary or business before any deductions." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
@@ -449,7 +427,7 @@ const Retirement = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Monthly Expenses <span className="text-red-500">*</span> <InfoIcon tooltip="Your average monthly household expenses including rent, utilities, food, transportation, entertainment, etc." /></label>
+                    <label className={labelClass}>Current Monthly Expenses <InfoIcon tooltip="Your current average monthly household expenses. This helps us understand your spending pattern for reference." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -585,17 +563,17 @@ const Retirement = () => {
                   <svg className="text-blue-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Expected Passive Income at Retirement
-                  <span className="text-sm text-gray-400 font-normal">Additional income sources (Today&apos;s value)</span>
+                  Desired Retirement Income
+                  <span className="text-sm text-gray-400 font-normal">Target monthly income at retirement (in today&apos;s value)</span>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
-                    <label className={labelClass}>Monthly Pension <InfoIcon tooltip="Expected monthly pension from employer, EPF, or government schemes. Enter today's value, we'll adjust for inflation." /></label>
+                    <label className={labelClass}>Desired Monthly Pension <span className="text-red-500">*</span> <InfoIcon tooltip="The monthly pension/income you want at retirement (in today's value). For example, if you want ₹60,000/month, after 10 years with 6% inflation, you'll need approximately ₹1,07,454/month. We'll calculate the exact inflation-adjusted amount and required corpus." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
                         className={inputClass}
-                        placeholder="0"
+                        placeholder="60000"
                         type="text"
                         value={formatNumber(formData.pension)}
                         onChange={(e) => handleInputChange('pension', e.target.value)}
@@ -675,28 +653,28 @@ const Retirement = () => {
                             <span className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">1</span>
                             <div>
                               <strong>Enter Your Details</strong>
-                              <p className="text-sm text-gray-600 mt-1">Provide your age, income, expenses, and current savings</p>
+                              <p className="text-sm text-gray-600 mt-1">Provide your current age, retirement age, and current savings</p>
                             </div>
                           </li>
                           <li className="flex items-start gap-3">
                             <span className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">2</span>
                             <div>
-                              <strong>Set Your Assumptions</strong>
-                              <p className="text-sm text-gray-600 mt-1">Configure inflation rate, expected returns, and asset allocation</p>
+                              <strong>Set Desired Pension</strong>
+                              <p className="text-sm text-gray-600 mt-1">Enter the monthly pension you want at retirement in today&apos;s value (e.g., ₹60,000)</p>
                             </div>
                           </li>
                           <li className="flex items-start gap-3">
                             <span className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">3</span>
                             <div>
-                              <strong>Add Passive Income</strong>
-                              <p className="text-sm text-gray-600 mt-1">Include expected pension, rental income, or other passive sources</p>
+                              <strong>Configure Assumptions</strong>
+                              <p className="text-sm text-gray-600 mt-1">Set inflation rate and expected investment returns</p>
                             </div>
                           </li>
                           <li className="flex items-start gap-3">
                             <span className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">4</span>
                             <div>
                               <strong>Calculate & Review</strong>
-                              <p className="text-sm text-gray-600 mt-1">Click &quot;Calculate&quot; to see your retirement corpus requirement and monthly investment needed</p>
+                              <p className="text-sm text-gray-600 mt-1">Get your inflation-adjusted pension amount, required corpus (using 4% withdrawal rule), and monthly SIP needed</p>
                             </div>
                           </li>
                         </ol>
@@ -714,31 +692,25 @@ const Retirement = () => {
                             <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                             </svg>
-                            <span>Required retirement corpus with inflation adjustment</span>
+                            <span>Inflation-adjusted pension amount at retirement</span>
                           </li>
                           <li className="flex items-center gap-2">
                             <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                             </svg>
-                            <span>Monthly SIP amount needed to achieve your goal</span>
+                            <span>Required corpus using 4% withdrawal rule</span>
                           </li>
                           <li className="flex items-center gap-2">
                             <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                             </svg>
-                            <span>Projected future value of your investments</span>
+                            <span>Monthly SIP needed to build the corpus</span>
                           </li>
                           <li className="flex items-center gap-2">
                             <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                             </svg>
-                            <span>Retirement goal achievability assessment</span>
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                            </svg>
-                            <span>Personalized recommendations for better planning</span>
+                            <span>Goal achievability with personalized recommendations</span>
                           </li>
                         </ul>
                       </div>
@@ -768,14 +740,15 @@ const Retirement = () => {
                       Based on your inputs, here&apos;s your comprehensive retirement analysis
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4">
                       <div className="bg-white rounded-lg p-4 border border-blue-200">
                         <div className="text-xs text-gray-500 mb-1">Years to Retirement</div>
-                        <div className="text-2xl font-bold text-blue-600">{results.yearsToRetirement}</div>
+                        <div className="text-2xl font-bold text-blue-600">{results.yearsToRetirement} years</div>
                       </div>
-                      <div className="bg-white rounded-lg p-4 border border-blue-200">
-                        <div className="text-xs text-gray-500 mb-1">Years in Retirement</div>
-                        <div className="text-2xl font-bold text-blue-600">{results.yearsInRetirement}</div>
+                    </div>
+                    <div className="bg-blue-50 rounded-lg p-3 mt-3 border border-blue-200">
+                      <div className="text-xs text-blue-700">
+                        <strong>4% Withdrawal Rule:</strong> Your corpus will generate 4% annual income (₹{(results.requiredCorpus * 0.04 / 12).toLocaleString('en-IN')}/month) at retirement to cover your desired pension amount.
                       </div>
                     </div>
                   </div>
@@ -810,8 +783,12 @@ const Retirement = () => {
                     <h3 className="text-lg font-bold text-gray-800 mb-4">Retirement Income Analysis</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center py-2 border-b">
-                        <span className="text-gray-700">Monthly Expenses at Retirement</span>
-                        <span className="font-bold text-gray-800">₹{results.monthlyExpensesAtRetirement.toLocaleString('en-IN')}</span>
+                        <span className="text-gray-700">Desired Pension (Today&apos;s Value)</span>
+                        <span className="font-bold text-gray-800">₹{formData.pension.toLocaleString('en-IN')}</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b">
+                        <span className="text-gray-700">Pension at Retirement (Inflation Adjusted)</span>
+                        <span className="font-bold text-orange-600">₹{results.monthlyExpensesAtRetirement.toLocaleString('en-IN')}</span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b">
                         <span className="text-gray-700">Current Savings Growth</span>

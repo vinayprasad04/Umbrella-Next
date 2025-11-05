@@ -7,7 +7,6 @@ export interface IRetirement extends Document {
   retirementAge: number;
   currentSavings: number;
   monthlyExpenses: number;
-  expectedLifespan: number;
   inflationRate: number;
   returnRate: number;
   postRetirementReturn: number;
@@ -47,10 +46,6 @@ const RetirementSchema: Schema = new Schema({
   monthlyExpenses: {
     type: Number,
     default: 0,
-  },
-  expectedLifespan: {
-    type: Number,
-    default: 85,
   },
   inflationRate: {
     type: Number,
