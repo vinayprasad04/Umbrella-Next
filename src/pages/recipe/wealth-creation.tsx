@@ -392,40 +392,41 @@ const WealthCreation = () => {
       <div className="flex flex-col min-h-screen bg-white">
         <Header />
 
-        {/* Full Width Header Section */}
-        <div className="w-full bg-white border-b border-gray-200  py-6">
-          {/* Breadcrumb */}
-          <div className=" text-xs w-full max-w-[1600px] px-6 mx-auto text-gray-400 mb-4 flex items-center gap-1">
-            <Link href="/dashboard" className="hover:text-gray-600 transition-colors">Dashboard</Link>
-            <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            <Link href="/recipe" className="hover:text-gray-600 transition-colors">My Goals</Link>
-            <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-            <span className="text-[#FF6B2C] font-semibold">Wealth Creation</span>
-          </div>
+        {/* 50/50 Split Layout - Full Page */}
+        <main className="flex flex-1 w-full overflow-hidden">
+          {/* Left Side - Breadcrumb, Heading & Form (50%) */}
+          <div className="w-1/2 bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
+            {/* Breadcrumb & Header Section */}
+            <div className="bg-white border-b border-gray-200 py-6 px-6">
+              {/* Breadcrumb */}
+              <div className="text-xs text-gray-400 mb-4 flex items-center gap-1">
+                <Link href="/dashboard" className="hover:text-gray-600 transition-colors">Dashboard</Link>
+                <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <Link href="/recipe" className="hover:text-gray-600 transition-colors">My Goals</Link>
+                <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <span className="text-[#FF6B2C] font-semibold">Wealth Creation</span>
+              </div>
 
-          {/* Title */}
-          <div className="w-full max-w-[1600px] mx-auto px-6 flex items-center gap-4">
-            <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-2xl">
-              <svg className="text-purple-600 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-              </svg>
+              {/* Title */}
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-2xl">
+                  <svg className="text-purple-600 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-black mb-1">Wealth Creation</div>
+                  <div className="text-sm text-gray-500">Wish to find out your true wealth & allocation? Check now.</div>
+                </div>
+              </div>
             </div>
-            <div>
-              <div className="text-2xl font-bold text-black mb-1">Wealth Creation</div>
-              <div className="text-sm text-gray-500">Wish to find out your true wealth & allocation? Check now.</div>
-            </div>
-          </div>
-        </div>
 
-        {/* 50/50 Split Content */}
-        <main className="flex flex-1 w-full overflow-hidden  max-w-[1600px] mx-auto">
-          {/* Left Side - Form (50%) */}
-          <div className="w-1/2 bg-white border-r border-gray-200 overflow-y-auto">
-            <div className="p-6  mx-auto">
+            {/* Form Content */}
+            <div className="p-6">
               {/* Success/Error Messages */}
               {successMessage && (
                 <div className="mb-4 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-xl">
@@ -1124,8 +1125,8 @@ const WealthCreation = () => {
             </div>
           </div>
         </main>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 };
