@@ -118,7 +118,7 @@ const WealthCreation = () => {
       const result = await response.json();
 
       if (response.ok && result.data) {
-        setFormData({
+        const loadedData = {
           monthlyIncome: result.data.monthlyIncome || 100000,
           monthlySavings: result.data.monthlySavings || 30000,
           emis: result.data.emis || 0,
@@ -139,7 +139,16 @@ const WealthCreation = () => {
           targetYear: result.data.targetYear || new Date().getFullYear() + 10,
           goalPossibility: result.data.goalPossibility || '',
           investmentStrategy: result.data.investmentStrategy || 'moderate',
-        });
+        };
+        setFormData(loadedData);
+
+        // Auto-calculate if goal amount and target year are set
+        if (loadedData.goalAmount && loadedData.targetYear) {
+          // Trigger calculation after a short delay to ensure formData is updated
+          setTimeout(() => {
+            calculateWealth();
+          }, 100);
+        }
       }
     } catch (error) {
       console.error('Error fetching wealth data:', error);
