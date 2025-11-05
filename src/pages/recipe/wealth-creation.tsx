@@ -4,14 +4,17 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Tooltip from '@/components/Tooltip';
 
 const inputClass = "border border-gray-300 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300";
 const labelClass = "text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1";
 
-const InfoIcon = () => (
-  <svg className="ml-1 text-gray-400 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>
+const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
+  <Tooltip content={tooltip}>
+    <svg className="ml-1 text-gray-400 w-3 h-3 hover:text-purple-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  </Tooltip>
 );
 
 interface WealthCreationData {
@@ -393,7 +396,7 @@ const WealthCreation = () => {
         <Header />
 
         {/* 50/50 Split Layout - Full Page */}
-        <main className="flex flex-1 w-full overflow-hidden">
+        <main className="flex flex-1 w-full overflow-hidden max-w-[1600px] mx-auto border border-purple-200 border-t-0 mb-6">
           {/* Left Side - Breadcrumb, Heading & Form (50%) */}
           <div className="w-1/2 bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
             {/* Breadcrumb & Header Section */}
@@ -450,7 +453,7 @@ const WealthCreation = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
-                    <label className={labelClass}>Monthly Income <InfoIcon /></label>
+                    <label className={labelClass}>Monthly Income <InfoIcon tooltip="Your total monthly income from all sources including salary, business income, rental income, etc." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -463,7 +466,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Monthly Savings <InfoIcon /></label>
+                    <label className={labelClass}>Monthly Savings <InfoIcon tooltip="The amount you save or set aside each month after all expenses. This is the money available for investments." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -476,7 +479,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>EMIs <InfoIcon /></label>
+                    <label className={labelClass}>EMIs <InfoIcon tooltip="Total monthly EMI payments for all your loans (home loan, car loan, personal loan, credit cards, etc.)" /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -502,7 +505,7 @@ const WealthCreation = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
-                    <label className={labelClass}>Goal Amount <span className="text-red-500">*</span> <InfoIcon /></label>
+                    <label className={labelClass}>Goal Amount <span className="text-red-500">*</span> <InfoIcon tooltip="The total wealth you want to accumulate. For example, ₹1 Crore for retirement or ₹50 Lakhs for your child's education." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -515,7 +518,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Target Year <span className="text-red-500">*</span> <InfoIcon /></label>
+                    <label className={labelClass}>Target Year <span className="text-red-500">*</span> <InfoIcon tooltip="The year by which you want to achieve your wealth goal. More time allows your investments to compound and grow." /></label>
                     <input
                       className={inputClass}
                       placeholder={`e.g., ${new Date().getFullYear() + 10}`}
@@ -526,7 +529,7 @@ const WealthCreation = () => {
                     />
                   </div>
                   <div>
-                    <label className={labelClass}>Investment Strategy <span className="text-red-500">*</span> <InfoIcon /></label>
+                    <label className={labelClass}>Investment Strategy <span className="text-red-500">*</span> <InfoIcon tooltip="Aggressive (18% return, high equity): For long-term goals. Moderate (12% return, balanced): For medium-term goals. Conservative (10% return, low risk): For short-term or low-risk investors." /></label>
                     <select
                       className={inputClass}
                       value={formData.investmentStrategy}
@@ -551,7 +554,7 @@ const WealthCreation = () => {
                 </div>
                 <div className="flex flex-col gap-1 w-64">
                   <label className={labelClass}>
-                    Total Loan Amount <span className="text-red-500">*</span> <InfoIcon />
+                    Total Loan Amount <span className="text-red-500">*</span> <InfoIcon tooltip="The total outstanding principal amount of all your loans (home loan, car loan, personal loan, education loan, etc.)" />
                   </label>
                   <div className="flex items-center gap-2">
                     <span className="text-xl text-gray-500">₹</span>
@@ -577,7 +580,7 @@ const WealthCreation = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className={labelClass}>Stocks <InfoIcon /></label>
+                    <label className={labelClass}>Stocks <InfoIcon tooltip="Current value of all your direct equity investments in individual company stocks." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -590,7 +593,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Equity MF <InfoIcon /></label>
+                    <label className={labelClass}>Equity MF <InfoIcon tooltip="Current value of your equity mutual fund investments including index funds and sectoral funds." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -603,7 +606,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Debt MF & Bonds <InfoIcon /></label>
+                    <label className={labelClass}>Debt MF & Bonds <InfoIcon tooltip="Value of debt mutual funds, corporate bonds, government bonds, and other fixed-income securities." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -616,7 +619,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Fixed Deposits <InfoIcon /></label>
+                    <label className={labelClass}>Fixed Deposits <InfoIcon tooltip="Total amount in bank FDs, RDs, and other fixed deposit schemes like Post Office FDs, company FDs." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -629,7 +632,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Gold <InfoIcon /></label>
+                    <label className={labelClass}>Gold <InfoIcon tooltip="Value of physical gold, digital gold, gold ETFs, sovereign gold bonds, and gold mutual funds you own." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -642,7 +645,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Real Estate <InfoIcon /></label>
+                    <label className={labelClass}>Real Estate <InfoIcon tooltip="Current market value of properties you own (residential, commercial) minus any outstanding mortgage." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -655,7 +658,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Cash, Bank, etc. <InfoIcon /></label>
+                    <label className={labelClass}>Cash, Bank, etc. <InfoIcon tooltip="Cash in hand, savings account balance, and other liquid assets not invested elsewhere." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -668,7 +671,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Total Assets <InfoIcon /></label>
+                    <label className={labelClass}>Total Assets <InfoIcon tooltip="Automatically calculated sum of all your assets. This represents your total wealth before deducting loans." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -694,7 +697,7 @@ const WealthCreation = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className={labelClass}>Monthly Stocks <InfoIcon /></label>
+                    <label className={labelClass}>Monthly Stocks <InfoIcon tooltip="Amount you invest every month in buying individual stocks. This is your regular monthly equity investment." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -707,7 +710,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>SIP In Equity MF <InfoIcon /></label>
+                    <label className={labelClass}>SIP In Equity MF <InfoIcon tooltip="Monthly SIP (Systematic Investment Plan) amount in equity mutual funds. SIPs help you invest regularly and benefit from rupee cost averaging." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -720,7 +723,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>SIP In Debt MF <InfoIcon /></label>
+                    <label className={labelClass}>SIP In Debt MF <InfoIcon tooltip="Monthly SIP amount in debt mutual funds. These provide stable returns with lower risk compared to equity funds." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -733,7 +736,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Monthly RD/FD <InfoIcon /></label>
+                    <label className={labelClass}>Monthly RD/FD <InfoIcon tooltip="Amount you deposit monthly in Recurring Deposits (RD) or Fixed Deposits (FD). These are safe, guaranteed return instruments." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -746,7 +749,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Monthly Gold <InfoIcon /></label>
+                    <label className={labelClass}>Monthly Gold <InfoIcon tooltip="Amount you invest monthly in gold (physical gold, digital gold, gold ETFs, or sovereign gold bonds)." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -759,7 +762,7 @@ const WealthCreation = () => {
                     </div>
                   </div>
                   <div>
-                    <label className={labelClass}>Total Monthly Investments <InfoIcon /></label>
+                    <label className={labelClass}>Total Monthly Investments <InfoIcon tooltip="Automatically calculated sum of all your monthly investments. This shows your total monthly contribution towards wealth creation." /></label>
                     <div className="flex items-center gap-2">
                       <span className="text-xl text-gray-500">₹</span>
                       <input
@@ -794,11 +797,11 @@ const WealthCreation = () => {
           </div>
 
           {/* Right Side - Results/Instructions (50%) */}
-          <div className="w-1/2 bg-gradient-to-br from-purple-50 to-blue-50 overflow-y-auto">
+          <div className="w-1/2 bg-white overflow-y-auto">
             <div className="p-6">
               {!showResults ? (
                 /* Instructions Panel */
-                <div className="max-w-2xl mx-auto space-y-6">
+                <div className="w-full mx-auto space-y-6">
                   <div className="bg-white rounded-2xl shadow-xl p-8 border border-purple-200">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
