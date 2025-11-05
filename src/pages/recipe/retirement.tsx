@@ -184,9 +184,10 @@ const Retirement = () => {
     // Net monthly expenses after passive income
     const netMonthlyExpenses = Math.max(0, monthlyExpensesAtRetirement - totalPassiveIncome);
 
-    // Required corpus using 4% withdrawal rule, adjusted for post-retirement returns
-    const requiredCorpus = (netMonthlyExpenses * 12 * yearsInRetirement) /
-                          (Math.pow(1 + postReturnRate, yearsInRetirement) - 1) * postReturnRate;
+    // Required corpus calculation using 4% withdrawal rule (same as EIM calculator)
+    // This assumes corpus will last indefinitely with 4% annual withdrawal
+    // Formula: Required Corpus = Annual Expenses × 25 (where 25 = 1/0.04)
+    const requiredCorpus = netMonthlyExpenses * 12 * 25;
 
     // Calculate future value of current savings
     const totalMonths = yearsToRetirement * 12;
