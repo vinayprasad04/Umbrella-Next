@@ -118,6 +118,11 @@ const Login = () => {
   };
 
   const handleGoogleLogin = async () => {
+    // Prevent multiple clicks
+    if (isSubmitting) {
+      return;
+    }
+
     setGoogleError('');
     setIsSubmitting(true);
 
@@ -174,9 +179,22 @@ const Login = () => {
 
       // Navigate after everything is set up
       router.push('/dashboard');
-    } catch (error: unknown) {
+    } catch (error: any) {
       console.error('Google sign-in error:', error);
-      setGoogleError('Google sign-in failed. Please try again.');
+
+      // Handle specific Firebase errors
+      if (error.code === 'auth/popup-closed-by-user') {
+        setGoogleError('Sign-in was cancelled. Please try again and complete the sign-in process.');
+      } else if (error.code === 'auth/popup-blocked') {
+        setGoogleError('Popup was blocked by your browser. Please allow popups and try again.');
+      } else if (error.code === 'auth/cancelled-popup-request') {
+        setGoogleError('Another sign-in request is in progress. Please wait.');
+      } else if (error.code === 'auth/network-request-failed') {
+        setGoogleError('Network error. Please check your internet connection and try again.');
+      } else {
+        setGoogleError(error.message || 'Google sign-in failed. Please try again.');
+      }
+
       setIsSubmitting(false);
     }
   };
