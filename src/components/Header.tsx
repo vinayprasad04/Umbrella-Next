@@ -351,7 +351,7 @@ export default function Header() {
 
       {/* Mobile Menu - Full Screen Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-[4rem] z-[999] bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-y-auto">
+        <div className="lg:hidden fixed left-0 right-0 bottom-0 top-[64px] sm:top-[72px] z-[999] bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-y-auto">
           {/* Decorative background elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
