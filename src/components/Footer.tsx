@@ -104,23 +104,23 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Background decoration - Hidden on mobile */}
+      <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-[#FF6B2C]/5 to-[#FF8A50]/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
       </div>
-      
+
       <div className="relative">
         {/* Newsletter Section */}
         <Subscribe variant="footer" />
-        
+
         {/* Main Footer Content */}
-        <div className="w-full max-w-[1600px] mx-auto px-6 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-6 gap-12 mb-16">
+        <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 py-10 sm:py-16 md:py-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-12 md:mb-16">
             {/* Company Info */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="sm:col-span-2 lg:col-span-2 space-y-6 sm:space-y-8">
               <div>
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-xl shadow-lg flex items-center justify-center">
                     <Image
                       src="/logo.png"
@@ -141,27 +141,28 @@ export default function Footer() {
                     />
                   </div>
                 </div>
-                
-                <p className="text-gray-300 leading-relaxed mb-8">
-                  Empowering your financial journey with cutting-edge tools, expert research, and personalized guidance. 
+
+
+                <p className="text-gray-300 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base">
+                  Empowering your financial journey with cutting-edge tools, expert research, and personalized guidance.
                   Join thousands who trust IncomeGrow for smarter financial decisions.
                 </p>
-                
+
                 {/* Contact Info */}
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-gray-300">
-                    <svg className="w-5 h-5 text-[#FF6B2C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex items-center gap-2 sm:gap-3 text-gray-300 text-sm sm:text-base">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF6B2C] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <span>Krishan Vihar, Delhi, India</span>
                   </div>
-                  
-                  <div className="flex items-center gap-3 text-gray-300">
-                    <svg className="w-5 h-5 text-[#FF6B2C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                  <div className="flex items-center gap-2 sm:gap-3 text-gray-300 text-sm sm:text-base">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF6B2C] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    <span>vinay.qss@gmail.com</span>
+                    <span className="break-all">vinay.qss@gmail.com</span>
                   </div>
                   
                   {/* <div className="flex items-center gap-3 text-gray-300">
@@ -193,8 +194,8 @@ export default function Footer() {
             
             {/* Navigation Menus */}
             {menu.map((item, index) => (
-              <div key={index} className="space-y-4">
-                <h3 className="text-white text-lg font-bold mb-6 relative">
+              <div key={index} className="space-y-3 sm:space-y-4">
+                <h3 className="text-white text-base sm:text-lg font-bold mb-4 sm:mb-6 relative">
                   {item.label}
                   <div className="absolute bottom-0 left-0 w-8 h-0.5 bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] rounded-full"></div>
                 </h3>
@@ -257,28 +258,28 @@ export default function Footer() {
         
         {/* Bottom Footer */}
         <div className="border-t border-gray-700/50 backdrop-blur-sm">
-          <div className="w-full max-w-[1600px] mx-auto px-6 py-8">
-            <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
-              <div className="flex flex-col sm:flex-row items-center gap-6">
-                <p className="text-gray-400">
+          <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 py-6 sm:py-8">
+            <div className="flex flex-col lg:flex-row justify-between items-center gap-4 sm:gap-6">
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
+                <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
                   © 2025 IncomeGrow Financial Services. All rights reserved.
                 </p>
-                <div className="flex items-center gap-1">
-                  <span className="text-sm text-gray-500">Secured by</span>
-                  <div className="px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full">
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <span className="text-xs sm:text-sm text-gray-500">Secured by</span>
+                  <div className="px-2 sm:px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full">
                     <span className="text-xs font-semibold text-green-400">SSL 256-bit</span>
                   </div>
                 </div>
               </div>
-              
-              <div className="flex flex-wrap items-center justify-center gap-6">
-                <Link href="/privacy-policy" className="text-gray-400 hover:text-[#FF6B2C] transition-colors no-underline">
+
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm">
+                <Link href="/privacy-policy" className="text-gray-400 hover:text-[#FF6B2C] transition-colors no-underline whitespace-nowrap">
                   Privacy Policy
                 </Link>
-                <Link href="/terms-of-service" className="text-gray-400 hover:text-[#FF6B2C] transition-colors no-underline">
+                <Link href="/terms-of-service" className="text-gray-400 hover:text-[#FF6B2C] transition-colors no-underline whitespace-nowrap">
                   Terms of Service
                 </Link>
-                <Link href="/cookie-policy" className="text-gray-400 hover:text-[#FF6B2C] transition-colors no-underline">
+                <Link href="/cookie-policy" className="text-gray-400 hover:text-[#FF6B2C] transition-colors no-underline whitespace-nowrap">
                   Cookie Policy
                 </Link>
                 <Link href="/sitemap" className="text-gray-400 hover:text-[#FF6B2C] transition-colors no-underline">
@@ -286,19 +287,19 @@ export default function Footer() {
                 </Link>
               </div>
             </div>
-            
-            <div className="mt-6 pt-6 border-t border-gray-700/30 text-center">
-              <p className="text-[#FF6B2C] font-medium">
+
+            <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-700/30 text-center">
+              <p className="text-[#FF6B2C] font-medium text-sm sm:text-base">
                 Made with <span className="text-red-400 animate-pulse">❤️</span> by our passionate financial team in India
               </p>
-              
-              <div className="flex items-center justify-center gap-4 mt-4">
-                <div className="flex items-center gap-2 text-sm text-gray-400">
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-3 sm:mt-4 text-xs sm:text-sm">
+                <div className="flex items-center gap-2 text-gray-400">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                   <span>All systems operational</span>
                 </div>
-                <div className="text-gray-600">|</div>
-                <div className="text-sm text-gray-400">
+                <div className="hidden sm:block text-gray-600">|</div>
+                <div className="text-gray-400">
                   Last updated: {currentDate}
                 </div>
               </div>

@@ -88,30 +88,30 @@ const Subscribe: React.FC<SubscribeProps> = ({ variant = 'footer', className = '
   if (variant === 'footer') {
     return (
       <div className={`border-b border-gray-700/50 backdrop-blur-sm ${className}`}>
-        <div className="w-full max-w-[1600px] mx-auto px-6 py-16">
-          <div className="bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 backdrop-blur-sm rounded-3xl p-12 border border-white/10">
+        <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
+          <div className="bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 border border-white/10">
             <div className="text-center max-w-2xl mx-auto">
-              <h3 className="text-3xl font-bold text-white mb-4">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 sm:mb-4">
                 Stay Updated with Market Insights
               </h3>
-              <p className="text-gray-300 mb-8 text-lg">
+              <p className="text-gray-300 mb-6 sm:mb-8 text-sm sm:text-base md:text-lg">
                 Get the latest financial news, investment tips, and market analysis delivered to your inbox weekly.
               </p>
-              
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="flex-1 px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
+                  className="flex-1 px-4 sm:px-6 py-3 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg sm:rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-sm sm:text-base"
                   disabled={isSubmitting}
                   required
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 text-sm sm:text-base whitespace-nowrap"
                 >
                   {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                   {!isSubmitting && (
