@@ -27,6 +27,10 @@ export default function Home() {
 
       <div className="font-sans m-0 p-0 bg-white">
         <Header />
+ 
+   
+
+
 
         <main>
           {/* Hero Section */}
