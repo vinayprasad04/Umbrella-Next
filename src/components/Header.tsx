@@ -53,6 +53,8 @@ export default function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userInitials, setUserInitials] = useState('');
   const [openUserMenu, setOpenUserMenu] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null);
 
   useEffect(() => {
     // Check if user is logged in (you can implement your auth logic here)
@@ -111,19 +113,28 @@ export default function Header() {
     router.push('/');
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    setMobileSubmenuOpen(null);
+  };
+
+  const toggleMobileSubmenu = (label: string) => {
+    setMobileSubmenuOpen(mobileSubmenuOpen === label ? null : label);
+  };
+
   return (
-    <header className="bg-white/95 backdrop-blur-md py-4 shadow-sm border-b border-gray-100 sticky top-0 z-[1000] transition-all duration-300">
-      <div className="w-full max-w-[1600px] mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3 no-underline group">
+    <header className="bg-white/95 backdrop-blur-md py-3 sm:py-4 shadow-sm border-b border-gray-100 sticky top-0 z-[1000] transition-all duration-300">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 flex justify-between items-center">
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 no-underline group">
           <div className="relative">
-            <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
               <Image
                 src="/logo.png"
                 alt="incomeGrow Financial Logo"
                 width={28}
                 height={26}
                 priority
-                className="w-7 h-6.5 object-contain filter brightness-0 invert"
+                className="w-6 h-5 sm:w-7 sm:h-6.5 object-contain filter brightness-0 invert"
               />
             </div>
           </div>
@@ -131,14 +142,16 @@ export default function Header() {
              <Image
                 src="/logo.svg"
                 alt="incomeGrow Financial Logo"
-                 width={150}
+                width={150}
                 height={50}
                 priority
+                className="h-8 sm:h-auto w-auto"
               />
           </div>
         </Link>
-        
-        <nav className="flex items-center gap-1">
+
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-1">
           {/* Dashboard link - only show when logged in */}
           {isLoggedIn && (
             <Link 
@@ -253,16 +266,16 @@ export default function Header() {
             </div>
           ))}
           
-          {/* Authentication Section */}
+          {/* Authentication Section - Desktop */}
           <div className="ml-4 pl-4 border-l border-gray-200">
             {isLoggedIn ? (
               <div className="relative" id="user-menu-container">
-                <div 
+                <div
                   onClick={handleUserMenuToggle}
-                  className="bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] text-white w-11 h-11 rounded-xl flex items-center justify-center font-bold hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer group relative overflow-hidden"
+                  className="bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] text-white w-10 h-10 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl flex items-center justify-center font-bold hover:shadow-lg hover:scale-105 transition-all duration-200 cursor-pointer group relative overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
-                  <span className="relative z-10">{userInitials}</span>
+                  <span className="relative z-10 text-sm sm:text-base">{userInitials}</span>
                 </div>
                 
                 {openUserMenu && (
@@ -299,13 +312,229 @@ export default function Header() {
                 )}
               </div>
             ) : (
-              <Link href="/login" className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-2.5 rounded-xl font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 no-underline">
+              <Link href="/login" className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg sm:rounded-xl text-sm sm:text-base font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 no-underline">
                 Get Started
               </Link>
             )}
           </div>
         </nav>
+
+        {/* Mobile Menu Button */}
+        <div className="flex lg:hidden items-center gap-3">
+          {/* Mobile Auth Button */}
+          {isLoggedIn && (
+            <div
+              onClick={handleUserMenuToggle}
+              className="bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] text-white w-9 h-9 rounded-lg flex items-center justify-center font-bold text-sm cursor-pointer"
+            >
+              {userInitials}
+            </div>
+          )}
+
+          <button
+            onClick={toggleMobileMenu}
+            className="p-2 text-gray-700 hover:text-[#FF6B2C] hover:bg-gray-50 rounded-lg transition-all duration-200"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <nav className="px-4 py-4 space-y-2">
+            {/* Dashboard Link - Mobile */}
+            {isLoggedIn && (
+              <Link
+                href="/dashboard"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 no-underline ${
+                  router.pathname === '/dashboard' || router.pathname.startsWith('/recipe')
+                    ? 'text-[#FF6B2C] bg-orange-50'
+                    : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                Dashboard
+              </Link>
+            )}
+
+            {/* Home Link */}
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 no-underline ${
+                router.pathname === '/'
+                  ? 'text-[#FF6B2C] bg-orange-50'
+                  : 'text-gray-700 hover:bg-gray-50'
+              }`}
+            >
+              Home
+            </Link>
+
+            {/* Menu Items with Submenus */}
+            {menu.slice(1).map((item, index) => (
+              <div key={index} className="space-y-1">
+                {item.label === 'Products' ? (
+                  <>
+                    <Link
+                      href="/products"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-all duration-200 no-underline ${
+                        router.pathname === '/products' || router.pathname.startsWith('/products')
+                          ? 'text-[#FF6B2C] bg-orange-50'
+                          : 'text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      {item.label}
+                      {item.submenu && (
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            toggleMobileSubmenu(item.label);
+                          }}
+                          className="p-1"
+                        >
+                          <svg
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              mobileSubmenuOpen === item.label ? 'rotate-180' : ''
+                            }`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                      )}
+                    </Link>
+                  </>
+                ) : (
+                  <button
+                    onClick={() => toggleMobileSubmenu(item.label)}
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-all duration-200 text-left"
+                  >
+                    {item.label}
+                    {item.submenu && (
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-200 ${
+                          mobileSubmenuOpen === item.label ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    )}
+                  </button>
+                )}
+
+                {/* Submenu Items */}
+                {item.submenu && mobileSubmenuOpen === item.label && (
+                  <div className="ml-4 space-y-1 py-2">
+                    {item.submenu.map((subItem, subIndex) => {
+                      if (typeof subItem === 'object' && subItem.href) {
+                        if (subItem.external) {
+                          return (
+                            <a
+                              key={subIndex}
+                              href={subItem.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center px-4 py-2.5 text-gray-600 hover:text-[#FF6B2C] hover:bg-orange-50 rounded-lg transition-all duration-200 no-underline text-sm"
+                            >
+                              <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3"></span>
+                              {subItem.name}
+                              <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                              </svg>
+                            </a>
+                          );
+                        }
+                        return (
+                          <Link
+                            key={subIndex}
+                            href={subItem.href}
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="flex items-center px-4 py-2.5 text-gray-600 hover:text-[#FF6B2C] hover:bg-orange-50 rounded-lg transition-all duration-200 no-underline text-sm"
+                          >
+                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3"></span>
+                            {subItem.name}
+                          </Link>
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {/* Mobile Auth Section */}
+            {!isLoggedIn && (
+              <div className="pt-4 border-t border-gray-100">
+                <Link
+                  href="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-4 py-3 rounded-lg font-medium text-center hover:shadow-lg transition-all duration-200 no-underline"
+                >
+                  Get Started
+                </Link>
+              </div>
+            )}
+
+            {/* Mobile User Menu */}
+            {isLoggedIn && (
+              <div className="pt-4 space-y-2 border-t border-gray-100">
+                <Link
+                  href="/profile"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-all duration-200 no-underline"
+                >
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  Profile
+                </Link>
+                <Link
+                  href="/settings"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-all duration-200 no-underline"
+                >
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  Settings
+                </Link>
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setMobileMenuOpen(false);
+                  }}
+                  className="w-full flex items-center px-4 py-3 text-red-500 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200"
+                >
+                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                  </svg>
+                  Logout
+                </button>
+              </div>
+            )}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
