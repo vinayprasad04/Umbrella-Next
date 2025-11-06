@@ -328,8 +328,8 @@ export function getFullTitle(title: string): string {
   return title;
 }
 
-// Helper function to generate meta tags
-export function generateMetaTags(config: SEOConfig) {
+// Helper function to create meta tags
+export function createMetaTags(config: SEOConfig) {
   return {
     title: config.title,
     description: config.description,
