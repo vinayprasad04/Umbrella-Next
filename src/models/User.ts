@@ -30,11 +30,7 @@ const UserSchema: Schema = new Schema({
   },
   password: {
     type: String,
-    required: function(this: IUser) {
-      // Password is only required if not using Google login
-      return this.provider !== 'google';
-    },
-    minlength: [6, 'Password must be at least 6 characters long'],
+    default: '',
   },
   name: {
     type: String,

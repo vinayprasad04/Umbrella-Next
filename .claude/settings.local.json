@@ -1,37 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm uninstall:*)",
-      "Bash(npm install:*)",
-      "Bash(rm:*)",
-      "Bash(npm run lint)",
-      "Bash(npm run build:*)",
-      "Bash(mv:*)",
-      "Bash(mkdir:*)",
-      "Bash(npm run dev:*)",
-      "Bash(cp:*)",
-      "Bash(npx tailwindcss init:*)",
-      "Bash(move goal.tsx products/goal.tsx)",
-      "Bash(node:*)",
-      "Bash(curl:*)",
-      "Bash(taskkill:*)",
-      "Bash(npx tsc:*)",
-      "Bash(npm start)",
-      "Bash(for i in {1..7})",
-      "Bash(do echo \"Request $i:\")",
-      "Bash(done)",
-      "Bash(TASKKILL /F /PID 38168)",
-      "Bash(cmd /c:*)",
-      "Bash(powershell:*)",
-      "Bash(npm run lint:*)",
-      "Bash(grep:*)",
-      "WebSearch",
-      "Bash(test:*)",
-      "Bash(find:*)",
-      "Bash(kill:*)",
-      "Bash(git checkout:*)"
+      "Bash(del \"d:\\work\\Test\\Next\\Umbrella-Next\\next.config.ts\")",
+      "Bash(set NODE_OPTIONS=--trace-warnings)",
+      "Bash(npm --version)",
+      "Bash(set NEXT_DEBUG=1)",
+      "Bash(cat:*)",
+      "Bash(set NODE_ENV=development)",
+      "Bash(npm audit:*)"
     ],
     "deny": [],
+    "ask": [],
     "defaultMode": "acceptEdits"
   }
 }
