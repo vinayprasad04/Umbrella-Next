@@ -30,7 +30,7 @@ export default function Home() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden min-h-[calc(100vh-80px)] flex items-center">
+          <section className="relative py-6 sm:py-8 md:py-10 lg:py-12 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden flex items-center">
             {/* Background decoration - Hidden on mobile */}
             <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
