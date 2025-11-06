@@ -351,14 +351,14 @@ export default function Header() {
 
       {/* Mobile Menu - Full Screen Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed left-0 right-0 bottom-0 top-[64px] sm:top-[72px] z-[999] bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-y-auto">
+        <div className="lg:hidden fixed inset-x-0 top-[60px] h-[calc(100vh-60px)] z-[999] bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-y-auto animate-in slide-in-from-top-4 fade-in duration-300">
           {/* Decorative background elements */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
+            <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl animate-in fade-in duration-700"></div>
+            <div className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl animate-in fade-in duration-1000"></div>
           </div>
 
-          <nav className="relative px-6 py-6 space-y-3">
+          <nav className="relative px-6 py-6 space-y-3 animate-in slide-in-from-top-2 fade-in duration-500 delay-100">
             {/* Dashboard Link - Mobile */}
             {isLoggedIn && (
               <Link
