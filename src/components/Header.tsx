@@ -349,21 +349,36 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Full Screen Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 shadow-lg max-h-[calc(100vh-4rem)] overflow-y-auto">
-          <nav className="px-4 py-4 space-y-2">
+        <div className="lg:hidden fixed inset-0 top-[4rem] z-[999] bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-y-auto">
+          {/* Decorative background elements */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-20 right-10 w-64 h-64 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 left-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
+          </div>
+
+          <nav className="relative px-6 py-6 space-y-3">
             {/* Dashboard Link - Mobile */}
             {isLoggedIn && (
               <Link
                 href="/dashboard"
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 no-underline ${
+                className={`group flex items-center gap-3 px-5 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 no-underline shadow-sm ${
                   router.pathname === '/dashboard' || router.pathname.startsWith('/recipe')
-                    ? 'text-[#FF6B2C] bg-orange-50'
-                    : 'text-gray-700 hover:bg-gray-50'
+                    ? 'text-white bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] shadow-lg scale-105'
+                    : 'text-gray-700 bg-white/80 backdrop-blur-sm hover:bg-white hover:shadow-md hover:scale-102'
                 }`}
               >
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                  router.pathname === '/dashboard' || router.pathname.startsWith('/recipe')
+                    ? 'bg-white/20'
+                    : 'bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 group-hover:from-[#FF6B2C]/20 group-hover:to-[#FF8A50]/20'
+                }`}>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                  </svg>
+                </div>
                 Dashboard
               </Link>
             )}
@@ -372,123 +387,159 @@ export default function Header() {
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 no-underline ${
+              className={`group flex items-center gap-3 px-5 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 no-underline shadow-sm ${
                 router.pathname === '/'
-                  ? 'text-[#FF6B2C] bg-orange-50'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  ? 'text-white bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] shadow-lg scale-105'
+                  : 'text-gray-700 bg-white/80 backdrop-blur-sm hover:bg-white hover:shadow-md hover:scale-102'
               }`}
             >
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                router.pathname === '/'
+                  ? 'bg-white/20'
+                  : 'bg-gradient-to-br from-blue-400/10 to-blue-600/10 group-hover:from-blue-400/20 group-hover:to-blue-600/20'
+              }`}>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </div>
               Home
             </Link>
 
             {/* Menu Items with Submenus */}
-            {menu.slice(1).map((item, index) => (
-              <div key={index} className="space-y-1">
-                {item.label === 'Products' ? (
-                  <>
-                    <Link
-                      href="/products"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-all duration-200 no-underline ${
-                        router.pathname === '/products' || router.pathname.startsWith('/products')
-                          ? 'text-[#FF6B2C] bg-orange-50'
-                          : 'text-gray-700 hover:bg-gray-50'
-                      }`}
-                    >
-                      {item.label}
-                      {item.submenu && (
-                        <button
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            toggleMobileSubmenu(item.label);
-                          }}
-                          className="p-1"
-                        >
-                          <svg
-                            className={`w-4 h-4 transition-transform duration-200 ${
-                              mobileSubmenuOpen === item.label ? 'rotate-180' : ''
-                            }`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </button>
-                      )}
-                    </Link>
-                  </>
-                ) : (
-                  <button
-                    onClick={() => toggleMobileSubmenu(item.label)}
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium text-gray-700 hover:bg-gray-50 transition-all duration-200 text-left"
-                  >
-                    {item.label}
-                    {item.submenu && (
-                      <svg
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          mobileSubmenuOpen === item.label ? 'rotate-180' : ''
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    )}
-                  </button>
-                )}
+            {menu.slice(1).map((item, index) => {
+              const icons = {
+                'Products': <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>,
+                'Calculation': <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>,
+                'Tax Knowledge': <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+                'Support': <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+              };
 
-                {/* Submenu Items */}
-                {item.submenu && mobileSubmenuOpen === item.label && (
-                  <div className="ml-4 space-y-1 py-2">
-                    {item.submenu.map((subItem, subIndex) => {
-                      if (typeof subItem === 'object' && subItem.href) {
-                        if (subItem.external) {
+              return (
+                <div key={index} className="space-y-2">
+                  {item.label === 'Products' ? (
+                    <>
+                      <Link
+                        href="/products"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`group flex items-center justify-between px-5 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 no-underline shadow-sm ${
+                          router.pathname === '/products' || router.pathname.startsWith('/products')
+                            ? 'text-white bg-gradient-to-r from-purple-500 to-purple-600 shadow-lg scale-105'
+                            : 'text-gray-700 bg-white/80 backdrop-blur-sm hover:bg-white hover:shadow-md'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
+                            router.pathname === '/products' || router.pathname.startsWith('/products')
+                              ? 'bg-white/20'
+                              : 'bg-gradient-to-br from-purple-400/10 to-purple-600/10 group-hover:from-purple-400/20 group-hover:to-purple-600/20'
+                          }`}>
+                            {icons[item.label as keyof typeof icons]}
+                          </div>
+                          {item.label}
+                        </div>
+                        {item.submenu && (
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              toggleMobileSubmenu(item.label);
+                            }}
+                            className="p-2 rounded-lg hover:bg-white/20 transition-all duration-200"
+                          >
+                            <svg
+                              className={`w-5 h-5 transition-transform duration-300 ${
+                                mobileSubmenuOpen === item.label ? 'rotate-180' : ''
+                              }`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </button>
+                        )}
+                      </Link>
+                    </>
+                  ) : (
+                    <button
+                      onClick={() => toggleMobileSubmenu(item.label)}
+                      className="w-full group flex items-center justify-between px-5 py-4 rounded-2xl font-semibold text-lg text-gray-700 bg-white/80 backdrop-blur-sm hover:bg-white hover:shadow-md transition-all duration-300 text-left shadow-sm"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 group-hover:from-gray-200 group-hover:to-gray-300 transition-all duration-300">
+                          {icons[item.label as keyof typeof icons]}
+                        </div>
+                        {item.label}
+                      </div>
+                      {item.submenu && (
+                        <svg
+                          className={`w-5 h-5 transition-transform duration-300 ${
+                            mobileSubmenuOpen === item.label ? 'rotate-180' : ''
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      )}
+                    </button>
+                  )}
+
+
+                  {/* Submenu Items */}
+                  {item.submenu && mobileSubmenuOpen === item.label && (
+                    <div className="ml-6 space-y-2 py-2 border-l-2 border-gray-200 pl-4">
+                      {item.submenu.map((subItem, subIndex) => {
+                        if (typeof subItem === 'object' && subItem.href) {
+                          if (subItem.external) {
+                            return (
+                              <a
+                                key={subIndex}
+                                href={subItem.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-[#FF6B2C] bg-white/60 hover:bg-orange-50 rounded-xl transition-all duration-200 no-underline text-base shadow-sm"
+                              >
+                                <div className="w-2 h-2 bg-gray-400 group-hover:bg-[#FF6B2C] rounded-full transition-colors duration-200"></div>
+                                <span className="flex-1">{subItem.name}</span>
+                                <svg className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                              </a>
+                            );
+                          }
                           return (
-                            <a
+                            <Link
                               key={subIndex}
                               href={subItem.href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center px-4 py-2.5 text-gray-600 hover:text-[#FF6B2C] hover:bg-orange-50 rounded-lg transition-all duration-200 no-underline text-sm"
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="group flex items-center gap-3 px-4 py-3 text-gray-600 hover:text-[#FF6B2C] bg-white/60 hover:bg-orange-50 rounded-xl transition-all duration-200 no-underline text-base shadow-sm"
                             >
-                              <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3"></span>
-                              {subItem.name}
-                              <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                              </svg>
-                            </a>
+                              <div className="w-2 h-2 bg-gray-400 group-hover:bg-[#FF6B2C] rounded-full transition-colors duration-200"></div>
+                              <span>{subItem.name}</span>
+                            </Link>
                           );
                         }
-                        return (
-                          <Link
-                            key={subIndex}
-                            href={subItem.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center px-4 py-2.5 text-gray-600 hover:text-[#FF6B2C] hover:bg-orange-50 rounded-lg transition-all duration-200 no-underline text-sm"
-                          >
-                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-3"></span>
-                            {subItem.name}
-                          </Link>
-                        );
-                      }
-                      return null;
-                    })}
-                  </div>
-                )}
-              </div>
-            ))}
+                        return null;
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
 
             {/* Mobile Auth Section */}
             {!isLoggedIn && (
-              <div className="pt-4 border-t border-gray-100">
+              <div className="pt-6 mt-6 border-t-2 border-gray-200">
                 <Link
                   href="/login"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-4 py-3 rounded-lg font-medium text-center hover:shadow-lg transition-all duration-200 no-underline"
+                  className="group flex items-center justify-center gap-3 w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 no-underline"
                 >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                  </svg>
                   Get Started
                 </Link>
               </div>
@@ -496,39 +547,59 @@ export default function Header() {
 
             {/* Mobile User Menu */}
             {isLoggedIn && (
-              <div className="pt-4 space-y-2 border-t border-gray-100">
+              <div className="pt-6 mt-6 space-y-3 border-t-2 border-gray-200">
+                <div className="px-4 py-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-100">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                      {userInitials}
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-gray-800">Your Account</div>
+                      <div className="text-xs text-gray-500">Manage your profile</div>
+                    </div>
+                  </div>
+                </div>
+
                 <Link
                   href="/profile"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-all duration-200 no-underline"
+                  className="group flex items-center gap-3 px-5 py-4 text-gray-700 bg-white/80 backdrop-blur-sm hover:bg-blue-50 hover:text-blue-600 rounded-2xl transition-all duration-300 no-underline shadow-sm hover:shadow-md"
                 >
-                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                  Profile
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 group-hover:from-blue-200 group-hover:to-blue-300 flex items-center justify-center transition-all duration-300">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <span className="font-semibold text-lg">Profile</span>
                 </Link>
+
                 <Link
                   href="/settings"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center px-4 py-3 text-gray-700 hover:bg-purple-50 hover:text-purple-600 rounded-lg transition-all duration-200 no-underline"
+                  className="group flex items-center gap-3 px-5 py-4 text-gray-700 bg-white/80 backdrop-blur-sm hover:bg-purple-50 hover:text-purple-600 rounded-2xl transition-all duration-300 no-underline shadow-sm hover:shadow-md"
                 >
-                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                  Settings
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-100 to-purple-200 group-hover:from-purple-200 group-hover:to-purple-300 flex items-center justify-center transition-all duration-300">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <span className="font-semibold text-lg">Settings</span>
                 </Link>
+
                 <button
                   onClick={() => {
                     handleLogout();
                     setMobileMenuOpen(false);
                   }}
-                  className="w-full flex items-center px-4 py-3 text-red-500 hover:bg-red-50 hover:text-red-600 rounded-lg transition-all duration-200"
+                  className="group w-full flex items-center gap-3 px-5 py-4 text-red-500 bg-white/80 backdrop-blur-sm hover:bg-red-50 hover:text-red-600 rounded-2xl transition-all duration-300 shadow-sm hover:shadow-md"
                 >
-                  <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                  </svg>
-                  Logout
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-red-100 to-red-200 group-hover:from-red-200 group-hover:to-red-300 flex items-center justify-center transition-all duration-300">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                  </div>
+                  <span className="font-semibold text-lg">Logout</span>
                 </button>
               </div>
             )}
