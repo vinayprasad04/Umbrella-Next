@@ -30,20 +30,20 @@ export default function Home() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden">
+          <section className="relative py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden">
             {/* Background decoration */}
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
             </div>
-            
-            <div className="relative w-full max-w-[1600px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-              <div className="space-y-8">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full border border-[#FF6B2C]/20">
-                  <span className="text-sm font-semibold text-[#FF6B2C]">✨ Your Financial Partner</span>
+
+            <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
+              <div className="space-y-6 md:space-y-8">
+                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full border border-[#FF6B2C]/20">
+                  <span className="text-xs sm:text-sm font-semibold text-[#FF6B2C]">✨ Your Financial Partner</span>
                 </div>
-                
-                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Empowering
                   </span>
@@ -54,56 +54,56 @@ export default function Home() {
                     Journey
                   </span>
                 </h1>
-                
-                <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
-                  IncomeGrow brings you the best tools, research, and knowledge to 
-                  achieve your financial goals. Plan, invest, and grow with confidence 
+
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+                  IncomeGrow brings you the best tools, research, and knowledge to
+                  achieve your financial goals. Plan, invest, and grow with confidence
                   using our comprehensive platform.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <button 
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <button
                     onClick={handleGetStarted}
-                    className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                    className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 sm:px-8 py-3 sm:py-4 border-none rounded-xl text-base sm:text-lg font-semibold cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     {isLoggedIn ? 'Go to Dashboard' : 'Get Started'}
-                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </button>
-                  
-                  <button 
+
+                  <button
                     onClick={() => router.push('/products')}
-                    className="group bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 border-2 border-gray-200 rounded-xl text-lg font-semibold cursor-pointer hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2"
+                    className="group bg-white/80 backdrop-blur-sm text-gray-700 px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-200 rounded-xl text-base sm:text-lg font-semibold cursor-pointer hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     Explore Platform
-                    <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
                   </button>
                 </div>
-                
-                <div className="flex items-center gap-8 pt-4">
+
+                <div className="flex items-center justify-between sm:justify-start gap-4 sm:gap-8 pt-2 sm:pt-4">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800">10K+</div>
-                    <div className="text-sm text-gray-500">Active Users</div>
+                    <div className="text-xl sm:text-2xl font-bold text-gray-800">10K+</div>
+                    <div className="text-xs sm:text-sm text-gray-500">Active Users</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800">₹50Cr+</div>
-                    <div className="text-sm text-gray-500">Managed</div>
+                    <div className="text-xl sm:text-2xl font-bold text-gray-800">₹50Cr+</div>
+                    <div className="text-xs sm:text-sm text-gray-500">Managed</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-gray-800">99%</div>
-                    <div className="text-sm text-gray-500">Satisfaction</div>
+                    <div className="text-xl sm:text-2xl font-bold text-gray-800">99%</div>
+                    <div className="text-xs sm:text-sm text-gray-500">Satisfaction</div>
                   </div>
                 </div>
               </div>
               
-              <div className="flex justify-center lg:justify-end">
-                <div className="relative">
+              <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
+                <div className="relative w-full max-w-md lg:max-w-none">
                   {/* SVG Rocket Dream Banner */}
-                  <div className="relative w-[550px] h-[450px] bg-gradient-to-b from-indigo-900 via-purple-800 to-pink-700 rounded-3xl shadow-2xl overflow-hidden">
+                  <div className="relative w-full aspect-[11/9] lg:w-[550px] lg:h-[450px] bg-gradient-to-b from-indigo-900 via-purple-800 to-pink-700 rounded-2xl lg:rounded-3xl shadow-2xl overflow-hidden">
                     
                     {/* Stars Background */}
                     <div className="absolute inset-0">
@@ -208,67 +208,67 @@ export default function Home() {
                     </div>
                     
                     {/* Inspirational Text */}
-                    <div className="absolute top-8 left-8 text-white z-10">
-                      <h3 className="text-3xl font-bold mb-2 drop-shadow-lg">
+                    <div className="absolute top-4 sm:top-8 left-4 sm:left-8 text-white z-10">
+                      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2 drop-shadow-lg">
                         Launch Your Dreams
                       </h3>
-                      <p className="text-lg text-white/90 drop-shadow-lg">
+                      <p className="text-sm sm:text-base lg:text-lg text-white/90 drop-shadow-lg">
                         To Financial Freedom ✨
                       </p>
                     </div>
-                    
+
                     {/* Goals on right */}
-                    <div className="absolute top-8 right-8 text-right text-white z-10">
-                      <h4 className="text-xl font-bold mb-3 drop-shadow-lg">
+                    <div className="absolute top-4 sm:top-8 right-4 sm:right-8 text-right text-white z-10">
+                      <h4 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 drop-shadow-lg">
                         Dream Goals 🎯
                       </h4>
-                      <div className="space-y-2 text-sm">
-                        <div className="bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/30">
+                      <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
+                        <div className="bg-white/20 px-2 sm:px-3 py-1 rounded-full backdrop-blur-sm border border-white/30">
                           🏠 Dream Home
                         </div>
-                        <div className="bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/30">
+                        <div className="bg-white/20 px-2 sm:px-3 py-1 rounded-full backdrop-blur-sm border border-white/30">
                           🚗 New Car
                         </div>
-                        <div className="bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm border border-white/30">
+                        <div className="bg-white/20 px-2 sm:px-3 py-1 rounded-full backdrop-blur-sm border border-white/30">
                           ✈️ World Tour
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Bottom Inspiration */}
-                    <div className="absolute bottom-6 left-8 right-8 text-center text-white z-10">
-                      <p className="text-xl font-bold drop-shadow-lg mb-2">
+                    <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-8 right-4 sm:right-8 text-center text-white z-10">
+                      <p className="text-base sm:text-lg lg:text-xl font-bold drop-shadow-lg mb-1 sm:mb-2">
                         &ldquo;Sky is Not the Limit, Your Mind Is!&rdquo;
                       </p>
-                      <p className="text-sm text-white/80">
+                      <p className="text-xs sm:text-sm text-white/80">
                         Start investing today and reach for the stars
                       </p>
                     </div>
                   </div>
                   
-                  {/* Floating Achievement Cards */}
-                  <div className="absolute -top-8 -left-8 bg-gradient-to-r from-emerald-500 to-teal-600 p-4 rounded-2xl shadow-xl text-white animate-bounce" style={{animationDelay: '0.5s', animationDuration: '3s'}}>
+                  {/* Floating Achievement Cards - Hidden on mobile */}
+                  <div className="hidden lg:block absolute -top-8 -left-8 bg-gradient-to-r from-emerald-500 to-teal-600 p-3 lg:p-4 rounded-2xl shadow-xl text-white animate-bounce" style={{animationDelay: '0.5s', animationDuration: '3s'}}>
                     <div className="text-center">
-                      <div className="text-2xl font-bold">₹25L+</div>
+                      <div className="text-xl lg:text-2xl font-bold">₹25L+</div>
                       <div className="text-xs">Dreams Funded</div>
                     </div>
                   </div>
-                  
-                  <div className="absolute -top-4 -right-12 bg-gradient-to-r from-purple-500 to-indigo-600 p-4 rounded-2xl shadow-xl text-white animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}>
+
+                  <div className="hidden lg:block absolute -top-4 -right-12 bg-gradient-to-r from-purple-500 to-indigo-600 p-3 lg:p-4 rounded-2xl shadow-xl text-white animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}>
                     <div className="text-center">
-                      <div className="text-2xl font-bold">1000+</div>
+                      <div className="text-xl lg:text-2xl font-bold">1000+</div>
                       <div className="text-xs">Success Stories</div>
                     </div>
                   </div>
-                  
-                  <div className="absolute bottom-8 -left-10 bg-gradient-to-r from-orange-500 to-red-600 p-4 rounded-2xl shadow-xl text-white animate-pulse">
+
+                  <div className="hidden lg:block absolute bottom-8 -left-10 bg-gradient-to-r from-orange-500 to-red-600 p-3 lg:p-4 rounded-2xl shadow-xl text-white animate-pulse">
                     <div className="text-center">
                       <div className="text-2xl">🚀</div>
                       <div className="text-xs">Launch Now</div>
                     </div>
                   </div>
-                  
-                  <div className="absolute bottom-12 -right-8 bg-gradient-to-r from-blue-500 to-cyan-600 p-4 rounded-2xl shadow-xl text-white animate-pulse" style={{animationDelay: '1.5s'}}>
+
+                  <div className="hidden lg:block absolute bottom-12 -right-8 bg-gradient-to-r from-blue-500 to-cyan-600 p-3 lg:p-4 rounded-2xl shadow-xl text-white animate-pulse" style={{animationDelay: '1.5s'}}>
                     <div className="text-center">
                       <div className="text-2xl">⭐</div>
                       <div className="text-xs">Achieve More</div>
@@ -280,26 +280,26 @@ export default function Home() {
           </section>
 
           {/* About IncomeGrow Section */}
-          <section className="py-24 bg-gradient-to-b from-white to-gray-50 relative">
-            <div className="w-full max-w-[1600px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-              <div className="space-y-8">
+          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 relative">
+            <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
+              <div className="space-y-6 md:space-y-8">
                 <div>
-                  <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full border border-blue-200 mb-6">
-                    <span className="text-sm font-semibold text-blue-600">🚀 About Our Mission</span>
+                  <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-50 rounded-full border border-blue-200 mb-4 sm:mb-6">
+                    <span className="text-xs sm:text-sm font-semibold text-blue-600">🚀 About Our Mission</span>
                   </div>
-                  
-                  <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                     <span className="text-gray-800">Why Choose </span>
                     <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                       IncomeGrow?
                     </span>
                   </h2>
                 </div>
-                
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  IncomeGrow is dedicated to making financial knowledge accessible and 
-                  actionable for everyone. Our platform combines expert research, 
-                  powerful calculators, and a vibrant community to help you make smarter 
+
+                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                  IncomeGrow is dedicated to making financial knowledge accessible and
+                  actionable for everyone. Our platform combines expert research,
+                  powerful calculators, and a vibrant community to help you make smarter
                   financial decisions.
                 </p>
                 
@@ -401,27 +401,27 @@ export default function Home() {
           </section>
 
           {/* Our Products Section */}
-          <section className="py-24 bg-white relative overflow-hidden">
+          <section className="py-12 md:py-16 lg:py-24 bg-white relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-transparent to-purple-50/50"></div>
-            <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="mb-16">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full border border-purple-200 mb-6">
-                  <span className="text-sm font-semibold text-purple-600">💼 Our Solutions</span>
+            <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 text-center">
+              <div className="mb-12 md:mb-16">
+                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full border border-purple-200 mb-4 sm:mb-6">
+                  <span className="text-xs sm:text-sm font-semibold text-purple-600">💼 Our Solutions</span>
                 </div>
-                
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                   <span className="text-gray-800">Comprehensive </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Financial Tools
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+                <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
                   Everything you need to make informed financial decisions, all in one place
                 </p>
               </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
                 {[
                   { 
                     icon: '🎯', 
@@ -513,31 +513,32 @@ export default function Home() {
           </section>
 
           {/* What Our Users Say Section */}
-          <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-10 right-20 w-64 h-64 bg-gradient-to-r from-yellow-200/20 to-orange-200/20 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 left-20 w-80 h-80 bg-gradient-to-r from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"></div>
             </div>
-            
-            <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="mb-16">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-full border border-yellow-200 mb-6">
-                  <span className="text-sm font-semibold text-orange-600">⭐ Testimonials</span>
+
+
+            <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 text-center">
+              <div className="mb-12 md:mb-16">
+                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-full border border-yellow-200 mb-4 sm:mb-6">
+                  <span className="text-xs sm:text-sm font-semibold text-orange-600">⭐ Testimonials</span>
                 </div>
-                
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                   <span className="text-gray-800">What Our </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Users Say
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+                <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
                   Discover how IncomeGrow has transformed financial journeys across India
                 </p>
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 {[
                   {
                     text: "IncomeGrow's calculators made my investment planning so much easier. The interface is clean and the results are reliable! It's like having a financial advisor in my pocket.",
@@ -623,28 +624,28 @@ export default function Home() {
           </section>
 
           {/* Trusted by Industry Leaders */}
-          <section className="py-24 bg-white relative overflow-hidden">
+          <section className="py-12 md:py-16 lg:py-24 bg-white relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/30 via-transparent to-green-50/30"></div>
             
-            <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="mb-16">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full border border-indigo-200 mb-6">
-                  <span className="text-sm font-semibold text-indigo-600">🤝 Our Partners</span>
+            <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 text-center">
+              <div className="mb-12 md:mb-16">
+                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full border border-indigo-200 mb-4 sm:mb-6">
+                  <span className="text-xs sm:text-sm font-semibold text-indigo-600">🤝 Our Partners</span>
                 </div>
-                
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                   <span className="text-gray-800">Trusted by </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Industry Leaders
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+                <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
                   Join thousands of professionals and organizations who trust IncomeGrow for their financial needs
                 </p>
               </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center mb-16">
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 items-center mb-12 md:mb-16">
                 {[
                   { name: 'TechCorp', logo: 'TC', color: 'from-blue-400 to-blue-600' },
                   { name: 'FinanceFirst', logo: 'FF', color: 'from-green-400 to-green-600' },

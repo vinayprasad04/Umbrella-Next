@@ -128,7 +128,7 @@ const HouseSchema: Schema = new Schema(
 HouseSchema.index({ userId: 1 }, { unique: true });
 
 // Pre-save validation to ensure targetAge > currentAge
-HouseSchema.pre('save', function (next) {
+HouseSchema.pre('save', function (this: IHouse, next) {
   if (this.targetAge <= this.currentAge) {
     next(new Error('Target age must be greater than current age'));
   } else {

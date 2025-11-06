@@ -120,7 +120,7 @@ const CarSchema: Schema = new Schema(
 
 CarSchema.index({ userId: 1 }, { unique: true });
 
-CarSchema.pre('save', function (next) {
+CarSchema.pre('save', function (this: ICar, next) {
   if (this.targetAge <= this.currentAge) {
     next(new Error('Target age must be greater than current age'));
   } else {
