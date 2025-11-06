@@ -30,15 +30,16 @@ export default function Home() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden">
+          <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden min-h-[calc(100vh-80px)] flex items-center">
             {/* Background decoration */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
             </div>
 
-            <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
-              <div className="space-y-6 md:space-y-8">
+            <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
+                <div className="space-y-5 sm:space-y-6 md:space-y-8 order-2 lg:order-1">
                 <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full border border-[#FF6B2C]/20">
                   <span className="text-xs sm:text-sm font-semibold text-[#FF6B2C]">✨ Your Financial Partner</span>
                 </div>
@@ -99,11 +100,11 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              
-              <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
-                <div className="relative w-full max-w-md lg:max-w-none">
+
+              <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+                <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
                   {/* SVG Rocket Dream Banner */}
-                  <div className="relative w-full aspect-[11/9] lg:w-[550px] lg:h-[450px] bg-gradient-to-b from-indigo-900 via-purple-800 to-pink-700 rounded-2xl lg:rounded-3xl shadow-2xl overflow-hidden">
+                  <div className="relative w-full aspect-[11/9] lg:aspect-[11/9] xl:w-[550px] xl:h-[450px] bg-gradient-to-b from-indigo-900 via-purple-800 to-pink-700 rounded-2xl lg:rounded-3xl shadow-2xl overflow-hidden">
                     
                     {/* Stars Background */}
                     <div className="absolute inset-0">
@@ -116,8 +117,8 @@ export default function Home() {
                       <div className="absolute bottom-40 left-1/3 w-1.5 h-1.5 bg-cyan-300 rounded-full animate-pulse opacity-70" style={{animationDelay: '2.5s'}}></div>
                     </div>
                     
-                    {/* Small SVG Rockets floating */}
-                    <div className="absolute top-12 left-8 animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}>
+                    {/* Small SVG Rockets floating - Hidden on small mobile */}
+                    <div className="hidden sm:block absolute top-8 sm:top-12 left-4 sm:left-8 animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}>
                       <svg width="40" height="60" viewBox="0 0 40 60" className="transform rotate-12">
                         <defs>
                           <linearGradient id="rocketGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -139,7 +140,7 @@ export default function Home() {
                       </svg>
                     </div>
                     
-                    <div className="absolute top-20 right-12 animate-bounce" style={{animationDelay: '2s', animationDuration: '3s'}}>
+                    <div className="hidden sm:block absolute top-16 sm:top-20 right-8 sm:right-12 animate-bounce" style={{animationDelay: '2s', animationDuration: '3s'}}>
                       <svg width="35" height="50" viewBox="0 0 35 50" className="transform -rotate-6">
                         <defs>
                           <linearGradient id="rocketGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -162,11 +163,11 @@ export default function Home() {
                     </div>
                     
                     {/* Main Large Rocket - Pure CSS Rocket that always works */}
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce" style={{animationDuration: '2s'}}>
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce scale-75 sm:scale-90 md:scale-100" style={{animationDuration: '2s'}}>
                       {/* CSS Rocket Design */}
                       <div className="relative">
                         {/* Rocket Body */}
-                        <div className="w-16 h-48 mx-auto">
+                        <div className="w-12 sm:w-14 md:w-16 h-36 sm:h-42 md:h-48 mx-auto">
                           {/* Nose Cone */}
                           <div className="w-16 h-16 bg-gradient-to-t from-red-500 to-red-400 rounded-t-full border-2 border-red-600 relative overflow-hidden">
                             <div className="absolute inset-2 bg-gradient-to-t from-red-400 to-red-300 rounded-t-full"></div>
@@ -276,6 +277,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+            </div>
             </div>
           </section>
 
