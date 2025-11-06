@@ -6,6 +6,17 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Tooltip from '@/components/Tooltip';
 
+const inputClass = "border border-gray-300 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300";
+const labelClass = "text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1";
+
+const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
+  <Tooltip content={tooltip}>
+    <svg className="ml-1 text-gray-400 w-3 h-3 hover:text-purple-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  </Tooltip>
+);
+
 interface ChildWeddingFormData {
   userId: string;
   currentAge: number;
@@ -329,7 +340,7 @@ export default function ChildWedding() {
     <>
       <Head>
         <title>Child Wedding Planning - IncomeGrow</title>
-        <meta name="description" content="Plan your child's wedding with detailed calculations" />
+        <meta name="description" content="Plan your child&apos;s wedding with detailed calculations" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
@@ -337,37 +348,40 @@ export default function ChildWedding() {
       <div className="flex flex-col min-h-screen bg-white">
         <Header />
 
-      <div className="container mx-auto px-4 py-8">
-        {/* Breadcrumb Navigation */}
-        <div className="text-xs text-gray-400 mb-6 flex items-center gap-1">
-          <Link href="/dashboard" className="hover:text-gray-600 transition-colors">Dashboard</Link>
-          <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-          <Link href="/recipe" className="hover:text-gray-600 transition-colors">My Goals</Link>
-          <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-          <span className="text-[#FF6B2C] font-semibold">Child Wedding</span>
-        </div>
+        {/* 50/50 Split Layout - Full Page */}
+        <main className="flex flex-1 w-full overflow-hidden max-w-[1600px] mx-auto border border-purple-200 border-t-0 mb-6">
+          {/* Left Side - Form (50%) */}
+          <div className="w-1/2 bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
+            {/* Breadcrumb & Header Section */}
+            <div className="bg-white border-b border-gray-200 py-6 px-6">
+              {/* Breadcrumb */}
+              <div className="text-xs text-gray-400 mb-4 flex items-center gap-1">
+                <Link href="/dashboard" className="hover:text-gray-600 transition-colors">Dashboard</Link>
+                <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <Link href="/recipe" className="hover:text-gray-600 transition-colors">My Goals</Link>
+                <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <span className="text-[#FF6B2C] font-semibold">Child Wedding</span>
+              </div>
 
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-3">
-            <div className="p-3 bg-purple-100 rounded-lg text-2xl">
-              💒
+              {/* Title */}
+              <div className="flex items-center gap-4">
+                <div className="p-3 bg-purple-100 rounded-lg text-2xl">
+                  💒
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-black mb-1">Child&apos;s Wedding Planning</div>
+                  <div className="text-sm text-gray-500">Plan ahead for your child&apos;s special day with financial confidence</div>
+                </div>
+              </div>
             </div>
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">Child's Wedding Planning</h1>
-              <p className="text-gray-600 mt-1">Plan ahead for your child's special day with financial confidence</p>
-            </div>
-          </div>
-        </div>
 
-        {/* Main Content - 50/50 Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Column - Input Form */}
-          <div className="space-y-6">
+            {/* Form Content */}
+            <div className="p-6">
+              <div className="space-y-6">
             {/* Basic Information Card */}
             <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
               <div className="flex items-center space-x-2 mb-4">
@@ -377,50 +391,45 @@ export default function ChildWedding() {
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className={labelClass}>
                     Your Current Age
+                    <InfoIcon tooltip="Your current age. Used to calculate your financial position over the planning period." />
                   </label>
                   <input
                     type="number"
                     value={formData.currentAge}
                     onChange={(e) => handleInputChange('currentAge', parseInt(e.target.value))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className={inputClass}
                     min="18"
                     max="100"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Child's Current Age
+                  <label className={labelClass}>
+                    Child&apos;s Current Age
+                    <InfoIcon tooltip="Your child&apos;s current age. This determines how many years you have to save and plan." />
                   </label>
                   <input
                     type="number"
                     value={formData.childCurrentAge}
                     onChange={(e) => handleInputChange('childCurrentAge', parseInt(e.target.value))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className={inputClass}
                     min="0"
                     max="30"
                   />
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Target Age (Wedding age)
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Typical wedding age: 23-28 years
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Target Age (Wedding age)
+                    <InfoIcon tooltip="Typical wedding age: 23-28 years" />
+                  </label>
                   <input
                     type="number"
                     value={formData.targetAge}
                     onChange={(e) => handleInputChange('targetAge', parseInt(e.target.value))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className={inputClass}
                     min={Math.max(18, formData.childCurrentAge)}
                     max="40"
                   />
@@ -446,24 +455,17 @@ export default function ChildWedding() {
 
               <div className="space-y-4">
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Total Wedding Budget (Today's Value)
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Base budget at current prices. We'll adjust for inflation. Includes catering, decorations, photography, etc.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="relative">
-                    <span className="absolute left-3 top-2 text-gray-500">₹</span>
+                  <label className={labelClass}>
+                    Total Wedding Budget (Today&apos;s Value)
+                    <InfoIcon tooltip="Base budget at current prices. We&apos;ll adjust for inflation. Includes catering, decorations, photography, etc." />
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl text-gray-500">₹</span>
                     <input
                       type="number"
                       value={formData.weddingBudget}
                       onChange={(e) => handleInputChange('weddingBudget', parseFloat(e.target.value) || 0)}
-                      className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                     />
                   </div>
@@ -473,23 +475,16 @@ export default function ChildWedding() {
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Venue & Catering (% of budget)
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Marriage hall, catering, food & beverages - typically 30-40% of total budget
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Venue & Catering (% of budget)
+                    <InfoIcon tooltip="Marriage hall, catering, food & beverages - typically 30-40% of total budget" />
+                  </label>
                   <div className="relative">
                     <input
                       type="number"
                       value={formData.venueCost}
                       onChange={(e) => handleInputChange('venueCost', parseFloat(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                       max="100"
                       step="0.1"
@@ -499,23 +494,16 @@ export default function ChildWedding() {
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Jewellery & Gifts (% of budget)
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Gold jewellery, gifts for bride/groom and relatives - typically 25-35%
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Jewellery & Gifts (% of budget)
+                    <InfoIcon tooltip="Gold jewellery, gifts for bride/groom and relatives - typically 25-35%" />
+                  </label>
                   <div className="relative">
                     <input
                       type="number"
                       value={formData.jewelleryCost}
                       onChange={(e) => handleInputChange('jewelleryCost', parseFloat(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                       max="100"
                       step="0.1"
@@ -525,23 +513,16 @@ export default function ChildWedding() {
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Other Costs (% of budget)
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Clothing, photography, makeup, transportation, miscellaneous
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Other Costs (% of budget)
+                    <InfoIcon tooltip="Clothing, photography, makeup, transportation, miscellaneous" />
+                  </label>
                   <div className="relative">
                     <input
                       type="number"
                       value={formData.otherCosts}
                       onChange={(e) => handleInputChange('otherCosts', parseFloat(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                       max="100"
                       step="0.1"
@@ -561,32 +542,34 @@ export default function ChildWedding() {
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className={labelClass}>
                     Current Savings for Wedding
+                    <InfoIcon tooltip="Amount you have already saved specifically for the wedding. This will grow with your expected return rate." />
                   </label>
-                  <div className="relative">
-                    <span className="absolute left-3 top-2 text-gray-500">₹</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl text-gray-500">₹</span>
                     <input
                       type="number"
                       value={formData.currentSavings}
                       onChange={(e) => handleInputChange('currentSavings', parseFloat(e.target.value) || 0)}
-                      className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className={labelClass}>
                     Monthly Income
+                    <InfoIcon tooltip="Your total monthly income. Used to calculate EMI affordability and savings potential." />
                   </label>
-                  <div className="relative">
-                    <span className="absolute left-3 top-2 text-gray-500">₹</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl text-gray-500">₹</span>
                     <input
                       type="number"
                       value={formData.monthlyIncome}
                       onChange={(e) => handleInputChange('monthlyIncome', parseFloat(e.target.value) || 0)}
-                      className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                     />
                   </div>
@@ -632,45 +615,31 @@ export default function ChildWedding() {
                     </div>
 
                     <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <label className="block text-sm font-medium text-gray-700">
-                          Loan Tenure (Years)
-                        </label>
-                        <div className="group relative">
-                          <span className="text-sm cursor-help">ℹ️</span>
-                          <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                            Personal loans typically 1-7 years. Shorter tenure = higher EMI but lower total interest.
-                          </div>
-                        </div>
-                      </div>
+                      <label className={labelClass}>
+                        Loan Tenure (Years)
+                        <InfoIcon tooltip="Personal loans typically 1-7 years. Shorter tenure = higher EMI but lower total interest." />
+                      </label>
                       <input
                         type="number"
                         value={formData.loanTenure}
                         onChange={(e) => handleInputChange('loanTenure', parseInt(e.target.value) || 1)}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                        className={inputClass}
                         min="1"
                         max="7"
                       />
                     </div>
 
                     <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <label className="block text-sm font-medium text-gray-700">
-                          Interest Rate (% per annum)
-                        </label>
-                        <div className="group relative">
-                          <span className="text-sm cursor-help">ℹ️</span>
-                          <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                            Current personal loan rates: 11-16% per annum
-                          </div>
-                        </div>
-                      </div>
+                      <label className={labelClass}>
+                        Interest Rate (% per annum)
+                        <InfoIcon tooltip="Current personal loan rates: 11-16% per annum" />
+                      </label>
                       <div className="relative">
                         <input
                           type="number"
                           value={formData.interestRate}
                           onChange={(e) => handleInputChange('interestRate', parseFloat(e.target.value) || 0)}
-                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                          className={inputClass}
                           min="0"
                           max="20"
                           step="0.1"
@@ -692,23 +661,16 @@ export default function ChildWedding() {
 
               <div className="space-y-4">
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Expected Inflation Rate
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Wedding costs typically inflate at 6-8% annually
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Expected Inflation Rate
+                    <InfoIcon tooltip="Wedding costs typically inflate at 6-8% annually" />
+                  </label>
                   <div className="relative">
                     <input
                       type="number"
                       value={formData.inflationRate}
                       onChange={(e) => handleInputChange('inflationRate', parseFloat(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                       step="0.1"
                     />
@@ -717,23 +679,16 @@ export default function ChildWedding() {
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Expected Return Rate
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Expected annual returns based on investment mix
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Expected Return Rate
+                    <InfoIcon tooltip="Expected annual returns based on investment mix" />
+                  </label>
                   <div className="relative">
                     <input
                       type="number"
                       value={formData.returnRate}
                       onChange={(e) => handleInputChange('returnRate', parseFloat(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                       step="0.1"
                     />
@@ -760,10 +715,14 @@ export default function ChildWedding() {
                 {saving ? 'Saving...' : 'Save Plan'}
               </button>
             </div>
+              </div>
+            </div>
           </div>
 
-          {/* Right Column - Results */}
-          <div className="space-y-6">
+          {/* Right Side - Results (50%) */}
+          <div className="w-1/2 bg-white overflow-y-auto">
+            <div className="p-6">
+              <div className="space-y-6">
             {results ? (
               <>
                 {/* Goal Achievability Card */}
@@ -806,7 +765,7 @@ export default function ChildWedding() {
                       <p className="text-lg font-bold text-green-600">{results.yearsToGoal} years</p>
                     </div>
                     <div className="bg-yellow-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Child's Age</p>
+                      <p className="text-sm text-gray-600 mb-1">Child&apos;s Age</p>
                       <p className="text-lg font-bold text-yellow-600">{formData.childCurrentAge} → {formData.targetAge}</p>
                     </div>
                   </div>
@@ -950,8 +909,8 @@ export default function ChildWedding() {
                 <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-5xl">
                   💒
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Plan Your Child's Wedding</h3>
-                <p className="text-gray-600 mb-6">Fill in your details and click "Calculate Plan" to see personalized recommendations for your child's special day.</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">Plan Your Child&apos;s Wedding</h3>
+                <p className="text-gray-600 mb-6">Fill in your details and click &quot;Calculate Plan&quot; to see personalized recommendations for your child&apos;s special day.</p>
                 <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
                   <p className="text-sm text-purple-700">
                     <strong>Tip:</strong> Start saving early! Wedding costs inflate 6-8% annually. Planning 10+ years ahead significantly reduces the financial burden.
@@ -959,9 +918,10 @@ export default function ChildWedding() {
                 </div>
               </div>
             )}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </main>
 
         <Footer />
       </div>

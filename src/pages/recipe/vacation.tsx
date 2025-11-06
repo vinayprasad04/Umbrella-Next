@@ -6,6 +6,17 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Tooltip from '@/components/Tooltip';
 
+const inputClass = "border border-gray-300 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300";
+const labelClass = "text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1";
+
+const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
+  <Tooltip content={tooltip}>
+    <svg className="ml-1 text-gray-400 w-3 h-3 hover:text-purple-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  </Tooltip>
+);
+
 interface VacationFormData {
   userId: string;
   currentAge: number;
@@ -336,37 +347,39 @@ export default function Vacation() {
       <div className="flex flex-col min-h-screen bg-white">
         <Header />
 
-      <div className="container mx-auto px-4 py-8">
-        {/* Breadcrumb Navigation */}
-        <div className="text-xs text-gray-400 mb-6 flex items-center gap-1">
-          <Link href="/dashboard" className="hover:text-gray-600 transition-colors">Dashboard</Link>
-          <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-          <Link href="/recipe" className="hover:text-gray-600 transition-colors">My Goals</Link>
-          <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-          <span className="text-[#FF6B2C] font-semibold">Dream Vacation</span>
-        </div>
+        {/* 50/50 Split Layout - Full Page */}
+        <main className="flex flex-1 w-full overflow-hidden max-w-[1600px] mx-auto border border-purple-200 border-t-0 mb-6">
+          {/* Left Side - Form (50%) */}
+          <div className="w-1/2 bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
+            {/* Breadcrumb & Header Section */}
+            <div className="bg-white border-b border-gray-200 py-6 px-6">
+              {/* Breadcrumb Navigation */}
+              <div className="text-xs text-gray-400 mb-4 flex items-center gap-1">
+                <Link href="/dashboard" className="hover:text-gray-600 transition-colors">Dashboard</Link>
+                <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <Link href="/recipe" className="hover:text-gray-600 transition-colors">My Goals</Link>
+                <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <span className="text-[#FF6B2C] font-semibold">Dream Vacation</span>
+              </div>
 
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-3">
-            <div className="p-3 bg-purple-100 rounded-lg text-2xl">
-              ✈️
+              {/* Header */}
+              <div className="flex items-center gap-4 mt-4">
+                <div className="p-3 bg-purple-100 rounded-lg text-2xl">
+                  ✈️
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-black mb-1">Dream Vacation Planning</div>
+                  <div className="text-sm text-gray-500">Plan and save for your perfect getaway</div>
+                </div>
+              </div>
             </div>
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">Dream Vacation Planning</h1>
-              <p className="text-gray-600 mt-1">Plan and save for your perfect getaway</p>
-            </div>
-          </div>
-        </div>
 
-        {/* Main Content - 50/50 Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Column - Input Form */}
-          <div className="space-y-6">
+            {/* Form Content */}
+            <div className="p-6">
             {/* Basic Information Card */}
             <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
               <div className="flex items-center space-x-2 mb-4">
@@ -376,36 +389,30 @@ export default function Vacation() {
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className={labelClass}>
                     Your Current Age
+                    <InfoIcon tooltip="Your current age - used to calculate time horizon for your vacation planning." />
                   </label>
                   <input
                     type="number"
                     value={formData.currentAge}
                     onChange={(e) => handleInputChange('currentAge', parseInt(e.target.value))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className={inputClass}
                     min="18"
                     max="100"
                   />
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Target Age (When you'll travel)
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        When do you plan to take this vacation? Shorter timelines need safer investments.
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Target Age (When you&apos;ll travel)
+                    <InfoIcon tooltip="When do you plan to take this vacation? Shorter timelines need safer investments." />
+                  </label>
                   <input
                     type="number"
                     value={formData.targetAge}
                     onChange={(e) => handleInputChange('targetAge', parseInt(e.target.value))}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    className={inputClass}
                     min={formData.currentAge}
                     max="100"
                   />
@@ -433,24 +440,17 @@ export default function Vacation() {
 
               <div className="space-y-4">
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Total Vacation Budget (Today's Value)
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Total estimated cost at current prices. Includes base expenses, activities, shopping, etc.
-                      </div>
-                    </div>
-                  </div>
-                  <div className="relative">
-                    <span className="absolute left-3 top-2 text-gray-500">₹</span>
+                  <label className={labelClass}>
+                    Total Vacation Budget (Today&apos;s Value)
+                    <InfoIcon tooltip="Total estimated cost at current prices. Includes base expenses, activities, shopping, etc." />
+                  </label>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl text-gray-500">₹</span>
                     <input
                       type="number"
                       value={formData.vacationBudget}
                       onChange={(e) => handleInputChange('vacationBudget', parseFloat(e.target.value) || 0)}
-                      className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                     />
                   </div>
@@ -460,23 +460,16 @@ export default function Vacation() {
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Flight Cost (% of budget)
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Round-trip flight tickets - typically 25-35% of total vacation cost
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Flight Cost (% of budget)
+                    <InfoIcon tooltip="Round-trip flight tickets - typically 25-35% of total vacation cost" />
+                  </label>
                   <div className="relative">
                     <input
                       type="number"
                       value={formData.flightCost}
                       onChange={(e) => handleInputChange('flightCost', parseFloat(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                       max="100"
                       step="0.1"
@@ -486,23 +479,16 @@ export default function Vacation() {
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Hotel & Accommodation (% of budget)
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Hotel, resort, or rental accommodation costs - typically 20-30%
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Hotel & Accommodation (% of budget)
+                    <InfoIcon tooltip="Hotel, resort, or rental accommodation costs - typically 20-30%" />
+                  </label>
                   <div className="relative">
                     <input
                       type="number"
                       value={formData.hotelCost}
                       onChange={(e) => handleInputChange('hotelCost', parseFloat(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                       max="100"
                       step="0.1"
@@ -512,23 +498,16 @@ export default function Vacation() {
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Other Costs (% of budget)
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Food, local transport, activities, shopping, visa fees, travel insurance
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Other Costs (% of budget)
+                    <InfoIcon tooltip="Food, local transport, activities, shopping, visa fees, travel insurance" />
+                  </label>
                   <div className="relative">
                     <input
                       type="number"
                       value={formData.otherCosts}
                       onChange={(e) => handleInputChange('otherCosts', parseFloat(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                       max="100"
                       step="0.1"
@@ -548,32 +527,34 @@ export default function Vacation() {
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className={labelClass}>
                     Current Savings for Vacation
+                    <InfoIcon tooltip="Amount you've already saved specifically for this vacation. This will grow with your expected return rate." />
                   </label>
-                  <div className="relative">
-                    <span className="absolute left-3 top-2 text-gray-500">₹</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl text-gray-500">₹</span>
                     <input
                       type="number"
                       value={formData.currentSavings}
                       onChange={(e) => handleInputChange('currentSavings', parseFloat(e.target.value) || 0)}
-                      className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                  <label className={labelClass}>
                     Monthly Income
+                    <InfoIcon tooltip="Your monthly income used to assess if the required SIP is affordable for you." />
                   </label>
-                  <div className="relative">
-                    <span className="absolute left-3 top-2 text-gray-500">₹</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl text-gray-500">₹</span>
                     <input
                       type="number"
                       value={formData.monthlyIncome}
                       onChange={(e) => handleInputChange('monthlyIncome', parseFloat(e.target.value) || 0)}
-                      className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                     />
                   </div>
@@ -619,45 +600,31 @@ export default function Vacation() {
                     </div>
 
                     <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <label className="block text-sm font-medium text-gray-700">
-                          Loan Tenure (Years)
-                        </label>
-                        <div className="group relative">
-                          <span className="text-sm cursor-help">ℹ️</span>
-                          <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                            Travel loans typically 1-5 years. Paying interest on vacation memories is costly.
-                          </div>
-                        </div>
-                      </div>
+                      <label className={labelClass}>
+                        Loan Tenure (Years)
+                        <InfoIcon tooltip="Travel loans typically 1-5 years. Paying interest on vacation memories is costly." />
+                      </label>
                       <input
                         type="number"
                         value={formData.loanTenure}
                         onChange={(e) => handleInputChange('loanTenure', parseInt(e.target.value) || 1)}
-                        className="w-full px-4 py-2 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                        className={inputClass}
                         min="1"
                         max="5"
                       />
                     </div>
 
                     <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <label className="block text-sm font-medium text-gray-700">
-                          Interest Rate (% per annum)
-                        </label>
-                        <div className="group relative">
-                          <span className="text-sm cursor-help">ℹ️</span>
-                          <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                            Current personal/travel loan rates: 12-18% per annum
-                          </div>
-                        </div>
-                      </div>
+                      <label className={labelClass}>
+                        Interest Rate (% per annum)
+                        <InfoIcon tooltip="Current personal/travel loan rates: 12-18% per annum" />
+                      </label>
                       <div className="relative">
                         <input
                           type="number"
                           value={formData.interestRate}
                           onChange={(e) => handleInputChange('interestRate', parseFloat(e.target.value) || 0)}
-                          className="w-full px-4 py-2 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                          className={inputClass}
                           min="0"
                           max="20"
                           step="0.1"
@@ -679,23 +646,16 @@ export default function Vacation() {
 
               <div className="space-y-4">
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Expected Inflation Rate
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        Travel costs inflate at 4-6% annually on average
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Expected Inflation Rate
+                    <InfoIcon tooltip="Travel costs inflate at 4-6% annually on average" />
+                  </label>
                   <div className="relative">
                     <input
                       type="number"
                       value={formData.inflationRate}
                       onChange={(e) => handleInputChange('inflationRate', parseFloat(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                       step="0.1"
                     />
@@ -704,23 +664,16 @@ export default function Vacation() {
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-sm font-medium text-gray-700">
-                      Expected Return Rate
-                    </label>
-                    <div className="group relative">
-                      <span className="text-sm cursor-help">ℹ️</span>
-                      <div className="absolute bottom-full right-0 mb-2 w-64 p-2 bg-gray-800 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
-                        For short timelines: Use debt funds (6-8%). For 3+ years: Balanced funds (9-12%)
-                      </div>
-                    </div>
-                  </div>
+                  <label className={labelClass}>
+                    Expected Return Rate
+                    <InfoIcon tooltip="For short timelines: Use debt funds (6-8%). For 3+ years: Balanced funds (9-12%)" />
+                  </label>
                   <div className="relative">
                     <input
                       type="number"
                       value={formData.returnRate}
                       onChange={(e) => handleInputChange('returnRate', parseFloat(e.target.value) || 0)}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      className={inputClass}
                       min="0"
                       step="0.1"
                     />
@@ -747,10 +700,12 @@ export default function Vacation() {
                 {saving ? 'Saving...' : 'Save Plan'}
               </button>
             </div>
+            </div>
           </div>
 
-          {/* Right Column - Results */}
-          <div className="space-y-6">
+          {/* Right Side - Results (50%) */}
+          <div className="w-1/2 bg-white overflow-y-auto">
+            <div className="p-6">
             {results ? (
               <>
                 {/* Goal Achievability Card */}
@@ -941,7 +896,7 @@ export default function Vacation() {
                   ✈️
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">Ready for Your Dream Vacation?</h3>
-                <p className="text-gray-600 mb-6">Fill in your details and click "Calculate Plan" to see how you can save for your perfect getaway without loans or financial stress.</p>
+                <p className="text-gray-600 mb-6">Fill in your details and click &quot;Calculate Plan&quot; to see how you can save for your perfect getaway without loans or financial stress.</p>
                 <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
                   <p className="text-sm text-purple-700">
                     <strong>Tip:</strong> Start a dedicated vacation fund! Even ₹5,000/month can fund an international trip in 2-3 years.
@@ -949,9 +904,9 @@ export default function Vacation() {
                 </div>
               </div>
             )}
+            </div>
           </div>
-        </div>
-      </div>
+        </main>
 
         <Footer />
       </div>
