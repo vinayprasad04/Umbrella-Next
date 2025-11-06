@@ -39,7 +39,7 @@ export default function Home() {
 
             <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 items-center">
-                <div className="space-y-5 sm:space-y-6 md:space-y-8 order-2 lg:order-1">
+                <div className="space-y-5 sm:space-y-6 md:space-y-8 order-1 lg:order-1 mx-auto lg:mx-0 max-w-2xl lg:max-w-none text-center lg:text-left">
                 <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full border border-[#FF6B2C]/20">
                   <span className="text-xs sm:text-sm font-semibold text-[#FF6B2C]">✨ Your Financial Partner</span>
                 </div>
@@ -101,10 +101,10 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-                <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl">
+              <div className="hidden lg:flex justify-center lg:justify-end order-1 lg:order-2">
+                <div className="relative w-full max-w-lg xl:max-w-xl">
                   {/* SVG Rocket Dream Banner */}
-                  <div className="relative w-full aspect-[11/9] lg:aspect-[11/9] xl:w-[550px] xl:h-[450px] bg-gradient-to-b from-indigo-900 via-purple-800 to-pink-700 rounded-2xl lg:rounded-3xl shadow-2xl overflow-hidden">
+                  <div className="relative w-full aspect-[11/9] xl:w-[550px] xl:h-[450px] bg-gradient-to-b from-indigo-900 via-purple-800 to-pink-700 rounded-2xl lg:rounded-3xl shadow-2xl overflow-hidden">
                     
                     {/* Stars Background */}
                     <div className="absolute inset-0">
