@@ -6,9 +6,16 @@ const staticPages = [
   { url: '/about', priority: '0.8', changefreq: 'monthly' },
   { url: '/dashboard', priority: '0.9', changefreq: 'weekly' },
 
-  // Recipe
-  { url: '/recipe', priority: '0.9', changefreq: 'weekly' },
-  { url: '/recipe/wealth-creation', priority: '0.8', changefreq: 'weekly' },
+  // My Goal
+  { url: '/dashboard/my-goal', priority: '0.9', changefreq: 'weekly' },
+  { url: '/dashboard/my-goal/wealth-creation', priority: '0.8', changefreq: 'weekly' },
+  { url: '/dashboard/my-goal/retirement', priority: '0.8', changefreq: 'weekly' },
+  { url: '/dashboard/my-goal/house', priority: '0.8', changefreq: 'weekly' },
+  { url: '/dashboard/my-goal/car', priority: '0.8', changefreq: 'weekly' },
+  { url: '/dashboard/my-goal/self-education', priority: '0.8', changefreq: 'weekly' },
+  { url: '/dashboard/my-goal/child-education', priority: '0.8', changefreq: 'weekly' },
+  { url: '/dashboard/my-goal/child-wedding', priority: '0.8', changefreq: 'weekly' },
+  { url: '/dashboard/my-goal/vacation', priority: '0.8', changefreq: 'weekly' },
 
   // Calculators
   { url: '/calculation/sip', priority: '0.9', changefreq: 'monthly' },

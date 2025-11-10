@@ -66,7 +66,7 @@ export default function Sitemap() {
       bgColor: "from-indigo-50 to-indigo-100",
       pages: [
         { name: "Tax Knowledge", href: "/tax-knowledge/tax-haven", description: "Tax planning and knowledge" },
-        { name: "Recipe for Wealth", href: "/recipe/wealth-creation", description: "Wealth creation strategies" },
+        { name: "My Goals", href: "/dashboard/my-goal", description: "Plan and track your financial goals" },
         { name: "All Icons", href: "/all-icons", description: "Icon library and resources" }
       ]
     },

@@ -9,7 +9,8 @@
       "Bash(tail:*)",
       "Bash(npx next build:*)",
       "Bash(taskkill:*)",
-      "Bash(node -p \"const fs = require(''fs''); const content = fs.readFileSync(''src/pages/dashboard/my-goal/child-wedding.tsx'', ''utf8''); const lines = content.split(''\\n''); lines.slice(339, 353).map((l, i) => (340 + i) + '': '' + l).join(''\\n'')\")"
+      "Bash(node -p \"const fs = require(''fs''); const content = fs.readFileSync(''src/pages/dashboard/my-goal/child-wedding.tsx'', ''utf8''); const lines = content.split(''\\n''); lines.slice(339, 353).map((l, i) => (340 + i) + '': '' + l).join(''\\n'')\")",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": [],
