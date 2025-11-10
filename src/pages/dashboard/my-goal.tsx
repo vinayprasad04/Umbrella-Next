@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import type { ReactElement } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import DashboardSidebar from '@/components/DashboardSidebar';
+import DashboardLayout from '@/components/DashboardLayout';
+import type { NextPageWithLayout } from '../_app';
 
 const goals = [
   { label: 'Wealth Creation', icon: '💰' },
@@ -92,7 +92,7 @@ interface VacationData {
   createdAt?: string;
 }
 
-const Recipe = () => {
+const Recipe: NextPageWithLayout = () => {
   const router = useRouter();
   const [filter, setFilter] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -323,21 +323,16 @@ const Recipe = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
-      
-      <div className="flex flex-col min-h-screen bg-[#fafbfc]">
-        <Header dashboard={true} />
-        <main className="flex flex-1 w-full gap-0">
-          <DashboardSidebar currentPage="recipe" />
-          
-          {/* Right Side Content */}
-          <section className="flex-1 flex flex-col gap-6 px-8 py-8">
+
+      {/* Content Area - Only this part will reload */}
+      <section className="flex-1 flex flex-col gap-6 px-8 py-8">
             <div className="bg-white rounded-2xl shadow-sm p-6">
               <div className="text-xs text-gray-400 mb-2 flex items-center gap-1">
                 <Link href="/dashboard" className="hover:text-gray-600 transition-colors">Dashboard</Link>
                 <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-                <span className="text-[#FF6B2C] font-semibold">My Goals</span>
+                <span className="text-[#FF6B2C] font-semibold">My Goal</span>
               </div>
               <div className="text-2xl font-bold mb-1">My Goals</div>
               <div className="text-sm text-gray-500 mb-4">A summary of your Goals and possibility</div>
@@ -359,13 +354,13 @@ const Recipe = () => {
                     {goal.label}
                   </span>
                 ))}
-                <span
+                {/* <span
                   className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium cursor-pointer ${filter === 'Custom Goal' ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 text-gray-700'}`}
                   onClick={() => setFilter('Custom Goal')}
                 >
                   <span className="w-4 h-4 text-purple-500">➕</span>
                   Custom Goal
-                </span>
+                </span> */}
               </div>
               
               {/* Legend and toggle row */}
@@ -726,17 +721,21 @@ const Recipe = () => {
               })}
               
               {showCustomGoal && (
-                <div className="bg-white border-0 shadow-md flex items-center justify-center rounded-lg">
-                  <div className="p-6 flex flex-col gap-2 items-center justify-center h-full">
-                    <span className="text-4xl text-purple-400 mb-2">➕</span>
-                    <div className="font-bold text-lg text-black mb-1">Add upto 2 more goals</div>
-                    <div className="text-xs text-gray-500 mb-1">You can add two more custom goals.</div>
-                    <button className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full hover:bg-gray-800 transition-colors">
-                      Add
-                    </button>
-                  </div>
+                <div>
+                  {/* <div className="bg-white border-0 shadow-md flex items-center justify-center rounded-lg">
+                    <div className="p-6 flex flex-col gap-2 items-center justify-center h-full">
+                      <span className="text-4xl text-purple-400 mb-2">➕</span>
+                      <div className="font-bold text-lg text-black mb-1">Add upto 2 more goals</div>
+                      <div className="text-xs text-gray-500 mb-1">You can add two more custom goals.</div>
+                      <button className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full hover:bg-gray-800 transition-colors">
+                        Add
+                      </button>
+                    </div>
+                  </div> */}
                 </div>
-              )}
+                
+              )
+              }
             </div>
             
             {/* Disclaimer */}
@@ -746,11 +745,13 @@ const Recipe = () => {
               </div>
             </div>
           </section>
-        </main>
-        <Footer />
-      </div>
     </>
   );
+};
+
+// Use persistent layout for my-goal pages
+Recipe.getLayout = function getLayout(page: ReactElement) {
+  return <DashboardLayout currentPage="my-goal">{page}</DashboardLayout>;
 };
 
 export default Recipe;

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import type { ReactElement } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import DashboardLayout from '@/components/DashboardLayout';
 import Tooltip from '@/components/Tooltip';
+import type { NextPageWithLayout } from '../../_app';
 
 const inputClass = "border border-gray-300 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300";
 const labelClass = "text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1";
@@ -56,7 +57,7 @@ interface HouseResults {
   recommendations: Array<{ type: string; text: string }>;
 }
 
-const HousePage = () => {
+const HousePage: NextPageWithLayout = () => {
   const router = useRouter();
   const [userId, setUserId] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
@@ -452,11 +453,8 @@ const HousePage = () => {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
 
-      <div className="flex flex-col min-h-screen bg-white">
-        <Header />
-
-        {/* 50/50 Split Layout - Full Page */}
-        <main className="flex flex-1 w-full overflow-hidden max-w-[1600px] mx-auto border border-purple-200 border-t-0 mb-6">
+      {/* Content Area - Only this part will reload */}
+      <div className="flex-1 flex overflow-hidden">
           {/* Left Side - Breadcrumb, Heading & Form (50%) */}
           <div className="w-1/2 bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
             {/* Breadcrumb & Header Section */}
@@ -467,7 +465,7 @@ const HousePage = () => {
                 <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-                <Link href="/recipe" className="hover:text-gray-600 transition-colors">My Goals</Link>
+                <Link href="/dashboard/my-goal" className="hover:text-gray-600 transition-colors">My Goal</Link>
                 <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -997,12 +995,14 @@ const HousePage = () => {
               </div>
             )}
           </div>
-        </main>
-
-        <Footer />
       </div>
     </>
   );
+};
+
+// Use persistent layout for goal pages
+HousePage.getLayout = function getLayout(page: ReactElement) {
+  return <DashboardLayout currentPage="my-goal">{page}</DashboardLayout>;
 };
 
 export default HousePage;

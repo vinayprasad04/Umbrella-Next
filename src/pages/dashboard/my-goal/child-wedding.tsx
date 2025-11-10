@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
+import type { ReactElement } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import DashboardLayout from '@/components/DashboardLayout';
 import Tooltip from '@/components/Tooltip';
+import type { NextPageWithLayout} from '../../_app';
 
 const inputClass = "border border-gray-300 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300";
 const labelClass = "text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1";
@@ -17,13 +18,14 @@ const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
   </Tooltip>
 );
 
-interface VacationFormData {
+interface ChildWeddingFormData {
   userId: string;
   currentAge: number;
+  childCurrentAge: number;
   targetAge: number;
-  vacationBudget: number;
-  flightCost: number;
-  hotelCost: number;
+  weddingBudget: number;
+  venueCost: number;
+  jewelleryCost: number;
   otherCosts: number;
   currentSavings: number;
   monthlyIncome: number;
@@ -36,12 +38,12 @@ interface VacationFormData {
 }
 
 interface CalculationResults {
-  totalVacationCost: number;
-  vacationBudgetAmount: number;
-  flightAmount: number;
-  hotelAmount: number;
+  totalWeddingCost: number;
+  weddingBudgetAmount: number;
+  venueAmount: number;
+  jewelleryAmount: number;
   otherCostAmount: number;
-  totalRequiredAtStart: number;
+  totalRequiredAtWedding: number;
   loanAmount: number;
   emiAmount: number;
   totalLoanRepayment: number;
@@ -54,27 +56,28 @@ interface CalculationResults {
   recommendations: Array<{ type: string; text: string }>;
 }
 
-export default function Vacation() {
+const ChildWedding: NextPageWithLayout = () => {
   const router = useRouter();
   const [userId, setUserId] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [results, setResults] = useState<CalculationResults | null>(null);
 
-  const [formData, setFormData] = useState<VacationFormData>({
+  const [formData, setFormData] = useState<ChildWeddingFormData>({
     userId: '',
-    currentAge: 30,
-    targetAge: 31,
-    vacationBudget: 300000,
-    flightCost: 30,
-    hotelCost: 25,
+    currentAge: 35,
+    childCurrentAge: 10,
+    targetAge: 25,
+    weddingBudget: 2000000,
+    venueCost: 30,
+    jewelleryCost: 25,
     otherCosts: 10,
     currentSavings: 0,
     monthlyIncome: 50000,
     wantLoan: false,
-    loanTenure: 2,
-    interestRate: 14,
-    inflationRate: 5,
+    loanTenure: 3,
+    interestRate: 12,
+    inflationRate: 7,
     returnRate: 12,
     goalPossibility: '',
   });
@@ -86,12 +89,12 @@ export default function Vacation() {
       return;
     }
     setUserId(userIdFromStorage);
-    fetchVacationData(userIdFromStorage);
+    fetchChildWeddingData(userIdFromStorage);
   }, [router]);
 
-  const fetchVacationData = async (uid: string) => {
+  const fetchChildWeddingData = async (uid: string) => {
     try {
-      const response = await fetch(`/api/vacation?userId=${encodeURIComponent(uid)}`);
+      const response = await fetch(`/api/child-wedding?userId=${encodeURIComponent(uid)}`);
       const result = await response.json();
       if (response.ok && result.data) {
         setFormData(result.data);
@@ -103,20 +106,20 @@ export default function Vacation() {
     }
   };
 
-  const handleInputChange = (field: keyof VacationFormData, value: any) => {
+  const handleInputChange = (field: keyof ChildWeddingFormData, value: any) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const handleSave = async () => {
     setSaving(true);
     try {
-      const response = await fetch('/api/vacation', {
+      const response = await fetch('/api/child-wedding', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        alert('Dream Vacation plan saved successfully!');
+        alert("Child's Wedding plan saved successfully!");
       } else {
         alert('Failed to save data');
       }
@@ -128,10 +131,10 @@ export default function Vacation() {
     }
   };
 
-  const calculateVacationPlan = () => {
-    const yearsToTarget = formData.targetAge - formData.currentAge;
+  const calculateWeddingPlan = () => {
+    const yearsToTarget = formData.targetAge - formData.childCurrentAge;
     if (yearsToTarget < 0) {
-      alert('Target age must be greater than current age');
+      alert("Target age must be greater than child's current age");
       return;
     }
 
@@ -141,23 +144,23 @@ export default function Vacation() {
     const totalMonths = yearsToTarget * 12;
 
     // Calculate future costs with inflation
-    const futureVacationBudget = formData.vacationBudget * Math.pow(1 + inflation, yearsToTarget);
-    const vacationBudgetAmount = futureVacationBudget;
-    const flightAmount = (futureVacationBudget * formData.flightCost) / 100;
-    const hotelAmount = (futureVacationBudget * formData.hotelCost) / 100;
-    const otherCostAmount = (futureVacationBudget * formData.otherCosts) / 100;
+    const futureWeddingBudget = formData.weddingBudget * Math.pow(1 + inflation, yearsToTarget);
+    const weddingBudgetAmount = futureWeddingBudget;
+    const venueAmount = (futureWeddingBudget * formData.venueCost) / 100;
+    const jewelleryAmount = (futureWeddingBudget * formData.jewelleryCost) / 100;
+    const otherCostAmount = (futureWeddingBudget * formData.otherCosts) / 100;
 
-    const totalVacationCost = vacationBudgetAmount + flightAmount + hotelAmount + otherCostAmount;
+    const totalWeddingCost = weddingBudgetAmount + venueAmount + jewelleryAmount + otherCostAmount;
 
-    let totalRequiredAtStart = totalVacationCost;
+    let totalRequiredAtWedding = totalWeddingCost;
     let loanAmount = 0;
     let emiAmount = 0;
     let totalLoanRepayment = 0;
 
     if (formData.wantLoan) {
-      // For vacation loan, assume 70% loan coverage
-      loanAmount = totalVacationCost * 0.7;
-      totalRequiredAtStart = totalVacationCost - loanAmount;
+      // For wedding loan, assume 50% loan coverage
+      loanAmount = totalWeddingCost * 0.5;
+      totalRequiredAtWedding = totalWeddingCost - loanAmount;
 
       // Calculate EMI
       const loanInterestRate = formData.interestRate / 100 / 12;
@@ -173,7 +176,7 @@ export default function Vacation() {
     // Calculate SIP required
     const currentSavings = formData.currentSavings;
     const futureSavingsValue = currentSavings * Math.pow(1 + annualReturn, yearsToTarget);
-    const additionalSavingsNeeded = Math.max(0, totalRequiredAtStart - futureSavingsValue);
+    const additionalSavingsNeeded = Math.max(0, totalRequiredAtWedding - futureSavingsValue);
 
     let sipRequired = 0;
     if (totalMonths > 0 && monthlyReturn > 0) {
@@ -187,8 +190,8 @@ export default function Vacation() {
     const totalInvestment = currentSavings + sipRequired * totalMonths;
     const futureValue = futureSavingsValue + sipRequired * ((Math.pow(1 + monthlyReturn, totalMonths) - 1) / monthlyReturn) * (1 + monthlyReturn);
 
-    const shortfall = Math.max(0, totalRequiredAtStart - futureValue);
-    const achievabilityRatio = futureValue > 0 ? (futureValue / totalRequiredAtStart) * 100 : 0;
+    const shortfall = Math.max(0, totalRequiredAtWedding - futureValue);
+    const achievabilityRatio = futureValue > 0 ? (futureValue / totalRequiredAtWedding) * 100 : 0;
 
     // Generate recommendations
     const recommendations: Array<{ type: string; text: string }> = [];
@@ -196,7 +199,7 @@ export default function Vacation() {
     if (achievabilityRatio >= 100) {
       recommendations.push({
         type: 'success',
-        text: `Excellent! You're on track for your dream vacation. Your investments will grow to ₹${formatIndianNumber(futureValue)}.`,
+        text: `Excellent! You're on track to fund your child's wedding. Your investments will grow to ₹${formatIndianNumber(futureValue)}.`,
       });
     } else if (achievabilityRatio >= 80) {
       recommendations.push({
@@ -206,104 +209,103 @@ export default function Vacation() {
     } else {
       recommendations.push({
         type: 'error',
-        text: `Significant shortfall detected. Consider extending timeline, adjusting budget, or allocating more to savings.`,
+        text: `Significant shortfall detected. Consider starting earlier, adjusting budget, or opting for a personal loan.`,
       });
     }
 
-    // Vacation-specific recommendations
-    if (yearsToTarget === 0) {
+    // Wedding-specific recommendations
+    if (yearsToTarget >= 10) {
+      recommendations.push({
+        type: 'success',
+        text: `You have ${yearsToTarget} years - excellent planning! This gives you time for equity investments with 12-15% returns.`,
+      });
+    } else if (yearsToTarget >= 5) {
       recommendations.push({
         type: 'info',
-        text: `Planning to travel this year! Keep funds in savings account or liquid funds for immediate access.`,
+        text: `With ${yearsToTarget} years remaining, consider a balanced portfolio (60% equity, 40% debt) for stable growth.`,
       });
-    } else if (yearsToTarget < 1) {
+    } else if (yearsToTarget >= 2) {
       recommendations.push({
         type: 'warning',
-        text: `Less than 1 year to vacation! Use liquid funds, short-term FDs, or savings accounts. Avoid equity investments.`,
-      });
-    } else if (yearsToTarget < 3) {
-      recommendations.push({
-        type: 'info',
-        text: `With ${yearsToTarget} years timeline, consider debt mutual funds or short-term FDs (6-8% returns) for capital safety.`,
+        text: `Only ${yearsToTarget} years left! Shift to debt-heavy portfolio (30% equity, 70% debt) to protect capital.`,
       });
     } else {
       recommendations.push({
-        type: 'success',
-        text: `${yearsToTarget} years gives you flexibility! Consider balanced funds (50% equity, 50% debt) for better returns.`,
+        type: 'error',
+        text: `Less than 2 years remaining! Focus on liquid funds and FDs. Equity is too risky at this stage.`,
       });
     }
 
     if (formData.wantLoan) {
       recommendations.push({
-        type: 'error',
-        text: `Taking a loan for vacation is NOT recommended! Interest rate is ${formData.interestRate}%. Total interest: ₹${formatIndianNumber(totalLoanRepayment - loanAmount)}.`,
+        type: 'warning',
+        text: `Personal loans for weddings have high interest (${formData.interestRate}%). Total interest: ₹${formatIndianNumber(totalLoanRepayment - loanAmount)}. Consider minimizing loan amount.`,
       });
 
       const emiToIncomeRatio = (emiAmount / formData.monthlyIncome) * 100;
-      if (emiToIncomeRatio > 30) {
+      if (emiToIncomeRatio > 40) {
         recommendations.push({
           type: 'error',
-          text: `EMI will be ${emiToIncomeRatio.toFixed(1)}% of your income - too high for a discretionary expense. Better to save and travel later.`,
+          text: `EMI will be ${emiToIncomeRatio.toFixed(1)}% of your income - very high! Consider reducing wedding budget or extending tenure.`,
+        });
+      } else if (emiToIncomeRatio > 30) {
+        recommendations.push({
+          type: 'warning',
+          text: `EMI is ${emiToIncomeRatio.toFixed(1)}% of your income. Manageable but will impact other financial goals.`,
         });
       } else {
         recommendations.push({
-          type: 'warning',
-          text: `EMI of ₹${formatIndianNumber(emiAmount)}/month is ${emiToIncomeRatio.toFixed(1)}% of income. Consider if this is worth it for a vacation.`,
+          type: 'success',
+          text: `EMI of ₹${formatIndianNumber(emiAmount)}/month is ${emiToIncomeRatio.toFixed(1)}% of income - manageable.`,
         });
       }
     }
 
     if (sipRequired > 0) {
       const sipToIncomeRatio = (sipRequired / formData.monthlyIncome) * 100;
-      if (sipToIncomeRatio > 20) {
+      if (sipToIncomeRatio > 30) {
         recommendations.push({
           type: 'warning',
-          text: `Required SIP is ${sipToIncomeRatio.toFixed(1)}% of your income. Consider adjusting vacation budget or extending timeline.`,
-        });
-      } else if (sipToIncomeRatio > 10) {
-        recommendations.push({
-          type: 'info',
-          text: `Required SIP of ₹${formatIndianNumber(sipRequired)}/month is ${sipToIncomeRatio.toFixed(1)}% of income - moderate commitment for your dream vacation.`,
+          text: `Required SIP is ${sipToIncomeRatio.toFixed(1)}% of your income. Consider starting earlier or adjusting wedding budget.`,
         });
       } else {
         recommendations.push({
           type: 'success',
-          text: `Required SIP of ₹${formatIndianNumber(sipRequired)}/month is ${sipToIncomeRatio.toFixed(1)}% of income - easily achievable!`,
+          text: `Required SIP of ₹${formatIndianNumber(sipRequired)}/month is ${sipToIncomeRatio.toFixed(1)}% of income - achievable.`,
         });
       }
     }
 
-    // Budget-based recommendations
-    if (formData.vacationBudget >= 500000) {
+    // Early start recommendation
+    if (formData.childCurrentAge <= 10) {
       recommendations.push({
-        type: 'info',
-        text: `Planning a luxury international vacation! Consider travel insurance and currency hedging for forex protection.`,
-      });
-    } else if (formData.vacationBudget >= 300000) {
-      recommendations.push({
-        type: 'info',
-        text: `Mid-range international or premium domestic vacation planned. Book flights 3-6 months in advance for best deals.`,
-      });
-    } else {
-      recommendations.push({
-        type: 'info',
-        text: `Budget-friendly vacation planned. Look for off-season deals and package offers to maximize value.`,
+        type: 'success',
+        text: `Starting early (child is ${formData.childCurrentAge} years old) is smart! Small monthly investments will compound significantly.`,
       });
     }
 
-    // Early booking tip
+    // Budget recommendation
+    const budgetPercentOfIncome = (totalWeddingCost / (formData.monthlyIncome * 12 * yearsToTarget)) * 100;
+    if (budgetPercentOfIncome > 50) {
+      recommendations.push({
+        type: 'warning',
+        text: `Wedding budget is high relative to your income. Consider a more modest celebration or extended saving period.`,
+      });
+    }
+
+    // Inflation impact
     recommendations.push({
-      type: 'success',
-      text: `Pro tip: Book flights and hotels 3-6 months in advance to save 20-40% on travel costs!`,
+      type: 'info',
+      text: `With ${formData.inflationRate}% inflation, today's ₹${formatIndianNumber(formData.weddingBudget)} wedding will cost ₹${formatIndianNumber(futureWeddingBudget)} in ${yearsToTarget} years.`,
     });
 
     setResults({
-      totalVacationCost,
-      vacationBudgetAmount,
-      flightAmount,
-      hotelAmount,
+      totalWeddingCost,
+      weddingBudgetAmount,
+      venueAmount,
+      jewelleryAmount,
       otherCostAmount,
-      totalRequiredAtStart,
+      totalRequiredAtWedding,
       loanAmount,
       emiAmount,
       totalLoanRepayment,
@@ -338,60 +340,58 @@ export default function Vacation() {
   return (
     <>
       <Head>
-        <title>Dream Vacation Planning - IncomeGrow</title>
-        <meta name="description" content="Plan your dream vacation with detailed calculations" />
+        <title>Child Wedding Planning - IncomeGrow</title>
+        <meta name="description" content="Plan your child&apos;s wedding with detailed calculations" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
 
-      <div className="flex flex-col min-h-screen bg-white">
-        <Header />
-
-        {/* 50/50 Split Layout - Full Page */}
-        <main className="flex flex-1 w-full overflow-hidden max-w-[1600px] mx-auto border border-purple-200 border-t-0 mb-6">
+      {/* Content Area - Only this part will reload */}
+      <div className="flex-1 flex overflow-hidden">
           {/* Left Side - Form (50%) */}
           <div className="w-1/2 bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
             {/* Breadcrumb & Header Section */}
             <div className="bg-white border-b border-gray-200 py-6 px-6">
-              {/* Breadcrumb Navigation */}
+              {/* Breadcrumb */}
               <div className="text-xs text-gray-400 mb-4 flex items-center gap-1">
                 <Link href="/dashboard" className="hover:text-gray-600 transition-colors">Dashboard</Link>
                 <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-                <Link href="/recipe" className="hover:text-gray-600 transition-colors">My Goals</Link>
+                <Link href="/dashboard/my-goal" className="hover:text-gray-600 transition-colors">My Goal</Link>
                 <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-                <span className="text-[#FF6B2C] font-semibold">Dream Vacation</span>
+                <span className="text-[#FF6B2C] font-semibold">Child Wedding</span>
               </div>
 
-              {/* Header */}
-              <div className="flex items-center gap-4 mt-4">
+              {/* Title */}
+              <div className="flex items-center gap-4">
                 <div className="p-3 bg-purple-100 rounded-lg text-2xl">
-                  ✈️
+                  💒
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-black mb-1">Dream Vacation Planning</div>
-                  <div className="text-sm text-gray-500">Plan and save for your perfect getaway</div>
+                  <div className="text-2xl font-bold text-black mb-1">Child&apos;s Wedding Planning</div>
+                  <div className="text-sm text-gray-500">Plan ahead for your child&apos;s special day with financial confidence</div>
                 </div>
               </div>
             </div>
 
             {/* Form Content */}
             <div className="p-6">
+              <div className="space-y-6">
             {/* Basic Information Card */}
             <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
               <div className="flex items-center space-x-2 mb-4">
-                <span className="text-xl">📅</span>
-                <h2 className="text-xl font-semibold text-gray-800">Trip Timeline</h2>
+                <span className="text-xl">👨‍👩‍👧</span>
+                <h2 className="text-xl font-semibold text-gray-800">Family Information</h2>
               </div>
 
               <div className="space-y-4">
                 <div>
                   <label className={labelClass}>
                     Your Current Age
-                    <InfoIcon tooltip="Your current age - used to calculate time horizon for your vacation planning." />
+                    <InfoIcon tooltip="Your current age. Used to calculate your financial position over the planning period." />
                   </label>
                   <input
                     type="number"
@@ -405,70 +405,83 @@ export default function Vacation() {
 
                 <div>
                   <label className={labelClass}>
-                    Target Age (When you&apos;ll travel)
-                    <InfoIcon tooltip="When do you plan to take this vacation? Shorter timelines need safer investments." />
+                    Child&apos;s Current Age
+                    <InfoIcon tooltip="Your child&apos;s current age. This determines how many years you have to save and plan." />
+                  </label>
+                  <input
+                    type="number"
+                    value={formData.childCurrentAge}
+                    onChange={(e) => handleInputChange('childCurrentAge', parseInt(e.target.value))}
+                    className={inputClass}
+                    min="0"
+                    max="30"
+                  />
+                </div>
+
+                <div>
+                  <label className={labelClass}>
+                    Target Age (Wedding age)
+                    <InfoIcon tooltip="Typical wedding age: 23-28 years" />
                   </label>
                   <input
                     type="number"
                     value={formData.targetAge}
                     onChange={(e) => handleInputChange('targetAge', parseInt(e.target.value))}
                     className={inputClass}
-                    min={formData.currentAge}
-                    max="100"
+                    min={Math.max(18, formData.childCurrentAge)}
+                    max="40"
                   />
                 </div>
 
                 <div className="bg-purple-50 p-3 rounded-lg">
                   <p className="text-sm text-purple-700">
-                    Planning Timeline: <span className="font-semibold">{formData.targetAge - formData.currentAge} year{formData.targetAge - formData.currentAge !== 1 ? 's' : ''}</span>
+                    Planning Timeline: <span className="font-semibold">{formData.targetAge - formData.childCurrentAge} years</span>
                   </p>
-                  {formData.targetAge - formData.currentAge === 0 && (
-                    <p className="text-xs text-purple-600 mt-1">
-                      Traveling this year! Keep funds easily accessible.
-                    </p>
-                  )}
+                  <p className="text-xs text-purple-600 mt-1">
+                    Your child will be {formData.targetAge} years old at wedding
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* Vacation Costs Card */}
+            {/* Wedding Costs Card */}
             <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
               <div className="flex items-center space-x-2 mb-4">
-                <span className="text-xl">📍</span>
-                <h2 className="text-xl font-semibold text-gray-800">Vacation Budget</h2>
+                <span className="text-xl">💒</span>
+                <h2 className="text-xl font-semibold text-gray-800">Wedding Budget</h2>
               </div>
 
               <div className="space-y-4">
                 <div>
                   <label className={labelClass}>
-                    Total Vacation Budget (Today&apos;s Value)
-                    <InfoIcon tooltip="Total estimated cost at current prices. Includes base expenses, activities, shopping, etc." />
+                    Total Wedding Budget (Today&apos;s Value)
+                    <InfoIcon tooltip="Base budget at current prices. We&apos;ll adjust for inflation. Includes catering, decorations, photography, etc." />
                   </label>
                   <div className="flex items-center gap-2">
                     <span className="text-xl text-gray-500">₹</span>
                     <input
                       type="number"
-                      value={formData.vacationBudget}
-                      onChange={(e) => handleInputChange('vacationBudget', parseFloat(e.target.value) || 0)}
+                      value={formData.weddingBudget}
+                      onChange={(e) => handleInputChange('weddingBudget', parseFloat(e.target.value) || 0)}
                       className={inputClass}
                       min="0"
                     />
                   </div>
                   <p className="text-xs text-gray-500 mt-1">
-                    Typical budgets: Domestic ₹50K-2L, Asia ₹1.5-3L, Europe/US ₹3-8L
+                    Typical budgets: Simple ₹10-20L, Moderate ₹20-50L, Grand ₹50L+
                   </p>
                 </div>
 
                 <div>
                   <label className={labelClass}>
-                    Flight Cost (% of budget)
-                    <InfoIcon tooltip="Round-trip flight tickets - typically 25-35% of total vacation cost" />
+                    Venue & Catering (% of budget)
+                    <InfoIcon tooltip="Marriage hall, catering, food & beverages - typically 30-40% of total budget" />
                   </label>
                   <div className="relative">
                     <input
                       type="number"
-                      value={formData.flightCost}
-                      onChange={(e) => handleInputChange('flightCost', parseFloat(e.target.value) || 0)}
+                      value={formData.venueCost}
+                      onChange={(e) => handleInputChange('venueCost', parseFloat(e.target.value) || 0)}
                       className={inputClass}
                       min="0"
                       max="100"
@@ -480,14 +493,14 @@ export default function Vacation() {
 
                 <div>
                   <label className={labelClass}>
-                    Hotel & Accommodation (% of budget)
-                    <InfoIcon tooltip="Hotel, resort, or rental accommodation costs - typically 20-30%" />
+                    Jewellery & Gifts (% of budget)
+                    <InfoIcon tooltip="Gold jewellery, gifts for bride/groom and relatives - typically 25-35%" />
                   </label>
                   <div className="relative">
                     <input
                       type="number"
-                      value={formData.hotelCost}
-                      onChange={(e) => handleInputChange('hotelCost', parseFloat(e.target.value) || 0)}
+                      value={formData.jewelleryCost}
+                      onChange={(e) => handleInputChange('jewelleryCost', parseFloat(e.target.value) || 0)}
                       className={inputClass}
                       min="0"
                       max="100"
@@ -500,7 +513,7 @@ export default function Vacation() {
                 <div>
                   <label className={labelClass}>
                     Other Costs (% of budget)
-                    <InfoIcon tooltip="Food, local transport, activities, shopping, visa fees, travel insurance" />
+                    <InfoIcon tooltip="Clothing, photography, makeup, transportation, miscellaneous" />
                   </label>
                   <div className="relative">
                     <input
@@ -528,8 +541,8 @@ export default function Vacation() {
               <div className="space-y-4">
                 <div>
                   <label className={labelClass}>
-                    Current Savings for Vacation
-                    <InfoIcon tooltip="Amount you've already saved specifically for this vacation. This will grow with your expected return rate." />
+                    Current Savings for Wedding
+                    <InfoIcon tooltip="Amount you have already saved specifically for the wedding. This will grow with your expected return rate." />
                   </label>
                   <div className="flex items-center gap-2">
                     <span className="text-xl text-gray-500">₹</span>
@@ -546,7 +559,7 @@ export default function Vacation() {
                 <div>
                   <label className={labelClass}>
                     Monthly Income
-                    <InfoIcon tooltip="Your monthly income used to assess if the required SIP is affordable for you." />
+                    <InfoIcon tooltip="Your total monthly income. Used to calculate EMI affordability and savings potential." />
                   </label>
                   <div className="flex items-center gap-2">
                     <span className="text-xl text-gray-500">₹</span>
@@ -562,22 +575,22 @@ export default function Vacation() {
               </div>
             </div>
 
-            {/* Travel Loan Option Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6 border border-red-100">
+            {/* Personal Loan Option Card */}
+            <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
               <div className="flex items-center space-x-2 mb-4">
-                <span className="text-xl">⚠️</span>
-                <h2 className="text-xl font-semibold text-gray-800">Travel Loan Option</h2>
+                <span className="text-xl">🏢</span>
+                <h2 className="text-xl font-semibold text-gray-800">Personal Loan Option</h2>
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-red-50 rounded-lg border-2 border-red-300">
+                <div className="flex items-center justify-between p-4 bg-yellow-50 rounded-lg border-2 border-yellow-300">
                   <div className="flex items-center space-x-3">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl ${formData.wantLoan ? 'bg-red-600' : 'bg-gray-300'}`}>
-                      ⚠️
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl ${formData.wantLoan ? 'bg-yellow-600' : 'bg-gray-300'}`}>
+                      💵
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">Take Travel/Personal Loan</p>
-                      <p className="text-sm text-red-700">NOT RECOMMENDED - High interest, no tax benefits</p>
+                      <p className="font-medium text-gray-900">Take Personal Loan</p>
+                      <p className="text-sm text-gray-600">50% loan coverage (not recommended due to high interest)</p>
                     </div>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
@@ -587,22 +600,22 @@ export default function Vacation() {
                       onChange={(e) => handleInputChange('wantLoan', e.target.checked)}
                       className="sr-only peer"
                     />
-                    <div className="w-14 h-7 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-red-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-red-600"></div>
+                    <div className="w-14 h-7 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-yellow-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-yellow-600"></div>
                   </label>
                 </div>
 
                 {formData.wantLoan && (
-                  <div className="space-y-4 p-4 bg-red-50 rounded-lg border border-red-300">
-                    <div className="bg-red-100 p-3 rounded border border-red-300">
-                      <p className="text-xs text-red-800 font-semibold">
-                        ⚠️ WARNING: Taking loans for discretionary expenses like vacations is financially unwise. Consider saving instead!
+                  <div className="space-y-4 p-4 bg-yellow-50 rounded-lg border border-yellow-300">
+                    <div className="bg-red-50 p-3 rounded border border-red-200">
+                      <p className="text-xs text-red-700">
+                        <strong>Warning:</strong> Personal loans for weddings have high interest rates (11-16%). Plan early to avoid loans.
                       </p>
                     </div>
 
                     <div>
                       <label className={labelClass}>
                         Loan Tenure (Years)
-                        <InfoIcon tooltip="Travel loans typically 1-5 years. Paying interest on vacation memories is costly." />
+                        <InfoIcon tooltip="Personal loans typically 1-7 years. Shorter tenure = higher EMI but lower total interest." />
                       </label>
                       <input
                         type="number"
@@ -610,14 +623,14 @@ export default function Vacation() {
                         onChange={(e) => handleInputChange('loanTenure', parseInt(e.target.value) || 1)}
                         className={inputClass}
                         min="1"
-                        max="5"
+                        max="7"
                       />
                     </div>
 
                     <div>
                       <label className={labelClass}>
                         Interest Rate (% per annum)
-                        <InfoIcon tooltip="Current personal/travel loan rates: 12-18% per annum" />
+                        <InfoIcon tooltip="Current personal loan rates: 11-16% per annum" />
                       </label>
                       <div className="relative">
                         <input
@@ -648,7 +661,7 @@ export default function Vacation() {
                 <div>
                   <label className={labelClass}>
                     Expected Inflation Rate
-                    <InfoIcon tooltip="Travel costs inflate at 4-6% annually on average" />
+                    <InfoIcon tooltip="Wedding costs typically inflate at 6-8% annually" />
                   </label>
                   <div className="relative">
                     <input
@@ -666,7 +679,7 @@ export default function Vacation() {
                 <div>
                   <label className={labelClass}>
                     Expected Return Rate
-                    <InfoIcon tooltip="For short timelines: Use debt funds (6-8%). For 3+ years: Balanced funds (9-12%)" />
+                    <InfoIcon tooltip="Expected annual returns based on investment mix" />
                   </label>
                   <div className="relative">
                     <input
@@ -686,7 +699,7 @@ export default function Vacation() {
             {/* Action Buttons */}
             <div className="flex space-x-4">
               <button
-                onClick={calculateVacationPlan}
+                onClick={calculateWeddingPlan}
                 className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2"
               >
                 <span className="text-lg">🎯</span>
@@ -700,6 +713,7 @@ export default function Vacation() {
                 {saving ? 'Saving...' : 'Save Plan'}
               </button>
             </div>
+              </div>
             </div>
           </div>
 
@@ -737,19 +751,19 @@ export default function Vacation() {
                   <div className="mt-6 grid grid-cols-2 gap-4">
                     <div className="bg-purple-50 p-4 rounded-lg">
                       <p className="text-sm text-gray-600 mb-1">Total Required</p>
-                      <p className="text-lg font-bold text-purple-600">₹{formatIndianNumber(results.totalRequiredAtStart)}</p>
+                      <p className="text-lg font-bold text-purple-600">₹{formatIndianNumber(results.totalRequiredAtWedding)}</p>
                     </div>
                     <div className="bg-blue-50 p-4 rounded-lg">
                       <p className="text-sm text-gray-600 mb-1">Future Value</p>
                       <p className="text-lg font-bold text-blue-600">₹{formatIndianNumber(results.futureValue)}</p>
                     </div>
                     <div className="bg-green-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Years to Trip</p>
-                      <p className="text-lg font-bold text-green-600">{results.yearsToGoal} year{results.yearsToGoal !== 1 ? 's' : ''}</p>
+                      <p className="text-sm text-gray-600 mb-1">Years to Goal</p>
+                      <p className="text-lg font-bold text-green-600">{results.yearsToGoal} years</p>
                     </div>
                     <div className="bg-yellow-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Trip Year</p>
-                      <p className="text-lg font-bold text-yellow-600">{new Date().getFullYear() + results.yearsToGoal}</p>
+                      <p className="text-sm text-gray-600 mb-1">Child&apos;s Age</p>
+                      <p className="text-lg font-bold text-yellow-600">{formData.childCurrentAge} → {formData.targetAge}</p>
                     </div>
                   </div>
 
@@ -761,68 +775,65 @@ export default function Vacation() {
                   )}
                 </div>
 
-                {/* Vacation Cost Breakdown Card */}
+                {/* Wedding Cost Breakdown Card */}
                 <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-4">Vacation Cost Breakdown</h2>
+                  <h2 className="text-xl font-semibold text-gray-800 mb-4">Wedding Cost Breakdown</h2>
 
                   <div className="space-y-3">
                     <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                      <span className="text-gray-700">Base Vacation Budget</span>
-                      <span className="font-semibold text-purple-600">₹{formatIndianNumber(results.vacationBudgetAmount)}</span>
+                      <span className="text-gray-700">Base Wedding Budget</span>
+                      <span className="font-semibold text-purple-600">₹{formatIndianNumber(results.weddingBudgetAmount)}</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                      <span className="text-gray-700">Flight Tickets</span>
-                      <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.flightAmount)}</span>
+                      <span className="text-gray-700">Venue & Catering</span>
+                      <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.venueAmount)}</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                      <span className="text-gray-700">Hotel & Stay</span>
-                      <span className="font-semibold text-green-600">₹{formatIndianNumber(results.hotelAmount)}</span>
+                      <span className="text-gray-700">Jewellery & Gifts</span>
+                      <span className="font-semibold text-green-600">₹{formatIndianNumber(results.jewelleryAmount)}</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                      <span className="text-gray-700">Other Expenses</span>
+                      <span className="text-gray-700">Other Costs</span>
                       <span className="font-semibold text-yellow-600">₹{formatIndianNumber(results.otherCostAmount)}</span>
                     </div>
                     <div className="flex justify-between items-center p-3 bg-gray-100 rounded-lg border-2 border-purple-300">
-                      <span className="text-gray-900 font-semibold">Total Trip Cost</span>
-                      <span className="font-bold text-purple-700 text-lg">₹{formatIndianNumber(results.totalVacationCost)}</span>
+                      <span className="text-gray-900 font-semibold">Total Wedding Cost</span>
+                      <span className="font-bold text-purple-700 text-lg">₹{formatIndianNumber(results.totalWeddingCost)}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Loan Details Card (if loan selected) */}
                 {formData.wantLoan && results.loanAmount > 0 && (
-                  <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-red-300 bg-red-50">
-                    <div className="flex items-center space-x-2 mb-4">
-                      <span className="text-2xl">⚠️</span>
-                      <h2 className="text-xl font-semibold text-red-800">Travel Loan Details</h2>
-                    </div>
+                  <div className="bg-white rounded-xl shadow-lg p-6 border border-yellow-200 bg-yellow-50">
+                    <h2 className="text-xl font-semibold text-gray-800 mb-4">Personal Loan Details</h2>
 
                     <div className="space-y-3">
-                      <div className="flex justify-between items-center p-3 bg-red-100 rounded-lg border border-red-300">
-                        <span className="text-gray-700">Loan Amount (70%)</span>
-                        <span className="font-semibold text-red-700">₹{formatIndianNumber(results.loanAmount)}</span>
+                      <div className="flex justify-between items-center p-3 bg-yellow-100 rounded-lg">
+                        <span className="text-gray-700">Loan Amount (50%)</span>
+                        <span className="font-semibold text-yellow-700">₹{formatIndianNumber(results.loanAmount)}</span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                        <span className="text-gray-700">Your Contribution (30%)</span>
-                        <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.totalRequiredAtStart)}</span>
+                        <span className="text-gray-700">Your Contribution (50%)</span>
+                        <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.totalRequiredAtWedding)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg border-2 border-orange-400">
-                        <span className="text-gray-700 font-semibold">Monthly EMI</span>
-                        <span className="font-bold text-orange-700">₹{formatIndianNumber(results.emiAmount)}/month</span>
+                      <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg border border-orange-300">
+                        <span className="text-gray-700">Monthly EMI</span>
+                        <span className="font-semibold text-orange-700">₹{formatIndianNumber(results.emiAmount)}/month</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-red-100 rounded-lg border-2 border-red-400">
+                      <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg border border-red-300">
                         <span className="text-gray-700">Total Repayment</span>
                         <span className="font-semibold text-red-700">₹{formatIndianNumber(results.totalLoanRepayment)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-red-200 rounded-lg border-2 border-red-500">
-                        <span className="text-gray-900 font-semibold">Total Interest Paid</span>
-                        <span className="font-bold text-red-800 text-lg">₹{formatIndianNumber(results.totalLoanRepayment - results.loanAmount)}</span>
+                      <div className="flex justify-between items-center p-3 bg-red-100 rounded-lg border-2 border-red-400">
+                        <span className="text-gray-900 font-semibold">Total Interest</span>
+                        <span className="font-bold text-red-700">₹{formatIndianNumber(results.totalLoanRepayment - results.loanAmount)}</span>
                       </div>
                     </div>
 
-                    <div className="mt-4 p-4 bg-red-100 rounded-lg border-2 border-red-400">
-                      <p className="text-sm text-red-800 font-semibold">
-                        🚫 Paying ₹{formatIndianNumber(results.totalLoanRepayment - results.loanAmount)} in interest for vacation memories! Consider saving instead.
+                    <div className="mt-4 p-3 bg-red-50 rounded-lg border border-red-300">
+                      <p className="text-sm text-red-700">
+                        <strong>Note:</strong> Personal loans have high interest with no tax benefits. Plan early to avoid loans!
                       </p>
                     </div>
                   </div>
@@ -893,23 +904,27 @@ export default function Vacation() {
             ) : (
               <div className="bg-white rounded-xl shadow-lg p-12 border border-purple-100 flex flex-col items-center justify-center text-center h-full">
                 <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-5xl">
-                  ✈️
+                  💒
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Ready for Your Dream Vacation?</h3>
-                <p className="text-gray-600 mb-6">Fill in your details and click &quot;Calculate Plan&quot; to see how you can save for your perfect getaway without loans or financial stress.</p>
+                <h3 className="text-xl font-semibold text-gray-800 mb-2">Plan Your Child&apos;s Wedding</h3>
+                <p className="text-gray-600 mb-6">Fill in your details and click &quot;Calculate Plan&quot; to see personalized recommendations for your child&apos;s special day.</p>
                 <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
                   <p className="text-sm text-purple-700">
-                    <strong>Tip:</strong> Start a dedicated vacation fund! Even ₹5,000/month can fund an international trip in 2-3 years.
+                    <strong>Tip:</strong> Start saving early! Wedding costs inflate 6-8% annually. Planning 10+ years ahead significantly reduces the financial burden.
                   </p>
                 </div>
               </div>
             )}
             </div>
           </div>
-        </main>
-
-        <Footer />
       </div>
     </>
   );
-}
+};
+
+// Use persistent layout for goal pages
+ChildWedding.getLayout = function getLayout(page: ReactElement) {
+  return <DashboardLayout currentPage="my-goal">{page}</DashboardLayout>;
+};
+
+export default ChildWedding;

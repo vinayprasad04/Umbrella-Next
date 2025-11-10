@@ -1,0 +1,10 @@
+# Files to update:
+# car.tsx, self-education.tsx, child-education.tsx, child-wedding.tsx, vacation.tsx
+
+# Each needs:
+# 1. Add "import type { ReactElement } from 'react';"
+# 2. Change Header/Footer/DashboardSidebar imports to DashboardLayout
+# 3. Add "import type { NextPageWithLayout } from '../../_app';"
+# 4. Update component declaration to use NextPageWithLayout
+# 5. Remove wrapper divs (Header, main, Footer)
+# 6. Add getLayout function at end

@@ -167,7 +167,7 @@ export default function Home() {
                     </div>
                     
                     {/* Main Large Rocket - Pure CSS Rocket that always works */}
-                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce scale-75 sm:scale-90 md:scale-100" style={{animationDuration: '2s'}}>
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 animate-bounce scale-75 sm:scale-90 md:scale-100" style={{animationDuration: '2s', left: "calc(50% - 34px)"}}>
                       {/* CSS Rocket Design */}
                       <div className="relative">
                         {/* Rocket Body */}

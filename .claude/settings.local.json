@@ -1,13 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(del \"d:\\work\\Test\\Next\\Umbrella-Next\\next.config.ts\")",
-      "Bash(set NODE_OPTIONS=--trace-warnings)",
-      "Bash(npm --version)",
-      "Bash(set NEXT_DEBUG=1)",
-      "Bash(cat:*)",
-      "Bash(set NODE_ENV=development)",
-      "Bash(npm audit:*)"
+      "Bash(for:*)",
+      "Bash(do)",
+      "Bash(npm run dev:*)",
+      "Bash(npx tsc:*)",
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(tail:*)",
+      "Bash(npx next build:*)",
+      "Bash(taskkill:*)",
+      "Bash(node -p \"const fs = require(''fs''); const content = fs.readFileSync(''src/pages/dashboard/my-goal/child-wedding.tsx'', ''utf8''); const lines = content.split(''\\n''); lines.slice(339, 353).map((l, i) => (340 + i) + '': '' + l).join(''\\n'')\")"
     ],
     "deny": [],
     "ask": [],
