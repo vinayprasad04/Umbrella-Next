@@ -37,130 +37,140 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
   const isMyGoalActive = currentPage === 'my-goal' || router.pathname.startsWith('/dashboard/my-goal');
 
   return (
-    <aside className="w-96 bg-gradient-to-b from-gray-50 to-white border-r border-gray-200 shadow-lg">
-      <div className="p-6">
+    <aside className="w-96 bg-gradient-to-br from-purple-50 via-blue-50 to-orange-50 border-r-2 border-purple-200 shadow-2xl relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-400/20 to-orange-400/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
+      <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-blue-400/20 to-purple-400/20 rounded-full blur-3xl -ml-24 -mb-24"></div>
+
+      <div className="p-6 relative z-10">
         {/* Logo/Brand Section */}
-        {/* <div className="mb-8 pb-6 border-b border-gray-200">
+        {/* <div className="mb-8 pb-6 border-b-2 border-purple-200">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-xl flex items-center justify-center shadow-md">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            <div className="w-12 h-12 bg-gradient-to-br from-purple-600 via-blue-600 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl transform hover:scale-110 transition-all duration-300">
+              <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
               </svg>
             </div>
             <div>
-              <h2 className="text-lg font-bold text-gray-800">IncomeGrow</h2>
-              <p className="text-xs text-gray-500">Financial Planning</p>
+              <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-orange-500 bg-clip-text text-transparent">IncomeGrow</h2>
+              <p className="text-xs text-gray-600 font-semibold">Financial Planning</p>
             </div>
           </div>
         </div> */}
 
-        <nav className="space-y-3">
+        <nav className="space-y-4">
           {/* Dashboard Link */}
           <div className="relative">
-            {/* {isDashboardActive && (
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FF6B2C] to-[#FF8A50] rounded-r-full"></div>
-            )} */}
             <Link
               href="/dashboard"
-              className={`flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-300 hover:shadow-md group ${
+              className={`flex items-center gap-3 px-5 py-4 rounded-2xl transition-all duration-300 hover:shadow-xl group border-2 transform hover:scale-105 ${
                 isDashboardActive
-                  ? 'bg-gradient-to-r from-orange-50 to-transparent text-[#FF6B2C] font-semibold'
-                  : 'text-gray-700 hover:bg-gray-50'
+                  ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 text-white font-bold shadow-2xl scale-105 border-transparent'
+                  : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white border-purple-200 shadow-lg'
               }`}
             >
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow ${
+              <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all group-hover:scale-110 ${
                 isDashboardActive
-                  ? 'bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50]'
-                  : 'bg-gray-200'
+                  ? 'bg-white/30 backdrop-blur-sm'
+                  : 'bg-gradient-to-br from-blue-500 to-purple-600'
               }`}>
-                <svg className={`w-5 h-5 ${isDashboardActive ? 'text-white' : 'text-gray-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                <svg className={`w-6 h-6 ${isDashboardActive ? 'text-white' : 'text-white'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                 </svg>
               </div>
-              <span className='text-base font-semibold'>Dashboard</span>
+              <span className='text-lg font-bold'>Dashboard</span>
+              {isDashboardActive && (
+                <div className="ml-auto">
+                  <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                </div>
+              )}
             </Link>
           </div>
 
           {/* My Goal Dropdown */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border-2 border-purple-200 overflow-hidden transform hover:shadow-2xl transition-all duration-300">
             <button
               onClick={() => setMyGoalOpen(!myGoalOpen)}
-              className={`flex items-center justify-between w-full px-4 py-3.5 font-semibold rounded-t-xl transition-all duration-300 group ${
+              className={`flex items-center justify-between w-full px-5 py-4 font-bold rounded-t-2xl transition-all duration-300 group ${
                 isMyGoalActive
-                  ? 'bg-gradient-to-r from-purple-50 to-transparent text-purple-600'
-                  : 'text-gray-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-transparent'
+                  ? 'bg-gradient-to-r from-purple-500 to-orange-500 text-white shadow-lg'
+                  : 'text-gray-700 hover:bg-gradient-to-r hover:from-purple-100 hover:to-orange-100'
               }`}
             >
               <div className="flex items-center gap-3">
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow ${
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all group-hover:scale-110 ${
                   isMyGoalActive
-                    ? 'bg-gradient-to-br from-purple-500 to-indigo-600'
-                    : 'bg-gradient-to-br from-purple-400 to-indigo-500'
+                    ? 'bg-white/30 backdrop-blur-sm'
+                    : 'bg-gradient-to-br from-purple-500 to-orange-500'
                 }`}>
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                   </svg>
                 </div>
-                <span>My Goals</span>
-                <span className={`ml-auto px-2 py-0.5 text-xs font-bold rounded-full ${
+                <span className="text-lg">My Goals</span>
+                <span className={`px-3 py-1 text-xs font-bold rounded-full shadow-md ${
                   isMyGoalActive
-                    ? 'bg-purple-200 text-purple-700'
-                    : 'bg-purple-100 text-purple-600'
+                    ? 'bg-white/30 backdrop-blur-sm text-white'
+                    : 'bg-gradient-to-r from-purple-500 to-orange-500 text-white'
                 }`}>
                   {recipeMenuItems.length + 1}
                 </span>
               </div>
               <svg
-                className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${myGoalOpen ? 'rotate-180' : ''}`}
+                className={`w-6 h-6 ${isMyGoalActive ? 'text-white' : 'text-gray-500'} transition-transform duration-300 ${myGoalOpen ? 'rotate-180' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
 
             {/* Dropdown Menu with Animation */}
             <div
               className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                myGoalOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+                myGoalOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="px-3 py-2 bg-gradient-to-b from-purple-50/50 to-white space-y-1">
+              <div className="px-4 py-3 bg-gradient-to-b from-purple-100/50 via-blue-50/30 to-orange-50/30 space-y-2">
                 {/* Goal Dashboard Link */}
                 <Link
                   href="/dashboard/my-goal"
-                  className={`flex items-center gap-3 pr-2 py-2.5 text-sm rounded-lg transition-all duration-200 group border ${
+                  className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group border-2 transform hover:scale-105 ${
                     router.pathname === '/dashboard/my-goal'
-                      ? 'bg-purple-100 text-purple-700 border-purple-300 font-semibold'
-                      : 'text-gray-600 hover:text-purple-600 hover:bg-white border-transparent hover:border-purple-200 hover:shadow-sm font-semibold'
+                      ? 'bg-gradient-to-r from-purple-500 to-orange-500 text-white border-transparent font-bold shadow-lg'
+                      : 'text-gray-700 hover:text-purple-600 bg-white/80 backdrop-blur-sm border-purple-200 hover:shadow-lg font-semibold'
                   }`}
                 >
-                  <span className="text-3xl group-hover:scale-110 transition-transform duration-200">🎯</span>
-                  <span className="text-base font-semibold">Goal Dashboard</span>
-                  <svg className="w-4 h-4 ml-auto text-gray-300 group-hover:text-purple-600 opacity-0 group-hover:opacity-100 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <span className="text-2xl group-hover:scale-125 transition-transform duration-200">🎯</span>
+                  <span className="text-base font-bold">Goal Dashboard</span>
+                  <svg className={`w-5 h-5 ml-auto transition-all duration-200 ${router.pathname === '/dashboard/my-goal' ? 'text-white opacity-100' : 'text-purple-400 opacity-0 group-hover:opacity-100'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
 
                 {/* Divider */}
-                <div className="border-t border-purple-200 my-2"></div>
+                <div className="flex items-center gap-2 my-3">
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+                  <span className="text-xs font-bold text-purple-600">GOALS</span>
+                  <div className="h-px flex-1 bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
+                </div>
 
                 {recipeMenuItems.map((item, index) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className={`flex items-center gap-3 pr-2 py-2.5 text-sm rounded-lg transition-all duration-200 group border ${
+                    className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 group border-2 transform hover:scale-105 ${
                       router.pathname === item.href
-                        ? 'bg-purple-100 text-purple-700 border-purple-300 font-semibold'
-                        : 'text-gray-600 hover:text-purple-600 hover:bg-white border-transparent hover:border-purple-200 hover:shadow-sm'
+                        ? 'bg-gradient-to-r from-purple-500 to-orange-500 text-white border-transparent font-bold shadow-lg'
+                        : 'text-gray-700 hover:text-purple-600 bg-white/60 backdrop-blur-sm border-transparent hover:border-purple-200 hover:shadow-md'
                     }`}
                     style={{ transitionDelay: myGoalOpen ? `${(index + 1) * 30}ms` : '0ms' }}
                   >
-                    <span className="text-3xl group-hover:scale-110 transition-transform duration-200">{item.icon}</span>
-                    <span className="text-base font-medium">{item.label}</span>
-                    <svg className="w-4 h-4 ml-auto text-gray-300 group-hover:text-purple-600 opacity-0 group-hover:opacity-100 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <span className="text-xl group-hover:scale-125 transition-transform duration-200">{item.icon}</span>
+                    <span className="text-sm font-semibold">{item.label}</span>
+                    <svg className={`w-4 h-4 ml-auto transition-all duration-200 ${router.pathname === item.href ? 'text-white opacity-100' : 'text-purple-400 opacity-0 group-hover:opacity-100'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>
                 ))}
@@ -170,18 +180,21 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
 
           {/* Admin Panel Link (if admin) */}
           {isAdmin && (
-            <div className="pt-6 mt-6 border-t border-gray-200">
+            <div className="pt-6 mt-6 border-t-2 border-purple-200">
               <Link
                 href="/admin"
-                className="flex items-center gap-3 px-4 py-3.5 text-gray-700 hover:text-red-600 hover:bg-gradient-to-r hover:from-red-50 hover:to-transparent rounded-xl transition-all duration-300 font-semibold group border border-transparent hover:border-red-200 hover:shadow-md"
+                className="flex items-center gap-3 px-5 py-4 rounded-2xl transition-all duration-300 font-bold group border-2 transform hover:scale-105 bg-white/80 backdrop-blur-sm text-gray-700 hover:text-red-600 border-red-200 hover:bg-gradient-to-r hover:from-red-50 hover:to-orange-50 hover:border-red-400 shadow-lg hover:shadow-2xl"
               >
-                <div className="w-8 h-8 bg-gradient-to-br from-red-500 to-red-600 rounded-lg flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all group-hover:scale-110">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <span>Admin Panel</span>
+                <span className="text-lg">Admin Panel</span>
+                <svg className="w-5 h-5 ml-auto text-red-400 opacity-0 group-hover:opacity-100 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
           )}

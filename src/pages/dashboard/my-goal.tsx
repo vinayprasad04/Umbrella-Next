@@ -325,20 +325,49 @@ const Recipe: NextPageWithLayout = () => {
       </Head>
 
       {/* Content Area - Only this part will reload */}
-      <section className="flex-1 flex flex-col gap-6 px-8 py-8">
-            <div className="bg-white rounded-2xl shadow-sm p-6">
-              <div className="text-xs text-gray-400 mb-2 flex items-center gap-1">
-                <Link href="/dashboard" className="hover:text-gray-600 transition-colors">Dashboard</Link>
-                <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-                <span className="text-[#FF6B2C] font-semibold">My Goal</span>
+      <section className="flex-1 flex flex-col gap-6 px-8 py-8 overflow-y-auto bg-gradient-to-br from-purple-50 via-white to-orange-50">
+            {/* Header Card */}
+            <div className="bg-gradient-to-r from-purple-600 to-orange-500 rounded-3xl shadow-xl p-8 text-white relative overflow-hidden">
+              {/* Background decorative elements */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full -mr-32 -mt-32"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-10 rounded-full -ml-24 -mb-24"></div>
+
+              <div className="relative z-10">
+                <div className="text-xs text-white/80 mb-3 flex items-center gap-2">
+                  <Link href="/dashboard" className="hover:text-white transition-colors flex items-center gap-1">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    Dashboard
+                  </Link>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                  <span className="font-semibold">My Goal</span>
+                </div>
+                <div className="text-4xl font-bold mb-3">🎯 Your Financial Goals</div>
+                <div className="text-lg text-white/90 mb-6">Track, plan, and achieve your dreams with smart financial planning</div>
+
+                {/* Legend */}
+                <div className="flex flex-wrap items-center gap-6 bg-white/20 backdrop-blur-sm rounded-2xl p-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-green-400 shadow-lg"></span>
+                    <span className="text-sm font-medium">Goal Possible</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-red-400 shadow-lg"></span>
+                    <span className="text-sm font-medium">Goal Not Possible</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full border-2 border-white shadow-lg"></span>
+                    <span className="text-sm font-medium">Not Created Yet</span>
+                  </div>
+                </div>
               </div>
-              <div className="text-2xl font-bold mb-1">My Goals</div>
-              <div className="text-sm text-gray-500 mb-4">A summary of your Goals and possibility</div>
-              
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span
+            </div>
+
+              <div className="flex flex-wrap gap-2 mb-4 hidden">
+                {/* <span
                   className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium cursor-pointer ${!filter ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 text-gray-700'}`}
                   onClick={() => setFilter('')}
                 >
@@ -353,7 +382,7 @@ const Recipe: NextPageWithLayout = () => {
                     <span className="w-4 h-4 text-purple-500">{goal.icon}</span>
                     {goal.label}
                   </span>
-                ))}
+                ))} */}
                 {/* <span
                   className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium cursor-pointer ${filter === 'Custom Goal' ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 text-gray-700'}`}
                   onClick={() => setFilter('Custom Goal')}
@@ -363,24 +392,6 @@ const Recipe: NextPageWithLayout = () => {
                 </span> */}
               </div>
               
-              {/* Legend and toggle row */}
-              <div className="flex items-center gap-6 mb-2">
-                <div className="flex items-center gap-2">
-                  <span className="w-4 h-4 rounded-full bg-purple-400 inline-block"></span>
-                  <span className="text-xs text-gray-700">Goal Possible</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-4 h-4 rounded-full bg-gray-300 inline-block"></span>
-                  <span className="text-xs text-gray-700">Goal Not Possible</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-4 h-4 rounded-full border border-gray-400 inline-block"></span>
-                  <span className="text-xs text-gray-700">Not created yet</span>
-                </div>
-              </div>
-              
-              <div className="text-xs text-gray-500 mt-2">Set / Create or Modify your goals by using the calculations below.</div>
-            </div>
             
             {/* Goal Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
@@ -416,64 +427,96 @@ const Recipe: NextPageWithLayout = () => {
                 const vacationYearsRequired = vacationHasData ? vacationData.targetAge - vacationData.currentAge : 0;
 
                 // Determine goal status color
-                let statusColor = 'border-gray-400'; // Not created yet
+                let statusColor = 'border-2 border-gray-300'; // Not created yet
+                let cardBorderColor = 'border-gray-200';
+                let cardBgGradient = 'bg-white';
+
                 const checkGoalStatus = (goalPossibility: string) => {
                   if (goalPossibility?.toLowerCase().includes('possible') || goalPossibility?.toLowerCase().includes('achievable')) {
-                    return 'bg-purple-400';
+                    return { status: 'bg-green-400 shadow-lg shadow-green-200', border: 'border-green-100', bg: 'bg-gradient-to-br from-green-50 to-white' };
                   } else if (goalPossibility?.toLowerCase().includes('not')) {
-                    return 'bg-gray-300';
+                    return { status: 'bg-red-400 shadow-lg shadow-red-200', border: 'border-red-100', bg: 'bg-gradient-to-br from-red-50 to-white' };
                   } else {
-                    return 'bg-purple-400';
+                    return { status: 'bg-green-400 shadow-lg shadow-green-200', border: 'border-green-100', bg: 'bg-gradient-to-br from-green-50 to-white' };
                   }
                 };
 
                 if (wealthHasData) {
-                  statusColor = checkGoalStatus(wealthData.goalPossibility);
+                  const result = checkGoalStatus(wealthData.goalPossibility);
+                  statusColor = result.status;
+                  cardBorderColor = result.border;
+                  cardBgGradient = result.bg;
                 } else if (retirementHasData) {
-                  statusColor = checkGoalStatus(retirementData.goalPossibility);
+                  const result = checkGoalStatus(retirementData.goalPossibility);
+                  statusColor = result.status;
+                  cardBorderColor = result.border;
+                  cardBgGradient = result.bg;
                 } else if (houseHasData) {
-                  statusColor = checkGoalStatus(houseData.goalPossibility);
+                  const result = checkGoalStatus(houseData.goalPossibility);
+                  statusColor = result.status;
+                  cardBorderColor = result.border;
+                  cardBgGradient = result.bg;
                 } else if (carHasData) {
-                  statusColor = checkGoalStatus(carData.goalPossibility);
+                  const result = checkGoalStatus(carData.goalPossibility);
+                  statusColor = result.status;
+                  cardBorderColor = result.border;
+                  cardBgGradient = result.bg;
                 } else if (selfEducationHasData) {
-                  statusColor = checkGoalStatus(selfEducationData.goalPossibility);
+                  const result = checkGoalStatus(selfEducationData.goalPossibility);
+                  statusColor = result.status;
+                  cardBorderColor = result.border;
+                  cardBgGradient = result.bg;
                 } else if (childEducationHasData) {
-                  statusColor = checkGoalStatus(childEducationData.goalPossibility);
+                  const result = checkGoalStatus(childEducationData.goalPossibility);
+                  statusColor = result.status;
+                  cardBorderColor = result.border;
+                  cardBgGradient = result.bg;
                 } else if (childWeddingHasData) {
-                  statusColor = checkGoalStatus(childWeddingData.goalPossibility);
+                  const result = checkGoalStatus(childWeddingData.goalPossibility);
+                  statusColor = result.status;
+                  cardBorderColor = result.border;
+                  cardBgGradient = result.bg;
                 } else if (vacationHasData) {
-                  statusColor = checkGoalStatus(vacationData.goalPossibility);
+                  const result = checkGoalStatus(vacationData.goalPossibility);
+                  statusColor = result.status;
+                  cardBorderColor = result.border;
+                  cardBgGradient = result.bg;
                 }
 
                 return (
-                  <div key={goal.label} className="bg-white border-0 shadow-md rounded-lg relative">
+                  <div key={goal.label} className={`${cardBgGradient} border-2 ${cardBorderColor} shadow-xl rounded-2xl relative transform hover:scale-105 transition-all duration-300 hover:shadow-2xl`}>
                     {/* Status indicator dot */}
-                    <div className={`absolute top-4 right-4 w-4 h-4 rounded-full ${hasData ? statusColor : 'border border-gray-400'}`}></div>
+                    <div className={`absolute top-5 right-5 w-4 h-4 rounded-full ${hasData ? statusColor : 'border-2 border-gray-300 bg-white'}`}></div>
 
-                    <div className="p-6 flex flex-col gap-2 items-center">
-                      <span className="text-4xl text-purple-400 mb-2">{goal.icon}</span>
-                      <div className="font-bold text-lg text-black mb-1">{goal.label}</div>
-                      <div className="text-xs text-gray-500 mb-1">
-                        {hasData ? 'Created' : 'Not created yet'}
+                    <div className="p-6 flex flex-col gap-3 items-center">
+                      <div className="bg-gradient-to-br from-purple-500 to-orange-500 p-4 rounded-2xl shadow-lg">
+                        <span className="text-5xl">{goal.icon}</span>
                       </div>
-                      <div className="flex flex-col gap-1 w-full text-xs text-gray-700 mb-2">
+                      <div className="font-bold text-xl text-gray-800 mb-1 text-center">{goal.label}</div>
+                      <div className={`text-xs font-semibold px-3 py-1 rounded-full ${hasData ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
+                        {hasData ? '✓ Created' : '○ Not created yet'}
+                      </div>
+                      <div className="flex flex-col gap-2 w-full text-sm bg-white/50 rounded-xl p-4 border border-gray-100">
                         {isWealthCreation && (
                           <>
-                            <div className="flex justify-between">
-                              <span>Budget</span>
-                              <span>{wealthHasData ? `₹${(wealthData.goalAmount / 10000000).toFixed(2)} Cr` : '-'}</span>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">💰 Budget</span>
+                              <span className="font-bold text-purple-600">{wealthHasData ? `₹${(wealthData.goalAmount / 10000000).toFixed(2)} Cr` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Target Year</span>
-                              <span>{wealthHasData ? wealthData.targetYear : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">📅 Target Year</span>
+                              <span className="font-semibold text-gray-800">{wealthHasData ? wealthData.targetYear : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Required in</span>
-                              <span>{wealthHasData ? `${wealthYearsRequired} years` : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="font-semibold text-orange-600">{wealthHasData ? `${wealthYearsRequired} years` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Goal Possibility</span>
-                              <span className="font-semibold">
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🎯 Status</span>
+                              <span className="font-bold text-green-600">
                                 {wealthHasData ? wealthData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -481,21 +524,24 @@ const Recipe: NextPageWithLayout = () => {
                         )}
                         {isRetirement && (
                           <>
-                            <div className="flex justify-between">
-                              <span>Current Age</span>
-                              <span>{retirementHasData ? retirementData.currentAge : '-'}</span>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">👤 Current Age</span>
+                              <span className="font-semibold text-gray-800">{retirementHasData ? retirementData.currentAge : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Retirement Age</span>
-                              <span>{retirementHasData ? retirementData.retirementAge : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🎂 Retirement Age</span>
+                              <span className="font-semibold text-gray-800">{retirementHasData ? retirementData.retirementAge : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Years to Retire</span>
-                              <span>{retirementHasData ? `${retirementYearsRequired} years` : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">⏰ Years to Retire</span>
+                              <span className="font-semibold text-orange-600">{retirementHasData ? `${retirementYearsRequired} years` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Goal Possibility</span>
-                              <span className="font-semibold">
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🎯 Status</span>
+                              <span className="font-bold text-green-600">
                                 {retirementHasData ? retirementData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -503,21 +549,24 @@ const Recipe: NextPageWithLayout = () => {
                         )}
                         {isHouse && (
                           <>
-                            <div className="flex justify-between">
-                              <span>Property Value</span>
-                              <span>{houseHasData ? `₹${(houseData.propertyValue / 10000000).toFixed(2)} Cr` : '-'}</span>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🏠 Property Value</span>
+                              <span className="font-bold text-purple-600">{houseHasData ? `₹${(houseData.propertyValue / 10000000).toFixed(2)} Cr` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Target Age</span>
-                              <span>{houseHasData ? houseData.targetAge : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">📅 Target Age</span>
+                              <span className="font-semibold text-gray-800">{houseHasData ? houseData.targetAge : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Required in</span>
-                              <span>{houseHasData ? `${houseYearsRequired} years` : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="font-semibold text-orange-600">{houseHasData ? `${houseYearsRequired} years` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Goal Possibility</span>
-                              <span className="font-semibold">
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🎯 Status</span>
+                              <span className="font-bold text-green-600">
                                 {houseHasData ? houseData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -525,21 +574,24 @@ const Recipe: NextPageWithLayout = () => {
                         )}
                         {isCar && (
                           <>
-                            <div className="flex justify-between">
-                              <span>Car Value</span>
-                              <span>{carHasData ? `₹${(carData.carValue / 100000).toFixed(2)} L` : '-'}</span>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🚗 Car Value</span>
+                              <span className="font-bold text-purple-600">{carHasData ? `₹${(carData.carValue / 100000).toFixed(2)} L` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Target Age</span>
-                              <span>{carHasData ? carData.targetAge : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">📅 Target Age</span>
+                              <span className="font-semibold text-gray-800">{carHasData ? carData.targetAge : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Required in</span>
-                              <span>{carHasData ? `${carYearsRequired} year${carYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="font-semibold text-orange-600">{carHasData ? `${carYearsRequired} year${carYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Goal Possibility</span>
-                              <span className="font-semibold">
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🎯 Status</span>
+                              <span className="font-bold text-green-600">
                                 {carHasData ? carData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -547,21 +599,24 @@ const Recipe: NextPageWithLayout = () => {
                         )}
                         {isSelfEducation && (
                           <>
-                            <div className="flex justify-between">
-                              <span>Course Fee</span>
-                              <span>{selfEducationHasData ? `₹${(selfEducationData.courseFee / 100000).toFixed(2)} L` : '-'}</span>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">📚 Course Fee</span>
+                              <span className="font-bold text-purple-600">{selfEducationHasData ? `₹${(selfEducationData.courseFee / 100000).toFixed(2)} L` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Target Age</span>
-                              <span>{selfEducationHasData ? selfEducationData.targetAge : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">📅 Target Age</span>
+                              <span className="font-semibold text-gray-800">{selfEducationHasData ? selfEducationData.targetAge : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Required in</span>
-                              <span>{selfEducationHasData ? `${selfEducationYearsRequired} year${selfEducationYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="font-semibold text-orange-600">{selfEducationHasData ? `${selfEducationYearsRequired} year${selfEducationYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Goal Possibility</span>
-                              <span className="font-semibold">
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🎯 Status</span>
+                              <span className="font-bold text-green-600">
                                 {selfEducationHasData ? selfEducationData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -569,21 +624,24 @@ const Recipe: NextPageWithLayout = () => {
                         )}
                         {isChildEducation && (
                           <>
-                            <div className="flex justify-between">
-                              <span>Education Cost</span>
-                              <span>{childEducationHasData ? `₹${(childEducationData.educationCost / 10000000).toFixed(2)} Cr` : '-'}</span>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🎓 Education Cost</span>
+                              <span className="font-bold text-purple-600">{childEducationHasData ? `₹${(childEducationData.educationCost / 10000000).toFixed(2)} Cr` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Child's Age</span>
-                              <span>{childEducationHasData ? `${childEducationData.childCurrentAge} → ${childEducationData.targetAge}` : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">👶 Child's Age</span>
+                              <span className="font-semibold text-gray-800">{childEducationHasData ? `${childEducationData.childCurrentAge} → ${childEducationData.targetAge}` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Required in</span>
-                              <span>{childEducationHasData ? `${childEducationYearsRequired} year${childEducationYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="font-semibold text-orange-600">{childEducationHasData ? `${childEducationYearsRequired} year${childEducationYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Goal Possibility</span>
-                              <span className="font-semibold">
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🎯 Status</span>
+                              <span className="font-bold text-green-600">
                                 {childEducationHasData ? childEducationData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -591,21 +649,24 @@ const Recipe: NextPageWithLayout = () => {
                         )}
                         {isChildWedding && (
                           <>
-                            <div className="flex justify-between">
-                              <span>Wedding Budget</span>
-                              <span>{childWeddingHasData ? `₹${(childWeddingData.weddingBudget / 10000000).toFixed(2)} Cr` : '-'}</span>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">💒 Wedding Budget</span>
+                              <span className="font-bold text-purple-600">{childWeddingHasData ? `₹${(childWeddingData.weddingBudget / 10000000).toFixed(2)} Cr` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Child's Age</span>
-                              <span>{childWeddingHasData ? `${childWeddingData.childCurrentAge} → ${childWeddingData.targetAge}` : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">👶 Child's Age</span>
+                              <span className="font-semibold text-gray-800">{childWeddingHasData ? `${childWeddingData.childCurrentAge} → ${childWeddingData.targetAge}` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Required in</span>
-                              <span>{childWeddingHasData ? `${childWeddingYearsRequired} year${childWeddingYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="font-semibold text-orange-600">{childWeddingHasData ? `${childWeddingYearsRequired} year${childWeddingYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Goal Possibility</span>
-                              <span className="font-semibold">
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🎯 Status</span>
+                              <span className="font-bold text-green-600">
                                 {childWeddingHasData ? childWeddingData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -613,21 +674,24 @@ const Recipe: NextPageWithLayout = () => {
                         )}
                         {isVacation && (
                           <>
-                            <div className="flex justify-between">
-                              <span>Vacation Budget</span>
-                              <span>{vacationHasData ? `₹${(vacationData.vacationBudget / 100000).toFixed(2)} L` : '-'}</span>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🏖️ Vacation Budget</span>
+                              <span className="font-bold text-purple-600">{vacationHasData ? `₹${(vacationData.vacationBudget / 100000).toFixed(2)} L` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Target Age</span>
-                              <span>{vacationHasData ? vacationData.targetAge : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">📅 Target Age</span>
+                              <span className="font-semibold text-gray-800">{vacationHasData ? vacationData.targetAge : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Required in</span>
-                              <span>{vacationHasData ? `${vacationYearsRequired} year${vacationYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="font-semibold text-orange-600">{vacationHasData ? `${vacationYearsRequired} year${vacationYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span>Goal Possibility</span>
-                              <span className="font-semibold">
+                            <div className="h-px bg-gray-200"></div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-gray-600">🎯 Status</span>
+                              <span className="font-bold text-green-600">
                                 {vacationHasData ? vacationData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -657,62 +721,62 @@ const Recipe: NextPageWithLayout = () => {
                       {isWealthCreation ? (
                         <Link
                           href="/recipe/wealth-creation"
-                          className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full text-center hover:bg-gray-800 transition-colors"
+                          className="bg-gradient-to-r from-purple-600 to-orange-500 text-white font-bold py-3 px-6 rounded-xl mt-3 w-full text-center hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md"
                         >
-                          {wealthHasData ? 'View / Edit' : 'Create'}
+                          {wealthHasData ? '✏️ View / Edit' : '✨ Create Goal'}
                         </Link>
                       ) : isRetirement ? (
                         <Link
                           href="/recipe/retirement"
-                          className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full text-center hover:bg-gray-800 transition-colors"
+                          className="bg-gradient-to-r from-purple-600 to-orange-500 text-white font-bold py-3 px-6 rounded-xl mt-3 w-full text-center hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md"
                         >
-                          {retirementHasData ? 'View / Edit' : 'Create'}
+                          {retirementHasData ? '✏️ View / Edit' : '✨ Create Goal'}
                         </Link>
                       ) : isHouse ? (
                         <Link
                           href="/recipe/house"
-                          className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full text-center hover:bg-gray-800 transition-colors"
+                          className="bg-gradient-to-r from-purple-600 to-orange-500 text-white font-bold py-3 px-6 rounded-xl mt-3 w-full text-center hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md"
                         >
-                          {houseHasData ? 'View / Edit' : 'Create'}
+                          {houseHasData ? '✏️ View / Edit' : '✨ Create Goal'}
                         </Link>
                       ) : isCar ? (
                         <Link
                           href="/recipe/car"
-                          className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full text-center hover:bg-gray-800 transition-colors"
+                          className="bg-gradient-to-r from-purple-600 to-orange-500 text-white font-bold py-3 px-6 rounded-xl mt-3 w-full text-center hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md"
                         >
-                          {carHasData ? 'View / Edit' : 'Create'}
+                          {carHasData ? '✏️ View / Edit' : '✨ Create Goal'}
                         </Link>
                       ) : isSelfEducation ? (
                         <Link
                           href="/recipe/self-education"
-                          className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full text-center hover:bg-gray-800 transition-colors"
+                          className="bg-gradient-to-r from-purple-600 to-orange-500 text-white font-bold py-3 px-6 rounded-xl mt-3 w-full text-center hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md"
                         >
-                          {selfEducationHasData ? 'View / Edit' : 'Create'}
+                          {selfEducationHasData ? '✏️ View / Edit' : '✨ Create Goal'}
                         </Link>
                       ) : isChildEducation ? (
                         <Link
                           href="/recipe/child-education"
-                          className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full text-center hover:bg-gray-800 transition-colors"
+                          className="bg-gradient-to-r from-purple-600 to-orange-500 text-white font-bold py-3 px-6 rounded-xl mt-3 w-full text-center hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md"
                         >
-                          {childEducationHasData ? 'View / Edit' : 'Create'}
+                          {childEducationHasData ? '✏️ View / Edit' : '✨ Create Goal'}
                         </Link>
                       ) : isChildWedding ? (
                         <Link
                           href="/recipe/child-wedding"
-                          className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full text-center hover:bg-gray-800 transition-colors"
+                          className="bg-gradient-to-r from-purple-600 to-orange-500 text-white font-bold py-3 px-6 rounded-xl mt-3 w-full text-center hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md"
                         >
-                          {childWeddingHasData ? 'View / Edit' : 'Create'}
+                          {childWeddingHasData ? '✏️ View / Edit' : '✨ Create Goal'}
                         </Link>
                       ) : isVacation ? (
                         <Link
                           href="/recipe/vacation"
-                          className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full text-center hover:bg-gray-800 transition-colors"
+                          className="bg-gradient-to-r from-purple-600 to-orange-500 text-white font-bold py-3 px-6 rounded-xl mt-3 w-full text-center hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md"
                         >
-                          {vacationHasData ? 'View / Edit' : 'Create'}
+                          {vacationHasData ? '✏️ View / Edit' : '✨ Create Goal'}
                         </Link>
                       ) : (
-                        <button className="bg-black text-white font-semibold py-2 px-6 rounded mt-2 w-full hover:bg-gray-800 transition-colors">
-                          Create
+                        <button className="bg-gradient-to-r from-purple-600 to-orange-500 text-white font-bold py-3 px-6 rounded-xl mt-3 w-full hover:shadow-lg hover:scale-105 transition-all duration-300 shadow-md">
+                          ✨ Create Goal
                         </button>
                       )}
                     </div>
@@ -739,9 +803,18 @@ const Recipe: NextPageWithLayout = () => {
             </div>
             
             {/* Disclaimer */}
-            <div className="mt-8">
-              <div className="bg-gray-100 rounded-lg p-4 text-xs text-gray-500 text-center">
-                <b>Disclaimer</b>: Risks profiled on this domain does not constitute a component of the Investment Advice process. The securities quoted are for illustration only and are not recommendatory. Investment in securities market are subject to market risks. Read all the related documents carefully before investing. <a href="#" className="underline">Learn more</a>
+            <div className="mt-4">
+              <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-6 text-xs text-gray-300 shadow-xl border border-gray-700">
+                <div className="flex items-start gap-3">
+                  <div className="text-2xl">ℹ️</div>
+                  <div>
+                    <div className="font-bold text-white mb-2 text-sm">Important Disclaimer</div>
+                    <p className="leading-relaxed">
+                      Risks profiled on this domain does not constitute a component of the Investment Advice process. The securities quoted are for illustration only and are not recommendatory. Investment in securities market are subject to market risks. Read all the related documents carefully before investing.
+                      <a href="#" className="text-orange-400 hover:text-orange-300 underline ml-1 font-semibold">Learn more →</a>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

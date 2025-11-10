@@ -126,31 +126,48 @@ const Profile = () => {
       <div className="font-sans m-0 p-0 bg-white">
         <Header />
         
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-orange-50">
           <div className="w-full max-w-[1600px] mx-auto px-4 py-8">
             {/* Breadcrumb */}
             <nav className="mb-8">
-              <div className="flex items-center space-x-2 text-sm">
-                <Link href="/dashboard" className="text-gray-500 hover:text-[#FF6B2C]">
+              <div className="flex items-center space-x-2 text-sm bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg w-fit">
+                <Link href="/dashboard" className="text-gray-600 hover:text-purple-600 font-semibold transition-colors">
                   Dashboard
                 </Link>
-                <span className="text-gray-400">/</span>
-                <span className="text-[#FF6B2C] font-medium">Profile</span>
+                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <span className="text-purple-600 font-bold">Profile</span>
               </div>
             </nav>
 
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-200">
               {/* Profile Header */}
-              <div className="bg-gradient-to-r from-[#7e685e] to-[#724530] px-8 py-12">
-                <div className="flex items-center space-x-6">
-                  <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg">
-                    <svg className="w-12 h-12 text-[#FF6B2C]" fill="currentColor" viewBox="0 0 24 24">
+              <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 px-8 py-16 relative overflow-hidden">
+                {/* Background decorative elements */}
+                <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-10 rounded-full -mr-48 -mt-48"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-10 rounded-full -ml-32 -mb-32"></div>
+
+                <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+                  <div className="w-32 h-32 bg-white rounded-3xl flex items-center justify-center shadow-2xl transform hover:scale-110 transition-all duration-300 border-4 border-white/30">
+                    <svg className="w-16 h-16 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
                     </svg>
                   </div>
-                  <div className="text-white">
-                    <h1 className="text-3xl font-bold">{userName || 'User'}</h1>
-                    <p className="text-orange-100 mt-2">{userEmail}</p>
+                  <div className="text-white text-center md:text-left">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-3">{userName || 'User'}</h1>
+                    <div className="flex items-center justify-center md:justify-start gap-2 bg-white/20 backdrop-blur-sm rounded-full px-5 py-2 w-fit">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <p className="text-white font-semibold">{userEmail}</p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-center md:justify-start gap-2 text-white/90">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="text-sm font-semibold">Member Since August 2025</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -158,21 +175,38 @@ const Profile = () => {
               {/* Profile Content */}
               <div className="p-8">
                 {saveMessage && (
-                  <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                    <div className="text-green-600 font-medium">{saveMessage}</div>
+                  <div className="mb-6 p-5 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl shadow-lg animate-pulse">
+                    <div className="flex items-center gap-3">
+                      <div className="bg-green-500 rounded-full p-2">
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <div className="text-green-700 font-bold text-lg">{saveMessage}</div>
+                    </div>
                   </div>
                 )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Personal Information */}
-                  <div className="space-y-6">
-                    <h2 className="text-xl font-semibold text-gray-900 border-b border-gray-200 pb-2">
-                      Personal Information
-                    </h2>
+                  <div className="space-y-6 bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-2xl border-2 border-purple-200 shadow-xl">
+                    <div className="flex items-center gap-3 pb-4 border-b-2 border-purple-300">
+                      <div className="bg-gradient-to-br from-purple-500 to-blue-500 p-2 rounded-xl">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                      </div>
+                      <h2 className="text-2xl font-bold text-gray-900">
+                        Personal Information
+                      </h2>
+                    </div>
                     
-                    <div className="space-y-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <div className="space-y-5">
+                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-purple-200">
+                        <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+                          <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                          </svg>
                           Full Name
                         </label>
                         {isEditing ? (
@@ -180,16 +214,19 @@ const Profile = () => {
                             type="text"
                             value={editedName}
                             onChange={(e) => setEditedName(e.target.value)}
-                            className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF6B2C] focus:border-transparent"
+                            className="w-full border-2 border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent font-semibold transition-all"
                             placeholder="Enter your full name"
                           />
                         ) : (
-                          <p className="text-gray-900 py-2">{userName || 'Not provided'}</p>
+                          <p className="text-gray-900 py-3 font-bold text-lg">{userName || 'Not provided'}</p>
                         )}
                       </div>
-                      
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+
+                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-300">
+                        <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+                          <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
                           Email Address
                         </label>
                         <div className="relative">
@@ -197,90 +234,117 @@ const Profile = () => {
                             type="email"
                             value={userEmail}
                             disabled
-                            className="w-full border border-gray-200 rounded px-3 py-2 bg-gray-50 text-gray-600 cursor-not-allowed"
+                            className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 bg-gray-100 text-gray-600 cursor-not-allowed font-semibold"
                             placeholder="Enter your email"
                           />
-                          <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                          <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                           </div>
                         </div>
-                        <p className="text-xs text-gray-500 mt-1">Email cannot be changed for security reasons</p>
-                      </div>
-                      
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Member Since
-                        </label>
-                        <p className="text-gray-900 py-2">August 2025</p>
+                        <p className="text-xs text-gray-600 mt-2 font-semibold flex items-center gap-1">
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          Email cannot be changed for security reasons
+                        </p>
                       </div>
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex gap-4 pt-4">
+                    <div className="flex gap-4 pt-6">
                       {isEditing ? (
                         <>
                           <button
                             onClick={handleSave}
                             disabled={isSaving}
-                            className="bg-[#FF6B2C] hover:bg-[#e85d1f] text-white px-6 py-2 rounded font-medium transition disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="flex-1 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 py-3 rounded-xl font-bold transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
                           >
-                            {isSaving ? 'Saving...' : 'Save Changes'}
+                            {isSaving ? '💾 Saving...' : '✓ Save Changes'}
                           </button>
                           <button
                             onClick={handleCancel}
                             disabled={isSaving}
-                            className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded font-medium transition disabled:opacity-50"
+                            className="flex-1 bg-gradient-to-r from-gray-500 to-gray-600 hover:from-gray-600 hover:to-gray-700 text-white px-6 py-3 rounded-xl font-bold transition-all transform hover:scale-105 disabled:opacity-50 shadow-lg"
                           >
-                            Cancel
+                            ✕ Cancel
                           </button>
                         </>
                       ) : (
                         <button
                           onClick={handleEdit}
-                          className="bg-[#FF6B2C] hover:bg-[#e85d1f] text-white px-6 py-2 rounded font-medium transition"
+                          className="w-full bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white px-6 py-3 rounded-xl font-bold transition-all transform hover:scale-105 shadow-xl"
                         >
-                          Edit Profile
+                          ✏️ Edit Profile
                         </button>
                       )}
                     </div>
                   </div>
 
                   {/* Account Settings */}
-                  <div className="space-y-6">
-                    <h2 className="text-xl font-semibold text-gray-900 border-b border-gray-200 pb-2">
-                      Account Settings
-                    </h2>
-                    
+                  <div className="space-y-6 bg-gradient-to-br from-orange-50 to-pink-50 p-6 rounded-2xl border-2 border-orange-200 shadow-xl">
+                    <div className="flex items-center gap-3 pb-4 border-b-2 border-orange-300">
+                      <div className="bg-gradient-to-br from-orange-500 to-pink-500 p-2 rounded-xl">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                      </div>
+                      <h2 className="text-2xl font-bold text-gray-900">
+                        Account Settings
+                      </h2>
+                    </div>
+
                     <div className="space-y-4">
-                      <div className="border border-gray-200 rounded-lg p-4">
-                        <h3 className="font-medium text-gray-900 mb-2">Security</h3>
-                        <p className="text-sm text-gray-600 mb-3">
+                      <div className="bg-white/80 backdrop-blur-sm border-2 border-red-200 rounded-xl p-5 transform hover:scale-105 transition-all shadow-lg">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="bg-red-500 p-2 rounded-xl">
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                          </div>
+                          <h3 className="font-bold text-gray-900 text-lg">🔒 Security</h3>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-3 font-semibold">
                           Manage your account security settings
                         </p>
-                        <button className="text-[#FF6B2C] hover:text-[#e85d1f] text-sm font-medium">
-                          Change Password
+                        <button className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-2 rounded-xl text-sm font-bold hover:from-red-600 hover:to-pink-600 transition-all transform hover:scale-105 shadow-md">
+                          Change Password →
                         </button>
                       </div>
-                      
-                      <div className="border border-gray-200 rounded-lg p-4">
-                        <h3 className="font-medium text-gray-900 mb-2">Preferences</h3>
-                        <p className="text-sm text-gray-600 mb-3">
+
+                      <div className="bg-white/80 backdrop-blur-sm border-2 border-blue-200 rounded-xl p-5 transform hover:scale-105 transition-all shadow-lg">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="bg-blue-500 p-2 rounded-xl">
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                            </svg>
+                          </div>
+                          <h3 className="font-bold text-gray-900 text-lg">🔔 Preferences</h3>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-3 font-semibold">
                           Customize your IncomeGrow experience
                         </p>
-                        <button className="text-[#FF6B2C] hover:text-[#e85d1f] text-sm font-medium">
-                          Notification Settings
+                        <button className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-xl text-sm font-bold hover:from-blue-600 hover:to-cyan-600 transition-all transform hover:scale-105 shadow-md">
+                          Notification Settings →
                         </button>
                       </div>
-                      
-                      <div className="border border-gray-200 rounded-lg p-4">
-                        <h3 className="font-medium text-gray-900 mb-2">Data & Privacy</h3>
-                        <p className="text-sm text-gray-600 mb-3">
+
+                      <div className="bg-white/80 backdrop-blur-sm border-2 border-green-200 rounded-xl p-5 transform hover:scale-105 transition-all shadow-lg">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="bg-green-500 p-2 rounded-xl">
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                          </div>
+                          <h3 className="font-bold text-gray-900 text-lg">🔐 Data & Privacy</h3>
+                        </div>
+                        <p className="text-sm text-gray-600 mb-3 font-semibold">
                           Control your data and privacy settings
                         </p>
-                        <button className="text-[#FF6B2C] hover:text-[#e85d1f] text-sm font-medium">
-                          Privacy Settings
+                        <button className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-xl text-sm font-bold hover:from-green-600 hover:to-emerald-600 transition-all transform hover:scale-105 shadow-md">
+                          Privacy Settings →
                         </button>
                       </div>
                     </div>
@@ -288,47 +352,54 @@ const Profile = () => {
                 </div>
 
                 {/* Quick Stats */}
-                <div className="mt-8 pt-8 border-t border-gray-200">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6">Account Overview</h2>
+                <div className="mt-8 pt-8 border-t-2 border-purple-200">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="bg-gradient-to-br from-purple-600 to-blue-600 p-3 rounded-xl">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <h2 className="text-3xl font-bold text-gray-900">Account Overview</h2>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-orange-50 rounded-lg p-6">
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 bg-[#FF6B2C] rounded-lg flex items-center justify-center">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    <div className="bg-gradient-to-br from-orange-50 to-pink-50 rounded-2xl p-6 border-2 border-orange-200 shadow-xl transform hover:scale-105 transition-all">
+                      <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                           </svg>
                         </div>
-                        <div className="ml-4">
-                          <p className="text-sm font-medium text-gray-600">Active Plans</p>
-                          <p className="text-2xl font-bold text-gray-900">3</p>
+                        <div>
+                          <p className="text-sm font-bold text-gray-600 mb-1">Active Plans</p>
+                          <p className="text-4xl font-bold text-gray-900">3</p>
                         </div>
                       </div>
                     </div>
-                    
-                    <div className="bg-blue-50 rounded-lg p-6">
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+
+                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border-2 border-blue-200 shadow-xl transform hover:scale-105 transition-all">
+                      <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg">
+                          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                           </svg>
                         </div>
-                        <div className="ml-4">
-                          <p className="text-sm font-medium text-gray-600">Total Savings</p>
-                          <p className="text-2xl font-bold text-gray-900">₹2,45,000</p>
+                        <div>
+                          <p className="text-sm font-bold text-gray-600 mb-1">Total Savings</p>
+                          <p className="text-4xl font-bold text-gray-900">₹2.45L</p>
                         </div>
                       </div>
                     </div>
-                    
-                    <div className="bg-green-50 rounded-lg p-6">
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+
+                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-2 border-green-200 shadow-xl transform hover:scale-105 transition-all">
+                      <div className="flex items-center gap-4">
+                        <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg">
+                          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                           </svg>
                         </div>
-                        <div className="ml-4">
-                          <p className="text-sm font-medium text-gray-600">Goals Achieved</p>
-                          <p className="text-2xl font-bold text-gray-900">7</p>
+                        <div>
+                          <p className="text-sm font-bold text-gray-600 mb-1">Goals Achieved</p>
+                          <p className="text-4xl font-bold text-gray-900">7</p>
                         </div>
                       </div>
                     </div>
