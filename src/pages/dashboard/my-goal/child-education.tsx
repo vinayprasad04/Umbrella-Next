@@ -319,8 +319,11 @@ const ChildEducation: NextPageWithLayout = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-xl">Loading...</div>
+      <div className="flex-1 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-orange-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+          <p className="text-gray-600 font-medium">Loading...</p>
+        </div>
       </div>
     );
   }
@@ -335,33 +338,37 @@ const ChildEducation: NextPageWithLayout = () => {
       </Head>
 
       {/* Content Area - Only this part will reload */}
-      {/* Main Content Area with 50/50 Split */}
-      <div className="flex-1 flex overflow-hidden">
-            {/* Left Side - Form (50%) */}
-            <div className="w-1/2 bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
+      {/* Main Content Area with Responsive Split */}
+      <div className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
+            {/* Left Side - Form */}
+            <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 border-r-0 lg:border-r border-gray-200 lg:overflow-y-auto flex flex-col">
               {/* Breadcrumb & Header Section */}
-              <div className="bg-white border-b border-gray-200 py-6 px-6">
+              <div className="bg-gradient-to-r from-purple-600 to-orange-500 py-6 md:py-8 px-4 md:px-6 relative overflow-hidden">
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
+
                 {/* Breadcrumb */}
-                <div className="text-xs text-gray-400 mb-4 flex items-center gap-1">
-                  <Link href="/dashboard" className="hover:text-gray-600 transition-colors">Dashboard</Link>
+                <div className="text-xs text-white/80 mb-4 flex items-center gap-1 relative z-10">
+                  <Link href="/dashboard" className="hover:text-white transition-colors">Dashboard</Link>
                   <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                  <Link href="/dashboard/my-goal" className="hover:text-gray-600 transition-colors">My Goal</Link>
+                  <Link href="/dashboard/my-goal" className="hover:text-white transition-colors">My Goal</Link>
                   <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                  <span className="text-[#FF6B2C] font-semibold">Child Education</span>
+                  <span className="text-white font-semibold">Child Education</span>
                 </div>
 
               {/* Title */}
-              <div className="flex items-center gap-4">
-                <div className="p-3 bg-purple-100 rounded-lg text-2xl">
-                  🎓
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                  <span className="text-3xl text-white">🎓</span>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-black mb-1">Child&apos;s Education Planning</div>
-                  <div className="text-sm text-gray-500">Secure your child&apos;s educational future with smart planning</div>
+                  <div className="text-3xl font-bold text-white mb-1">Child&apos;s Education Planning</div>
+                  <div className="text-sm text-white/90">Secure your child&apos;s educational future with smart planning</div>
                 </div>
               </div>
             </div>
@@ -370,7 +377,7 @@ const ChildEducation: NextPageWithLayout = () => {
             <div className="p-6">
               <div className="space-y-6">
               {/* Basic Information Card */}
-              <div className="bg-white rounded-xl border border-purple-100 p-4 flex flex-col gap-2 shadow-sm">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -434,7 +441,7 @@ const ChildEducation: NextPageWithLayout = () => {
               </div>
 
               {/* Education Costs Card */}
-              <div className="bg-white rounded-xl border border-purple-100 p-4 flex flex-col gap-2 shadow-sm">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -523,7 +530,7 @@ const ChildEducation: NextPageWithLayout = () => {
               </div>
 
               {/* Financial Details Card */}
-              <div className="bg-white rounded-xl border border-purple-100 p-4 flex flex-col gap-2 shadow-sm">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -567,7 +574,7 @@ const ChildEducation: NextPageWithLayout = () => {
               </div>
 
               {/* Education Loan Option Card */}
-              <div className="bg-white rounded-xl border border-purple-100 p-4 flex flex-col gap-2 shadow-sm">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -638,7 +645,7 @@ const ChildEducation: NextPageWithLayout = () => {
               </div>
 
               {/* Investment Parameters Card */}
-              <div className="bg-white rounded-xl border border-purple-100 p-4 flex flex-col gap-2 shadow-sm">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -689,7 +696,7 @@ const ChildEducation: NextPageWithLayout = () => {
               <div className="flex justify-end gap-4 mt-6 mb-8">
                 <button
                   onClick={calculateEducationPlan}
-                  className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 px-8 rounded-full text-base shadow transition-colors"
+                  className="bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                 >
                   Calculate Plan
                 </button>
@@ -705,9 +712,9 @@ const ChildEducation: NextPageWithLayout = () => {
           </div>
             </div>
 
-            {/* Right Side - Results (50%) */}
-            <div className="w-1/2 bg-white overflow-y-auto">
-            <div className="p-6">
+            {/* Right Side - Results */}
+            <div className="w-full lg:w-1/2 bg-white lg:overflow-y-auto">
+            <div className="p-4 md:p-6">
               {results ? (
                 <div className="max-w-3xl mx-auto space-y-6">
                   {/* Goal Achievability Card */}

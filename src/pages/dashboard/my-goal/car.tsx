@@ -416,28 +416,32 @@ const CarPage: NextPageWithLayout = () => {
       </Head>
 
       {/* Content Area - Only this part will reload */}
-      <div className="flex-1 flex overflow-hidden">
-          <div className="w-1/2 bg-white border-r border-gray-200 overflow-y-auto flex flex-col">
-            <div className="bg-white border-b border-gray-200 py-6 px-6">
-              <div className="text-xs text-gray-400 mb-4 flex items-center gap-1">
-                <Link href="/dashboard" className="hover:text-gray-600 transition-colors">Dashboard</Link>
+      <div className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
+          <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 border-r-0 lg:border-r border-gray-200 lg:overflow-y-auto flex flex-col">
+            <div className="bg-gradient-to-r from-purple-600 to-orange-500 py-6 md:py-8 px-4 md:px-6 relative overflow-hidden">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
+
+              <div className="text-xs text-white/80 mb-4 flex items-center gap-1 relative z-10">
+                <Link href="/dashboard" className="hover:text-white transition-colors">Dashboard</Link>
                 <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-                <Link href="/dashboard/my-goal" className="hover:text-gray-600 transition-colors">My Goal</Link>
+                <Link href="/dashboard/my-goal" className="hover:text-white transition-colors">My Goal</Link>
                 <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-                <span className="text-[#FF6B2C] font-semibold">Dream Car</span>
+                <span className="text-white font-semibold">Dream Car</span>
               </div>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-2xl">
-                  🚗
+              <div className="flex items-center gap-4 relative z-10">
+                <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                  <span className="text-3xl text-white">🚗</span>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-black mb-1">Dream Car Planning</div>
-                  <div className="text-sm text-gray-500">Plan your dream car purchase with comprehensive financial planning.</div>
+                  <div className="text-3xl font-bold text-white mb-1">Dream Car Planning</div>
+                  <div className="text-sm text-white/90">Plan your dream car purchase with comprehensive financial planning.</div>
                 </div>
               </div>
             </div>
@@ -455,7 +459,7 @@ const CarPage: NextPageWithLayout = () => {
               )}
 
               {/* Basic Information */}
-              <div className="bg-white rounded-xl border mb-4 p-4 flex flex-col gap-2 shadow-sm">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -503,7 +507,7 @@ const CarPage: NextPageWithLayout = () => {
               </div>
 
               {/* Car Details */}
-              <div className="bg-white rounded-xl border mb-4 p-4 flex flex-col gap-2 shadow-sm">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -582,7 +586,7 @@ const CarPage: NextPageWithLayout = () => {
               </div>
 
               {/* Additional Costs */}
-              <div className="bg-white rounded-xl border mb-4 p-4 flex flex-col gap-2 shadow-sm">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -628,7 +632,7 @@ const CarPage: NextPageWithLayout = () => {
               </div>
 
               {/* Savings & Investment */}
-              <div className="bg-white rounded-xl border mb-4 p-4 flex flex-col gap-2 shadow-sm">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -666,7 +670,7 @@ const CarPage: NextPageWithLayout = () => {
 
               {/* Car Loan Details */}
               {formData.wantLoan && (
-                <div className="bg-white rounded-xl border mb-4 p-4 flex flex-col gap-2 shadow-sm">
+                <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                     <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -705,7 +709,7 @@ const CarPage: NextPageWithLayout = () => {
               <div className="flex gap-3 mt-6">
                 <button
                   onClick={calculateCarPlan}
-                  className="flex-1 bg-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition-colors shadow-md"
+                  className="flex-1 bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white font-bold py-3 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                 >
                   Calculate Car Plan
                 </button>
@@ -727,7 +731,7 @@ const CarPage: NextPageWithLayout = () => {
           </div>
 
           {/* Right Side - Results */}
-          <div className="w-1/2 bg-gray-50 overflow-y-auto p-6">
+          <div className="w-full lg:w-1/2 bg-gray-50 lg:overflow-y-auto p-4 md:p-6">
             {showResults && results ? (
               <div className="space-y-4">
                 <div className="bg-white rounded-xl border p-6 shadow-sm">

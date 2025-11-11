@@ -95,10 +95,10 @@ const Dashboard: NextPageWithLayout = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#fafbfc]">
+      <div className="flex-1 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-orange-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FF6B2C] mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
+          <p className="text-gray-600 font-medium">Loading...</p>
         </div>
       </div>
     );
@@ -135,9 +135,15 @@ const Dashboard: NextPageWithLayout = () => {
     chart: {
       type: 'pie',
       backgroundColor: 'transparent',
+      height: 400,
+      options3d: {
+        enabled: true,
+        alpha: 45,
+        beta: 0
+      }
     },
     title: {
-      text: 'Monthly Cash Flow',
+      text: '',
       style: { fontSize: '18px', fontWeight: 'bold' }
     },
     plotOptions: {
@@ -147,12 +153,14 @@ const Dashboard: NextPageWithLayout = () => {
         startAngle: -90,
         endAngle: 90,
         center: ['50%', '75%'],
+        size: '110%',
         dataLabels: {
-          enabled: true,
+          enabled: false,
           format: '<b>{point.name}</b>: ₹{point.y:,.0f}',
           distance: -50,
           style: {
             fontWeight: 'bold',
+            fontSize: '14px',
             color: 'white',
             textOutline: 'none'
           }
@@ -180,19 +188,23 @@ const Dashboard: NextPageWithLayout = () => {
     chart: {
       type: 'pie',
       backgroundColor: 'transparent',
+      height: 400,
     },
     title: {
-      text: 'Goal Progress',
+      text: '',
       style: { fontSize: '18px', fontWeight: 'bold' }
     },
     plotOptions: {
       pie: {
-        innerSize: '60%',
+        innerSize: '50%',
+        size: '100%',
+        borderWidth: 0,
         dataLabels: {
           enabled: true,
           format: '<b>{point.name}</b><br>{point.percentage:.1f}%',
           style: {
-            fontSize: '12px'
+            fontSize: '12px',
+            fontWeight: 'bold'
           }
         }
       }
@@ -200,8 +212,8 @@ const Dashboard: NextPageWithLayout = () => {
     series: [{
       name: 'Amount',
       data: [
-        { name: 'Current Assets', y: totalAssets, color: '#3b82f6' },
-        { name: 'Goal Amount', y: Math.max(0, data.goalAmount - totalAssets), color: '#e5e7eb' }
+        { name: 'Current Assets', y: totalAssets, color: '#3b82f6', borderWidth: 0 },
+        { name: 'Goal Amount', y: Math.max(0, data.goalAmount - totalAssets), color: '#e5e7eb', borderWidth: 0 }
       ]
     }],
     credits: { enabled: false }
@@ -212,6 +224,7 @@ const Dashboard: NextPageWithLayout = () => {
     chart: {
       type: 'pie',
       backgroundColor: 'transparent',
+      height: 400,
       options3d: {
         enabled: true,
         alpha: 45,
@@ -219,15 +232,16 @@ const Dashboard: NextPageWithLayout = () => {
       }
     },
     title: {
-      text: 'Asset Allocation (3D)',
+      text: '',
       style: { fontSize: '18px', fontWeight: 'bold' }
     },
     plotOptions: {
       pie: {
         innerSize: 100,
         depth: 45,
+        size: '100%',
         dataLabels: {
-          enabled: true,
+          enabled: typeof window !== 'undefined' && window.innerWidth >= 1024,
           format: '{point.name}: ₹{point.y:,.0f}',
           style: {
             fontSize: '11px'
@@ -257,7 +271,7 @@ const Dashboard: NextPageWithLayout = () => {
       backgroundColor: 'transparent',
     },
     title: {
-      text: 'Monthly Investments',
+      text: '',
       style: { fontSize: '18px', fontWeight: 'bold' }
     },
     xAxis: {
@@ -315,9 +329,9 @@ const Dashboard: NextPageWithLayout = () => {
       </Head>
 
       {/* Content Area - Only this part will reload */}
-      <div className="flex-1 px-8 py-8 overflow-y-auto bg-gradient-to-br from-purple-50 via-white to-orange-50">
+      <div className="flex-1 px-4 md:px-6 lg:px-8 py-4 md:py-6 lg:py-8 bg-gradient-to-br from-purple-50 via-white to-orange-50">
         {/* Hero Header Section */}
-        <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 rounded-3xl shadow-2xl p-8 mb-8 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-6 lg:p-8 mb-4 md:mb-6 lg:mb-8 text-white relative overflow-hidden">
           {/* Background decorative elements */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-10 rounded-full -mr-48 -mt-48"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-10 rounded-full -ml-32 -mb-32"></div>
@@ -329,11 +343,11 @@ const Dashboard: NextPageWithLayout = () => {
                 <span className="font-semibold">Dashboard</span>
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-3">Financial Dashboard</h1>
-            <p className="text-lg text-white/90 mb-6">Track your financial health with real-time insights and interactive visualizations</p>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-3">Financial Dashboard</h1>
+            <p className="text-sm md:text-base lg:text-lg text-white/90 mb-4 md:mb-6">Track your financial health with real-time insights and interactive visualizations</p>
 
             {/* Quick Stats in Header */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white/20 backdrop-blur-sm rounded-2xl p-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 bg-white/20 backdrop-blur-sm rounded-xl md:rounded-2xl p-3 md:p-4">
               <div className="text-center">
                 <div className="text-xs text-white/80 mb-1">Income</div>
                 <div className="text-lg font-bold">₹{(data.monthlyIncome / 1000).toFixed(0)}K</div>
@@ -355,8 +369,8 @@ const Dashboard: NextPageWithLayout = () => {
         </div>
 
         {/* Key Metrics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl shadow-xl p-6 border-2 border-blue-100 transform hover:scale-105 transition-all duration-300">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-4 md:mb-6 lg:mb-8">
+          <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl md:rounded-2xl shadow-xl p-4 md:p-6 border-2 border-blue-100 transform hover:scale-105 transition-all duration-300">
             <div className="flex items-center justify-between mb-3">
               <div className="text-sm font-semibold text-gray-600">Monthly Income</div>
               <div className="bg-blue-500 p-2 rounded-xl">
@@ -372,7 +386,7 @@ const Dashboard: NextPageWithLayout = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl shadow-xl p-6 border-2 border-green-100 transform hover:scale-105 transition-all duration-300">
+          <div className="bg-gradient-to-br from-green-50 to-white rounded-xl md:rounded-2xl shadow-xl p-4 md:p-6 border-2 border-green-100 transform hover:scale-105 transition-all duration-300">
             <div className="flex items-center justify-between mb-3">
               <div className="text-sm font-semibold text-gray-600">Monthly Savings</div>
               <div className="bg-green-500 p-2 rounded-xl">
@@ -388,7 +402,7 @@ const Dashboard: NextPageWithLayout = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-white rounded-2xl shadow-xl p-6 border-2 border-purple-100 transform hover:scale-105 transition-all duration-300">
+          <div className="bg-gradient-to-br from-purple-50 to-white rounded-xl md:rounded-2xl shadow-xl p-4 md:p-6 border-2 border-purple-100 transform hover:scale-105 transition-all duration-300">
             <div className="flex items-center justify-between mb-3">
               <div className="text-sm font-semibold text-gray-600">Total Assets</div>
               <div className="bg-purple-500 p-2 rounded-xl">
@@ -404,7 +418,7 @@ const Dashboard: NextPageWithLayout = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl shadow-xl p-6 border-2 border-orange-100 transform hover:scale-105 transition-all duration-300">
+          <div className="bg-gradient-to-br from-orange-50 to-white rounded-xl md:rounded-2xl shadow-xl p-4 md:p-6 border-2 border-orange-100 transform hover:scale-105 transition-all duration-300">
             <div className="flex items-center justify-between mb-3">
               <div className="text-sm font-semibold text-gray-600">Monthly Investments</div>
               <div className="bg-orange-500 p-2 rounded-xl">
@@ -422,141 +436,213 @@ const Dashboard: NextPageWithLayout = () => {
         </div>
 
         {/* Charts Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
           {/* Income Flow Chart */}
-          <div className="bg-white rounded-2xl shadow-2xl p-6 border-2 border-gray-100 transform hover:shadow-3xl transition-all duration-300">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-gradient-to-br from-green-500 to-blue-500 p-2 rounded-xl">
-                <span className="text-2xl">💸</span>
+          <div className="bg-gradient-to-br from-green-50 via-white to-blue-50 rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-6 border-2 border-green-200 transform hover:shadow-3xl transition-all duration-300 relative overflow-hidden">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-200 to-blue-200 opacity-20 rounded-full -mr-16 -mt-16"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-blue-200 to-green-200 opacity-20 rounded-full -ml-12 -mb-12"></div>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-gradient-to-br from-green-500 to-blue-500 p-3 rounded-xl shadow-lg">
+                  <span className="text-2xl">💸</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600 text-xl">Monthly Cash Flow</h3>
+                  <p className="text-xs text-gray-600 font-medium">Income distribution breakdown</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-bold text-gray-800 text-lg">Monthly Cash Flow</h3>
-                <p className="text-xs text-gray-500">Income distribution breakdown</p>
+              {Highcharts && HighchartsReact && (
+                <HighchartsReact
+                  highcharts={Highcharts}
+                  options={incomeChartOptions}
+                />
+              )}
+              {!Highcharts && <div className="text-center py-8 text-gray-500">Loading chart...</div>}
+
+              {/* Summary Stats Below Chart */}
+              <div className="mt-4 grid grid-cols-3 gap-2 md:gap-3 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-3 md:p-4 border border-green-200">
+                <div className="text-center">
+                  <div className="text-xs text-gray-600 mb-1 font-medium">Savings</div>
+                  <div className="text-sm font-bold text-green-600">₹{(data.monthlySavings / 1000).toFixed(0)}K</div>
+                </div>
+                <div className="text-center border-l border-r border-gray-300">
+                  <div className="text-xs text-gray-600 mb-1 font-medium">EMIs</div>
+                  <div className="text-sm font-bold text-red-600">₹{(data.emis / 1000).toFixed(0)}K</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-xs text-gray-600 mb-1 font-medium">Expenses</div>
+                  <div className="text-sm font-bold text-orange-600">₹{(monthlyExpenditure / 1000).toFixed(0)}K</div>
+                </div>
               </div>
             </div>
-            {Highcharts && HighchartsReact && (
-              <HighchartsReact
-                highcharts={Highcharts}
-                options={incomeChartOptions}
-              />
-            )}
-            {!Highcharts && <div className="text-center py-8 text-gray-500">Loading chart...</div>}
           </div>
 
           {/* Goal Planning Chart */}
-          <div className="bg-white rounded-2xl shadow-2xl p-6 border-2 border-gray-100 transform hover:shadow-3xl transition-all duration-300">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-gradient-to-br from-blue-500 to-purple-500 p-2 rounded-xl">
-                <span className="text-2xl">🎯</span>
+          <div className="bg-gradient-to-br from-blue-50 via-white to-purple-50 rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-6 border-2 border-blue-200 transform hover:shadow-3xl transition-all duration-300 relative overflow-hidden">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-200 to-purple-200 opacity-20 rounded-full -mr-16 -mt-16"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-purple-200 to-blue-200 opacity-20 rounded-full -ml-12 -mb-12"></div>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-gradient-to-br from-blue-500 to-purple-500 p-3 rounded-xl shadow-lg">
+                  <span className="text-2xl">🎯</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 text-xl">Goal Progress</h3>
+                  <p className="text-xs text-gray-600 font-medium">Track your financial goals</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-bold text-gray-800 text-lg">Goal Progress</h3>
-                <p className="text-xs text-gray-500">Track your financial goals</p>
-              </div>
-            </div>
-            {Highcharts && HighchartsReact && (
-              <HighchartsReact
-                highcharts={Highcharts}
-                options={goalChartOptions}
-              />
-            )}
-            {!Highcharts && <div className="text-center py-8 text-gray-500">Loading chart...</div>}
-            <div className="mt-4 grid grid-cols-3 gap-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-3">
-              <div className="text-center">
-                <div className="text-xs text-gray-600 mb-1">Goal Amount</div>
-                <div className="text-sm font-bold text-purple-600">₹{(data.goalAmount / 10000000).toFixed(2)} Cr</div>
-              </div>
-              <div className="text-center border-l border-r border-gray-300">
-                <div className="text-xs text-gray-600 mb-1">Target Year</div>
-                <div className="text-sm font-bold text-blue-600">{data.targetYear}</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xs text-gray-600 mb-1">Time Left</div>
-                <div className="text-sm font-bold text-orange-600">{yearsToGoal} years</div>
+              {Highcharts && HighchartsReact && (
+                <HighchartsReact
+                  highcharts={Highcharts}
+                  options={goalChartOptions}
+                />
+              )}
+              {!Highcharts && <div className="text-center py-8 text-gray-500">Loading chart...</div>}
+              <div className="mt-4 grid grid-cols-3 gap-2 md:gap-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-3 md:p-4 border border-blue-200">
+                <div className="text-center">
+                  <div className="text-xs text-gray-600 mb-1 font-medium">Goal Amount</div>
+                  <div className="text-sm font-bold text-purple-600">₹{(data.goalAmount / 10000000).toFixed(2)} Cr</div>
+                </div>
+                <div className="text-center border-l border-r border-gray-300">
+                  <div className="text-xs text-gray-600 mb-1 font-medium">Target Year</div>
+                  <div className="text-sm font-bold text-blue-600">{data.targetYear}</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-xs text-gray-600 mb-1 font-medium">Time Left</div>
+                  <div className="text-sm font-bold text-orange-600">{yearsToGoal} years</div>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Assets 3D Chart */}
-          <div className="bg-white rounded-2xl shadow-2xl p-6 border-2 border-gray-100 transform hover:shadow-3xl transition-all duration-300">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-gradient-to-br from-purple-500 to-pink-500 p-2 rounded-xl">
-                <span className="text-2xl">💎</span>
+          <div className="bg-gradient-to-br from-purple-50 via-white to-pink-50 rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-6 border-2 border-purple-200 transform hover:shadow-3xl transition-all duration-300 relative overflow-hidden">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-200 to-pink-200 opacity-20 rounded-full -mr-16 -mt-16"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-pink-200 to-purple-200 opacity-20 rounded-full -ml-12 -mb-12"></div>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-gradient-to-br from-purple-500 to-pink-500 p-3 rounded-xl shadow-lg">
+                  <span className="text-2xl">💎</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 text-xl">Asset Allocation (3D)</h3>
+                  <p className="text-xs text-gray-600 font-medium">Portfolio distribution view</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-bold text-gray-800 text-lg">Asset Allocation (3D)</h3>
-                <p className="text-xs text-gray-500">Portfolio distribution view</p>
+              {Highcharts && HighchartsReact && (
+                <HighchartsReact
+                  highcharts={Highcharts}
+                  options={assetsChartOptions}
+                />
+              )}
+              {!Highcharts && <div className="text-center py-8 text-gray-500">Loading chart...</div>}
+
+              {/* Asset Legend for Mobile */}
+              <div className="mt-4 grid grid-cols-2 gap-2 lg:hidden">
+                <div className="flex items-center gap-2 text-xs">
+                  <div className="w-3 h-3 rounded-full" style={{backgroundColor: '#8b5cf6'}}></div>
+                  <span className="text-gray-700 font-medium">Real Estate</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs">
+                  <div className="w-3 h-3 rounded-full" style={{backgroundColor: '#3b82f6'}}></div>
+                  <span className="text-gray-700 font-medium">Stocks</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs">
+                  <div className="w-3 h-3 rounded-full" style={{backgroundColor: '#10b981'}}></div>
+                  <span className="text-gray-700 font-medium">Fixed Deposits</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs">
+                  <div className="w-3 h-3 rounded-full" style={{backgroundColor: '#f59e0b'}}></div>
+                  <span className="text-gray-700 font-medium">Equity MF</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs">
+                  <div className="w-3 h-3 rounded-full" style={{backgroundColor: '#ef4444'}}></div>
+                  <span className="text-gray-700 font-medium">Debt/Bonds</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs">
+                  <div className="w-3 h-3 rounded-full" style={{backgroundColor: '#eab308'}}></div>
+                  <span className="text-gray-700 font-medium">Gold</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs">
+                  <div className="w-3 h-3 rounded-full" style={{backgroundColor: '#06b6d4'}}></div>
+                  <span className="text-gray-700 font-medium">Cash/Bank</span>
+                </div>
               </div>
             </div>
-            {Highcharts && HighchartsReact && (
-              <HighchartsReact
-                highcharts={Highcharts}
-                options={assetsChartOptions}
-              />
-            )}
-            {!Highcharts && <div className="text-center py-8 text-gray-500">Loading chart...</div>}
           </div>
 
           {/* Monthly Investments Chart */}
-          <div className="bg-white rounded-2xl shadow-2xl p-6 border-2 border-gray-100 transform hover:shadow-3xl transition-all duration-300">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-gradient-to-br from-orange-500 to-red-500 p-2 rounded-xl">
-                <span className="text-2xl">📊</span>
+          <div className="bg-gradient-to-br from-orange-50 via-white to-red-50 rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-6 border-2 border-orange-200 transform hover:shadow-3xl transition-all duration-300 relative overflow-hidden">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-200 to-red-200 opacity-20 rounded-full -mr-16 -mt-16"></div>
+            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-red-200 to-orange-200 opacity-20 rounded-full -ml-12 -mb-12"></div>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-gradient-to-br from-orange-500 to-red-500 p-3 rounded-xl shadow-lg">
+                  <span className="text-2xl">📊</span>
+                </div>
+                <div>
+                  <h3 className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-red-600 text-xl">Monthly Investments</h3>
+                  <p className="text-xs text-gray-600 font-medium">Investment breakdown analysis</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-bold text-gray-800 text-lg">Monthly Investments</h3>
-                <p className="text-xs text-gray-500">Investment breakdown analysis</p>
+              {Highcharts && HighchartsReact && (
+                <HighchartsReact
+                  highcharts={Highcharts}
+                  options={investmentsChartOptions}
+                />
+              )}
+              {!Highcharts && <div className="text-center py-8 text-gray-500">Loading chart...</div>}
+              <div className="mt-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-3 md:p-4 text-center border border-orange-200">
+                <div className="text-xs text-gray-600 mb-1 font-medium">Total Monthly Investment</div>
+                <div className="text-xl font-bold text-orange-600">₹{totalMonthlyInvestments.toLocaleString('en-IN')}</div>
               </div>
-            </div>
-            {Highcharts && HighchartsReact && (
-              <HighchartsReact
-                highcharts={Highcharts}
-                options={investmentsChartOptions}
-              />
-            )}
-            {!Highcharts && <div className="text-center py-8 text-gray-500">Loading chart...</div>}
-            <div className="mt-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-3 text-center">
-              <div className="text-xs text-gray-600 mb-1">Total Monthly Investment</div>
-              <div className="text-xl font-bold text-orange-600">₹{totalMonthlyInvestments.toLocaleString('en-IN')}</div>
             </div>
           </div>
         </div>
 
         {/* Financial Summary */}
-        <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 rounded-3xl shadow-2xl p-8 text-white relative overflow-hidden mb-6">
+        <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-6 lg:p-8 text-white relative overflow-hidden mb-4 md:mb-6">
           {/* Background decorative elements */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full -mr-32 -mt-32"></div>
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-10 rounded-full -ml-24 -mb-24"></div>
 
           <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-4xl">💡</span>
-              <h2 className="text-3xl font-bold">Financial Insights</h2>
+            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+              <span className="text-3xl md:text-4xl">💡</span>
+              <h2 className="text-2xl md:text-3xl font-bold">Financial Insights</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 transform hover:scale-105 transition-all duration-300">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+              <div className="bg-white/20 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 transform hover:scale-105 transition-all duration-300">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-2xl">💰</span>
                   <div className="text-sm opacity-90 font-semibold">Savings Rate</div>
                 </div>
-                <div className="text-5xl font-bold mb-2">{((data.monthlySavings / data.monthlyIncome) * 100).toFixed(1)}%</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">{((data.monthlySavings / data.monthlyIncome) * 100).toFixed(1)}%</div>
                 <div className="h-2 bg-white/30 rounded-full overflow-hidden mb-2">
                   <div className="h-full bg-white rounded-full" style={{width: `${((data.monthlySavings / data.monthlyIncome) * 100)}%`}}></div>
                 </div>
                 <div className="text-sm font-semibold">{data.monthlySavings / data.monthlyIncome > 0.3 ? '✅ Excellent!' : '⚠️ Can improve'}</div>
               </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 transform hover:scale-105 transition-all duration-300">
+              <div className="bg-white/20 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 transform hover:scale-105 transition-all duration-300">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-2xl">📈</span>
                   <div className="text-sm opacity-90 font-semibold">Investment Rate</div>
                 </div>
-                <div className="text-5xl font-bold mb-2">{((totalMonthlyInvestments / data.monthlyIncome) * 100).toFixed(1)}%</div>
+                <div className="text-4xl md:text-5xl font-bold mb-2">{((totalMonthlyInvestments / data.monthlyIncome) * 100).toFixed(1)}%</div>
                 <div className="h-2 bg-white/30 rounded-full overflow-hidden mb-2">
                   <div className="h-full bg-white rounded-full" style={{width: `${((totalMonthlyInvestments / data.monthlyIncome) * 100)}%`}}></div>
                 </div>
                 <div className="text-sm font-semibold">{totalMonthlyInvestments / data.monthlyIncome > 0.2 ? '✅ Great!' : '💪 Keep going'}</div>
               </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 transform hover:scale-105 transition-all duration-300">
+              <div className="bg-white/20 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 transform hover:scale-105 transition-all duration-300">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-2xl">🎯</span>
                   <div className="text-sm opacity-90 font-semibold">Goal Achievement</div>

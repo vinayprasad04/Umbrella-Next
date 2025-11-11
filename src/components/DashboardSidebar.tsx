@@ -10,9 +10,11 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
   const router = useRouter();
   const [isAdmin, setIsAdmin] = useState(false);
   const [myGoalOpen, setMyGoalOpen] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const recipeMenuItems = [
     { label: 'Wealth Creation', icon: '💰', href: '/dashboard/my-goal/wealth-creation' },
+    { label: 'Emergency Fund', icon: '🛡️', href: '/dashboard/my-goal/emergency-fund' },
     { label: 'Retirement', icon: '🛒', href: '/dashboard/my-goal/retirement' },
     { label: 'House', icon: '🏠', href: '/dashboard/my-goal/house' },
     { label: 'Car', icon: '🚗', href: '/dashboard/my-goal/car' },
@@ -37,12 +39,49 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
   const isMyGoalActive = currentPage === 'my-goal' || router.pathname.startsWith('/dashboard/my-goal');
 
   return (
-    <aside className="w-96 bg-gradient-to-br from-purple-50 via-blue-50 to-orange-50 border-r-2 border-purple-200 shadow-2xl relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-400/20 to-orange-400/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
-      <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-blue-400/20 to-purple-400/20 rounded-full blur-3xl -ml-24 -mb-24"></div>
+    <>
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="lg:hidden fixed top-20 right-4 z-[999] bg-gradient-to-r from-purple-600 to-orange-500 text-white p-3 rounded-xl shadow-2xl hover:scale-110 transition-all duration-300 active:scale-95"
+        aria-label="Toggle menu"
+      >
+        {isMobileMenuOpen ? (
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        ) : (
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        )}
+      </button>
 
-      <div className="p-6 relative z-10">
+      {/* Mobile Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-40"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
+      <aside className={`
+        fixed lg:static inset-y-0 left-0 z-40
+        w-80 lg:w-96
+        bg-gradient-to-br from-purple-50 via-blue-50 to-orange-50
+        border-r-2 border-purple-200 shadow-2xl
+        transform transition-transform duration-300 ease-in-out
+        ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+        overflow-y-auto lg:overflow-y-visible
+        relative
+        h-screen lg:h-auto
+      `}>
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-400/20 to-orange-400/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-blue-400/20 to-purple-400/20 rounded-full blur-3xl -ml-24 -mb-24"></div>
+
+        <div className="p-6 relative z-10">
         {/* Logo/Brand Section */}
         {/* <div className="mb-8 pb-6 border-b-2 border-purple-200">
           <div className="flex items-center gap-3 mb-2">
@@ -63,6 +102,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
           <div className="relative">
             <Link
               href="/dashboard"
+              onClick={() => setIsMobileMenuOpen(false)}
               className={`flex items-center gap-3 px-5 py-4 rounded-2xl transition-all duration-300 hover:shadow-xl group border-2 transform hover:scale-105 ${
                 isDashboardActive
                   ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 text-white font-bold shadow-2xl scale-105 border-transparent'
@@ -136,6 +176,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
                 {/* Goal Dashboard Link */}
                 <Link
                   href="/dashboard/my-goal"
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group border-2 transform hover:scale-105 ${
                     router.pathname === '/dashboard/my-goal'
                       ? 'bg-gradient-to-r from-purple-500 to-orange-500 text-white border-transparent font-bold shadow-lg'
@@ -160,6 +201,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
                   <Link
                     key={item.label}
                     href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 group border-2 transform hover:scale-105 ${
                       router.pathname === item.href
                         ? 'bg-gradient-to-r from-purple-500 to-orange-500 text-white border-transparent font-bold shadow-lg'
@@ -201,6 +243,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
         </nav>
       </div>
     </aside>
+    </>
   );
 };
 
