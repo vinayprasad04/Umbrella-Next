@@ -303,42 +303,42 @@ export default function Other() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-cyan-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-cyan-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
             </div>
-            
+
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-full border border-cyan-200 mb-8">
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-full border border-cyan-200 mb-3 md:mb-4 lg:mb-6">
                 <span className="text-sm font-semibold text-cyan-600">🧮 Financial Calculators</span>
               </div>
-              
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Other Financial
                 </span>
                 <br />
                 <span className="text-gray-800">Calculators</span>
               </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
+
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
                 Comprehensive collection of financial calculators for EMI, CAGR, Inflation 
                 and more to help with your financial planning needs.
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+              <div className="grid grid-cols-3 gap-3 md:gap-5 lg:gap-8 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-800 mb-2">Multiple</div>
-                  <div className="text-gray-600">Calculators</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Multiple</div>
+                  <div className="text-xs md:text-sm text-gray-600">Calculators</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-800 mb-2">Accurate</div>
-                  <div className="text-gray-600">Results</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Accurate</div>
+                  <div className="text-xs md:text-sm text-gray-600">Results</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-800 mb-2">Easy</div>
-                  <div className="text-gray-600">To Use</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Easy</div>
+                  <div className="text-xs md:text-sm text-gray-600">To Use</div>
                 </div>
               </div>
             </div>
@@ -372,10 +372,10 @@ export default function Other() {
           </section>
 
           {/* Calculator Section */}
-          <section className="py-24 bg-gray-50 relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 relative overflow-hidden">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                   {/* Input Form */}
                   <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
                     <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
@@ -491,14 +491,14 @@ export default function Other() {
           </section>
 
           {/* CTA Section */}
-          <section className="py-24 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 lg:mb-6">
                 Make Informed Financial Decisions
               </h2>
-              
-              <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
+
+              <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-4 md:mb-5 lg:mb-6">
                 Use our comprehensive suite of calculators to plan your finances better
               </p>
               

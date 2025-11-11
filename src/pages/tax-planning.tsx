@@ -1889,55 +1889,55 @@ export default function TaxPlanning() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-12 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+          <section className="relative py-8 md:py-10 lg:py-12 xl:py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-10 left-10 w-48 h-48 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 right-10 w-64 h-64 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
             </div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-200 mb-6">
-                <span className="text-sm font-semibold text-blue-600">💡 Tax Planning Guide</span>
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-200 mb-3 md:mb-4 lg:mb-6">
+                <span className="text-xs md:text-sm font-semibold text-blue-600">💡 Tax Planning Guide</span>
               </div>
-              
-              <h1 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+
+              <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-5 leading-tight">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Tax Planning Tips
                 </span>
                 <span className="text-gray-800"> & Strategies</span>
               </h1>
-              
-              <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-6">
-                Comprehensive guide to legal tax savings with investment recommendations, 
+
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
+                Comprehensive guide to legal tax savings with investment recommendations,
                 deduction strategies, and expert tips to minimize your tax liability.
               </p>
             </div>
           </section>
 
           {/* Main Content */}
-          <section className="py-12 bg-gray-50">
+          <section className="py-8 md:py-10 lg:py-12 xl:py-16 bg-gray-50">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="flex flex-col lg:flex-row gap-8">
                 
                 {/* Sidebar Menu */}
                 <div className="lg:w-1/4">
-                  <div className="bg-white rounded-2xl p-6 shadow-lg sticky top-24">
-                    <h3 className="text-xl font-bold text-gray-800 mb-6">📋 Topics</h3>
+                  <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg sticky top-24">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-6">📋 Topics</h3>
                     <div className="space-y-2">
                       {menuItems.map((item) => (
                         <button
                           key={item.id}
                           onClick={() => setActiveSection(item.id)}
-                          className={`w-full text-left p-4 rounded-xl transition-all duration-300 ${
+                          className={`w-full text-left p-3 md:p-4 rounded-lg md:rounded-xl transition-all duration-300 ${
                             activeSection === item.id
                               ? 'bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white shadow-lg'
                               : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
                           }`}
                         >
-                          <div className="flex items-start gap-3">
-                            <span className="text-xl">{item.icon}</span>
+                          <div className="flex items-start gap-2 md:gap-3">
+                            <span className="text-lg md:text-xl">{item.icon}</span>
                             <div>
-                              <div className="font-semibold text-sm">{item.title}</div>
+                              <div className="font-semibold text-xs md:text-sm">{item.title}</div>
                               <div className={`text-xs mt-1 ${
                                 activeSection === item.id ? 'text-white/80' : 'text-gray-500'
                               }`}>
@@ -1949,10 +1949,10 @@ export default function TaxPlanning() {
                       ))}
                     </div>
                     
-                    <div className="mt-8 pt-6 border-t border-gray-200 space-y-3">
+                    <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-200 space-y-2 md:space-y-3">
                       <button
                         onClick={() => router.push('/calculation/tax')}
-                        className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white py-3 px-4 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                        className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white py-2 md:py-3 px-3 md:px-4 rounded-lg md:rounded-xl text-sm md:text-base font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                       >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -1961,7 +1961,7 @@ export default function TaxPlanning() {
                       </button>
                       <button
                         onClick={handleGetStarted}
-                        className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-4 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                        className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 md:py-3 px-3 md:px-4 rounded-lg md:rounded-xl text-sm md:text-base font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
                       >
                         {isLoggedIn ? 'Dashboard' : 'Get Started Free'}
                       </button>
@@ -1971,8 +1971,8 @@ export default function TaxPlanning() {
                 
                 {/* Main Content Area */}
                 <div className="lg:w-3/4">
-                  <div className="bg-white rounded-2xl shadow-lg min-h-[600px]">
-                    <div className="p-8">
+                  <div className="bg-white rounded-xl md:rounded-2xl shadow-lg min-h-[600px]">
+                    <div className="p-4 md:p-6 lg:p-8">
                       {renderContent()}
                     </div>
                   </div>

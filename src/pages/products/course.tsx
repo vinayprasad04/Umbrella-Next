@@ -120,18 +120,18 @@ export default function Course() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-full blur-3xl"></div>
             </div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-6 text-center">
-              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full border border-purple-200 mb-4 md:mb-6 lg:mb-8">
+              <div className="inline-flex items-center px-3 md:px-4 py-1 md:py-1.5 lg:py-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full border border-purple-200 mb-3 md:mb-4 lg:mb-6">
                 <span className="text-xs md:text-sm font-semibold text-purple-600">🎓 Expert-Led Courses</span>
               </div>
-              
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight">
+
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Master Finance
                 </span>
@@ -139,12 +139,12 @@ export default function Course() {
                 <span className="text-gray-800">With Expert Guidance</span>
               </h1>
 
-              <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6 lg:mb-8">
-                Learn from industry experts through our comprehensive courses designed to help you 
+              <p className="text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6 px-2">
+                Learn from industry experts through our comprehensive courses designed to help you
                 become a confident investor and achieve financial independence.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-12">
+
+              <div className="flex flex-col sm:flex-row gap-2 md:gap-3 lg:gap-4 justify-center mb-5 md:mb-8 lg:mb-10">
                 <button
                   onClick={handleGetStarted}
                   className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 md:px-8 py-3 md:py-4 border-none rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
@@ -167,32 +167,32 @@ export default function Course() {
               </div>
               
               {/* Stats */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-2xl mx-auto">
+              <div className="grid grid-cols-3 gap-3 md:gap-5 lg:gap-8 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">50+</div>
-                  <div className="text-gray-600">Expert Instructors</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">50+</div>
+                  <div className="text-xs md:text-sm lg:text-base text-gray-600">Expert Instructors</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">10,000+</div>
-                  <div className="text-gray-600">Students Enrolled</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">10,000+</div>
+                  <div className="text-xs md:text-sm lg:text-base text-gray-600">Students Enrolled</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">4.8★</div>
-                  <div className="text-gray-600">Average Rating</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">4.8★</div>
+                  <div className="text-xs md:text-sm lg:text-base text-gray-600">Average Rating</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Courses Section */}
-          <section id="courses-section" className="py-12 md:py-16 lg:py-24 bg-white relative overflow-hidden">
+          <section id="courses-section" className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
-              <div className="text-center mb-8 md:mb-12 lg:mb-16">
-                <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full border border-blue-200 mb-4 md:mb-6">
+              <div className="text-center mb-6 md:mb-8 lg:mb-12">
+                <div className="inline-flex items-center px-3 md:px-4 py-1 md:py-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full border border-blue-200 mb-3 md:mb-4">
                   <span className="text-xs md:text-sm font-semibold text-blue-600">📚 Course Catalog</span>
                 </div>
 
-                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 md:mb-4">
                   <span className="text-gray-800">Popular </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Courses
@@ -204,9 +204,9 @@ export default function Course() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                 {courses.map((course) => (
-                  <div key={course.id} className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-100">
+                  <div key={course.id} className="group bg-gradient-to-br from-white to-gray-50 rounded-xl md:rounded-2xl p-4 md:p-5 lg:p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-100">
                     <div className="relative overflow-hidden">
                       {/* Course Image/Icon */}
                       <div className={`w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-gradient-to-r ${course.color} rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 text-2xl md:text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
@@ -225,7 +225,7 @@ export default function Course() {
                           {course.title}
                         </h3>
                         
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                           {course.description}
                         </p>
                         
@@ -256,10 +256,10 @@ export default function Course() {
           </section>
 
           {/* Features Section */}
-          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
-              <div className="text-center mb-8 md:mb-12 lg:mb-16">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6">
+              <div className="text-center mb-6 md:mb-8 lg:mb-12">
+                <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 md:mb-4">
                   <span className="text-gray-800">Why Choose Our </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Courses?
@@ -267,7 +267,7 @@ export default function Course() {
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-6">
                 {[
                   {
                     icon: "👨‍🏫",
@@ -301,7 +301,7 @@ export default function Course() {
                     <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-2 md:mb-3">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>
@@ -311,7 +311,7 @@ export default function Course() {
           </section>
 
           {/* CTA Section */}
-          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-6 text-center">
               <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 md:mb-6">

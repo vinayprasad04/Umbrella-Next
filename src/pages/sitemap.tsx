@@ -109,64 +109,64 @@ export default function Sitemap() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-16 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
             </div>
-            
-            <div className="relative w-full max-w-[1200px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full border border-[#FF6B2C]/20 mb-6">
-                <span className="text-sm font-semibold text-[#FF6B2C]">🗺️ Site Navigation</span>
+
+            <div className="relative w-full max-w-[1200px] mx-auto px-4 md:px-6 text-center">
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full border border-[#FF6B2C]/20 mb-3 md:mb-4 lg:mb-6">
+                <span className="text-xs md:text-sm font-semibold text-[#FF6B2C]">🗺️ Site Navigation</span>
               </div>
-              
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight mb-6">
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-3 md:mb-4 lg:mb-6">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Site Map
                 </span>
               </h1>
-              
-              <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                Explore all the pages and features available on IncomeGrow Financial Platform. 
-                Find exactly what you&apos;re looking for with our comprehensive site navigation.
+
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6 lg:mb-8">
+                Explore all the pages and features available on IncomeGrow Financial Platform.
+                Find exactly what you're looking for with our comprehensive site navigation.
               </p>
-              
-              <div className="flex items-center justify-center gap-8">
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-800">{siteStructure.length}</div>
-                  <div className="text-sm text-gray-500">Categories</div>
+                  <div className="text-xl md:text-2xl font-bold text-gray-800">{siteStructure.length}</div>
+                  <div className="text-xs md:text-sm text-gray-500">Categories</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-800">
+                  <div className="text-xl md:text-2xl font-bold text-gray-800">
                     {siteStructure.reduce((total, category) => total + category.pages.length, 0)}+
                   </div>
-                  <div className="text-sm text-gray-500">Total Pages</div>
+                  <div className="text-xs md:text-sm text-gray-500">Total Pages</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-gray-800">100%</div>
-                  <div className="text-sm text-gray-500">Coverage</div>
+                  <div className="text-xl md:text-2xl font-bold text-gray-800">100%</div>
+                  <div className="text-xs md:text-sm text-gray-500">Coverage</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Sitemap Content */}
-          <section className="py-16 bg-white">
-            <div className="w-full max-w-[1400px] mx-auto px-6">
-              <div className="space-y-12">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
+            <div className="w-full max-w-[1400px] mx-auto px-4 md:px-6">
+              <div className="space-y-6 md:space-y-8">
                 {siteStructure.map((section, sectionIndex) => (
-                  <div key={sectionIndex} className={`bg-gradient-to-br ${section.bgColor} rounded-3xl p-8 border border-white/50`}>
-                    <div className="flex items-center gap-4 mb-8">
-                      <div className={`w-16 h-16 bg-gradient-to-r ${section.color} rounded-2xl flex items-center justify-center text-2xl shadow-lg`}>
+                  <div key={sectionIndex} className={`bg-gradient-to-br ${section.bgColor} rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-6 lg:p-8 border border-white/50`}>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4 mb-4 md:mb-6 lg:mb-8">
+                      <div className={`w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-r ${section.color} rounded-lg md:rounded-xl lg:rounded-2xl flex items-center justify-center text-xl md:text-2xl shadow-lg flex-shrink-0`}>
                         <span className="drop-shadow-sm">{section.icon}</span>
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-gray-800">{section.category}</h2>
-                        <p className="text-gray-600">{section.pages.length} pages available</p>
+                        <h2 className="text-xl md:text-2xl font-bold text-gray-800">{section.category}</h2>
+                        <p className="text-xs md:text-sm text-gray-600">{section.pages.length} pages available</p>
                       </div>
                     </div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                       {section.pages.map((page, pageIndex) => (
                         page.external ? (
                           <a
@@ -174,14 +174,14 @@ export default function Sitemap() {
                             href={page.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-white/50 hover:shadow-lg hover:scale-105 transition-all duration-300 no-underline"
+                            className="group bg-white/80 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 lg:p-6 border border-white/50 hover:shadow-lg hover:scale-105 transition-all duration-300 no-underline"
                           >
-                            <div className="flex items-start justify-between mb-3">
-                              <h3 className="text-lg font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-200">
+                            <div className="flex items-start justify-between mb-2 md:mb-3">
+                              <h3 className="text-base md:text-lg font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-200">
                                 {page.name}
                               </h3>
                               <svg
-                                className="w-4 h-4 text-gray-400 group-hover:text-[#FF6B2C] transition-all duration-200"
+                                className="w-4 h-4 text-gray-400 group-hover:text-[#FF6B2C] transition-all duration-200 flex-shrink-0 ml-2"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -189,10 +189,10 @@ export default function Sitemap() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                               </svg>
                             </div>
-                            <p className="text-gray-600 text-sm leading-relaxed">
+                            <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                               {page.description}
                             </p>
-                            <div className="mt-4 text-xs text-gray-500">
+                            <div className="mt-2 md:mt-3 lg:mt-4 text-xs text-gray-500 truncate">
                               {page.href}
                             </div>
                           </a>
@@ -200,14 +200,14 @@ export default function Sitemap() {
                           <Link
                             key={pageIndex}
                             href={page.href}
-                            className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-white/50 hover:shadow-lg hover:scale-105 transition-all duration-300 no-underline"
+                            className="group bg-white/80 backdrop-blur-sm rounded-lg md:rounded-xl p-3 md:p-4 lg:p-6 border border-white/50 hover:shadow-lg hover:scale-105 transition-all duration-300 no-underline"
                           >
-                            <div className="flex items-start justify-between mb-3">
-                              <h3 className="text-lg font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-200">
+                            <div className="flex items-start justify-between mb-2 md:mb-3">
+                              <h3 className="text-base md:text-lg font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-200">
                                 {page.name}
                               </h3>
                               <svg
-                                className="w-5 h-5 text-gray-400 group-hover:text-[#FF6B2C] group-hover:translate-x-1 transition-all duration-200"
+                                className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-[#FF6B2C] group-hover:translate-x-1 transition-all duration-200 flex-shrink-0 ml-2"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -215,10 +215,10 @@ export default function Sitemap() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                               </svg>
                             </div>
-                            <p className="text-gray-600 text-sm leading-relaxed">
+                            <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                               {page.description}
                             </p>
-                            <div className="mt-4 text-xs text-gray-500">
+                            <div className="mt-2 md:mt-3 lg:mt-4 text-xs text-gray-500 truncate">
                               {page.href}
                             </div>
                           </Link>
@@ -232,19 +232,19 @@ export default function Sitemap() {
           </section>
 
           {/* Quick Navigation */}
-          <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-10 right-20 w-64 h-64 bg-gradient-to-r from-yellow-200/20 to-orange-200/20 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 left-20 w-80 h-80 bg-gradient-to-r from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"></div>
             </div>
-            
-            <div className="relative w-full max-w-[1200px] mx-auto px-6 text-center">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Quick Navigation</h2>
-              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+
+            <div className="relative w-full max-w-[1200px] mx-auto px-4 md:px-6 text-center">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-3 md:mb-4 lg:mb-6">Quick Navigation</h2>
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-4 md:mb-6 lg:mb-8 max-w-2xl mx-auto">
                 Jump directly to the most popular sections of our platform
               </p>
-              
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 lg:gap-6">
                 {[
                   { name: "Get Started", href: "/login", icon: "🚀", color: "from-green-400 to-green-600" },
                   { name: "Calculators", href: "/calculation/sip", icon: "🧮", color: "from-blue-400 to-blue-600" },
@@ -254,12 +254,12 @@ export default function Sitemap() {
                   <Link
                     key={index}
                     href={item.href}
-                    className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 text-center shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 no-underline border border-white/50"
+                    className="group bg-white/80 backdrop-blur-sm rounded-lg md:rounded-xl lg:rounded-2xl p-3 md:p-4 lg:p-6 text-center shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 no-underline border border-white/50"
                   >
-                    <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-r ${item.color} rounded-lg md:rounded-xl lg:rounded-2xl flex items-center justify-center mx-auto mb-2 md:mb-3 lg:mb-4 text-lg md:text-xl lg:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       <span className="drop-shadow-sm">{item.icon}</span>
                     </div>
-                    <h3 className="text-lg font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-200">
+                    <h3 className="text-sm md:text-base lg:text-lg font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-200">
                       {item.name}
                     </h3>
                   </Link>
@@ -269,39 +269,39 @@ export default function Sitemap() {
           </section>
 
           {/* Call to Action */}
-          <section className="py-16 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
             <div className="absolute inset-0 bg-black/5"></div>
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
             </div>
-            
-            <div className="relative w-full max-w-[1200px] mx-auto px-6 text-center">
-              <h2 className="text-3xl font-bold text-white mb-6">
-                Can&apos;t Find What You&apos;re Looking For?
+
+            <div className="relative w-full max-w-[1200px] mx-auto px-4 md:px-6 text-center">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4 lg:mb-6">
+                Can't Find What You're Looking For?
               </h2>
-              
-              <p className="text-lg text-white/90 leading-relaxed max-w-2xl mx-auto mb-8">
+
+              <p className="text-sm md:text-base lg:text-lg text-white/90 leading-relaxed max-w-2xl mx-auto mb-4 md:mb-6 lg:mb-8">
                 Our support team is here to help you navigate our platform and find the information you need.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
                 <Link
                   href="/support/contact-us"
-                  className="group bg-white text-[#FF6B2C] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 no-underline"
+                  className="group bg-white text-[#FF6B2C] px-4 md:px-6 lg:px-8 py-2 md:py-3 lg:py-4 border-none rounded-lg md:rounded-xl text-sm md:text-base lg:text-lg font-semibold cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 no-underline"
                 >
                   Contact Support
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
-                
+
                 <Link
                   href="/support/faq"
-                  className="group bg-white/20 backdrop-blur-sm text-white px-8 py-4 border-2 border-white/30 rounded-xl text-lg font-semibold cursor-pointer hover:bg-white/30 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 no-underline"
+                  className="group bg-white/20 backdrop-blur-sm text-white px-4 md:px-6 lg:px-8 py-2 md:py-3 lg:py-4 border-2 border-white/30 rounded-lg md:rounded-xl text-sm md:text-base lg:text-lg font-semibold cursor-pointer hover:bg-white/30 hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 no-underline"
                 >
                   View FAQ
-                  <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </Link>

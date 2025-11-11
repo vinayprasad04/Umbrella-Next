@@ -89,52 +89,52 @@ export default function GoalPlanner() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-purple-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-green-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
             </div>
-            
+
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-50 to-blue-50 rounded-full border border-purple-200 mb-8">
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-50 to-blue-50 rounded-full border border-purple-200 mb-3 md:mb-4 lg:mb-6">
                 <span className="text-sm font-semibold text-purple-600">🎯 Goal Planner</span>
               </div>
-              
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Financial Goal
                 </span>
                 <br />
                 <span className="text-gray-800">Planner</span>
               </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
+
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
                 Plan your financial future by setting goals and calculating the exact monthly 
                 investment needed to achieve them within your timeline.
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+              <div className="grid grid-cols-3 gap-3 md:gap-5 lg:gap-8 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-800 mb-2">Smart</div>
-                  <div className="text-gray-600">Planning</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Smart</div>
+                  <div className="text-xs md:text-sm text-gray-600">Planning</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-800 mb-2">Goal</div>
-                  <div className="text-gray-600">Oriented</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Goal</div>
+                  <div className="text-xs md:text-sm text-gray-600">Oriented</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-800 mb-2">Time</div>
-                  <div className="text-gray-600">Based</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Time</div>
+                  <div className="text-xs md:text-sm text-gray-600">Based</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Calculator Section */}
-          <section className="py-24 bg-white relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                   {/* Input Form */}
                   <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl border border-gray-100">
                     <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
@@ -290,22 +290,22 @@ export default function GoalPlanner() {
           </section>
 
           {/* How It Works */}
-          <section className="py-24 bg-gray-50 relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 relative overflow-hidden">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <div className="text-center mb-6 md:mb-8 lg:mb-12">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
                   <span className="text-gray-800">How </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Goal Planning Works
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+                <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
                   Strategic planning helps you achieve your financial goals through systematic investing
                 </p>
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 lg:gap-8">
                 {[
                   {
                     step: '01',
@@ -353,14 +353,14 @@ export default function GoalPlanner() {
           </section>
 
           {/* CTA Section */}
-          <section className="py-24 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 lg:mb-6">
                 Start Planning Your Goals
               </h2>
-              
-              <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
+
+              <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-4 md:mb-5 lg:mb-6">
                 Take control of your financial future with strategic goal planning and systematic investing
               </p>
               

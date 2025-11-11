@@ -95,7 +95,7 @@ export default function Blogs() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-indigo-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-indigo-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-indigo-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
@@ -139,22 +139,22 @@ export default function Blogs() {
               </div>
               
               {/* Stats */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-3xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-3xl mx-auto">
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">500+</div>
-                  <div className="text-gray-600">Articles Published</div>
+                  <div className="text-xs sm:text-sm md:text-base text-gray-600">Articles Published</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">50K+</div>
-                  <div className="text-gray-600">Monthly Readers</div>
+                  <div className="text-xs sm:text-sm md:text-base text-gray-600">Monthly Readers</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">15+</div>
-                  <div className="text-gray-600">Expert Writers</div>
+                  <div className="text-xs sm:text-sm md:text-base text-gray-600">Expert Writers</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Daily</div>
-                  <div className="text-gray-600">New Content</div>
+                  <div className="text-xs sm:text-sm md:text-base text-gray-600">New Content</div>
                 </div>
               </div>
             </div>
@@ -271,7 +271,7 @@ export default function Blogs() {
                         {post.title}
                       </h3>
                       
-                      <p className="text-gray-600 leading-relaxed line-clamp-3">
+                      <p className="text-sm md:text-base text-gray-600 leading-relaxed line-clamp-3">
                         {post.excerpt}
                       </p>
                       

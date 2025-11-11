@@ -180,72 +180,72 @@ export default function ContactUs() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-green-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-green-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-green-400/10 rounded-full blur-3xl"></div>
             </div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200 mb-8">
-                <span className="text-sm font-semibold text-green-600">📞 Support Center</span>
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200 mb-3 md:mb-4 lg:mb-6">
+                <span className="text-xs md:text-sm font-semibold text-green-600">📞 Support Center</span>
               </div>
-              
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Contact
                 </span>
                 <br />
                 <span className="text-gray-800">Our Team</span>
               </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                We&apos;re here to help! Reach out to our expert team for support with investments, 
+
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
+                We're here to help! Reach out to our expert team for support with investments,
                 financial planning, or any questions about our services.
               </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+
+              <div className="grid grid-cols-3 md:grid-cols-3 gap-3 md:gap-4 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-800 mb-2">24/7</div>
-                  <div className="text-gray-600">Support</div>
+                  <div className="text-xl md:text-3xl font-bold text-gray-800 mb-1">24/7</div>
+                  <div className="text-xs md:text-sm text-gray-600">Support</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-800 mb-2">Expert</div>
-                  <div className="text-gray-600">Guidance</div>
+                  <div className="text-xl md:text-3xl font-bold text-gray-800 mb-1">Expert</div>
+                  <div className="text-xs md:text-sm text-gray-600">Guidance</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-800 mb-2">Quick</div>
-                  <div className="text-gray-600">Response</div>
+                  <div className="text-xl md:text-3xl font-bold text-gray-800 mb-1">Quick</div>
+                  <div className="text-xs md:text-sm text-gray-600">Response</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Contact Methods */}
-          <section className="py-24 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <div className="text-center mb-6 md:mb-8 lg:mb-12">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
                   <span className="text-gray-800">Get in </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Touch
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Choose your preferred way to contact us. We&apos;re available through multiple channels
+
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                  Choose your preferred way to contact us. We're available through multiple channels
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                 {contactMethods.map((method, index) => (
-                  <div key={index} className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <div key={index} className="group bg-gradient-to-br from-white to-gray-50 rounded-lg md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
                     <div className="text-center">
-                      <div className="text-4xl mb-4">{method.icon}</div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-3">{method.title}</h3>
-                      <p className="text-gray-600 mb-4">{method.description}</p>
-                      <div className="bg-[#FF6B2C]/10 rounded-lg p-3 mb-2">
-                        <div className="text-sm font-semibold text-[#FF6B2C]">{method.contact}</div>
+                      <div className="text-2xl md:text-4xl mb-2 md:mb-4">{method.icon}</div>
+                      <h3 className="text-base md:text-xl font-bold text-gray-800 mb-2 md:mb-3">{method.title}</h3>
+                      <p className="text-xs md:text-sm text-gray-600 mb-3 md:mb-4">{method.description}</p>
+                      <div className="bg-[#FF6B2C]/10 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
+                        <div className="text-xs md:text-sm font-semibold text-[#FF6B2C]">{method.contact}</div>
                       </div>
                       <div className="text-xs text-gray-500">{method.available}</div>
                     </div>
@@ -256,24 +256,24 @@ export default function ContactUs() {
           </section>
 
           {/* Contact Form */}
-          <section className="py-24 bg-gray-50">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-4xl mx-auto">
-                <div className="text-center mb-16">
-                  <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+                <div className="text-center mb-6 md:mb-8 lg:mb-12">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
                     <span className="text-gray-800">Send us a </span>
                     <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                       Message
                     </span>
                   </h2>
-                  
-                  <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Fill out the form below and we&apos;ll get back to you as soon as possible
+
+                  <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                    Fill out the form below and we'll get back to you as soon as possible
                   </p>
                 </div>
 
                 {showSuccess && (
-                  <div className="bg-green-50 border border-green-200 rounded-2xl p-6 mb-8">
+                  <div className="bg-green-50 border border-green-200 rounded-lg md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
                     <div className="flex items-center gap-3">
                       <div className="text-2xl">✅</div>
                       <div>
@@ -290,18 +290,18 @@ export default function ContactUs() {
                 )}
 
                 {error && (
-                  <div className="bg-red-50 border border-red-200 rounded-2xl p-6 mb-8">
+                  <div className="bg-red-50 border border-red-200 rounded-lg md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
                     <div className="flex items-center gap-3">
                       <div className="text-2xl">❌</div>
                       <div>
-                        <h3 className="text-lg font-semibold text-red-800">Error Sending Message</h3>
-                        <p className="text-red-700">{error}</p>
+                        <h3 className="text-base md:text-lg font-semibold text-red-800">Error Sending Message</h3>
+                        <p className="text-xs md:text-sm text-red-700">{error}</p>
                       </div>
                     </div>
                   </div>
                 )}
 
-                <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+                <div className="bg-white rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-6 lg:p-8 shadow-xl border border-gray-100">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
@@ -427,25 +427,25 @@ export default function ContactUs() {
           </section>
 
           {/* FAQ Preview */}
-          <section className="py-24 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <div className="text-center mb-6 md:mb-8 lg:mb-12">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
                   <span className="text-gray-800">Frequently Asked </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Questions
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Quick answers to common questions. Can&apos;t find what you&apos;re looking for? Contact us!
+
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                  Quick answers to common questions. Can't find what you're looking for? Contact us!
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                 {faqCategories.map((category, index) => (
-                  <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 shadow-lg border border-gray-100">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">{category.category}</h3>
+                  <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-lg md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
+                    <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-3 md:mb-4">{category.category}</h3>
                     <ul className="space-y-3">
                       {category.questions.map((question, qIndex) => (
                         <li key={qIndex} className="flex items-start gap-3">
@@ -458,10 +458,10 @@ export default function ContactUs() {
                 ))}
               </div>
 
-              <div className="text-center mt-12">
-                <button 
+              <div className="text-center mt-8 md:mt-10 lg:mt-12">
+                <button
                   onClick={() => router.push('/support/faq')}
-                  className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-2"
+                  className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 md:px-8 py-3 md:py-4 border-none rounded-lg md:rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-2"
                 >
                   View All FAQs
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

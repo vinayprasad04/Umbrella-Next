@@ -296,18 +296,18 @@ export default function BrokersKnowledge() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-16 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-10 left-10 w-48 h-48 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 right-10 w-64 h-64 bg-gradient-to-r from-purple-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
             </div>
             
-            <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full border border-blue-200 mb-6">
-                <span className="text-sm font-semibold text-blue-600">📈 Stock Broker Comparison</span>
+            <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-6 text-center">
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full border border-blue-200 mb-4 md:mb-6">
+                <span className="text-xs md:text-sm font-semibold text-blue-600">📈 Stock Broker Comparison</span>
               </div>
-              
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Best Stock Brokers in India
                 </span>
@@ -315,20 +315,20 @@ export default function BrokersKnowledge() {
                 <span className="text-gray-800">Compare & Choose 2025</span>
               </h1>
               
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-6 md:mb-8">
                 Compare top stock brokers in India based on brokerage rates, features, reviews and trading platforms. Find the perfect broker for your investment needs.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-6 md:mb-8">
                 <button
                   onClick={() => router.push('/signup')}
-                  className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
                 >
                   Start Your Investment Journey
                 </button>
                 <button
                   onClick={() => document.getElementById('comparison-table')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-gray-100 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-300"
+                  className="bg-gray-100 text-gray-700 px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:bg-gray-200 transition-all duration-300"
                 >
                   Compare Brokers
                 </button>
@@ -337,16 +337,16 @@ export default function BrokersKnowledge() {
           </section>
 
           {/* Filter Section */}
-          <section className="py-8 bg-gray-50">
-            <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
-                <div className="flex flex-wrap gap-4">
-                  <span className="text-gray-700 font-medium">Filter by:</span>
+          <section className="py-6 md:py-8 bg-gray-50">
+            <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
+              <div className="flex flex-col lg:flex-row gap-4 md:gap-6 items-center justify-between">
+                <div className="flex flex-wrap gap-3 md:gap-4 justify-center lg:justify-start">
+                  <span className="text-sm md:text-base text-gray-700 font-medium">Filter by:</span>
                   {categories.map((category) => (
                     <button
                       key={category.id}
                       onClick={() => setSelectedCategory(category.id)}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                      className={`px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 ${
                         selectedCategory === category.id
                           ? 'bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white'
                           : 'bg-white text-gray-600 hover:bg-gray-100'
@@ -357,12 +357,12 @@ export default function BrokersKnowledge() {
                   ))}
                 </div>
                 
-                <div className="flex items-center gap-4">
-                  <span className="text-gray-700 font-medium">Sort by:</span>
+                <div className="flex items-center gap-3 md:gap-4">
+                  <span className="text-sm md:text-base text-gray-700 font-medium">Sort by:</span>
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    className="px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   >
                     <option value="rating">Rating</option>
                     <option value="reviews">Reviews</option>
@@ -373,13 +373,13 @@ export default function BrokersKnowledge() {
           </section>
 
           {/* Comparison Table */}
-          <section id="comparison-table" className="py-16 bg-white">
-            <div className="w-full max-w-[1600px] mx-auto px-6">
-              <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+          <section id="comparison-table" className="py-12 md:py-16 bg-white">
+            <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8 md:mb-12">
                 Stock Broker Comparison Table
               </h2>
-              
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+
+              <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden border border-gray-200">
                 <div className="overflow-x-auto">
                   <table className="w-full">
                     <thead className="bg-gray-50">

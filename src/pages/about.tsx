@@ -123,32 +123,32 @@ export default function About() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-green-400/10 rounded-full blur-3xl"></div>
             </div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-full border border-orange-200 mb-8">
-                <span className="text-sm font-semibold text-orange-600">🏢 About IncomeGrow Financial</span>
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-full border border-orange-200 mb-3 md:mb-4 lg:mb-6">
+                <span className="text-xs md:text-sm font-semibold text-orange-600">🏢 About IncomeGrow Financial</span>
               </div>
-              
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
                 <span className="text-gray-800">Empowering Your </span>
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Financial Future
                 </span>
               </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                We&apos;re on a mission to democratize investing and make financial freedom accessible to everyone. 
+
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
+                We're on a mission to democratize investing and make financial freedom accessible to everyone.
                 Through cutting-edge technology and expert insights, we help millions build wealth systematically.
               </p>
               
-              <button 
+              <button
                 onClick={handleGetStarted}
-                className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 rounded-xl text-lg font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-2"
+                className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 md:px-8 py-3 md:py-4 rounded-lg md:rounded-xl text-base md:text-lg font-semibold hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center gap-2"
               >
                 {isLoggedIn ? 'Go to Dashboard' : 'Start Your Journey'}
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,32 +159,32 @@ export default function About() {
           </section>
 
           {/* Mission & Vision */}
-          <section className="py-24 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
                 <div>
-                  <h2 className="text-4xl lg:text-5xl font-bold mb-8">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6 lg:mb-8">
                     <span className="text-gray-800">Our </span>
                     <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                       Mission
                     </span>
                   </h2>
-                  
-                  <div className="space-y-6">
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                      At IncomeGrow Financial, we believe that everyone deserves access to professional-grade 
+
+                  <div className="space-y-4 md:space-y-5 lg:space-y-6">
+                    <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed">
+                      At IncomeGrow Financial, we believe that everyone deserves access to professional-grade
                       investment tools and strategies, regardless of their wealth or background.
                     </p>
-                    
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                      We&apos;re breaking down the barriers to smart investing by providing intuitive calculators, 
+
+                    <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed">
+                      We're breaking down the barriers to smart investing by providing intuitive calculators,
                       expert insights, and personalized guidance that was once available only to high-net-worth individuals.
                     </p>
-                    
-                    <div className="bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-2xl p-6 border border-[#FF6B2C]/20">
-                      <h3 className="text-xl font-bold text-gray-800 mb-3">Our Vision</h3>
-                      <p className="text-gray-700">
-                        To become India&apos;s most trusted financial platform, helping millions of families 
+
+                    <div className="bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-lg md:rounded-2xl p-4 md:p-5 lg:p-6 border border-[#FF6B2C]/20">
+                      <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-2 md:mb-3">Our Vision</h3>
+                      <p className="text-xs md:text-sm lg:text-base text-gray-700">
+                        To become India's most trusted financial platform, helping millions of families
                         achieve financial independence through smart, systematic investing.
                       </p>
                     </div>
@@ -206,31 +206,31 @@ export default function About() {
           </section>
 
           {/* Achievements */}
-          <section className="py-24 bg-gray-50">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <div className="text-center mb-6 md:mb-8 lg:mb-12">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
                   <span className="text-gray-800">Our </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Impact
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
                   Numbers that speak to our commitment to helping you succeed
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
                 {achievements.map((achievement, index) => (
-                  <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center">
-                    <div className="text-4xl font-bold text-[#FF6B2C] mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <div key={index} className="group bg-white rounded-lg md:rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center">
+                    <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#FF6B2C] mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">
                       {achievement.number}
                     </div>
-                    <div className="text-xl font-bold text-gray-800 mb-2">
+                    <div className="text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-1 md:mb-2">
                       {achievement.label}
                     </div>
-                    <div className="text-gray-600 text-sm">
+                    <div className="text-xs md:text-sm text-gray-600">
                       {achievement.description}
                     </div>
                   </div>
@@ -240,33 +240,33 @@ export default function About() {
           </section>
 
           {/* Values */}
-          <section className="py-24 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <div className="text-center mb-6 md:mb-8 lg:mb-12">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
                   <span className="text-gray-800">Our </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Values
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
                   The principles that guide everything we do
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                 {values.map((value, index) => (
-                  <div key={index} className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                    <div className="text-4xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div key={index} className="group bg-gradient-to-br from-white to-gray-50 rounded-lg md:rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                    <div className="text-2xl md:text-3xl lg:text-4xl mb-3 md:mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300">
                       {value.icon}
                     </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+
+                    <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-2 md:mb-3 lg:mb-4">
                       {value.title}
                     </h3>
-                    
-                    <p className="text-gray-600 leading-relaxed">
+
+                    <p className="text-xs md:text-sm lg:text-base text-gray-600 leading-relaxed">
                       {value.description}
                     </p>
                   </div>
@@ -276,40 +276,40 @@ export default function About() {
           </section>
 
           {/* Team */}
-          <section className="py-24 bg-gray-50">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <div className="text-center mb-6 md:mb-8 lg:mb-12">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
                   <span className="text-gray-800">Meet Our </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Team
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
                   Experienced professionals dedicated to your financial success
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
                 {teamMembers.map((member, index) => (
-                  <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center">
-                    <div className="w-20 h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-3xl">{member.image}</span>
+                  <div key={index} className="group bg-white rounded-lg md:rounded-2xl p-4 md:p-5 lg:p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center">
+                    <div className="w-16 md:w-20 h-16 md:h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-2xl md:text-3xl">{member.image}</span>
                     </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+
+                    <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-1 md:mb-2">
                       {member.name}
                     </h3>
-                    
-                    <div className="text-[#FF6B2C] font-semibold text-sm mb-3">
+
+                    <div className="text-[#FF6B2C] font-semibold text-xs md:text-sm mb-2 md:mb-3">
                       {member.role}
                     </div>
-                    
-                    <p className="text-gray-600 text-sm leading-relaxed mb-3">
+
+                    <p className="text-xs md:text-sm text-gray-600 leading-relaxed mb-2 md:mb-3">
                       {member.description}
                     </p>
-                    
+
                     <div className="text-xs text-gray-500 bg-gray-50 rounded-lg p-2">
                       {member.background}
                     </div>
@@ -320,31 +320,31 @@ export default function About() {
           </section>
 
           {/* CTA Section */}
-          <section className="py-24 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 md:mb-4 lg:mb-6">
                 Ready to Start Your Journey?
               </h2>
-              
-              <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
+
+              <p className="text-sm md:text-base lg:text-lg text-white/90 max-w-2xl mx-auto mb-4 md:mb-5 lg:mb-6">
                 Join thousands of smart investors who trust IncomeGrow Financial for their wealth-building journey
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button 
+
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+                <button
                   onClick={handleGetStarted}
-                  className="group bg-white text-[#FF6B2C] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group bg-white text-[#FF6B2C] px-6 md:px-8 py-3 md:py-4 border-none rounded-lg md:rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   {isLoggedIn ? 'Go to Dashboard' : 'Get Started Free'}
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>
-                
-                <button 
+
+                <button
                   onClick={() => router.push('/support/contact-us')}
-                  className="bg-white/10 text-white px-8 py-4 border-2 border-white/30 rounded-xl text-lg font-semibold hover:bg-white/20 transition-all duration-300"
+                  className="bg-white/10 text-white px-6 md:px-8 py-3 md:py-4 border-2 border-white/30 rounded-lg md:rounded-xl text-base md:text-lg font-semibold hover:bg-white/20 transition-all duration-300"
                 >
                   Contact Us
                 </button>

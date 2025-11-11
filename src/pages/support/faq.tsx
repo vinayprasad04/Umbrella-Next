@@ -220,27 +220,27 @@ export default function FAQ() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
             </div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-200 mb-8">
-                <span className="text-sm font-semibold text-blue-600">❓ Help Center</span>
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-200 mb-3 md:mb-4 lg:mb-6">
+                <span className="text-xs md:text-sm font-semibold text-blue-600">❓ Help Center</span>
               </div>
-              
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Frequently Asked
                 </span>
                 <br />
                 <span className="text-gray-800">Questions</span>
               </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                Find quick answers to the most common questions about our services, 
+
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
+                Find quick answers to the most common questions about our services,
                 calculators, investments, and platform features.
               </p>
 
@@ -250,11 +250,11 @@ export default function FAQ() {
                   <input
                     type="text"
                     placeholder="Search FAQs..."
-                    className="w-full px-6 py-4 pl-12 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg shadow-lg"
+                    className="w-full px-4 md:px-6 py-3 md:py-4 pl-10 md:pl-12 bg-white border border-gray-200 rounded-lg md:rounded-2xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-base md:text-lg shadow-lg"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
-                  <svg className="w-6 h-6 text-gray-400 absolute left-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 md:w-6 h-5 md:h-6 text-gray-400 absolute left-3 md:left-4 top-1/2 transform -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </div>
@@ -263,9 +263,9 @@ export default function FAQ() {
           </section>
 
           {/* Categories */}
-          <section className="py-12 bg-white border-b border-gray-200">
+          <section className="py-6 md:py-8 lg:py-10 bg-white border-b border-gray-200">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-2 md:gap-3 lg:gap-4">
                 {categories.map((category) => (
                   <button
                     key={category.id}
@@ -274,13 +274,13 @@ export default function FAQ() {
                       setSearchTerm('');
                       setOpenFAQ(null);
                     }}
-                    className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                    className={`flex items-center gap-1 md:gap-2 px-3 md:px-4 lg:px-6 py-2 md:py-2.5 lg:py-3 rounded-lg md:rounded-xl text-xs md:text-sm lg:text-base font-semibold transition-all duration-300 ${
                       activeCategory === category.id
                         ? 'bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white shadow-lg'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
-                    <span>{category.icon}</span>
+                    <span className="text-sm md:text-base">{category.icon}</span>
                     {category.name}
                   </button>
                 ))}
@@ -289,18 +289,18 @@ export default function FAQ() {
           </section>
 
           {/* FAQ Content */}
-          <section id="faq-content" className="py-24 bg-gray-50">
+          <section id="faq-content" className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-4xl mx-auto">
                 {filteredFAQs.length > 0 ? (
-                  <div className="space-y-4">
+                  <div className="space-y-3 md:space-y-4">
                     {filteredFAQs.map((faq, index) => (
-                      <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                      <div key={index} className="bg-white rounded-lg md:rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
                         <button
                           onClick={() => toggleFAQ(index)}
-                          className="w-full p-6 text-left hover:bg-gray-50 transition-all duration-200 flex items-center justify-between"
+                          className="w-full p-4 md:p-5 lg:p-6 text-left hover:bg-gray-50 transition-all duration-200 flex items-center justify-between"
                         >
-                          <h3 className="text-lg font-semibold text-gray-800 pr-4">
+                          <h3 className="text-sm md:text-base lg:text-lg font-semibold text-gray-800 pr-4">
                             {faq.question}
                           </h3>
                           <svg 
@@ -316,8 +316,8 @@ export default function FAQ() {
                         </button>
                         
                         {openFAQ === `${activeCategory}-${index}` && (
-                          <div className="px-6 pb-6 pt-0 border-t border-gray-100">
-                            <p className="text-gray-600 leading-relaxed">
+                          <div className="px-4 md:px-5 lg:px-6 pb-4 md:pb-5 lg:pb-6 pt-0 border-t border-gray-100">
+                            <p className="text-xs md:text-sm lg:text-base text-gray-600 leading-relaxed">
                               {faq.answer}
                             </p>
                           </div>
@@ -326,15 +326,15 @@ export default function FAQ() {
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-16">
-                    <div className="text-6xl mb-6">🔍</div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-4">No FAQs Found</h3>
-                    <p className="text-gray-600 mb-6">
-                      We couldn&apos;t find any FAQs matching your search. Try different keywords or browse categories.
+                  <div className="text-center py-10 md:py-12 lg:py-16">
+                    <div className="text-4xl md:text-5xl lg:text-6xl mb-3 md:mb-4 lg:mb-6">🔍</div>
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-2 md:mb-3 lg:mb-4">No FAQs Found</h3>
+                    <p className="text-xs md:text-sm lg:text-base text-gray-600 mb-4 md:mb-5 lg:mb-6">
+                      We couldn't find any FAQs matching your search. Try different keywords or browse categories.
                     </p>
                     <button
                       onClick={() => setSearchTerm('')}
-                      className="bg-[#FF6B2C] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#FF8A50] transition-all duration-300"
+                      className="bg-[#FF6B2C] text-white px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl text-sm md:text-base font-semibold hover:bg-[#FF8A50] transition-all duration-300"
                     >
                       Clear Search
                     </button>
@@ -345,33 +345,33 @@ export default function FAQ() {
           </section>
 
           {/* Contact Support */}
-          <section className="py-24 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-3xl p-12 text-center border border-[#FF6B2C]/20">
-                <div className="text-5xl mb-6">🤝</div>
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                  Can&apos;t Find What You&apos;re Looking For?
+              <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-xl md:rounded-2xl lg:rounded-3xl p-6 md:p-8 lg:p-12 text-center border border-[#FF6B2C]/20">
+                <div className="text-4xl md:text-5xl lg:text-5xl mb-3 md:mb-4 lg:mb-6">🤝</div>
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-3 md:mb-4 lg:mb-6">
+                  Can't Find What You're Looking For?
                 </h2>
-                
-                <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                  Our support team is here to help! Contact us for personalized assistance 
+
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-4 md:mb-6 lg:mb-8 max-w-2xl mx-auto">
+                  Our support team is here to help! Contact us for personalized assistance
                   with any questions not covered in our FAQ section.
                 </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button 
+
+                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+                  <button
                     onClick={() => router.push('/support/contact-us')}
-                    className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2"
+                    className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 md:px-8 py-3 md:py-4 border-none rounded-lg md:rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2"
                   >
                     Contact Support
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </button>
-                  
-                  <button 
+
+                  <button
                     onClick={handleGetStarted}
-                    className="bg-white text-[#FF6B2C] px-8 py-4 border-2 border-[#FF6B2C] rounded-xl text-lg font-semibold cursor-pointer hover:bg-[#FF6B2C] hover:text-white transition-all duration-300"
+                    className="bg-white text-[#FF6B2C] px-6 md:px-8 py-3 md:py-4 border-2 border-[#FF6B2C] rounded-lg md:rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:bg-[#FF6B2C] hover:text-white transition-all duration-300"
                   >
                     {isLoggedIn ? 'Go to Dashboard' : 'Get Started'}
                   </button>
@@ -381,42 +381,42 @@ export default function FAQ() {
           </section>
 
           {/* Popular Topics */}
-          <section className="py-24 bg-gray-50">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              <div className="text-center mb-6 md:mb-8 lg:mb-12">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
                   <span className="text-gray-800">Popular </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Topics
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
                   Quick access to the most searched topics and questions
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                 {categories.map((category, index) => {
                   const categoryData = faqData.find(cat => cat.category === category.id);
                   const faqCount = categoryData?.faqs.length || 0;
                   
                   return (
-                    <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer"
+                    <div key={index} className="group bg-white rounded-lg md:rounded-2xl p-4 md:p-5 lg:p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer"
                          onClick={() => handleCategoryClick(category.id)}>
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-3">
-                          <div className="text-2xl">{category.icon}</div>
-                          <h3 className="text-lg font-bold text-gray-800">{category.name}</h3>
+                      <div className="flex items-center justify-between mb-3 md:mb-4">
+                        <div className="flex items-center gap-2 md:gap-3">
+                          <div className="text-xl md:text-2xl">{category.icon}</div>
+                          <h3 className="text-sm md:text-base lg:text-lg font-bold text-gray-800">{category.name}</h3>
                         </div>
-                        <div className="text-sm text-gray-500">{faqCount} FAQs</div>
+                        <div className="text-xs md:text-sm text-gray-500">{faqCount} FAQs</div>
                       </div>
-                      
-                      <p className="text-gray-600 text-sm mb-4">
+
+                      <p className="text-xs md:text-sm text-gray-600 mb-3 md:mb-4">
                         {categoryData?.faqs[0]?.question || 'Click to explore questions in this category'}
                       </p>
-                      
-                      <div className="text-[#FF6B2C] text-sm font-semibold group-hover:text-[#FF8A50] transition-colors duration-200">
+
+                      <div className="text-xs md:text-sm text-[#FF6B2C] font-semibold group-hover:text-[#FF8A50] transition-colors duration-200">
                         View Questions →
                       </div>
                     </div>
