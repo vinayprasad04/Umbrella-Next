@@ -189,47 +189,47 @@ export default function Goal() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+          <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
             </div>
-            
-            <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full border border-[#FF6B2C]/20 mb-8">
-                <span className="text-sm font-semibold text-[#FF6B2C]">🎯 Financial Goal Planning</span>
+
+            <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-6 text-center">
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full border border-[#FF6B2C]/20 mb-4 md:mb-6 lg:mb-8">
+                <span className="text-xs md:text-sm font-semibold text-[#FF6B2C]">🎯 Financial Goal Planning</span>
               </div>
-              
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Turn Your Dreams
                 </span>
                 <br />
                 <span className="text-gray-800">Into Achievable Goals</span>
               </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
-                Whether it&apos;s buying your dream home, planning a world tour, or securing your retirement, 
+
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-6 md:mb-8 px-2">
+                Whether it&apos;s buying your dream home, planning a world tour, or securing your retirement,
                 our goal planning tools help you create a clear roadmap to financial success.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button 
+
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+                <button
                   onClick={handleGetStarted}
-                  className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 md:px-8 py-3 md:py-4 border-none rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   Start Planning Today
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>
-                
-                <button 
+
+                <button
                   onClick={scrollToHowItWorks}
-                  className="group bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-4 border-2 border-gray-200 rounded-xl text-lg font-semibold cursor-pointer hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group bg-white/80 backdrop-blur-sm text-gray-700 px-6 md:px-8 py-3 md:py-4 border-2 border-gray-200 rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   How It Works
-                  <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m0 0l7-7m7 7H3" />
                   </svg>
                 </button>
@@ -238,50 +238,50 @@ export default function Goal() {
           </section>
 
           {/* Goal Types Section */}
-          <section className="py-24 bg-white relative overflow-hidden">
-            <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="text-center mb-16">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full border border-purple-200 mb-6">
-                  <span className="text-sm font-semibold text-purple-600">💡 Popular Goals</span>
+          <section className="py-12 md:py-16 lg:py-24 bg-white relative overflow-hidden">
+            <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
+              <div className="text-center mb-8 md:mb-12 lg:mb-16">
+                <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full border border-purple-200 mb-4 md:mb-6">
+                  <span className="text-xs md:text-sm font-semibold text-purple-600">💡 Popular Goals</span>
                 </div>
-                
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6">
                   <span className="text-gray-800">Choose Your </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Financial Goal
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-2">
                   Select from our most popular financial goals or create a custom plan tailored to your dreams
                 </p>
               </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 lg:gap-8 mb-8 md:mb-12 lg:mb-16">
                 {goalTypes.map((goal, index) => (
                   <div
                     key={index}
-                    className={`group relative bg-gradient-to-br ${goal.bgColor} backdrop-blur-sm border border-white/50 rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer ${selectedGoal === goal.id ? 'ring-2 ring-[#FF6B2C] shadow-xl scale-105' : ''}`}
+                    className={`group relative bg-gradient-to-br ${goal.bgColor} backdrop-blur-sm border border-white/50 rounded-xl md:rounded-2xl p-3 md:p-4 lg:p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer ${selectedGoal === goal.id ? 'ring-2 ring-[#FF6B2C] shadow-xl scale-105' : ''}`}
                     onClick={() => handleGoalSelection(goal.id)}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
                     <div className="relative z-10">
-                      <div className={`w-16 h-16 bg-gradient-to-r ${goal.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      <div className={`w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-r ${goal.color} rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-2 md:mb-3 lg:mb-4 text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                         <span className="drop-shadow-sm">{goal.icon}</span>
                       </div>
-                      
-                      <h3 className="text-lg font-bold text-gray-800 mb-2">
+
+                      <h3 className="text-sm md:text-base lg:text-lg font-bold text-gray-800 mb-1 md:mb-2">
                         {goal.title}
                       </h3>
-                      
-                      <p className="text-sm text-gray-600 leading-relaxed">
+
+                      <p className="text-xs md:text-sm text-gray-600 leading-relaxed hidden sm:block">
                         {goal.description}
                       </p>
-                      
+
                       {selectedGoal === goal.id && (
-                        <div className="mt-3 inline-flex items-center text-sm font-semibold text-[#FF6B2C]">
-                          <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <div className="mt-2 md:mt-3 inline-flex items-center text-xs md:text-sm font-semibold text-[#FF6B2C]">
+                          <svg className="w-3 h-3 md:w-4 md:h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                           </svg>
                           Selected
@@ -295,30 +295,30 @@ export default function Goal() {
           </section>
 
           {/* Goal Calculator Section */}
-          <section id="goal-calculator" className="py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
-            <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="text-center mb-16">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200 mb-6">
-                  <span className="text-sm font-semibold text-green-600">📊 Goal Calculator</span>
+          <section id="goal-calculator" className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+            <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
+              <div className="text-center mb-8 md:mb-12 lg:mb-16">
+                <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200 mb-4 md:mb-6">
+                  <span className="text-xs md:text-sm font-semibold text-green-600">📊 Goal Calculator</span>
                 </div>
-                
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6">
                   <span className="text-gray-800">Calculate Your </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Investment Plan
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-2">
                   Enter your goal details and discover how much you need to invest monthly to achieve it
                 </p>
               </div>
-              
+
               <div className="max-w-4xl mx-auto">
-                <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/50">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 shadow-xl border border-white/50">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
                     {/* Input Form */}
-                    <div className="space-y-6">
+                    <div className="space-y-4 md:space-y-6">
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-2">
                           Goal Type
@@ -371,32 +371,32 @@ export default function Goal() {
                         </select>
                       </div>
 
-                      <div className="flex gap-3">
+                      <div className="flex gap-2 md:gap-3">
                         <button
-                          className="flex-1 bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                          className="flex-1 bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-4 md:px-6 py-3 md:py-4 border-none rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                           onClick={handleCalculate}
                         >
                           Calculate
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                           </svg>
                         </button>
 
                         <button
-                          className="px-6 py-4 bg-gray-100 hover:bg-gray-200 text-gray-700 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                          className="px-4 md:px-6 py-3 md:py-4 bg-gray-100 hover:bg-gray-200 text-gray-700 border-none rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                           onClick={handleReset}
                         >
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                           </svg>
-                          Reset
+                          <span className="hidden md:inline">Reset</span>
                         </button>
                       </div>
                     </div>
                     
                     {/* Results */}
-                    <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-2xl p-6 border border-[#FF6B2C]/20">
-                      <h3 className="text-xl font-bold text-gray-800 mb-6">
+                    <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-2xl p-4 md:p-6 border border-[#FF6B2C]/20">
+                      <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-6">
                         Investment Summary
                       </h3>
                       
@@ -461,26 +461,26 @@ export default function Goal() {
           </section>
 
           {/* How It Works Section */}
-          <section id="how-it-works" className="py-24 bg-white relative overflow-hidden">
-            <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="text-center mb-16">
-                <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full border border-indigo-200 mb-6">
-                  <span className="text-sm font-semibold text-indigo-600">🎯 Process</span>
+          <section id="how-it-works" className="py-12 md:py-16 lg:py-24 bg-white relative overflow-hidden">
+            <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
+              <div className="text-center mb-8 md:mb-12 lg:mb-16">
+                <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full border border-indigo-200 mb-4 md:mb-6">
+                  <span className="text-xs md:text-sm font-semibold text-indigo-600">🎯 Process</span>
                 </div>
-                
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+
+                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6">
                   <span className="text-gray-800">How Goal </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Planning Works
                   </span>
                 </h2>
-                
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-2">
                   Our simple 4-step process helps you create and achieve any financial goal
                 </p>
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 {[
                   {
                     step: '01',
@@ -535,51 +535,51 @@ export default function Goal() {
           </section>
 
           {/* CTA Section */}
-          <section className="py-24 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
+          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
-            <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-6 text-center">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 md:mb-6">
                 Ready to Start Your Financial Journey?
               </h2>
-              
-              <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
+
+              <p className="text-sm md:text-base lg:text-xl text-white/90 max-w-2xl mx-auto mb-6 md:mb-8 px-2">
                 Join thousands of users who are already on their way to achieving their financial dreams with IncomeGrow
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button 
+
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+                <button
                   onClick={handleGetStarted}
-                  className="group bg-white text-[#FF6B2C] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group bg-white text-[#FF6B2C] px-6 md:px-8 py-3 md:py-4 border-none rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   {isLoggedIn ? 'Go to Dashboard' : 'Sign Up Free'}
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>
-                
-                <button 
+
+                <button
                   onClick={() => router.push('/support/contact-us')}
-                  className="group bg-white/20 backdrop-blur-sm text-white px-8 py-4 border-2 border-white/30 rounded-xl text-lg font-semibold cursor-pointer hover:bg-white/30 hover:border-white/50 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group bg-white/20 backdrop-blur-sm text-white px-6 md:px-8 py-3 md:py-4 border-2 border-white/30 rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:bg-white/30 hover:border-white/50 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   Contact Support
-                  <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                 </button>
               </div>
-              
-              <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+
+              <div className="mt-8 md:mt-12 grid grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">10,000+</div>
-                  <div className="text-white/80">Goals Achieved</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-1 md:mb-2">10,000+</div>
+                  <div className="text-xs md:text-sm lg:text-base text-white/80">Goals Achieved</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">₹500Cr+</div>
-                  <div className="text-white/80">Dreams Funded</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-1 md:mb-2">₹500Cr+</div>
+                  <div className="text-xs md:text-sm lg:text-base text-white/80">Dreams Funded</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-2">98%</div>
-                  <div className="text-white/80">Success Rate</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-1 md:mb-2">98%</div>
+                  <div className="text-xs md:text-sm lg:text-base text-white/80">Success Rate</div>
                 </div>
               </div>
             </div>
