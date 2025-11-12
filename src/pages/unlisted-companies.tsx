@@ -482,7 +482,7 @@ export default function UnlistedCompanies() {
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                 </svg>
                 <p className="text-sm text-blue-900 leading-relaxed">
-                  <strong className="font-bold">Important:</strong> This information is provided for educational purposes only and should not be considered as investment advice. Grey market investments are highly speculative and suitable only for investors with high risk tolerance. Always consult certified financial advisors and conduct thorough due diligence before making investment decisions.
+                  <strong className="font-bold">Important:</strong> This information is provided for educational purposes only and should not be considered as investment advice. Unlisted securities investments are highly speculative and suitable only for investors with high risk tolerance. Always consult certified financial advisors and conduct thorough due diligence before making investment decisions.
                 </p>
               </div>
             </div>
