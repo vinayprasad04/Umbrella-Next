@@ -10,6 +10,7 @@ const menu = [
       { name: 'Goal Planning', href: '/products/goal' },
       { name: 'Educational Courses', href: '/products/course' },
       { name: 'Market Research', href: 'https://www.stock.incomegrow.in/', external: true },
+      { name: 'Unlisted Companies', href: '/unlisted-companies' },
       { name: 'Expert Insights', href: '/products/blogs' },
       { name: 'Broker Knowledge', href: '/products/brokers-knowledge' },
     ],

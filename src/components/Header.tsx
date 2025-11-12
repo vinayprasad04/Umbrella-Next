@@ -13,6 +13,7 @@ const menu = [
       { name: 'Goal', href: '/products/goal' },
       { name: 'Course', href: '/products/course' },
       { name: 'Shares Research', href: 'https://www.stock.incomegrow.in/', external: true },
+      { name: 'Unlisted Companies', href: '/unlisted-companies' },
       { name: 'Blogs', href: '/products/blogs' },
       { name: 'Brokers Knowledge', href: '/products/brokers-knowledge' },
     ],
