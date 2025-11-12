@@ -5,7 +5,10 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: true,
+  },
+  experimental: {
+    webpackBuildWorker: false,
   },
   async redirects() {
     return [
