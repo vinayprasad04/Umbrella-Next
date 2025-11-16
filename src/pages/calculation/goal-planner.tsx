@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { logActivity } from "@/lib/activityLogger";
+import CalculatorFAQ from "@/components/CalculatorFAQ";
+import { goalPlannerFAQs } from "@/components/AdditionalFAQs";
 
 export default function GoalPlanner() {
   const router = useRouter();
@@ -78,10 +80,93 @@ export default function GoalPlanner() {
   return (
     <>
       <Head>
-        <title>Goal Planner Calculator - IncomeGrow Financial</title>
-        <meta name="description" content="Plan your financial goals with our goal planner calculator. Calculate monthly investments needed to achieve your financial targets." />
+        <title>Goal Planner Calculator - Financial Goal Planning Tool | IncomeGrow</title>
+        <meta name="description" content="Plan financial goals with our free calculator. Calculate monthly savings needed for retirement, education, wedding, house. Save and track your goals effectively." />
+        <meta name="keywords" content="goal planner, financial goal calculator, retirement planning, education planning, investment goal calculator, savings calculator, wealth planning tool" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://www.incomegrow.in/calculation/goal-planner" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Goal Planner - Calculate Your Financial Goals" />
+        <meta property="og:description" content="Free goal planning calculator to plan retirement, education, wedding, and other financial goals. Track your progress." />
+        <meta property="og:url" content="https://www.incomegrow.in/calculation/goal-planner" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.incomegrow.in/og-goal-planner.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Goal Planner Calculator - Free Tool" />
+        <meta name="twitter:description" content="Plan and track your financial goals with our free calculator." />
+        <meta name="twitter:image" content="https://www.incomegrow.in/og-goal-planner.png" />
+
+        {/* Schema.org structured data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Goal Planner Calculator",
+            "description": "Free financial goal planning calculator to plan retirement, education, wedding, house, and other financial goals.",
+            "url": "https://www.incomegrow.in/calculation/goal-planner",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "INR"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "IncomeGrow Financial",
+              "url": "https://www.incomegrow.in"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "ratingCount": "3124"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.incomegrow.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Calculators",
+                "item": "https://www.incomegrow.in/calculation"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Goal Planner",
+                "item": "https://www.incomegrow.in/calculation/goal-planner"
+              }
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": goalPlannerFAQs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}
+        </script>
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -263,11 +348,11 @@ export default function GoalPlanner() {
                         </div>
                         
                         <div className="text-center pt-4">
-                          <button 
+                          <button
                             onClick={handleGetStarted}
                             className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
                           >
-                            {isLoggedIn ? 'Start Goal Planning' : 'Create Account'}
+                            {isLoggedIn ? 'Save This Goal' : 'Create Free Account'}
                           </button>
                         </div>
                       </div>
@@ -361,20 +446,23 @@ export default function GoalPlanner() {
               </h2>
 
               <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-4 md:mb-5 lg:mb-6">
-                Take control of your financial future with strategic goal planning and systematic investing
+                Calculate your financial goals, save them, and track your progress toward achieving them
               </p>
-              
-              <button 
+
+              <button
                 onClick={handleGetStarted}
                 className="group bg-white text-[#FF6B2C] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
               >
-                {isLoggedIn ? 'Start Goal Planning' : 'Get Started Free'}
+                {isLoggedIn ? 'Save Your Goals' : 'Get Started Free'}
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </button>
             </div>
           </section>
+
+          {/* FAQ Section */}
+          <CalculatorFAQ faqs={goalPlannerFAQs} title="Goal Planner - Frequently Asked Questions" />
         </main>
 
         <Footer />

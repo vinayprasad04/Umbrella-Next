@@ -24,6 +24,14 @@ Allow: /
 Allow: /about
 Allow: /products/
 Allow: /calculation/
+Allow: /calculation/fd
+Allow: /calculation/rd
+Allow: /calculation/pf
+Allow: /calculation/nps
+Allow: /calculation/ssy
+Allow: /calculation/sip
+Allow: /calculation/lumpsum
+Allow: /calculation/tax
 Allow: /tax-planning/
 Allow: /support/
 Allow: /recipe/

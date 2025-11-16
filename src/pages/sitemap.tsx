@@ -40,8 +40,14 @@ export default function Sitemap() {
         { name: "Lumpsum Calculator", href: "/calculation/lumpsum", description: "Calculate lumpsum investment returns" },
         { name: "SIP Calculator", href: "/calculation/sip", description: "Plan your systematic investment" },
         { name: "Goal Planner", href: "/calculation/goal-planner", description: "Plan investments for your goals" },
-        { name: "EIM Calculator", href: "/calculation/eim", description: "Equity Investment Manager calculator" },
-        { name: "FD, RD, PF, NPS, SSY", href: "/calculation/fd-rd-pf-nps-ssy", description: "Various investment calculators" },
+        { name: "Retirement Plan Calculator", href: "/calculation/eim", description: "Plan your retirement and early retirement" },
+        { name: "Fixed Deposit (FD) Calculator", href: "/calculation/fd", description: "Calculate FD maturity amount and returns" },
+        { name: "Recurring Deposit (RD) Calculator", href: "/calculation/rd", description: "Calculate RD returns with monthly deposits" },
+        { name: "Provident Fund (PF) Calculator", href: "/calculation/pf", description: "Calculate EPF maturity and tax benefits" },
+        { name: "National Pension (NPS) Calculator", href: "/calculation/nps", description: "Calculate NPS returns and monthly pension" },
+        { name: "Sukanya Samriddhi (SSY) Calculator", href: "/calculation/ssy", description: "Calculate SSY maturity for girl child" },
+        { name: "Income Tax Calculator", href: "/calculation/tax", description: "Calculate income tax for different regimes" },
+        { name: "Gratuity Calculator", href: "/calculation/gratuity", description: "Calculate gratuity amount on retirement" },
         { name: "Other Calculators", href: "/calculation/other", description: "Additional financial calculators" }
       ]
     },

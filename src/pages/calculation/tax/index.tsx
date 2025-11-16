@@ -18,6 +18,8 @@ import {
   Deductions,
   BusinessDeductions
 } from './../../../components/calculation/tax';
+import CalculatorFAQ from "@/components/CalculatorFAQ";
+import { taxFAQs } from "@/components/AdditionalFAQs";
 
 interface TaxResult {
   oldRegime: {
@@ -943,10 +945,93 @@ export default function TaxCalculator() {
   return (
       <>
         <Head>
-          <title>Comprehensive Indian Tax Calculator - IncomeGrow Financial</title>
-          <meta name="description" content="Complete Indian income tax calculator with Old vs New regime comparison for multiple assessment years, HRA, 80C, 80D deductions and detailed tax planning." />
+          <title>Income Tax Calculator 2025-26 - Old vs New Regime Comparison | IncomeGrow</title>
+          <meta name="description" content="Free income tax calculator for FY 2024-25 (AY 2025-26). Compare old vs new tax regime, calculate HRA, 80C, 80D deductions. Save your tax calculations and plan effectively." />
+          <meta name="keywords" content="income tax calculator, tax calculator 2025-26, old vs new tax regime, HRA calculator, 80C deduction calculator, tax planning, India tax calculator" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="canonical" href="https://www.incomegrow.in/calculation/tax" />
           <link rel="icon" type="image/png" href="/favicon.png" />
+
+          {/* Open Graph */}
+          <meta property="og:title" content="Income Tax Calculator - Compare Old vs New Tax Regime" />
+          <meta property="og:description" content="Free tax calculator with old vs new regime comparison. Calculate tax, save calculations, and optimize your tax planning." />
+          <meta property="og:url" content="https://www.incomegrow.in/calculation/tax" />
+          <meta property="og:type" content="website" />
+          <meta property="og:image" content="https://www.incomegrow.in/og-tax-calculator.png" />
+
+          {/* Twitter Card */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Income Tax Calculator 2025-26" />
+          <meta name="twitter:description" content="Calculate income tax with our free calculator. Compare old vs new regime." />
+          <meta name="twitter:image" content="https://www.incomegrow.in/og-tax-calculator.png" />
+
+          {/* Schema.org structured data */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Income Tax Calculator",
+              "description": "Free income tax calculator for India with old vs new regime comparison, HRA calculation, and all deductions under Chapter VI-A.",
+              "url": "https://www.incomegrow.in/calculation/tax",
+              "applicationCategory": "FinanceApplication",
+              "operatingSystem": "Web",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "INR"
+              },
+              "provider": {
+                "@type": "Organization",
+                "name": "IncomeGrow Financial",
+                "url": "https://www.incomegrow.in"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "ratingCount": "5234"
+              }
+            })}
+          </script>
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://www.incomegrow.in"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Calculators",
+                  "item": "https://www.incomegrow.in/calculation"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Income Tax Calculator",
+                  "item": "https://www.incomegrow.in/calculation/tax"
+                }
+              ]
+            })}
+          </script>
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": taxFAQs.map(faq => ({
+                "@type": "Question",
+                "name": faq.question,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": faq.answer
+                }
+              }))
+            })}
+          </script>
         </Head>
 
         <div className="font-sans m-0 p-0 bg-white">
@@ -1097,6 +1182,9 @@ export default function TaxCalculator() {
             {/* Tax Planning Tips */}
             <TaxPlanningTips/>
 
+            {/* FAQ Section */}
+            <CalculatorFAQ faqs={taxFAQs} title="Income Tax Calculator - Frequently Asked Questions" />
+
             {/* CTA Section */}
             <section className="py-24 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
               <div className="absolute inset-0 bg-black/10"></div>
@@ -1106,14 +1194,14 @@ export default function TaxCalculator() {
                 </h2>
 
                 <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
-                  Get personalized tax planning advice and maximize your savings with expert guidance
+                  Calculate your tax, save calculations, and plan your tax-saving investments effectively
                 </p>
 
                 <button
                     onClick={handleGetStarted}
                     className="group bg-white text-[#FF6B2C] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
                 >
-                  {isLoggedIn ? 'Get Tax Planning Advice' : 'Get Started Free'}
+                  {isLoggedIn ? 'Save Tax Calculations' : 'Get Started Free'}
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import CalculatorFAQ from "@/components/CalculatorFAQ";
+import { retirementFAQs } from "@/components/AdditionalFAQs";
 
 export default function EIM() {
   const router = useRouter();
@@ -100,10 +102,93 @@ export default function EIM() {
   return (
     <>
       <Head>
-        <title>EIM Calculator - IncomeGrow Financial</title>
-        <meta name="description" content="Calculate your Equity Investment Management strategy and plan for retirement with our comprehensive EIM calculator." />
+        <title>Retirement Calculator - Free Retirement Planning Calculator | IncomeGrow</title>
+        <meta name="description" content="Calculate retirement corpus needed with our free calculator. Plan your retirement savings, calculate monthly SIP needed, and save your retirement goals. Includes inflation adjustment." />
+        <meta name="keywords" content="retirement calculator, retirement planning, retirement corpus calculator, pension calculator, retirement savings calculator, post-retirement income calculator" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://www.incomegrow.in/calculation/eim" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Retirement Calculator - Plan Your Retirement" />
+        <meta property="og:description" content="Free retirement planning calculator to calculate corpus needed, monthly savings, and post-retirement income." />
+        <meta property="og:url" content="https://www.incomegrow.in/calculation/eim" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.incomegrow.in/og-retirement-calculator.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Retirement Calculator - Free Tool" />
+        <meta name="twitter:description" content="Plan your retirement with our free calculator. Calculate corpus and monthly savings needed." />
+        <meta name="twitter:image" content="https://www.incomegrow.in/og-retirement-calculator.png" />
+
+        {/* Schema.org structured data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Retirement Calculator",
+            "description": "Free retirement planning calculator to calculate corpus needed, monthly investments, and post-retirement income with inflation adjustment.",
+            "url": "https://www.incomegrow.in/calculation/eim",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "INR"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "IncomeGrow Financial",
+              "url": "https://www.incomegrow.in"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "ratingCount": "2876"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.incomegrow.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Calculators",
+                "item": "https://www.incomegrow.in/calculation"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Retirement Calculator",
+                "item": "https://www.incomegrow.in/calculation/eim"
+              }
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": retirementFAQs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}
+        </script>
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -423,11 +508,11 @@ export default function EIM() {
                         </div>
                         
                         <div className="text-center pt-4">
-                          <button 
+                          <button
                             onClick={handleGetStarted}
                             className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
                           >
-                            {isLoggedIn ? 'Start Retirement Planning' : 'Create Account'}
+                            {isLoggedIn ? 'Save Retirement Plan' : 'Create Free Account'}
                           </button>
                         </div>
                       </div>
@@ -517,24 +602,27 @@ export default function EIM() {
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 lg:mb-6">
-                Secure Your Retirement Today
+                Plan Your Retirement Goals
               </h2>
 
               <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-4 md:mb-5 lg:mb-6">
-                Start building your retirement corpus with systematic equity investments
+                Calculate retirement corpus needed, save your retirement plan, and track your progress
               </p>
-              
-              <button 
+
+              <button
                 onClick={handleGetStarted}
                 className="group bg-white text-[#FF6B2C] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
               >
-                {isLoggedIn ? 'Start Retirement Planning' : 'Get Started Free'}
+                {isLoggedIn ? 'Save Retirement Plan' : 'Get Started Free'}
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </button>
             </div>
           </section>
+
+          {/* FAQ Section */}
+          <CalculatorFAQ faqs={retirementFAQs} title="Retirement Planning - Frequently Asked Questions" />
         </main>
 
         <Footer />

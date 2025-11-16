@@ -3,20 +3,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import CalculatorFAQ from "@/components/CalculatorFAQ";
-import { lumpsumFAQs } from "@/components/AdditionalFAQs";
 
-export default function Lumpsum() {
+export default function FixedDeposit() {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [investment, setInvestment] = useState('');
-  const [returnRate, setReturnRate] = useState('12');
+  const [returnRate, setReturnRate] = useState('7');
   const [timePeriod, setTimePeriod] = useState('');
   const [result, setResult] = useState<{
-    investedAmount: number;
     maturityAmount: number;
+    totalInvestment: number;
     totalReturns: number;
-    returnPercentage: string;
   } | null>(null);
 
   useEffect(() => {
@@ -24,22 +21,22 @@ export default function Lumpsum() {
     setIsLoggedIn(loggedIn);
   }, []);
 
-  const calculateLumpsum = () => {
+  const calculateReturns = () => {
     if (!investment || !returnRate || !timePeriod) return;
 
     const principal = parseFloat(investment);
     const rate = parseFloat(returnRate) / 100;
     const time = parseFloat(timePeriod);
-    
-    // Compound Interest Formula: A = P(1 + r)^t
+
+    // Simple compound interest for FD
     const maturityAmount = principal * Math.pow(1 + rate, time);
-    const totalReturns = maturityAmount - principal;
-    
+    const totalInvestment = principal;
+    const totalReturns = maturityAmount - totalInvestment;
+
     setResult({
-      investedAmount: principal,
       maturityAmount: Math.round(maturityAmount),
-      totalReturns: Math.round(totalReturns),
-      returnPercentage: ((totalReturns / principal) * 100).toFixed(1)
+      totalInvestment: Math.round(totalInvestment),
+      totalReturns: Math.round(totalReturns)
     });
   };
 
@@ -54,152 +51,70 @@ export default function Lumpsum() {
   return (
     <>
       <Head>
-        <title>Lumpsum Calculator - Free One-Time Investment Calculator | IncomeGrow</title>
-        <meta name="description" content="Calculate lumpsum investment returns with our free calculator. Plan one-time investments, compare compound interest, and save your financial goals. Get accurate projections." />
-        <meta name="keywords" content="lumpsum calculator, one time investment calculator, lumpsum returns, mutual fund lumpsum, compound interest calculator, investment calculator, wealth calculator" />
+        <title>Fixed Deposit Calculator - Calculate FD Returns | IncomeGrow</title>
+        <meta name="description" content="Calculate your Fixed Deposit (FD) returns with our comprehensive FD calculator. Get instant maturity amount calculations with guaranteed returns. Plan your FD investments wisely." />
+        <meta name="keywords" content="fixed deposit calculator, FD calculator, fixed deposit returns, FD interest calculator, bank FD calculator, fixed deposit maturity calculator" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="canonical" href="https://www.incomegrow.in/calculation/lumpsum" />
         <link rel="icon" type="image/png" href="/favicon.png" />
-
-        {/* Open Graph */}
-        <meta property="og:title" content="Lumpsum Calculator - Calculate One-Time Investment Returns" />
-        <meta property="og:description" content="Free online lumpsum calculator to plan your one-time investments. Calculate compound returns and track your financial goals." />
-        <meta property="og:url" content="https://www.incomegrow.in/calculation/lumpsum" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.incomegrow.in/og-lumpsum-calculator.png" />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Lumpsum Calculator - Free Online Tool" />
-        <meta name="twitter:description" content="Calculate your lumpsum investment returns with our free calculator." />
-        <meta name="twitter:image" content="https://www.incomegrow.in/og-lumpsum-calculator.png" />
-
-        {/* Schema.org structured data */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "Lumpsum Calculator",
-            "description": "Free online lumpsum investment calculator to calculate compound returns and plan one-time investments.",
-            "url": "https://www.incomegrow.in/calculation/lumpsum",
-            "applicationCategory": "FinanceApplication",
-            "operatingSystem": "Web",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "INR"
-            },
-            "provider": {
-              "@type": "Organization",
-              "name": "IncomeGrow Financial",
-              "url": "https://www.incomegrow.in"
-            },
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.7",
-              "ratingCount": "1823"
-            }
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.incomegrow.in"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Calculators",
-                "item": "https://www.incomegrow.in/calculation"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Lumpsum Calculator",
-                "item": "https://www.incomegrow.in/calculation/lumpsum"
-              }
-            ]
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": lumpsumFAQs.map(faq => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer
-              }
-            }))
-          })}
-        </script>
+        <link rel="canonical" href="https://www.incomegrow.in/calculation/fd" />
       </Head>
-      
+
       <div className="font-sans m-0 p-0 bg-white">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-green-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-emerald-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
+              <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-emerald-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-green-400/10 to-emerald-400/10 rounded-full blur-3xl"></div>
             </div>
 
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200 mb-3 md:mb-4 lg:mb-6">
-                <span className="text-sm font-semibold text-green-600">💰 Lumpsum Calculator</span>
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-50 to-green-50 rounded-full border border-emerald-200 mb-3 md:mb-4 lg:mb-6">
+                <span className="text-sm font-semibold text-emerald-600">🏦 Fixed Deposit Calculator</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
-                  Lumpsum Investment
+                  Fixed Deposit
                 </span>
                 <br />
                 <span className="text-gray-800">Calculator</span>
               </h1>
 
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
-                Calculate the future value of your one-time investment and see how compound interest 
-                can help grow your wealth over time.
+                Calculate your Fixed Deposit returns instantly. Plan your FD investments with guaranteed returns and secure your financial future.
               </p>
-              
+
               <div className="grid grid-cols-3 gap-3 md:gap-5 lg:gap-8 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Free</div>
-                  <div className="text-xs md:text-sm text-gray-600">Calculator</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Guaranteed</div>
+                  <div className="text-xs md:text-sm text-gray-600">Returns</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Instant</div>
-                  <div className="text-xs md:text-sm text-gray-600">Results</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Safe</div>
+                  <div className="text-xs md:text-sm text-gray-600">Investment</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Accurate</div>
-                  <div className="text-xs md:text-sm text-gray-600">Calculations</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Tax</div>
+                  <div className="text-xs md:text-sm text-gray-600">Benefits</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Calculator Section */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 relative overflow-hidden">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                   {/* Input Form */}
-                  <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl border border-gray-100">
+                  <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
                     <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
-                      Calculate Your Returns
+                      Calculate Your FD Returns
                     </h2>
-                    
+
                     <div className="space-y-6">
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-3">
@@ -213,36 +128,23 @@ export default function Lumpsum() {
                           onChange={(e) => setInvestment(e.target.value)}
                         />
                       </div>
-                      
+
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-3">
-                          Expected Annual Return (%)
+                          Interest Rate (% per annum)
                         </label>
                         <input
                           type="number"
                           step="0.1"
-                          placeholder="12"
                           className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
                           value={returnRate}
                           onChange={(e) => setReturnRate(e.target.value)}
                         />
-                        <div className="flex gap-2 mt-3">
-                          {['8', '10', '12', '15'].map(rate => (
-                            <button
-                              key={rate}
-                              onClick={() => setReturnRate(rate)}
-                              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                                returnRate === rate
-                                  ? 'bg-[#FF6B2C] text-white'
-                                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                              }`}
-                            >
-                              {rate}%
-                            </button>
-                          ))}
-                        </div>
+                        <p className="text-sm text-gray-500 mt-2">
+                          Current rate: 7% (as per latest updates)
+                        </p>
                       </div>
-                      
+
                       <div>
                         <label className="block text-sm font-semibold text-gray-700 mb-3">
                           Investment Period (Years)
@@ -255,7 +157,7 @@ export default function Lumpsum() {
                           onChange={(e) => setTimePeriod(e.target.value)}
                         />
                         <div className="flex gap-2 mt-3">
-                          {['5', '10', '15', '20'].map(period => (
+                          {['1', '3', '5', '10'].map(period => (
                             <button
                               key={period}
                               onClick={() => setTimePeriod(period)}
@@ -270,10 +172,10 @@ export default function Lumpsum() {
                           ))}
                         </div>
                       </div>
-                      
-                      <button 
+
+                      <button
                         className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
-                        onClick={calculateLumpsum}
+                        onClick={calculateReturns}
                       >
                         Calculate Returns
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -282,13 +184,13 @@ export default function Lumpsum() {
                       </button>
                     </div>
                   </div>
-                  
+
                   {/* Results */}
                   <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-3xl p-8 border border-[#FF6B2C]/20">
                     <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
                       Investment Summary
                     </h3>
-                    
+
                     {result ? (
                       <div className="space-y-6">
                         <div className="bg-white/80 rounded-2xl p-6 shadow-lg">
@@ -299,30 +201,23 @@ export default function Lumpsum() {
                             </div>
                           </div>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 gap-4">
                           <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Invested Amount</div>
+                            <div className="text-sm text-gray-600">Total Investment</div>
                             <div className="text-xl font-bold text-gray-800">
-                              ₹{result.investedAmount.toLocaleString()}
+                              ₹{result.totalInvestment.toLocaleString()}
                             </div>
                           </div>
-                          
+
                           <div className="bg-white/60 rounded-xl p-4">
                             <div className="text-sm text-gray-600">Total Returns</div>
                             <div className="text-xl font-bold text-green-600">
                               ₹{result.totalReturns.toLocaleString()}
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Return Percentage</div>
-                            <div className="text-xl font-bold text-[#FF6B2C]">
-                              {result.returnPercentage}%
-                            </div>
-                          </div>
                         </div>
-                        
+
                         <div className="text-center pt-4">
                           <button
                             onClick={handleGetStarted}
@@ -340,7 +235,7 @@ export default function Lumpsum() {
                           </svg>
                         </div>
                         <p className="text-gray-500 text-lg">
-                          Enter your investment details to see projected returns
+                          Enter your details to calculate projected returns
                         </p>
                       </div>
                     )}
@@ -350,65 +245,37 @@ export default function Lumpsum() {
             </div>
           </section>
 
-          {/* How It Works */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 relative overflow-hidden">
+          {/* Features Section */}
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">How </span>
+                  <span className="text-gray-800">Why Choose </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
-                    Lumpsum Works
+                    Fixed Deposit?
                   </span>
                 </h2>
 
                 <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
-                  Understand the power of compound interest with lumpsum investments
+                  Fixed Deposits offer guaranteed returns and complete safety for your investment
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 lg:gap-8">
-                {[
-                  {
-                    step: '01',
-                    title: 'One-Time Investment',
-                    description: 'Invest a lump sum amount at once in your chosen investment vehicle',
-                    icon: '💰',
-                    color: 'from-blue-400 to-blue-600'
-                  },
-                  {
-                    step: '02',
-                    title: 'Compound Growth',
-                    description: 'Your money grows through compound interest over the investment period',
-                    icon: '📈',
-                    color: 'from-green-400 to-green-600'
-                  },
-                  {
-                    step: '03',
-                    title: 'Maturity Returns',
-                    description: 'Receive your original investment plus accumulated returns at maturity',
-                    icon: '🎯',
-                    color: 'from-purple-400 to-purple-600'
-                  }
-                ].map((item, index) => (
-                  <div key={index} className="group text-center">
-                    <div className="relative mb-8">
-                      <div className={`w-20 h-20 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
-                        <span className="text-3xl">{item.icon}</span>
-                      </div>
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-[#FF6B2C] text-white rounded-full flex items-center justify-center text-sm font-bold">
-                        {item.step}
-                      </div>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">
-                      {item.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 lg:gap-8">
+                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">Guaranteed Returns</h3>
+                  <p className="text-gray-600">Get assured returns on your investment with no market risks</p>
+                </div>
+
+                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">Safe & Secure</h3>
+                  <p className="text-gray-600">Your deposits are insured up to ₹5 lakhs by DICGC</p>
+                </div>
+
+                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">Flexible Tenure</h3>
+                  <p className="text-gray-600">Choose investment period from 7 days to 10 years</p>
+                </div>
               </div>
             </div>
           </section>
@@ -418,11 +285,11 @@ export default function Lumpsum() {
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 lg:mb-6">
-                Plan Your Investment Goals
+                Plan Your Fixed Deposit
               </h2>
 
               <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-4 md:mb-5 lg:mb-6">
-                Calculate lumpsum returns, save your goals, and track your investment planning
+                Calculate FD returns and save your financial goals. Track your savings and make informed investment decisions.
               </p>
 
               <button
@@ -436,9 +303,6 @@ export default function Lumpsum() {
               </button>
             </div>
           </section>
-
-          {/* FAQ Section */}
-          <CalculatorFAQ faqs={lumpsumFAQs} title="Lumpsum Calculator - Frequently Asked Questions" />
         </main>
 
         <Footer />

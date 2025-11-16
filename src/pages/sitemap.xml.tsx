@@ -23,8 +23,13 @@ const staticPages = [
   { url: '/calculation/goal-planner', priority: '0.9', changefreq: 'monthly' },
   { url: '/calculation/tax', priority: '0.9', changefreq: 'monthly' },
   { url: '/calculation/eim', priority: '0.8', changefreq: 'monthly' },
-  { url: '/calculation/fd-rd-pf-nps-ssy', priority: '0.8', changefreq: 'monthly' },
+  { url: '/calculation/fd', priority: '0.9', changefreq: 'monthly' },
+  { url: '/calculation/rd', priority: '0.9', changefreq: 'monthly' },
+  { url: '/calculation/pf', priority: '0.9', changefreq: 'monthly' },
+  { url: '/calculation/nps', priority: '0.9', changefreq: 'monthly' },
+  { url: '/calculation/ssy', priority: '0.9', changefreq: 'monthly' },
   { url: '/calculation/gratuity', priority: '0.8', changefreq: 'monthly' },
+  { url: '/calculation/other', priority: '0.7', changefreq: 'monthly' },
 
   // Tax Planning
   { url: '/tax-planning', priority: '0.9', changefreq: 'monthly' },

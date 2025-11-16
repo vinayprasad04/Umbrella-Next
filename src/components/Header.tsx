@@ -25,7 +25,11 @@ const menu = [
       { name: 'SIP', href: '/calculation/sip' },
       { name: 'Goal Planner', href: '/calculation/goal-planner' },
       { name: 'Retirement Plan', href: '/calculation/eim' },
-      { name: 'FD, RD, PF, NPS, SSY', href: '/calculation/fd-rd-pf-nps-ssy' },
+      { name: 'Fixed Deposit (FD)', href: '/calculation/fd' },
+      { name: 'Recurring Deposit (RD)', href: '/calculation/rd' },
+      { name: 'Provident Fund (PF)', href: '/calculation/pf' },
+      { name: 'National Pension (NPS)', href: '/calculation/nps' },
+      { name: 'Sukanya Samriddhi (SSY)', href: '/calculation/ssy' },
       { name: 'Income Tax Calculator', href: '/calculation/tax' },
       { name: 'Gratuity Calculator', href: '/calculation/gratuity' },
       { name: 'OTHER', href: '/calculation/other' },
@@ -215,7 +219,7 @@ export default function Header({dashboard=false}: {dashboard?: boolean}) {
               )}
               
               {item.submenu && openSubmenu === item.label && (
-                <div className="absolute top-full left-0 mt-0 bg-white border border-gray-100 rounded-xl shadow-xl py-2 min-w-[220px] z-50 animate-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full left-0 mt-0 bg-white border border-gray-100 rounded-xl shadow-xl py-2 min-w-[260px] z-50 animate-in slide-in-from-top-2 duration-200">
                   <div className="px-2 py-1 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b border-gray-100 mb-2">
                     {item.label}
                   </div>

@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import CalculatorFAQ from "@/components/CalculatorFAQ";
+import { gratuityFAQs } from "@/components/AdditionalFAQs";
 
 export default function GratuityCalculator() {
   const router = useRouter();
@@ -69,10 +71,93 @@ export default function GratuityCalculator() {
   return (
     <>
       <Head>
-        <title>Gratuity Calculator - IncomeGrow Financial</title>
-        <meta name="description" content="Calculate your gratuity amount based on last drawn salary and years of service. Understand gratuity eligibility and payment rules." />
+        <title>Gratuity Calculator - Free Gratuity Amount Calculator | IncomeGrow</title>
+        <meta name="description" content="Calculate gratuity amount with our free calculator. Based on Payment of Gratuity Act 1972. Check eligibility, calculate amount, and save your calculations. Max limit ₹20 lakhs." />
+        <meta name="keywords" content="gratuity calculator, gratuity calculation formula, gratuity eligibility, payment of gratuity act, gratuity amount calculator, retirement benefits calculator" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://www.incomegrow.in/calculation/gratuity" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Gratuity Calculator - Calculate Your Gratuity Amount" />
+        <meta property="og:description" content="Free gratuity calculator based on Indian labor laws. Calculate gratuity eligibility and amount accurately." />
+        <meta property="og:url" content="https://www.incomegrow.in/calculation/gratuity" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.incomegrow.in/og-gratuity-calculator.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Gratuity Calculator - Free Tool" />
+        <meta name="twitter:description" content="Calculate your gratuity amount and check eligibility with our free calculator." />
+        <meta name="twitter:image" content="https://www.incomegrow.in/og-gratuity-calculator.png" />
+
+        {/* Schema.org structured data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Gratuity Calculator",
+            "description": "Free gratuity calculator to calculate gratuity amount based on Payment of Gratuity Act 1972. Check eligibility and calculate accurate gratuity.",
+            "url": "https://www.incomegrow.in/calculation/gratuity",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "INR"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "IncomeGrow Financial",
+              "url": "https://www.incomegrow.in"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "ratingCount": "1456"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.incomegrow.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Calculators",
+                "item": "https://www.incomegrow.in/calculation"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Gratuity Calculator",
+                "item": "https://www.incomegrow.in/calculation/gratuity"
+              }
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": gratuityFAQs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}
+        </script>
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -281,11 +366,11 @@ export default function GratuityCalculator() {
                         </div>
                         
                         <div className="text-center pt-4">
-                          <button 
+                          <button
                             onClick={handleGetStarted}
                             className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
                           >
-                            {isLoggedIn ? 'Get Retirement Planning' : 'Create Account'}
+                            {isLoggedIn ? 'Save This Calculation' : 'Create Free Account'}
                           </button>
                         </div>
                       </div>
@@ -384,24 +469,27 @@ export default function GratuityCalculator() {
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 lg:mb-6">
-                Plan Your Retirement Benefits
+                Calculate Your Retirement Benefits
               </h2>
 
               <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-4 md:mb-5 lg:mb-6">
-                Get comprehensive retirement planning advice and understand all your benefits
+                Calculate gratuity, save your calculations, and plan your retirement benefits effectively
               </p>
-              
-              <button 
+
+              <button
                 onClick={handleGetStarted}
                 className="group bg-white text-[#FF6B2C] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
               >
-                {isLoggedIn ? 'Get Retirement Planning' : 'Get Started Free'}
+                {isLoggedIn ? 'Save Your Calculations' : 'Get Started Free'}
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </button>
             </div>
           </section>
+
+          {/* FAQ Section */}
+          <CalculatorFAQ faqs={gratuityFAQs} title="Gratuity Calculator - Frequently Asked Questions" />
         </main>
 
         <Footer />

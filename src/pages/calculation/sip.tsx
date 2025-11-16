@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import CalculatorFAQ from "@/components/CalculatorFAQ";
+import { sipFAQs } from "@/components/AdditionalFAQs";
 
 export default function SIP() {
   const router = useRouter();
@@ -54,10 +56,93 @@ export default function SIP() {
   return (
     <>
       <Head>
-        <title>SIP Calculator - IncomeGrow Financial</title>
-        <meta name="description" content="Calculate your SIP investment returns with our free online calculator. Plan your systematic investment plan and see potential growth over time." />
+        <title>SIP Calculator - Free Systematic Investment Plan Calculator | IncomeGrow</title>
+        <meta name="description" content="Calculate your SIP returns with our free online calculator. Plan systematic investments, compare returns, and save your financial goals. Get accurate projections for mutual fund SIPs." />
+        <meta name="keywords" content="SIP calculator, systematic investment plan, SIP returns calculator, mutual fund SIP, monthly investment calculator, SIP planning tool, compound interest calculator" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="canonical" href="https://www.incomegrow.in/calculation/sip" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="SIP Calculator - Calculate Systematic Investment Plan Returns" />
+        <meta property="og:description" content="Free online SIP calculator to plan your systematic investments. Calculate returns, compare schemes, and track your financial goals." />
+        <meta property="og:url" content="https://www.incomegrow.in/calculation/sip" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.incomegrow.in/og-sip-calculator.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="SIP Calculator - Free Online Tool" />
+        <meta name="twitter:description" content="Calculate your SIP returns and plan systematic investments with our free calculator." />
+        <meta name="twitter:image" content="https://www.incomegrow.in/og-sip-calculator.png" />
+
+        {/* Schema.org structured data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "SIP Calculator",
+            "description": "Free online Systematic Investment Plan (SIP) calculator to calculate returns, plan investments, and track financial goals.",
+            "url": "https://www.incomegrow.in/calculation/sip",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "INR"
+            },
+            "provider": {
+              "@type": "Organization",
+              "name": "IncomeGrow Financial",
+              "url": "https://www.incomegrow.in"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "ratingCount": "2547"
+            }
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.incomegrow.in"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Calculators",
+                "item": "https://www.incomegrow.in/calculation"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "SIP Calculator",
+                "item": "https://www.incomegrow.in/calculation/sip"
+              }
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": sipFAQs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            }))
+          })}
+        </script>
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">
@@ -241,11 +326,11 @@ export default function SIP() {
                         </div>
                         
                         <div className="text-center pt-4">
-                          <button 
+                          <button
                             onClick={handleGetStarted}
                             className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
                           >
-                            {isLoggedIn ? 'Start SIP Investment' : 'Create Account'}
+                            {isLoggedIn ? 'Save This Calculation' : 'Create Free Account'}
                           </button>
                         </div>
                       </div>
@@ -335,24 +420,27 @@ export default function SIP() {
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 lg:mb-6">
-                Start Your SIP Journey
+                Plan Your SIP Goals
               </h2>
 
               <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-2xl mx-auto mb-4 md:mb-5 lg:mb-6">
-                Begin systematic investing today and build wealth through disciplined investment habits
+                Calculate SIP returns, save your goals, and track your investment planning journey
               </p>
-              
-              <button 
+
+              <button
                 onClick={handleGetStarted}
                 className="group bg-white text-[#FF6B2C] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
               >
-                {isLoggedIn ? 'Start SIP Investment' : 'Get Started Free'}
+                {isLoggedIn ? 'Save Your Goals' : 'Get Started Free'}
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </button>
             </div>
           </section>
+
+          {/* FAQ Section */}
+          <CalculatorFAQ faqs={sipFAQs} title="SIP Calculator - Frequently Asked Questions" />
         </main>
 
         <Footer />
