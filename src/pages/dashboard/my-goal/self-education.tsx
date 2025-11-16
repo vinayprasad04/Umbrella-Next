@@ -19,7 +19,6 @@ const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
 );
 
 interface SelfEducationFormData {
-  userId: string;
   currentAge: number;
   targetAge: number;
   courseFee: number;
@@ -62,7 +61,6 @@ const SelfEducation: NextPageWithLayout = () => {
   const [results, setResults] = useState<CalculationResults | null>(null);
 
   const [formData, setFormData] = useState<SelfEducationFormData>({
-    userId: '',
     currentAge: 25,
     targetAge: 26,
     courseFee: 200000,
@@ -113,7 +111,10 @@ const SelfEducation: NextPageWithLayout = () => {
       const response = await fetch('/api/self-education', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          userId,
+        }),
       });
       if (response.ok) {
         alert('Self Education plan saved successfully!');

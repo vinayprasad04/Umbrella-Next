@@ -19,7 +19,6 @@ const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
 );
 
 interface VacationFormData {
-  userId: string;
   currentAge: number;
   targetAge: number;
   vacationBudget: number;
@@ -63,7 +62,6 @@ const Vacation: NextPageWithLayout = () => {
   const [results, setResults] = useState<CalculationResults | null>(null);
 
   const [formData, setFormData] = useState<VacationFormData>({
-    userId: '',
     currentAge: 30,
     targetAge: 31,
     vacationBudget: 300000,
@@ -114,7 +112,10 @@ const Vacation: NextPageWithLayout = () => {
       const response = await fetch('/api/vacation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+         body: JSON.stringify({
+          ...formData,
+          userId,
+        }),
       });
       if (response.ok) {
         alert('Dream Vacation plan saved successfully!');

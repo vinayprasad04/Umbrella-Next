@@ -19,7 +19,6 @@ const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
 );
 
 interface ChildWeddingFormData {
-  userId: string;
   currentAge: number;
   childCurrentAge: number;
   targetAge: number;
@@ -64,7 +63,6 @@ const ChildWedding: NextPageWithLayout = () => {
   const [results, setResults] = useState<CalculationResults | null>(null);
 
   const [formData, setFormData] = useState<ChildWeddingFormData>({
-    userId: '',
     currentAge: 35,
     childCurrentAge: 10,
     targetAge: 25,
@@ -116,7 +114,10 @@ const ChildWedding: NextPageWithLayout = () => {
       const response = await fetch('/api/child-wedding', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+         body: JSON.stringify({
+          ...formData,
+          userId,
+        }),
       });
       if (response.ok) {
         alert("Child's Wedding plan saved successfully!");

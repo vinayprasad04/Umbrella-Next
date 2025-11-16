@@ -19,7 +19,6 @@ const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
 );
 
 interface ChildEducationFormData {
-  userId: string;
   currentAge: number;
   childCurrentAge: number;
   targetAge: number;
@@ -64,7 +63,6 @@ const ChildEducation: NextPageWithLayout = () => {
   const [results, setResults] = useState<CalculationResults | null>(null);
 
   const [formData, setFormData] = useState<ChildEducationFormData>({
-    userId: '',
     currentAge: 30,
     childCurrentAge: 5,
     targetAge: 18,
@@ -116,7 +114,10 @@ const ChildEducation: NextPageWithLayout = () => {
       const response = await fetch('/api/child-education', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          userId,
+        }),
       });
       if (response.ok) {
         alert("Child's Education plan saved successfully!");
