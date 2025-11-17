@@ -1,4 +1,6 @@
 import { GetServerSideProps } from 'next';
+import dbConnect from '@/lib/mongodb';
+import Blog from '@/models/Blog';
 
 // List of all static pages with their priorities and change frequencies
 const staticPages = [
@@ -67,24 +69,46 @@ const staticPages = [
   { url: '/become-partner', priority: '0.7', changefreq: 'monthly' },
 ];
 
-function generateSiteMap() {
+interface BlogPost {
+  slug: string;
+  updatedAt: Date;
+  status: string;
+}
+
+function generateSiteMap(blogs: BlogPost[]) {
   const baseUrl = 'https://www.incomegrow.in';
+
+  // Generate static pages URLs
+  const staticUrls = staticPages
+    .map(({ url, priority, changefreq }) => {
+      return `  <url>
+    <loc>${baseUrl}${url}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+    })
+    .join('\n');
+
+  // Generate blog post URLs
+  const blogUrls = blogs
+    .map((blog) => {
+      return `  <url>
+    <loc>${baseUrl}/products/blogs/${blog.slug}</loc>
+    <lastmod>${new Date(blog.updatedAt).toISOString()}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+    })
+    .join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-${staticPages
-  .map(({ url, priority, changefreq }) => {
-    return `  <url>
-    <loc>${baseUrl}${url}</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-  </url>`;
-  })
-  .join('\n')}
+${staticUrls}
+${blogUrls}
 </urlset>`;
 }
 
@@ -94,13 +118,33 @@ export default function SiteMap() {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  // Generate the XML sitemap
-  const sitemap = generateSiteMap();
+  try {
+    // Connect to database
+    await dbConnect();
 
-  res.setHeader('Content-Type', 'text/xml');
-  res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate');
-  res.write(sitemap);
-  res.end();
+    // Fetch all published blogs
+    const blogs = await Blog.find({ status: 'published' })
+      .select('slug updatedAt')
+      .sort({ updatedAt: -1 })
+      .lean();
+
+    // Generate the XML sitemap
+    const sitemap = generateSiteMap(blogs as BlogPost[]);
+
+    res.setHeader('Content-Type', 'text/xml');
+    res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate');
+    res.write(sitemap);
+    res.end();
+  } catch (error) {
+    console.error('Error generating sitemap:', error);
+
+    // Generate sitemap without blogs if there's an error
+    const sitemap = generateSiteMap([]);
+    res.setHeader('Content-Type', 'text/xml');
+    res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate');
+    res.write(sitemap);
+    res.end();
+  }
 
   return {
     props: {},

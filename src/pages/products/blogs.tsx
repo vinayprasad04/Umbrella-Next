@@ -84,10 +84,75 @@ export default function Blogs() {
   return (
     <>
       <Head>
-        <title>Financial Blogs - IncomeGrow Financial</title>
-        <meta name="description" content="Stay updated with latest financial insights, investment tips, market news, and expert advice from our financial blog." />
+        <title>Financial Blog - Investment Tips, Market News & Expert Advice | IncomeGrow</title>
+        <meta name="description" content="Stay updated with latest financial insights, investment tips, market news, and expert advice. Learn about tax planning, retirement, mutual funds, and wealth creation strategies." />
+        <meta name="keywords" content="financial blog, investment tips, market news, tax planning, retirement planning, mutual funds, wealth creation, personal finance, stock market" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="https://www.incomegrow.in/products/blogs" />
+
+        {/* Open Graph tags */}
+        <meta property="og:title" content="Financial Blog - Investment Tips & Expert Advice | IncomeGrow" />
+        <meta property="og:description" content="Stay updated with latest financial insights, investment tips, market news, and expert advice from our financial blog." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.incomegrow.in/products/blogs" />
+        <meta property="og:site_name" content="IncomeGrow Financial" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://www.incomegrow.in/logo.png" />
+
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Financial Blog - Investment Tips & Expert Advice | IncomeGrow" />
+        <meta name="twitter:description" content="Stay updated with latest financial insights, investment tips, market news, and expert advice from our financial blog." />
+        <meta name="twitter:site" content="@IncomeGrow" />
+        <meta name="twitter:image" content="https://www.incomegrow.in/logo.png" />
+
+        {/* Structured Data - Blog Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Blog',
+              name: 'IncomeGrow Financial Blog',
+              description: 'Expert financial insights, investment tips, market news, and personal finance advice',
+              url: 'https://www.incomegrow.in/products/blogs',
+              publisher: {
+                '@type': 'Organization',
+                name: 'IncomeGrow Financial',
+                logo: {
+                  '@type': 'ImageObject',
+                  url: 'https://www.incomegrow.in/logo.png',
+                },
+              },
+            }),
+          }}
+        />
+
+        {/* Breadcrumb Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'Home',
+                  item: 'https://www.incomegrow.in',
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: 'Blogs',
+                  item: 'https://www.incomegrow.in/products/blogs',
+                },
+              ],
+            }),
+          }}
+        />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

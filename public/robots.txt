@@ -23,6 +23,7 @@ Disallow: /reset-password
 Allow: /
 Allow: /about
 Allow: /products/
+Allow: /products/blogs/
 Allow: /calculation/
 Allow: /calculation/fd
 Allow: /calculation/rd

@@ -5,6 +5,7 @@ interface User {
   name: string;
   email: string;
   initials: string;
+  role?: string;
 }
 
 interface Comment {
@@ -49,7 +50,8 @@ const CommentSystem: React.FC<CommentSystemProps> = ({ blogId, commentsEnabled }
         setCurrentUser({
           name: user.name || 'User',
           email: user.email || '',
-          initials: user.name ? user.name.split(' ').map((n: string) => n[0]).join('') : 'U'
+          initials: user.name ? user.name.split(' ').map((n: string) => n[0]).join('') : 'U',
+          role: user.role || 'user'
         });
       } catch (e) {
         console.error('Error parsing user data:', e);
@@ -171,12 +173,17 @@ const CommentSystem: React.FC<CommentSystemProps> = ({ blogId, commentsEnabled }
     }
   };
 
-  const handleDeleteComment = async (commentId: string) => {
-    if (!confirm('Are you sure you want to delete this comment?')) {
+  const handleDeleteComment = async (commentId: string, isAdminDelete: boolean = false) => {
+    const confirmMessage = isAdminDelete
+      ? 'Are you sure you want to delete this comment? (Admin Action - This will remove the comment permanently)'
+      : 'Are you sure you want to delete this comment?';
+
+    if (!confirm(confirmMessage)) {
       return;
     }
 
     try {
+      setError('');
       const response = await fetch(`/api/comments/${blogId}`, {
         method: 'DELETE',
         headers: getAuthHeaders(),
@@ -218,6 +225,9 @@ const CommentSystem: React.FC<CommentSystemProps> = ({ blogId, commentsEnabled }
 
   const renderComment = (comment: Comment, depth: number = 0) => {
     const isOwner = currentUser && currentUser.email === comment.user.email;
+    const isAdmin = currentUser && currentUser.role === 'admin';
+    const canEdit = isOwner;
+    const canDelete = isOwner || isAdmin;
     const maxDepth = 3;
 
     return (
@@ -230,7 +240,14 @@ const CommentSystem: React.FC<CommentSystemProps> = ({ blogId, commentsEnabled }
                 {comment.user.initials}
               </div>
               <div>
-                <div className="font-semibold text-gray-800">{comment.user.name}</div>
+                <div className="flex items-center gap-2">
+                  <div className="font-semibold text-gray-800">{comment.user.name}</div>
+                  {isAdmin && !isOwner && (
+                    <span className="px-2 py-0.5 bg-red-100 text-red-700 text-xs font-semibold rounded">
+                      Admin View
+                    </span>
+                  )}
+                </div>
                 <div className="text-sm text-gray-500">
                   {formatDate(comment.createdAt)}
                   {comment.isEdited && (
@@ -241,23 +258,35 @@ const CommentSystem: React.FC<CommentSystemProps> = ({ blogId, commentsEnabled }
             </div>
 
             {/* Comment Actions */}
-            {isOwner && (
+            {(canEdit || canDelete) && (
               <div className="flex items-center gap-2">
-                <button
-                  onClick={() => {
-                    setEditingComment(comment._id);
-                    setEditContent(comment.content);
-                  }}
-                  className="text-blue-600 hover:text-blue-800 text-sm"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDeleteComment(comment._id)}
-                  className="text-red-600 hover:text-red-800 text-sm"
-                >
-                  Delete
-                </button>
+                {canEdit && (
+                  <button
+                    onClick={() => {
+                      setEditingComment(comment._id);
+                      setEditContent(comment.content);
+                    }}
+                    className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
+                    title="Edit comment"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                    Edit
+                  </button>
+                )}
+                {canDelete && (
+                  <button
+                    onClick={() => handleDeleteComment(comment._id, isAdmin && !isOwner)}
+                    className="text-red-600 hover:text-red-800 text-sm font-medium flex items-center gap-1"
+                    title={isAdmin && !isOwner ? "Delete comment (Admin)" : "Delete comment"}
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                    Delete
+                  </button>
+                )}
               </div>
             )}
           </div>
