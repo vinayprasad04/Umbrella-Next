@@ -38,7 +38,7 @@ Allow: /support/
 Allow: /recipe/
 
 # Sitemap location
-Sitemap: https://www.incomegrow.in/sitemap.xml
+Sitemap: https://www.incomegrow.in/api/sitemap.xml
 
 # Crawl-delay for specific bots (optional)
 User-agent: Googlebot

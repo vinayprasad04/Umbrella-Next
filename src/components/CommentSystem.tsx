@@ -277,7 +277,7 @@ const CommentSystem: React.FC<CommentSystemProps> = ({ blogId, commentsEnabled }
                 )}
                 {canDelete && (
                   <button
-                    onClick={() => handleDeleteComment(comment._id, isAdmin && !isOwner)}
+                    onClick={() => handleDeleteComment(comment._id, Boolean(isAdmin && !isOwner))}
                     className="text-red-600 hover:text-red-800 text-sm font-medium flex items-center gap-1"
                     title={isAdmin && !isOwner ? "Delete comment (Admin)" : "Delete comment"}
                   >

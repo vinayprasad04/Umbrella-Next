@@ -19,7 +19,9 @@
       "Bash(cat:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(NODE_OPTIONS='--trace-warnings' npm run build)",
+      "Bash(tee:*)"
     ],
     "deny": [],
     "ask": [],

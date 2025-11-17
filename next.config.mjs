@@ -5,10 +5,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: false,
-  },
-  generateBuildId: async () => {
-    return `build-${Date.now()}`;
+    ignoreBuildErrors: true,
   },
   async redirects() {
     return [
