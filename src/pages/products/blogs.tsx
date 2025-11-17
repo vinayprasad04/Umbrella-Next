@@ -159,88 +159,84 @@ export default function Blogs() {
         <Header />
 
         <main>
-          {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-indigo-50 overflow-hidden">
+          {/* Compact Hero Section */}
+          <section className="relative py-6 md:py-8 lg:py-10 bg-gradient-to-br from-gray-50 via-white to-indigo-50 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-indigo-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
+              <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-indigo-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-10 right-10 w-64 h-64 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
             </div>
-            
-            <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-6 text-center">
-              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full border border-indigo-200 mb-4 md:mb-6 lg:mb-8">
-                <span className="text-xs md:text-sm font-semibold text-indigo-600">📝 Financial Insights</span>
-              </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight">
-                <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
-                  Expert Insights
-                </span>
-                <br />
-                <span className="text-gray-800">& Market Updates</span>
-              </h1>
+            <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-6">
+              <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+                {/* Left Content */}
+                <div className="flex-1 text-center lg:text-left">
+                  <div className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full border border-indigo-200 mb-3">
+                    <span className="text-xs md:text-sm font-semibold text-indigo-600">📝 Financial Insights</span>
+                  </div>
 
-              <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6 lg:mb-8">
-                Stay ahead of the market with our expert analysis, investment strategies, 
-                and the latest financial news to make informed decisions.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center mb-8 md:mb-12">
-                <button
-                  onClick={handleGetStarted}
-                  className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 md:px-8 py-3 md:py-4 border-none rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  Subscribe to Newsletter
-                  <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
-                
-                <button className="group bg-white/80 backdrop-blur-sm text-gray-700 px-6 md:px-8 py-3 md:py-4 border-2 border-gray-200 rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2">
-                  Browse Categories
-                  <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
-                  </svg>
-                </button>
-              </div>
-              
-              {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-3xl mx-auto">
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">500+</div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-600">Articles Published</div>
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 leading-tight">
+                    <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
+                      Expert Insights
+                    </span>
+                    <span className="text-gray-800"> & Market Updates</span>
+                  </h1>
+
+                  <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-4 max-w-2xl mx-auto lg:mx-0">
+                    Stay ahead with expert analysis, investment strategies, and financial news.
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                    <button
+                      onClick={handleGetStarted}
+                      className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-2.5 border-none rounded-xl text-base font-semibold cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                    >
+                      Subscribe to Newsletter
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">50K+</div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-600">Monthly Readers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">15+</div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-600">Expert Writers</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Daily</div>
-                  <div className="text-xs sm:text-sm md:text-base text-gray-600">New Content</div>
+
+                {/* Right Stats */}
+                <div className="flex lg:grid lg:grid-cols-2 gap-4 lg:gap-6">
+                  <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
+                    <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">500+</div>
+                    <div className="text-xs md:text-sm text-gray-600">Articles</div>
+                  </div>
+                  <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
+                    <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">50K+</div>
+                    <div className="text-xs md:text-sm text-gray-600">Readers</div>
+                  </div>
+                  <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
+                    <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">15+</div>
+                    <div className="text-xs md:text-sm text-gray-600">Writers</div>
+                  </div>
+                  <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
+                    <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">Daily</div>
+                    <div className="text-xs md:text-sm text-gray-600">Updates</div>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Categories Section */}
-          <section className="py-8 md:py-12 lg:py-16 bg-white border-b border-gray-100">
+          <section className="py-4 md:py-6 bg-white border-b border-gray-100">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
-              <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+              <div className="flex flex-wrap justify-center gap-2 md:gap-3">
                 {categories.map((category) => (
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`px-4 md:px-6 py-2 md:py-3 rounded-2xl text-sm md:text-base font-semibold transition-all duration-300 flex items-center gap-2 ${
+                    className={`px-3 md:px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
                       selectedCategory === category.id
-                        ? 'bg-[#FF6B2C] text-white shadow-lg scale-105'
+                        ? 'bg-[#FF6B2C] text-white shadow-md scale-105'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
                     {category.name}
-                    <span className={`px-2 py-1 rounded-full text-xs ${
+                    <span className={`px-2 py-0.5 rounded-full text-xs ${
                       selectedCategory === category.id
                         ? 'bg-white/20 text-white'
                         : 'bg-gray-200 text-gray-600'
@@ -254,17 +250,17 @@ export default function Blogs() {
           </section>
 
           {/* Blog Posts Section */}
-          <section className="py-12 md:py-16 lg:py-24 bg-gray-50 relative overflow-hidden">
+          <section className="py-8 md:py-12 bg-gray-50 relative overflow-hidden">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
-              <div className="text-center mb-8 md:mb-12 lg:mb-16">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6">
+              <div className="flex items-center justify-between mb-6 md:mb-8">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
                   <span className="text-gray-800">Latest </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Articles
                   </span>
                 </h2>
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
-                  Stay informed with our latest insights on investing, market trends, and financial planning
+                <p className="text-sm text-gray-600 hidden sm:block">
+                  {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'}
                 </p>
               </div>
 
@@ -277,11 +273,11 @@ export default function Blogs() {
               )}
 
               {isLoading ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   {[1, 2, 3, 4, 5, 6].map((i) => (
-                    <div key={i} className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow-lg animate-pulse">
-                      <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gray-200 rounded-2xl mb-3 md:mb-4"></div>
-                      <div className="space-y-3 mb-4">
+                    <div key={i} className="bg-white rounded-2xl p-5 shadow-md animate-pulse">
+                      <div className="w-14 h-14 bg-gray-200 rounded-2xl mb-3"></div>
+                      <div className="space-y-2 mb-3">
                         <div className="h-4 bg-gray-200 rounded w-3/4"></div>
                         <div className="h-4 bg-gray-200 rounded w-1/2"></div>
                       </div>
@@ -312,58 +308,63 @@ export default function Blogs() {
                   </button>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   {filteredPosts.map((post) => (
-                  <article key={post.id} className="group bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-100 cursor-pointer" onClick={() => router.push(`/products/blogs/${post.slug}`)}>
+                  <article key={post.id} className="group bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border border-gray-100 cursor-pointer" onClick={() => router.push(`/products/blogs/${post.slug}`)}>
                     {/* Post Header */}
-                    <div className="mb-4 md:mb-6">
-                      <div className={`w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-r ${post.color} rounded-2xl flex items-center justify-center mb-3 md:mb-4 text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div className="mb-4">
+                      <div className={`w-14 h-14 bg-gradient-to-r ${post.color} rounded-2xl flex items-center justify-center mb-3 text-2xl shadow-md group-hover:scale-110 transition-transform duration-300`}>
                         <span className="drop-shadow-sm">{post.image}</span>
                       </div>
-                      
-                      <div className="flex flex-wrap gap-2 mb-2 md:mb-3">
-                        {post.tags.map((tag, index) => (
+
+                      <div className="flex flex-wrap gap-2 mb-2">
+                        {post.tags.slice(0, 2).map((tag, index) => (
                           <span key={index} className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
                             {tag}
                           </span>
                         ))}
+                        {post.tags.length > 2 && (
+                          <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                            +{post.tags.length - 2}
+                          </span>
+                        )}
                       </div>
                     </div>
 
                     {/* Post Content */}
-                    <div className="space-y-3 md:space-y-4">
-                      <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-300 line-clamp-2">
+                    <div className="space-y-3">
+                      <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-300 line-clamp-2">
                         {post.title}
                       </h3>
-                      
-                      <p className="text-sm md:text-base text-gray-600 leading-relaxed line-clamp-3">
+
+                      <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
                         {post.excerpt}
                       </p>
-                      
+
                       {/* Post Meta */}
-                      <div className="flex items-center justify-between pt-3 md:pt-4 border-t border-gray-100">
-                        <div className="flex items-center gap-2 md:gap-3">
-                          <div className="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm">
+                      <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                        <div className="flex items-center gap-2">
+                          <div className="w-7 h-7 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full flex items-center justify-center text-white font-bold text-xs">
                             {post.author.split(' ').map(n => n[0]).join('')}
                           </div>
                           <div>
-                            <div className="text-xs md:text-sm font-semibold text-gray-800">{post.author}</div>
+                            <div className="text-xs font-semibold text-gray-800">{post.author}</div>
                             <div className="text-xs text-gray-500">{post.date}</div>
                           </div>
                         </div>
 
-                        <div className="text-xs md:text-sm text-gray-500">
+                        <div className="text-xs text-gray-500">
                           {post.readTime}
                         </div>
                       </div>
-                      
+
                       {/* Read More Button */}
                       <button
                         onClick={() => router.push(`/products/blogs/${post.slug}`)}
-                        className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white py-2.5 md:py-3 rounded-xl text-sm md:text-base font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn"
+                        className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white py-2.5 rounded-xl text-sm font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn"
                       >
                         Read More
-                        <svg className="w-4 h-4 md:w-4 md:h-4 group-hover/btn:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                       </button>
@@ -374,9 +375,9 @@ export default function Blogs() {
               )}
               
               {/* Load More Button */}
-              {!isLoading && filteredPosts.length > 0 && (
-                <div className="text-center mt-8 md:mt-12 lg:mt-16">
-                  <button className="bg-white text-gray-700 px-6 md:px-8 py-3 md:py-4 border-2 border-gray-200 rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:border-gray-300 transition-all duration-300">
+              {!isLoading && filteredPosts.length > 6 && (
+                <div className="text-center mt-8">
+                  <button className="bg-white text-gray-700 px-6 py-3 border-2 border-gray-200 rounded-xl text-base font-semibold cursor-pointer hover:bg-gray-50 hover:shadow-md hover:border-gray-300 transition-all duration-300">
                     Load More Articles
                   </button>
                 </div>
