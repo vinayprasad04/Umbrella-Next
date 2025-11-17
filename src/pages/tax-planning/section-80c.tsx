@@ -29,7 +29,8 @@ export default function Section80C() {
         <meta name="keywords" content="Section 80C, tax savings, PPF, ELSS, EPF, NSC, tax deduction, investment, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="canonical" href="http://incomegrow.in//tax-planning/section-80c" />
+        <link rel="canonical" href="https://www.incomegrow.in/tax-planning/section-80c" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

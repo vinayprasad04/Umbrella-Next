@@ -71,10 +71,28 @@ export default function Products() {
   return (
     <>
       <Head>
-        <title>Products - IncomeGrow Financial Tools & Services</title>
+        <title>Products - Financial Tools & Services | IncomeGrow</title>
         <meta name="description" content="Explore our comprehensive range of financial products including goal planning, educational courses, market research, expert insights, and broker knowledge." />
+        <meta name="keywords" content="financial products, goal planning, investment courses, stock research, financial blogs, broker knowledge, financial tools" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="https://www.incomegrow.in/products" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Products - Financial Tools & Services | IncomeGrow" />
+        <meta property="og:description" content="Explore our comprehensive range of financial products including goal planning, educational courses, market research, expert insights, and broker knowledge." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.incomegrow.in/products" />
+        <meta property="og:site_name" content="IncomeGrow Financial" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://www.incomegrow.in/logo.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Products - Financial Tools & Services | IncomeGrow" />
+        <meta name="twitter:description" content="Explore our comprehensive range of financial products including goal planning, educational courses, market research, expert insights, and broker knowledge." />
+        <meta name="twitter:image" content="https://www.incomegrow.in/logo.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

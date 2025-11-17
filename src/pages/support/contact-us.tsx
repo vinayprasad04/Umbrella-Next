@@ -169,10 +169,13 @@ export default function ContactUs() {
   return (
     <>
       <Head>
-        <title>Contact Us - IncomeGrow Financial</title>
+        <title>Contact Us - Get Support & Help | IncomeGrow Financial</title>
         <meta name="description" content="Get in touch with IncomeGrow Financial. Contact our support team for help with investments, calculators, and financial planning." />
+        <meta name="keywords" content="contact incomegrow, customer support, financial help, investment support, contact us" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="https://www.incomegrow.in/support/contact-us" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

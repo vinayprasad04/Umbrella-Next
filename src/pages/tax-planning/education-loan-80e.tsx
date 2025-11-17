@@ -21,7 +21,8 @@ export default function EducationLoan80E() {
         <meta name="keywords" content="Section 80E, education loan, tax benefits, interest deduction, student loan, higher education, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="canonical" href="http://incomegrow.in//tax-planning/education-loan-80e" />
+        <link rel="canonical" href="https://www.incomegrow.in/tax-planning/education-loan-80e" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

@@ -157,8 +157,26 @@ export default function Testimonials() {
       <Head>
         <title>Testimonials - What Our Users Say | IncomeGrow Financial</title>
         <meta name="description" content="Read real testimonials from our satisfied users. Discover how IncomeGrow has helped thousands achieve their financial goals and build wealth." />
+        <meta name="keywords" content="incomegrow testimonials, user reviews, customer feedback, success stories, financial platform reviews" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="https://www.incomegrow.in/testimonials" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content="Testimonials - What Our Users Say | IncomeGrow Financial" />
+        <meta property="og:description" content="Read real testimonials from our satisfied users. Discover how IncomeGrow has helped thousands achieve their financial goals and build wealth." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.incomegrow.in/testimonials" />
+        <meta property="og:site_name" content="IncomeGrow Financial" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:image" content="https://www.incomegrow.in/logo.png" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Testimonials - What Our Users Say | IncomeGrow Financial" />
+        <meta name="twitter:description" content="Read real testimonials from our satisfied users. Discover how IncomeGrow has helped thousands achieve their financial goals." />
+        <meta name="twitter:image" content="https://www.incomegrow.in/logo.png" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

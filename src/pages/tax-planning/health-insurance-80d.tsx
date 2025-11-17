@@ -29,7 +29,8 @@ export default function HealthInsurance80D() {
         <meta name="keywords" content="Section 80D, health insurance, tax benefits, medical insurance, tax deduction, 2025, India, premium" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="canonical" href="http://incomegrow.in//tax-planning/health-insurance-80d" />
+        <link rel="canonical" href="https://www.incomegrow.in/tax-planning/health-insurance-80d" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

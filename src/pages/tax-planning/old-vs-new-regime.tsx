@@ -22,7 +22,8 @@ export default function OldVsNewRegime() {
         <meta name="keywords" content="old tax regime, new tax regime, tax comparison, tax calculator, Section 80C, rebate, tax planning, 2025, India" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="canonical" href="http://incomegrow.in//tax-planning/old-vs-new-regime" />
+        <link rel="canonical" href="https://www.incomegrow.in/tax-planning/old-vs-new-regime" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

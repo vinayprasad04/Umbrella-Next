@@ -21,7 +21,10 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(NODE_OPTIONS='--trace-warnings' npm run build)",
-      "Bash(tee:*)"
+      "Bash(tee:*)",
+      "Bash(find:*)",
+      "Bash(do sed -i '/<link rel=\"\"canonical\"\"/a\\        <meta name=\"\"robots\"\" content=\"\"index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1\"\" />' \"$file\")",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": [],

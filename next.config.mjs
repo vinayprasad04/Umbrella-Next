@@ -54,6 +54,11 @@ const nextConfig = {
         destination: '/dashboard/my-goal/vacation',
         permanent: true,
       },
+      {
+        source: '/calculation/fd-rd-pf-nps-ssy',
+        destination: '/calculation/fd',
+        permanent: true,
+      },
     ];
   },
 };

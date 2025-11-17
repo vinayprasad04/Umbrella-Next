@@ -29,7 +29,8 @@ export default function NPSAdditional80CCD1B() {
         <meta name="keywords" content="NPS, Section 80CCD1B, National Pension System, tax benefits, retirement planning, ₹50000 deduction, 2025" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="canonical" href="http://incomegrow.in//tax-planning/nps-additional-80ccd1b" />
+        <link rel="canonical" href="https://www.incomegrow.in/tax-planning/nps-additional-80ccd1b" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Head>
       
       <div className="font-sans m-0 p-0 bg-white">

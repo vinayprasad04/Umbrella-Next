@@ -29,6 +29,8 @@ export default function ITRFilingGuide() {
         <meta name="keywords" content="ITR filing, income tax return, ITR-1, ITR-2, ITR-3, ITR-4, tax filing guide, capital gains tax, business income tax" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="canonical" href="https://www.incomegrow.in/tax-planning/itr-filing-guide" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Head>
 
       <div className="min-h-screen bg-gray-50">
