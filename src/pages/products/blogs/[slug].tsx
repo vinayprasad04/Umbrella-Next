@@ -346,7 +346,7 @@ export default function BlogDetails() {
                 <div className="lg:col-span-2">
                   <article className="bg-white">
                     {/* Article Header */}
-                    <header className="mb-8">
+                    <header className="mb-2">
                       {/* Category Badge */}
                       <div className="mb-4">
                         <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getCategoryColor(blog.category)}`}>
@@ -395,7 +395,7 @@ export default function BlogDetails() {
                       </div>
                       
                       {/* Tags */}
-                      <div className="flex flex-wrap gap-2 mb-8">
+                      <div className="flex flex-wrap gap-2 mb-2">
                         {blog.tags.map((tag, index) => (
                           <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition-colors">
                             #{tag}
