@@ -17,7 +17,7 @@ type CommentData = {
 // Helper function to verify token (optional for GET requests)
 const verifyToken = (token: string) => {
   try {
-    return jwt.verify(token, process.env.JWT_SECRET!) as any;
+    return jwt.verify(token, process.env.JWT_SECRET!, { algorithms: ['HS256'] }) as any;
   } catch (error) {
     return null;
   }

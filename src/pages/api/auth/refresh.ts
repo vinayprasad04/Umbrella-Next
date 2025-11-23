@@ -71,7 +71,7 @@ export default async function handler(
     const newAccessToken = jwt.sign(
       { userId: user._id, email: user.email },
       process.env.JWT_SECRET!,
-      { expiresIn: ACCESS_TOKEN_EXPIRY }
+      { algorithm: 'HS256', expiresIn: ACCESS_TOKEN_EXPIRY }
     );
 
     // Generate new refresh token (optional: rotate refresh tokens)

@@ -12,6 +12,7 @@ Disallow: /debug/
 Disallow: /settings
 Disallow: /profile
 Disallow: /dashboard
+Disallow: /dashboard/
 
 # Disallow authentication pages (no value in indexing)
 Disallow: /login
@@ -35,7 +36,6 @@ Allow: /calculation/lumpsum
 Allow: /calculation/tax
 Allow: /tax-planning/
 Allow: /support/
-Allow: /recipe/
 
 # Sitemap location
 Sitemap: https://www.incomegrow.in/api/sitemap.xml

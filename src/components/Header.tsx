@@ -19,7 +19,7 @@ const menu = [
     ],
   },
   {
-    label: 'Calculation',
+    label: 'Calculator',
     submenu: [
       { name: 'Lumpsum', href: '/calculation/lumpsum' },
       { name: 'SIP', href: '/calculation/sip' },
@@ -157,19 +157,7 @@ export default function Header({dashboard=false}: {dashboard?: boolean}) {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-1">
-          {/* Dashboard link - only show when logged in */}
-          {isLoggedIn && (
-            <Link 
-              href="/dashboard"
-              className={`no-underline font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-1 ${
-                router.pathname === '/dashboard' || router.pathname.startsWith('/recipe') 
-                  ? 'text-[#FF6B2C] bg-orange-50 shadow-sm' 
-                  : 'text-gray-700 hover:text-[#FF6B2C] hover:bg-gray-50'
-              }`}
-            >
-              Dashboard
-            </Link>
-          )}
+
           
           {menu.map((item, index) => (
             <div
@@ -272,6 +260,19 @@ export default function Header({dashboard=false}: {dashboard?: boolean}) {
           ))}
           
           {/* Authentication Section - Desktop */}
+                    {/* Dashboard link - only show when logged in */}
+          {isLoggedIn && (
+            <Link 
+              href="/dashboard"
+              className={`no-underline font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-1 ${
+                router.pathname === '/dashboard' || router.pathname.startsWith('/recipe') 
+                  ? 'text-[#FF6B2C] bg-orange-50 shadow-sm' 
+                  : 'text-gray-700 hover:text-[#FF6B2C] hover:bg-gray-50'
+              }`}
+            >
+              Dashboard
+            </Link>
+          )}
           <div className="ml-4 pl-4 border-l border-gray-200">
             {isLoggedIn ? (
               <div className="relative" id="user-menu-container">

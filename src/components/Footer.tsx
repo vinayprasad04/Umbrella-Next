@@ -16,7 +16,7 @@ const menu = [
     ],
   },
   {
-    label: 'Calculators',
+    label: 'Calculator',
     submenu: [
       { name: 'Lumpsum Calculator', href: '/calculation/lumpsum' },
       { name: 'SIP Calculator', href: '/calculation/sip' },
@@ -120,8 +120,8 @@ export default function Footer() {
         <Subscribe variant="footer" />
 
         {/* Main Footer Content */}
-        <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 py-10 sm:py-16 md:py-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-12 md:mb-16">
+        <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 py-5 sm:py-16 md:py-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 sm:gap-10 lg:gap-12 ">
             {/* Company Info */}
             <div className="sm:col-span-2 lg:col-span-2 space-y-6 sm:space-y-8">
               <div>
@@ -207,8 +207,10 @@ export default function Footer() {
                 {/* Support section gets horizontal layout, others keep vertical */}
                 {item.label === 'Support' ? (
                   <div className="flex flex-wrap gap-x-4 gap-y-2">
+                    <ul className="space-y-3">
                     {item.submenu.map((subItem, subIndex) => (
                       subItem.external ? (
+                         <li>
                         <a
                           key={subIndex}
                           href={subItem.href}
@@ -218,7 +220,9 @@ export default function Footer() {
                         >
                           {subItem.name}
                         </a>
+                        </li>
                       ) : (
+                        <li>
                         <Link
                           key={subIndex}
                           href={subItem.href}
@@ -226,8 +230,10 @@ export default function Footer() {
                         >
                           {subItem.name}
                         </Link>
+                        </li>
                       )
                     ))}
+                    </ul>
                   </div>
                 ) : (
                   <ul className="space-y-3">

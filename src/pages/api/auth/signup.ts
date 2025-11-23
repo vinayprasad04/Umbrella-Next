@@ -60,7 +60,7 @@ export default async function handler(
     const accessToken = jwt.sign(
       { userId: user._id, email: user.email },
       process.env.JWT_SECRET!,
-      { expiresIn: '15m' }
+      { algorithm: 'HS256', expiresIn: '15m' }
     );
 
     // Generate refresh token (long-lived)

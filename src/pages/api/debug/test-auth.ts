@@ -19,7 +19,7 @@ export default async function handler(
     const token = authHeader.substring(7);
     console.log('Token:', token.substring(0, 20) + '...');
     
-    const decoded = jwt.verify(token, process.env.JWT_SECRET!) as any;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET!, { algorithms: ['HS256'] }) as any;
     console.log('Decoded token:', decoded);
     
     await dbConnect();

@@ -75,7 +75,7 @@ const checkAdminAccess = async (req: NextApiRequest) => {
   }
 
   const token = authHeader.substring(7);
-  const decoded = jwt.verify(token, process.env.JWT_SECRET!) as any;
+  const decoded = jwt.verify(token, process.env.JWT_SECRET!, { algorithms: ['HS256'] }) as any;
   
   const user = await User.findById(decoded.userId);
   if (!user || user.role !== 'admin') {

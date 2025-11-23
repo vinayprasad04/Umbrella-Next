@@ -14,7 +14,7 @@ async function verifyAdmin(req: NextApiRequest): Promise<boolean> {
     }
 
     const token = authHeader.substring(7);
-    const decoded = jwt.verify(token, JWT_SECRET) as any;
+    const decoded = jwt.verify(token, JWT_SECRET, { algorithms: ['HS256'] }) as any;
     
     const user = await User.findById(decoded.userId);
     return user && user.role === 'admin';

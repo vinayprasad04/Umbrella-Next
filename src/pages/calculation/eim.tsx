@@ -107,6 +107,7 @@ export default function EIM() {
         <meta name="keywords" content="retirement calculator, retirement planning, retirement corpus calculator, pension calculator, retirement savings calculator, post-retirement income calculator" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="https://www.incomegrow.in/calculation/eim" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="icon" type="image/png" href="/favicon.png" />
 
         {/* Open Graph */}
