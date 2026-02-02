@@ -184,12 +184,12 @@ export default function Goal() {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+          <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
@@ -205,10 +205,10 @@ export default function Goal() {
                   Turn Your Dreams
                 </span>
                 <br />
-                <span className="text-gray-800">Into Achievable Goals</span>
+                <span className="text-gray-800 dark:text-gray-200">Into Achievable Goals</span>
               </h1>
 
-              <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-6 md:mb-8 px-2">
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto mb-6 md:mb-8 px-2">
                 Whether it&apos;s buying your dream home, planning a world tour, or securing your retirement,
                 our goal planning tools help you create a clear roadmap to financial success.
               </p>
@@ -226,7 +226,7 @@ export default function Goal() {
 
                 <button
                   onClick={scrollToHowItWorks}
-                  className="group bg-white/80 backdrop-blur-sm text-gray-700 px-6 md:px-8 py-3 md:py-4 border-2 border-gray-200 rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 px-6 md:px-8 py-3 md:py-4 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:bg-white dark:hover:bg-gray-800 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   How It Works
                   <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -238,21 +238,21 @@ export default function Goal() {
           </section>
 
           {/* Goal Types Section */}
-          <section className="py-12 md:py-16 lg:py-24 bg-white relative overflow-hidden">
+          <section className="py-12 md:py-16 lg:py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
               <div className="text-center mb-8 md:mb-12 lg:mb-16">
-                <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full border border-purple-200 mb-4 md:mb-6">
-                  <span className="text-xs md:text-sm font-semibold text-purple-600">💡 Popular Goals</span>
+                <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 rounded-full border border-purple-200 dark:border-purple-800 mb-4 md:mb-6">
+                  <span className="text-xs md:text-sm font-semibold text-purple-600 dark:text-purple-400">💡 Popular Goals</span>
                 </div>
 
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6">
-                  <span className="text-gray-800">Choose Your </span>
+                  <span className="text-gray-800 dark:text-gray-200">Choose Your </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Financial Goal
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-2">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
                   Select from our most popular financial goals or create a custom plan tailored to your dreams
                 </p>
               </div>
@@ -261,21 +261,21 @@ export default function Goal() {
                 {goalTypes.map((goal, index) => (
                   <div
                     key={index}
-                    className={`group relative bg-gradient-to-br ${goal.bgColor} backdrop-blur-sm border border-white/50 rounded-xl md:rounded-2xl p-3 md:p-4 lg:p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer ${selectedGoal === goal.id ? 'ring-2 ring-[#FF6B2C] shadow-xl scale-105' : ''}`}
+                    className={`group relative bg-gradient-to-br ${goal.bgColor} dark:from-gray-800 dark:to-gray-700 backdrop-blur-sm border border-white/50 dark:border-gray-600 rounded-xl md:rounded-2xl p-3 md:p-4 lg:p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer ${selectedGoal === goal.id ? 'ring-2 ring-[#FF6B2C] dark:ring-[#FF6B2C] shadow-xl scale-105' : ''}`}
                     onClick={() => handleGoalSelection(goal.id)}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 to-transparent rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                     <div className="relative z-10">
                       <div className={`w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-r ${goal.color} rounded-xl md:rounded-2xl flex items-center justify-center mx-auto mb-2 md:mb-3 lg:mb-4 text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                         <span className="drop-shadow-sm">{goal.icon}</span>
                       </div>
 
-                      <h3 className="text-sm md:text-base lg:text-lg font-bold text-gray-800 mb-1 md:mb-2">
+                      <h3 className="text-sm md:text-base lg:text-lg font-bold text-gray-800 dark:text-gray-200 mb-1 md:mb-2">
                         {goal.title}
                       </h3>
 
-                      <p className="text-xs md:text-sm text-gray-600 leading-relaxed hidden sm:block">
+                      <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed hidden sm:block">
                         {goal.description}
                       </p>
 
@@ -295,7 +295,7 @@ export default function Goal() {
           </section>
 
           {/* Goal Calculator Section */}
-          <section id="goal-calculator" className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+          <section id="goal-calculator" className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
               <div className="text-center mb-8 md:mb-12 lg:mb-16">
                 <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200 mb-4 md:mb-6">
@@ -303,28 +303,28 @@ export default function Goal() {
                 </div>
 
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6">
-                  <span className="text-gray-800">Calculate Your </span>
+                  <span className="text-gray-800 dark:text-gray-200">Calculate Your </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Investment Plan
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-2">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
                   Enter your goal details and discover how much you need to invest monthly to achieve it
                 </p>
               </div>
 
               <div className="max-w-4xl mx-auto">
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 shadow-xl border border-white/50">
+                <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 shadow-xl border border-white/50 dark:border-gray-700">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
                     {/* Input Form */}
                     <div className="space-y-4 md:space-y-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                           Goal Type
                         </label>
                         <select
-                          className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
+                          className="w-full px-4 py-3 bg-white/80 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-gray-800 dark:text-gray-200"
                           value={selectedGoal}
                           onChange={(e) => handleGoalChange(e.target.value)}
                         >
@@ -338,24 +338,24 @@ export default function Goal() {
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                           Target Amount (₹)
                         </label>
                         <input
                           type="number"
                           placeholder="e.g., 5000000"
-                          className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
+                          className="w-full px-4 py-3 bg-white/80 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-gray-800 dark:text-gray-200 placeholder-gray-500 dark:placeholder-gray-400"
                           value={targetAmount}
                           onChange={(e) => handleTargetAmountChange(e.target.value)}
                         />
                       </div>
-                      
+
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                           Time Frame (Years)
                         </label>
                         <select
-                          className="w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
+                          className="w-full px-4 py-3 bg-white/80 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-gray-800 dark:text-gray-200"
                           value={timeFrame}
                           onChange={(e) => handleTimeFrameChange(e.target.value)}
                         >
@@ -383,7 +383,7 @@ export default function Goal() {
                         </button>
 
                         <button
-                          className="px-4 md:px-6 py-3 md:py-4 bg-gray-100 hover:bg-gray-200 text-gray-700 border-none rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                          className="px-4 md:px-6 py-3 md:py-4 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 border-none rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                           onClick={handleReset}
                         >
                           <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -395,60 +395,60 @@ export default function Goal() {
                     </div>
                     
                     {/* Results */}
-                    <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-2xl p-4 md:p-6 border border-[#FF6B2C]/20">
-                      <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-6">
+                    <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 dark:from-[#FF6B2C]/20 dark:to-[#FF8A50]/20 rounded-2xl p-4 md:p-6 border border-[#FF6B2C]/20 dark:border-[#FF6B2C]/30">
+                      <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 md:mb-6">
                         Investment Summary
                       </h3>
                       
                       {showCalculation && targetAmount && timeFrame && monthlyInvestment ? (
                         <div className="space-y-4">
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Monthly Investment Required</div>
+                          <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Monthly Investment Required</div>
                             <div className="text-2xl font-bold text-[#FF6B2C]">
                               ₹{parseInt(monthlyInvestment).toLocaleString()}
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Target Amount</div>
-                            <div className="text-xl font-bold text-gray-800">
+
+                          <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Target Amount</div>
+                            <div className="text-xl font-bold text-gray-800 dark:text-gray-200">
                               ₹{parseInt(targetAmount).toLocaleString()}
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Time Period</div>
-                            <div className="text-xl font-bold text-gray-800">
+
+                          <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Time Period</div>
+                            <div className="text-xl font-bold text-gray-800 dark:text-gray-200">
                               {timeFrame} {parseInt(timeFrame) === 1 ? 'Year' : 'Years'}
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Total Investment</div>
-                            <div className="text-xl font-bold text-gray-800">
+
+                          <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Total Investment</div>
+                            <div className="text-xl font-bold text-gray-800 dark:text-gray-200">
                               ₹{(parseInt(monthlyInvestment) * parseInt(timeFrame) * 12).toLocaleString()}
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Expected Returns*</div>
-                            <div className="text-xl font-bold text-green-600">
+
+                          <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Expected Returns*</div>
+                            <div className="text-xl font-bold text-green-600 dark:text-green-400">
                               ₹{(parseInt(targetAmount) - (parseInt(monthlyInvestment) * parseInt(timeFrame) * 12)).toLocaleString()}
                             </div>
                           </div>
-                          
-                          <div className="text-xs text-gray-500 mt-4">
+
+                          <div className="text-xs text-gray-500 dark:text-gray-400 mt-4">
                             *Assuming 12% annual returns. Actual returns may vary based on market conditions.
                           </div>
                         </div>
                       ) : (
                         <div className="text-center py-12">
-                          <div className="w-16 h-16 bg-gradient-to-r from-gray-200 to-gray-300 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                            <svg className="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="w-16 h-16 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg className="w-8 h-8 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                             </svg>
                           </div>
-                          <p className="text-gray-500">
+                          <p className="text-gray-500 dark:text-gray-400">
                             Fill in the details to see your investment plan
                           </p>
                         </div>
@@ -461,7 +461,7 @@ export default function Goal() {
           </section>
 
           {/* How It Works Section */}
-          <section id="how-it-works" className="py-12 md:py-16 lg:py-24 bg-white relative overflow-hidden">
+          <section id="how-it-works" className="py-12 md:py-16 lg:py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
               <div className="text-center mb-8 md:mb-12 lg:mb-16">
                 <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full border border-indigo-200 mb-4 md:mb-6">
@@ -469,13 +469,13 @@ export default function Goal() {
                 </div>
 
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6">
-                  <span className="text-gray-800">How Goal </span>
+                  <span className="text-gray-800 dark:text-gray-200">How Goal </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Planning Works
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto px-2">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2">
                   Our simple 4-step process helps you create and achieve any financial goal
                 </p>
               </div>
@@ -521,11 +521,11 @@ export default function Goal() {
                       </div>
                     </div>
                     
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-3">
                       {item.title}
                     </h3>
-                    
-                    <p className="text-gray-600 leading-relaxed">
+
+                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

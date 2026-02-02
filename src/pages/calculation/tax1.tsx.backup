@@ -1184,7 +1184,7 @@ export default function TaxCalculator() {
                               </div>
                             </label>
                             <select
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={gender}
                               onChange={(e) => setGender(e.target.value)}
                             >
@@ -1192,17 +1192,17 @@ export default function TaxCalculator() {
                               <option value="female">Female</option>
                               <option value="other">Other</option>
                             </select>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            <p className="text-xs text-gray-500 mt-1">
                               💡 Gender does not affect tax rates - all citizens have equal tax treatment
                             </p>
                           </div>
                           )}
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               Residential Status
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-blue-100 dark:bg-blue-800 text-blue-600 dark:text-blue-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Tax Implications:</div>
                                   <div className="space-y-2">
                                     <div>
@@ -1224,14 +1224,14 @@ export default function TaxCalculator() {
                               </div>
                             </label>
                             <select
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={residentialStatus}
                               onChange={(e) => setResidentialStatus(e.target.value)}
                             >
                               <option value="resident">Resident Indian</option>
                               <option value="nri">Non-Resident Indian (NRI)</option>
                             </select>
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            <p className="text-xs text-gray-500 mt-1">
                               {residentialStatus === 'nri' ? 'NRIs: Taxed on Indian income only, no basic exemption' : 'Residents: Taxed on global income with full exemptions'}
                             </p>
                           </div>
@@ -1239,8 +1239,8 @@ export default function TaxCalculator() {
                       </div>
 
                       {/* Income Details */}
-                      <div className="bg-green-50 dark:bg-green-900/20 rounded-2xl p-6 border border-green-200 dark:border-green-800 transition-colors duration-300">
-                        <h3 className="text-lg font-bold text-green-800 dark:text-green-300 mb-4">
+                      <div className="bg-green-50 rounded-2xl p-6 border border-green-200">
+                        <h3 className="text-lg font-bold text-green-800 mb-4">
                           {entityType === 'individual' || entityType === 'huf' ? 'Income Details (Annual)' : 
                               entityType === 'firm' ? 'Business Income (Annual)' : 
                               'Corporate Income (Annual)'}
@@ -1249,11 +1249,11 @@ export default function TaxCalculator() {
                           {(entityType === 'individual' || entityType === 'huf') && (
                             <>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               Basic Salary (Rs.)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-blue-100 dark:bg-blue-800 text-blue-600 dark:text-blue-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Basic Salary Component:</div>
                                   <div className="space-y-2">
                                     <div><strong>What is Basic Salary:</strong></div>
@@ -1281,17 +1281,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="e.g., 800000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={basicSalary}
                               onChange={(e) => setBasicSalary(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               HRA (Rs.)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-purple-100 dark:bg-purple-800 text-purple-600 dark:text-purple-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">House Rent Allowance (HRA):</div>
                                   <div className="space-y-2">
                                     <div><strong>What is HRA:</strong></div>
@@ -1320,17 +1320,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="e.g., 240000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={hra}
                               onChange={(e) => setHra(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               Special Allowance (Rs.)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-green-100 dark:bg-green-800 text-green-600 dark:text-green-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Special Allowance Component:</div>
                                   <div className="space-y-2">
                                     <div><strong>What is Special Allowance:</strong></div>
@@ -1360,17 +1360,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="e.g., 100000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={specialAllowance}
                               onChange={(e) => setSpecialAllowance(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               Other Allowances (Rs.)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-yellow-100 dark:bg-yellow-800 text-yellow-600 dark:text-yellow-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-yellow-100 text-yellow-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Other Allowances & Benefits:</div>
                                   <div className="space-y-2">
                                     <div><strong>Common Allowances:</strong></div>
@@ -1402,17 +1402,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="e.g., 50000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={otherAllowances}
                               onChange={(e) => setOtherAllowances(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               Bonus (Rs.)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-indigo-100 dark:bg-indigo-800 text-indigo-600 dark:text-indigo-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Bonus & Variable Pay:</div>
                                   <div className="space-y-2">
                                     <div><strong>Types of Bonus:</strong></div>
@@ -1444,7 +1444,7 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="e.g., 80000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={bonus}
                               onChange={(e) => setBonus(e.target.value)}
                             />
@@ -1456,11 +1456,11 @@ export default function TaxCalculator() {
                           {(entityType === 'firm' || entityType === 'company') && (
                             <>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               {entityType === 'firm' ? 'Partnership Income (Rs.)' : 'Corporate Turnover (Rs.)'}
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-indigo-100 dark:bg-indigo-800 text-indigo-600 dark:text-indigo-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">{entityType === 'firm' ? 'Partnership Firm Income:' : 'Corporate Income:'}</div>
                                   <div className="space-y-2">
                                     {entityType === 'firm' ? (
@@ -1492,17 +1492,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder={entityType === 'firm' ? 'e.g., 2500000' : 'e.g., 50000000'}
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={basicSalary}
                               onChange={(e) => setBasicSalary(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               {entityType === 'firm' ? 'Business Expenses (₹)' : 'Operating Expenses (₹)'}
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-red-100 dark:bg-red-800 text-red-600 dark:text-red-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-red-100 text-red-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Business Expenses:</div>
                                   <div className="space-y-2">
                                     <div><strong>Deductible Expenses:</strong></div>
@@ -1521,7 +1521,7 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder={entityType === 'firm' ? 'e.g., 800000' : 'e.g., 15000000'}
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={hra}
                               onChange={(e) => setHra(e.target.value)}
                             />
@@ -1530,11 +1530,11 @@ export default function TaxCalculator() {
                           )}
                           
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               Other Income (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-red-100 dark:bg-red-800 text-red-600 dark:text-red-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-red-100 text-red-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Income from Other Sources:</div>
                                   <div className="space-y-2">
                                     <div><strong>Interest Income:</strong></div>
@@ -1571,17 +1571,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="e.g., 25000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={otherIncome}
                               onChange={(e) => setOtherIncome(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               Income from House Property (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-orange-100 dark:bg-orange-800 text-orange-600 dark:text-orange-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-orange-100 text-orange-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Income from House Property (Section 24a):</div>
                                   <div className="space-y-2">
                                     <div><strong>What to Enter:</strong></div>
@@ -1611,11 +1611,11 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="After 30% deduction, e.g., 70000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={housePropertyIncome}
                               onChange={(e) => setHousePropertyIncome(e.target.value)}
                             />
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            <p className="text-xs text-gray-500 mt-1">
                               Enter income AFTER 30% standard deduction as per Section 24(a)
                             </p>
                           </div>
@@ -1623,15 +1623,15 @@ export default function TaxCalculator() {
                       </div>
 
                       {/* Capital Gains from Stock Market */}
-                      <div className="bg-red-50 dark:bg-red-900/20 rounded-2xl p-6 border border-red-200 dark:border-red-800 transition-colors duration-300">
-                        <h3 className="text-lg font-bold text-red-800 dark:text-red-300 mb-4">Capital Gains from Stock Market (Annual)</h3>
+                      <div className="bg-red-50 rounded-2xl p-6 border border-red-200">
+                        <h3 className="text-lg font-bold text-red-800 mb-4">Capital Gains from Stock Market (Annual)</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               STCG - Equity Shares (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-red-100 dark:bg-red-800 text-red-600 dark:text-red-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-red-100 text-red-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Short Term Capital Gains - Equity:</div>
                                   <div className="space-y-2">
                                     <div>
@@ -1657,20 +1657,20 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="e.g., 50000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={stcgEquity}
                               onChange={(e) => setStcgEquity(e.target.value)}
                             />
-                            <p className="text-xs text-red-600 dark:text-red-400 mt-1">
+                            <p className="text-xs text-red-600 mt-1">
                               Equity/MF held ≤12 months - 15.6% tax rate
                             </p>
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               LTCG - Equity Shares (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-green-100 dark:bg-green-800 text-green-600 dark:text-green-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Long Term Capital Gains - Equity:</div>
                                   <div className="space-y-2">
                                     <div>
@@ -1696,20 +1696,20 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="e.g., 150000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={ltcgEquity}
                               onChange={(e) => setLtcgEquity(e.target.value)}
                             />
-                            <p className="text-xs text-green-600 dark:text-green-400 mt-1">
+                            <p className="text-xs text-green-600 mt-1">
                               Equity/MF held &gt;12 months - Rs.1L exempt, then 10.4%
                             </p>
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               STCG - Other Investments (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-purple-100 dark:bg-purple-800 text-purple-600 dark:text-purple-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">STCG - Other Investments:</div>
                                   <div className="space-y-2">
                                     <div>
@@ -1736,20 +1736,20 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="e.g., 25000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={stcgOther}
                               onChange={(e) => setStcgOther(e.target.value)}
                             />
-                            <p className="text-xs text-purple-600 dark:text-purple-400 mt-1">
+                            <p className="text-xs text-purple-600 mt-1">
                               Debt MF, gold, crypto - taxed at your income slab
                             </p>
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               LTCG - Other Investments (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-indigo-100 dark:bg-indigo-800 text-indigo-600 dark:text-indigo-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">LTCG - Other Investments:</div>
                                   <div className="space-y-2">
                                     <div>
@@ -1776,11 +1776,11 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="e.g., 75000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={ltcgOther}
                               onChange={(e) => setLtcgOther(e.target.value)}
                             />
-                            <p className="text-xs text-indigo-600 dark:text-indigo-400 mt-1">
+                            <p className="text-xs text-indigo-600 mt-1">
                               Debt MF, gold, property &gt;threshold - 20.8% with indexation
                             </p>
                           </div>
@@ -1788,13 +1788,13 @@ export default function TaxCalculator() {
                       </div>
 
                       {/* HRA Details */}
-                      <div className="bg-purple-50 dark:bg-purple-900/20 rounded-2xl p-6 border border-purple-200 dark:border-purple-800 transition-colors duration-300">
-                        <h3 className="text-lg font-bold text-purple-800 dark:text-purple-300 mb-4">HRA Exemption Details</h3>
+                      <div className="bg-purple-50 rounded-2xl p-6 border border-purple-200">
+                        <h3 className="text-lg font-bold text-purple-800 mb-4">HRA Exemption Details</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">City Type</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">City Type</label>
                             <select
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={cityType}
                               onChange={(e) => setCityType(e.target.value)}
                             >
@@ -1805,7 +1805,7 @@ export default function TaxCalculator() {
                               <button
                                 type="button"
                                 onClick={() => setShowCityListModal(true)}
-                                className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 cursor-pointer bg-transparent border-none flex items-center gap-1"
+                                className="text-sm text-blue-600 hover:text-blue-800 cursor-pointer bg-transparent border-none flex items-center gap-1"
                               >
                                 View Metro vs Non-Metro City List
                                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1815,11 +1815,11 @@ export default function TaxCalculator() {
                             </div>
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Annual Rent Paid (₹)</label>
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">Annual Rent Paid (₹)</label>
                             <input
                               type="number"
                               placeholder="e.g., 240000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={rentPaid}
                               onChange={(e) => setRentPaid(e.target.value)}
                             />
@@ -1829,17 +1829,17 @@ export default function TaxCalculator() {
 
                       {/* Deductions */}
                       {(entityType === 'individual' || entityType === 'huf') && (
-                      <div className="bg-orange-50 dark:bg-orange-900/20 rounded-2xl p-6 border border-orange-200 dark:border-orange-800 transition-colors duration-300">
-                        <h3 className="text-lg font-bold text-orange-800 dark:text-orange-300 mb-4">
+                      <div className="bg-orange-50 rounded-2xl p-6 border border-orange-200">
+                        <h3 className="text-lg font-bold text-orange-800 mb-4">
                           {entityType === 'individual' ? 'Deductions (Old Regime Only)' : 'HUF Deductions (Old Regime Only)'}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               80C (PF, ELSS, PPF etc.) (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-blue-100 dark:bg-blue-800 text-blue-600 dark:text-blue-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Section 80C Tax Saving Investments:</div>
                                   <div className="space-y-2">
                                     <div><strong>Popular Options:</strong></div>
@@ -1862,17 +1862,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="Max: 150000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={section80C}
                               onChange={(e) => setSection80C(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               80D Self/Family (Health Insurance) (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-green-100 dark:bg-green-800 text-green-600 dark:text-green-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Section 80D Health Insurance Deduction:</div>
                                   <div className="space-y-2">
                                     <div><strong>Eligible Premiums:</strong></div>
@@ -1895,20 +1895,20 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder={`Max: ${parseInt(age) >= 60 ? '50000' : '25000'}`}
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={section80DSelf}
                               onChange={(e) => setSection80DSelf(e.target.value)}
                             />
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            <p className="text-xs text-gray-500 mt-1">
                               💡 {parseInt(age) >= 60 ? 'Senior citizens: ₹50,000' : 'Below 60: ₹25,000'}
                             </p>
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               80D Parents (Health Insurance) (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-purple-100 dark:bg-purple-800 text-purple-600 dark:text-purple-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Section 80D Parents Health Insurance:</div>
                                   <div className="space-y-2">
                                     <div><strong>Eligible Expenses:</strong></div>
@@ -1932,20 +1932,20 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="Max: 50000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={section80DParents}
                               onChange={(e) => setSection80DParents(e.target.value)}
                             />
-                            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                            <p className="text-xs text-gray-500 mt-1">
                               💡 Additional ₹50,000 for parents regardless of age
                             </p>
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               80CCD(1B) (NPS) (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-indigo-100 dark:bg-indigo-800 text-indigo-600 dark:text-indigo-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Section 80CCD(1B) - NPS Additional Deduction:</div>
                                   <div className="space-y-2">
                                     <div><strong>What is NPS:</strong></div>
@@ -1970,17 +1970,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="Max: 50000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={section80CCD1B}
                               onChange={(e) => setSection80CCD1B(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               80E (Education Loan) (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-yellow-100 dark:bg-yellow-800 text-yellow-600 dark:text-yellow-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-yellow-100 text-yellow-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Section 80E Education Loan Interest:</div>
                                   <div className="space-y-2">
                                     <div><strong>Eligible Loans:</strong></div>
@@ -2005,17 +2005,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="No limit"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={section80E}
                               onChange={(e) => setSection80E(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               80G Donations (50% deduction) (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-orange-100 dark:bg-orange-800 text-orange-600 dark:text-orange-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-orange-100 text-orange-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">50% Deduction Category:</div>
                                   <div className="space-y-2">
                                     <div>
@@ -2042,17 +2042,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="Donation amount (50% deductible)"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={section80G50}
                               onChange={(e) => setSection80G50(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               80G Donations (100% deduction) (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-green-100 dark:bg-green-800 text-green-600 dark:text-green-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">100% Deduction Category:</div>
                                   <div className="space-y-2">
                                     <div>
@@ -2081,17 +2081,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="Donation amount (100% deductible)"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={section80G100}
                               onChange={(e) => setSection80G100(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               24(b) (Home Loan Interest) (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-orange-100 dark:bg-orange-800 text-orange-600 dark:text-orange-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-orange-100 text-orange-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Section 24(b) Home Loan Interest Deduction:</div>
                                   <div className="space-y-2">
                                     <div><strong>Eligible Properties:</strong></div>
@@ -2117,17 +2117,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="Max: 200000"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={section24B}
                               onChange={(e) => setSection24B(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               Professional Tax (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-red-100 dark:bg-red-800 text-red-600 dark:text-red-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-red-100 text-red-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Professional Tax Deduction:</div>
                                   <div className="space-y-2">
                                     <div><strong>What is Professional Tax:</strong></div>
@@ -2153,17 +2153,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="e.g., 2500"
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={professionalTax}
                               onChange={(e) => setProfessionalTax(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               Other Deductions (₹)
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-blue-100 dark:bg-blue-800 text-blue-600 dark:text-blue-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">Other Deductions Explained:</div>
                                   <div className="space-y-2">
                                     <div><strong>80TTA:</strong> ₹10,000 savings account interest deduction</div>
@@ -2182,7 +2182,7 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder="80TTA, 80TTB etc."
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={otherDeductions}
                               onChange={(e) => setOtherDeductions(e.target.value)}
                             />
@@ -2193,17 +2193,17 @@ export default function TaxCalculator() {
 
                       {/* Business Deductions for Firm/Company */}
                       {(entityType === 'firm' || entityType === 'company') && (
-                      <div className="bg-purple-50 dark:bg-purple-900/20 rounded-2xl p-6 border border-purple-200 dark:border-purple-800 transition-colors duration-300">
-                        <h3 className="text-lg font-bold text-purple-800 dark:text-purple-300 mb-4">
+                      <div className="bg-purple-50 rounded-2xl p-6 border border-purple-200">
+                        <h3 className="text-lg font-bold text-purple-800 mb-4">
                           {entityType === 'firm' ? 'Partnership Firm Deductions' : 'Corporate Deductions'}
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               {entityType === 'firm' ? 'Partner Remuneration (₹)' : 'Depreciation (₹)'}
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-purple-100 dark:bg-purple-800 text-purple-600 dark:text-purple-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">{entityType === 'firm' ? 'Partner Remuneration:' : 'Depreciation:'}</div>
                                   <div className="space-y-2">
                                     {entityType === 'firm' ? (
@@ -2230,17 +2230,17 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder={entityType === 'firm' ? 'e.g., 500000' : 'e.g., 200000'}
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={section80C}
                               onChange={(e) => setSection80C(e.target.value)}
                             />
                           </div>
                           <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 mb-2">
                               {entityType === 'firm' ? 'Interest on Capital (₹)' : 'CSR Expenses (₹)'}
                               <div className="group relative inline-block ml-1">
-                                <span className="w-4 h-4 bg-purple-100 dark:bg-purple-800 text-purple-600 dark:text-purple-300 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
-                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 dark:bg-gray-800 text-white text-xs rounded-lg p-3 z-[9999] border border-gray-700">
+                                <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
+                                <div className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-96 bg-gray-900 text-white text-xs rounded-lg p-3 z-[9999]">
                                   <div className="font-semibold mb-2">{entityType === 'firm' ? 'Interest on Partners Capital:' : 'CSR Expenses:'}</div>
                                   <div className="space-y-2">
                                     {entityType === 'firm' ? (
@@ -2267,7 +2267,7 @@ export default function TaxCalculator() {
                             <input
                               type="number"
                               placeholder={entityType === 'firm' ? 'e.g., 100000' : 'e.g., 300000'}
-                              className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
+                              className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
                               value={section80DSelf}
                               onChange={(e) => setSection80DSelf(e.target.value)}
                             />
@@ -2289,15 +2289,15 @@ export default function TaxCalculator() {
                   </div>
                   
                   {/* Results */}
-                  <div className="lg:col-span-2 bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 dark:from-[#FF6B2C]/5 dark:to-[#FF8A50]/5 rounded-3xl p-8 border border-[#FF6B2C]/20 dark:border-[#FF6B2C]/30 transition-colors duration-300">
-                    <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 text-center">
+                  <div className="lg:col-span-2 bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-3xl p-8 border border-[#FF6B2C]/20">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">
                       {entityType === 'individual' ? 'Personal Tax Calculation Results' :
                        entityType === 'huf' ? 'HUF Tax Calculation Results' :
                        entityType === 'firm' ? 'Partnership Firm Tax Results' :
                        'Corporate Tax Calculation Results'}
                     </h3>
                     <div className="text-center mb-6">
-                      <span className="inline-block bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium transition-colors duration-300">
+                      <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
                         {assessmentYear === '2025-26' ? 'AY 2025-26 (FY 2024-25) - Current' :
                          assessmentYear === '2024-25' ? 'AY 2024-25 (FY 2023-24)' :
                          assessmentYear === '2023-24' ? 'AY 2023-24 (FY 2022-23)' :
@@ -2308,7 +2308,7 @@ export default function TaxCalculator() {
                     {result ? (
                       <div className="space-y-6">
                         {/* Tabs */}
-                        <div className={`flex rounded-xl bg-white dark:bg-gray-700 p-1 ${entityType === 'firm' || entityType === 'company' ? 'justify-center' : ''} transition-colors duration-300`}>
+                        <div className={`flex rounded-xl bg-white p-1 ${entityType === 'firm' || entityType === 'company' ? 'justify-center' : ''}`}>
                           {(entityType === 'individual' || entityType === 'huf') && (
                             <>
                           <button
@@ -2316,7 +2316,7 @@ export default function TaxCalculator() {
                             className={`flex-1 py-2 px-2 rounded-lg text-xs font-medium transition-all ${
                               activeTab === 'comparison'
                                 ? 'bg-[#FF6B2C] text-white'
-                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
+                                : 'text-gray-600 hover:text-gray-800'
                             }`}
                           >
                             Comparison
@@ -2326,7 +2326,7 @@ export default function TaxCalculator() {
                             className={`flex-1 py-2 px-2 rounded-lg text-xs font-medium transition-all ${
                               activeTab === 'old'
                                 ? 'bg-[#FF6B2C] text-white'
-                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
+                                : 'text-gray-600 hover:text-gray-800'
                             }`}
                           >
                             {entityType === 'huf' ? 'HUF Tax' : 'Old Regime'}
@@ -2336,7 +2336,7 @@ export default function TaxCalculator() {
                             className={`flex-1 py-2 px-2 rounded-lg text-xs font-medium transition-all ${
                               activeTab === 'new'
                                 ? 'bg-[#FF6B2C] text-white'
-                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
+                                : 'text-gray-600 hover:text-gray-800'
                             }`}
                           >
                             New Regime
@@ -2350,7 +2350,7 @@ export default function TaxCalculator() {
                             className={`flex-1 py-2 px-2 rounded-lg text-xs font-medium transition-all ${
                               activeTab === 'comparison'
                                 ? 'bg-[#FF6B2C] text-white'
-                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
+                                : 'text-gray-600 hover:text-gray-800'
                             }`}
                           >
                             Tax Summary
@@ -2360,7 +2360,7 @@ export default function TaxCalculator() {
                             className={`flex-1 py-2 px-2 rounded-lg text-xs font-medium transition-all ${
                               activeTab === 'old'
                                 ? 'bg-[#FF6B2C] text-white'
-                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
+                                : 'text-gray-600 hover:text-gray-800'
                             }`}
                           >
                             {entityType === 'firm' ? 'Business Tax' : 'Corporate Tax'}
@@ -2372,7 +2372,7 @@ export default function TaxCalculator() {
                             className={`flex-1 py-2 px-2 rounded-lg text-xs font-medium transition-all ${
                               activeTab === 'capital'
                                 ? 'bg-[#FF6B2C] text-white'
-                                : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200'
+                                : 'text-gray-600 hover:text-gray-800'
                             }`}
                           >
                             Capital Gains
@@ -2381,8 +2381,8 @@ export default function TaxCalculator() {
 
                         {activeTab === 'comparison' && (
                           <div className="space-y-4">
-                            <div className="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-6 shadow-lg text-center transition-colors duration-300">
-                              <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                            <div className="bg-white/80 rounded-2xl p-6 shadow-lg text-center">
+                              <div className="text-sm text-gray-600 mb-2">
                                 {entityType === 'firm' || entityType === 'company' ? 'Tax Summary' : 'Recommended'}
                               </div>
                               <div className="text-2xl font-bold text-[#FF6B2C] mb-2">
@@ -2400,8 +2400,8 @@ export default function TaxCalculator() {
                             </div>
                             
                             <div className={`grid gap-4 text-sm ${entityType === 'firm' || entityType === 'company' ? 'grid-cols-1' : 'grid-cols-2'}`}>
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
-                                <div className="font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                              <div className="bg-white/60 rounded-xl p-4">
+                                <div className="font-semibold text-gray-700 mb-2">
                                   {entityType === 'individual' ? 'Old Regime' :
                                    entityType === 'huf' ? 'HUF Tax Calculation' :
                                    entityType === 'firm' ? 'Partnership Tax Details' :
@@ -2410,7 +2410,7 @@ export default function TaxCalculator() {
                                 <div className="space-y-1">
                                   <div className="flex justify-between">
                                     <span>Total Tax:</span>
-                                    <span className="font-bold dark:text-gray-200">₹{result.oldRegime.totalTax.toLocaleString()}</span>
+                                    <span className="font-bold">₹{result.oldRegime.totalTax.toLocaleString()}</span>
                                   </div>
                                   <div className="flex justify-between">
                                     <span>Net Income:</span>
@@ -2434,12 +2434,12 @@ export default function TaxCalculator() {
                               </div>
                               
                               {(entityType === 'individual' || entityType === 'huf') && (
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
-                                <div className="font-semibold text-gray-700 dark:text-gray-300 mb-2">New Regime</div>
+                              <div className="bg-white/60 rounded-xl p-4">
+                                <div className="font-semibold text-gray-700 mb-2">New Regime</div>
                                 <div className="space-y-1">
                                   <div className="flex justify-between">
                                     <span>Total Tax:</span>
-                                    <span className="font-bold dark:text-gray-200">₹{result.newRegime.totalTax.toLocaleString()}</span>
+                                    <span className="font-bold">₹{result.newRegime.totalTax.toLocaleString()}</span>
                                   </div>
                                   <div className="flex justify-between">
                                     <span>Net Income:</span>
@@ -2454,8 +2454,8 @@ export default function TaxCalculator() {
 
                         {activeTab === 'old' && (
                           <div className="space-y-4">
-                            <div className="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-6 shadow-lg text-center transition-colors duration-300">
-                              <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                            <div className="bg-white/80 rounded-2xl p-6 shadow-lg text-center">
+                              <div className="text-sm text-gray-600 mb-2">
                                 {entityType === 'individual' ? 'Total Tax (Old Regime)' :
                                  entityType === 'huf' ? 'Total HUF Tax' :
                                  entityType === 'firm' ? 'Total Partnership Tax' :
@@ -2472,17 +2472,17 @@ export default function TaxCalculator() {
                             </div>
                             
                             <div className="space-y-3 text-sm">
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                              <div className="bg-white/60 rounded-xl p-4">
                                 <div className="flex justify-between">
                                   <span>
                                     {entityType === 'firm' ? 'Business Income:' :
                                      entityType === 'company' ? 'Corporate Revenue:' :
                                      'Gross Income:'}
                                   </span>
-                                  <span className="font-bold dark:text-gray-200">₹{result.oldRegime.grossIncome.toLocaleString()}</span>
+                                  <span className="font-bold">₹{result.oldRegime.grossIncome.toLocaleString()}</span>
                                 </div>
                               </div>
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                              <div className="bg-white/60 rounded-xl p-4">
                                 <div className="flex justify-between">
                                   <span>
                                     {entityType === 'firm' ? 'Business Expenses & Remuneration:' :
@@ -2492,30 +2492,30 @@ export default function TaxCalculator() {
                                   <span className="font-bold text-blue-600">₹{result.oldRegime.totalDeductions.toLocaleString()}</span>
                                 </div>
                               </div>
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                              <div className="bg-white/60 rounded-xl p-4">
                                 <div className="flex justify-between">
                                   <span>
                                     {entityType === 'firm' ? 'Taxable Business Income:' :
                                      entityType === 'company' ? 'Taxable Corporate Income:' :
                                      'Taxable Income:'}
                                   </span>
-                                  <span className="font-bold dark:text-gray-200">₹{result.oldRegime.taxableIncome.toLocaleString()}</span>
+                                  <span className="font-bold">₹{result.oldRegime.taxableIncome.toLocaleString()}</span>
                                 </div>
                               </div>
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                              <div className="bg-white/60 rounded-xl p-4">
                                 <div className="flex justify-between">
                                   <span>
                                     {entityType === 'firm' ? 'Partnership Tax:' :
                                      entityType === 'company' ? 'Corporate Tax:' :
                                      'Income Tax:'}
                                   </span>
-                                  <span className="font-bold dark:text-gray-200">₹{result.oldRegime.incomeTax.toLocaleString()}</span>
+                                  <span className="font-bold">₹{result.oldRegime.incomeTax.toLocaleString()}</span>
                                 </div>
                               </div>
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                              <div className="bg-white/60 rounded-xl p-4">
                                 <div className="flex justify-between">
                                   <span>Cess (4%):</span>
-                                  <span className="font-bold dark:text-gray-200">₹{result.oldRegime.cess.toLocaleString()}</span>
+                                  <span className="font-bold">₹{result.oldRegime.cess.toLocaleString()}</span>
                                 </div>
                               </div>
                             </div>
@@ -2524,8 +2524,8 @@ export default function TaxCalculator() {
 
                         {activeTab === 'new' && (
                           <div className="space-y-4">
-                            <div className="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-6 shadow-lg text-center transition-colors duration-300">
-                              <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">Total Tax (New Regime)</div>
+                            <div className="bg-white/80 rounded-2xl p-6 shadow-lg text-center">
+                              <div className="text-sm text-gray-600 mb-2">Total Tax (New Regime)</div>
                               <div className="text-3xl font-bold text-[#FF6B2C] mb-2">
                                 ₹{result.newRegime.totalTax.toLocaleString()}
                               </div>
@@ -2535,34 +2535,34 @@ export default function TaxCalculator() {
                             </div>
                             
                             <div className="space-y-3 text-sm">
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                              <div className="bg-white/60 rounded-xl p-4">
                                 <div className="flex justify-between">
                                   <span>Gross Income:</span>
-                                  <span className="font-bold dark:text-gray-200">₹{result.newRegime.grossIncome.toLocaleString()}</span>
+                                  <span className="font-bold">₹{result.newRegime.grossIncome.toLocaleString()}</span>
                                 </div>
                               </div>
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                              <div className="bg-white/60 rounded-xl p-4">
                                 <div className="flex justify-between">
                                   <span>Standard Deduction:</span>
                                   <span className="font-bold text-blue-600">₹{result.newRegime.totalDeductions.toLocaleString()}</span>
                                 </div>
                               </div>
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                              <div className="bg-white/60 rounded-xl p-4">
                                 <div className="flex justify-between">
                                   <span>Taxable Income:</span>
-                                  <span className="font-bold dark:text-gray-200">₹{result.newRegime.taxableIncome.toLocaleString()}</span>
+                                  <span className="font-bold">₹{result.newRegime.taxableIncome.toLocaleString()}</span>
                                 </div>
                               </div>
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                              <div className="bg-white/60 rounded-xl p-4">
                                 <div className="flex justify-between">
                                   <span>Income Tax:</span>
-                                  <span className="font-bold dark:text-gray-200">₹{result.newRegime.incomeTax.toLocaleString()}</span>
+                                  <span className="font-bold">₹{result.newRegime.incomeTax.toLocaleString()}</span>
                                 </div>
                               </div>
-                              <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                              <div className="bg-white/60 rounded-xl p-4">
                                 <div className="flex justify-between">
                                   <span>Cess (4%):</span>
-                                  <span className="font-bold dark:text-gray-200">₹{result.newRegime.cess.toLocaleString()}</span>
+                                  <span className="font-bold">₹{result.newRegime.cess.toLocaleString()}</span>
                                 </div>
                               </div>
                             </div>
@@ -2571,8 +2571,8 @@ export default function TaxCalculator() {
 
                         {activeTab === 'capital' && (
                           <div className="space-y-4">
-                            <div className="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-6 shadow-lg text-center transition-colors duration-300">
-                              <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">Total Capital Gains Tax</div>
+                            <div className="bg-white/80 rounded-2xl p-6 shadow-lg text-center">
+                              <div className="text-sm text-gray-600 mb-2">Total Capital Gains Tax</div>
                               <div className="text-3xl font-bold text-[#FF6B2C] mb-2">
                                 ₹{result.capitalGainsBreakdown.totalCapitalGainsTax.toLocaleString()}
                               </div>
@@ -2583,15 +2583,15 @@ export default function TaxCalculator() {
                             
                             <div className="space-y-3 text-sm">
                               {result.capitalGainsBreakdown.stcgEquity > 0 && (
-                                <div className="bg-red-50 dark:bg-red-900/20 rounded-xl p-4 border border-red-200 dark:border-red-800 transition-colors duration-300">
+                                <div className="bg-red-50 rounded-xl p-4 border border-red-200">
                                   <div className="flex justify-between items-center mb-2">
-                                    <span className="font-semibold text-red-800 dark:text-red-300">STCG - Equity (≤12 months)</span>
-                                    <span className="text-xs bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 px-2 py-1 rounded-full transition-colors duration-300">15.6% tax</span>
+                                    <span className="font-semibold text-red-800">STCG - Equity (≤12 months)</span>
+                                    <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full">15.6% tax</span>
                                   </div>
                                   <div className="space-y-1">
                                     <div className="flex justify-between">
                                       <span>Capital Gains:</span>
-                                      <span className="font-bold dark:text-gray-200">₹{result.capitalGainsBreakdown.stcgEquity.toLocaleString()}</span>
+                                      <span className="font-bold">₹{result.capitalGainsBreakdown.stcgEquity.toLocaleString()}</span>
                                     </div>
                                     <div className="flex justify-between">
                                       <span>Tax:</span>
@@ -2602,15 +2602,15 @@ export default function TaxCalculator() {
                               )}
                               
                               {result.capitalGainsBreakdown.ltcgEquity > 0 && (
-                                <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-4 border border-green-200 dark:border-green-800 transition-colors duration-300">
+                                <div className="bg-green-50 rounded-xl p-4 border border-green-200">
                                   <div className="flex justify-between items-center mb-2">
-                                    <span className="font-semibold text-green-800 dark:text-green-300">LTCG - Equity (&gt;12 months)</span>
-                                    <span className="text-xs bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 px-2 py-1 rounded-full transition-colors duration-300">₹1L exempt, then 10.4%</span>
+                                    <span className="font-semibold text-green-800">LTCG - Equity (&gt;12 months)</span>
+                                    <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">₹1L exempt, then 10.4%</span>
                                   </div>
                                   <div className="space-y-1">
                                     <div className="flex justify-between">
                                       <span>Capital Gains:</span>
-                                      <span className="font-bold dark:text-gray-200">₹{result.capitalGainsBreakdown.ltcgEquity.toLocaleString()}</span>
+                                      <span className="font-bold">₹{result.capitalGainsBreakdown.ltcgEquity.toLocaleString()}</span>
                                     </div>
                                     <div className="flex justify-between">
                                       <span>Exemption:</span>
@@ -2629,17 +2629,17 @@ export default function TaxCalculator() {
                               )}
                               
                               {result.capitalGainsBreakdown.stcgOther > 0 && (
-                                <div className="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-4 border border-purple-200 dark:border-purple-800 transition-colors duration-300">
+                                <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
                                   <div className="flex justify-between items-center mb-2">
-                                    <span className="font-semibold text-purple-800 dark:text-purple-300">STCG - Other Investments</span>
-                                    <span className="text-xs bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 px-2 py-1 rounded-full transition-colors duration-300">Added to income</span>
+                                    <span className="font-semibold text-purple-800">STCG - Other Investments</span>
+                                    <span className="text-xs bg-purple-100 text-purple-700 px-2 py-1 rounded-full">Added to income</span>
                                   </div>
                                   <div className="space-y-1">
                                     <div className="flex justify-between">
                                       <span>Capital Gains:</span>
-                                      <span className="font-bold dark:text-gray-200">₹{result.capitalGainsBreakdown.stcgOther.toLocaleString()}</span>
+                                      <span className="font-bold">₹{result.capitalGainsBreakdown.stcgOther.toLocaleString()}</span>
                                     </div>
-                                    <div className="text-xs text-purple-600 dark:text-purple-400 mt-1">
+                                    <div className="text-xs text-purple-600 mt-1">
                                       💡 Added to regular income and taxed at your income slab rate
                                     </div>
                                   </div>
@@ -2647,21 +2647,21 @@ export default function TaxCalculator() {
                               )}
                               
                               {result.capitalGainsBreakdown.ltcgOther > 0 && (
-                                <div className="bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-4 border border-indigo-200 dark:border-indigo-800 transition-colors duration-300">
+                                <div className="bg-indigo-50 rounded-xl p-4 border border-indigo-200">
                                   <div className="flex justify-between items-center mb-2">
-                                    <span className="font-semibold text-indigo-800 dark:text-indigo-300">LTCG - Other Investments</span>
-                                    <span className="text-xs bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded-full transition-colors duration-300">20.8% with indexation</span>
+                                    <span className="font-semibold text-indigo-800">LTCG - Other Investments</span>
+                                    <span className="text-xs bg-indigo-100 text-indigo-700 px-2 py-1 rounded-full">20.8% with indexation</span>
                                   </div>
                                   <div className="space-y-1">
                                     <div className="flex justify-between">
                                       <span>Capital Gains:</span>
-                                      <span className="font-bold dark:text-gray-200">₹{result.capitalGainsBreakdown.ltcgOther.toLocaleString()}</span>
+                                      <span className="font-bold">₹{result.capitalGainsBreakdown.ltcgOther.toLocaleString()}</span>
                                     </div>
                                     <div className="flex justify-between">
                                       <span>Tax:</span>
                                       <span className="font-bold text-indigo-600">₹{result.capitalGainsBreakdown.ltcgOtherTax.toLocaleString()}</span>
                                     </div>
-                                    <div className="text-xs text-indigo-600 dark:text-indigo-400 mt-1">
+                                    <div className="text-xs text-indigo-600 mt-1">
                                       💡 Includes indexation benefit for inflation adjustment
                                     </div>
                                   </div>
@@ -2670,8 +2670,8 @@ export default function TaxCalculator() {
                               
                               {result.capitalGainsBreakdown.totalCapitalGainsTax === 0 && (
                                 <div className="text-center py-8">
-                                  <div className="text-gray-500 dark:text-gray-400 text-lg">No capital gains declared</div>
-                                  <div className="text-sm text-gray-400 dark:text-gray-500 mt-2">Enter your stock market gains in the form to see tax breakdown</div>
+                                  <div className="text-gray-500 text-lg">No capital gains declared</div>
+                                  <div className="text-sm text-gray-400 mt-2">Enter your stock market gains in the form to see tax breakdown</div>
                                 </div>
                               )}
                             </div>
@@ -2689,20 +2689,20 @@ export default function TaxCalculator() {
                       </div>
                     ) : (
                       <div className="text-center py-12">
-                        <div className="w-20 h-20 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+                        <div className="w-20 h-20 bg-gradient-to-r from-gray-200 to-gray-300 rounded-2xl flex items-center justify-center mx-auto mb-6">
                           <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                           </svg>
                         </div>
-                        <p className="text-gray-500 dark:text-gray-400 text-lg">
+                        <p className="text-gray-500 text-lg">
                           Fill in your details to calculate and compare tax regimes
                         </p>
                       </div>
                     )}
 
                     {/* Tax Slabs Display */}
-                    <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
-                      <h4 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 text-center">
+                    <div className="mt-8 pt-6 border-t border-gray-200">
+                      <h4 className="text-lg font-bold text-gray-800 mb-4 text-center">
                         Tax Slabs for {assessmentYear}
                       </h4>
                       
@@ -2716,16 +2716,16 @@ export default function TaxCalculator() {
                             {(entityType === 'individual' || entityType === 'huf') && (
                             <>
                             {/* Old Regime Slabs */}
-                            <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4 border border-gray-100 dark:border-gray-600 transition-colors duration-300">
-                              <h5 className="font-bold text-gray-800 dark:text-gray-100 mb-3 text-sm flex items-center gap-2">
-                                <span className="w-2 h-2 bg-red-500 dark:bg-red-400 rounded-full"></span>
+                            <div className="bg-white/60 rounded-xl p-4 border border-gray-100">
+                              <h5 className="font-bold text-gray-800 mb-3 text-sm flex items-center gap-2">
+                                <span className="w-2 h-2 bg-red-500 rounded-full"></span>
                                 Old Regime
                               </h5>
                               <div className="space-y-2 text-sm">
                                 {/* Basic Exemption */}
-                                <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                  <span className="text-gray-600 dark:text-gray-400">Basic Exemption:</span>
-                                  <span className="font-medium text-red-600 dark:text-red-400">
+                                <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                  <span className="text-gray-600">Basic Exemption:</span>
+                                  <span className="font-medium text-red-600">
                                     ₹{(
                                       residentialStatus === 'nri' ? 0 :
                                       userAge >= 80 ? config.oldRegime.exemptionAbove80 :
@@ -2748,12 +2748,12 @@ export default function TaxCalculator() {
                                   
                                   return (
                                     <div key={index} className="flex justify-between items-center py-1">
-                                      <span className="text-gray-600 dark:text-gray-400">
+                                      <span className="text-gray-600">
                                         {slab.max === Infinity 
                                           ? `Above ₹${(adjustedMin/100000).toFixed(0)}L` 
                                           : `₹${(adjustedMin/100000).toFixed(0)}L - ₹${(slab.max/100000).toFixed(0)}L`}
                                       </span>
-                                      <span className="font-medium text-red-600 dark:text-red-400">{(slab.rate * 100).toFixed(0)}%</span>
+                                      <span className="font-medium text-red-600">{(slab.rate * 100).toFixed(0)}%</span>
                                     </div>
                                   );
                                 })}
@@ -2761,16 +2761,16 @@ export default function TaxCalculator() {
                             </div>
                             
                             {/* New Regime Slabs */}
-                            <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4 border border-gray-100 dark:border-gray-600 transition-colors duration-300">
-                              <h5 className="font-bold text-gray-800 dark:text-gray-100 mb-3 text-sm flex items-center gap-2">
-                                <span className="w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full"></span>
+                            <div className="bg-white/60 rounded-xl p-4 border border-gray-100">
+                              <h5 className="font-bold text-gray-800 mb-3 text-sm flex items-center gap-2">
+                                <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                                 New Regime
                               </h5>
                               <div className="space-y-2 text-sm">
                                 {/* Basic Exemption */}
-                                <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                  <span className="text-gray-600 dark:text-gray-400">Basic Exemption:</span>
-                                  <span className="font-medium text-green-600 dark:text-green-400">
+                                <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                  <span className="text-gray-600">Basic Exemption:</span>
+                                  <span className="font-medium text-green-600">
                                     ₹{(residentialStatus === 'nri' ? 0 : config.newRegime.exemption).toLocaleString()}
                                   </span>
                                 </div>
@@ -2781,12 +2781,12 @@ export default function TaxCalculator() {
                                   
                                   return (
                                     <div key={index} className="flex justify-between items-center py-1">
-                                      <span className="text-gray-600 dark:text-gray-400">
+                                      <span className="text-gray-600">
                                         {slab.max === Infinity 
                                           ? `Above ₹${(adjustedMin/100000).toFixed(0)}L` 
                                           : `₹${(adjustedMin/100000).toFixed(0)}L - ₹${(slab.max/100000).toFixed(0)}L`}
                                       </span>
-                                      <span className="font-medium text-green-600 dark:text-green-400">{(slab.rate * 100).toFixed(0)}%</span>
+                                      <span className="font-medium text-green-600">{(slab.rate * 100).toFixed(0)}%</span>
                                     </div>
                                   );
                                 })}
@@ -2794,21 +2794,21 @@ export default function TaxCalculator() {
                             </div>
                             
                             {/* Additional Info */}
-                            <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-3 border border-yellow-200 dark:border-yellow-800 transition-colors duration-300">
+                            <div className="bg-yellow-50 rounded-xl p-3 border border-yellow-200">
                               <div className="text-sm space-y-2">
-                                <div className="font-semibold text-yellow-800 dark:text-yellow-300 mb-2 text-center">Rebates & Additional Info:</div>
+                                <div className="font-semibold text-yellow-800 mb-2 text-center">Rebates & Additional Info:</div>
                                 
                                 {/* Rebate Information */}
-                                <div className="bg-green-100 dark:bg-green-900/30 rounded-lg p-2 border border-green-300 dark:border-green-700 transition-colors duration-300">
-                                  <div className="font-semibold text-green-800 dark:text-green-300 mb-1 text-center">Section 87A Rebates:</div>
+                                <div className="bg-green-100 rounded-lg p-2 border border-green-300">
+                                  <div className="font-semibold text-green-800 mb-1 text-center">Section 87A Rebates:</div>
                                   <div className="space-y-1">
-                                    <div className="text-green-700 dark:text-green-300 text-center">
+                                    <div className="text-green-700 text-center">
                                       <span className="font-medium">Old Regime:</span> ₹12,500 rebate if taxable income ≤ ₹5L
                                     </div>
-                                    <div className="text-green-700 dark:text-green-300 text-center">
+                                    <div className="text-green-700 text-center">
                                       <span className="font-medium">New Regime:</span> ₹{config.rebateAmount.toLocaleString()} rebate if taxable income ≤ ₹{(config.rebateLimit/100000).toFixed(0)}L
                                     </div>
-                                    <div className="text-green-600 dark:text-green-400 text-xs italic text-center mt-1">
+                                    <div className="text-green-600 text-xs italic text-center mt-1">
                                       Result: Zero tax if rebate covers full tax liability
                                     </div>
                                   </div>
@@ -2829,48 +2829,48 @@ export default function TaxCalculator() {
                             {(entityType === 'firm' || entityType === 'company') && (
                             <>
                             {/* Business Tax Structure */}
-                            <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4 border border-gray-100 dark:border-gray-600 transition-colors duration-300">
-                              <h5 className="font-bold text-gray-800 dark:text-gray-100 mb-3 text-sm flex items-center gap-2">
-                                <span className="w-2 h-2 bg-purple-500 dark:bg-purple-400 rounded-full"></span>
+                            <div className="bg-white/60 rounded-xl p-4 border border-gray-100">
+                              <h5 className="font-bold text-gray-800 mb-3 text-sm flex items-center gap-2">
+                                <span className="w-2 h-2 bg-purple-500 rounded-full"></span>
                                 {entityType === 'firm' ? 'Partnership Tax Structure' : 'Corporate Tax Structure'}
                               </h5>
                               <div className="space-y-2 text-sm">
                                 {entityType === 'firm' ? (
                                   <>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">Tax Rate:</span>
-                                      <span className="font-medium text-purple-600 dark:text-purple-400">30% Flat Rate</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">Tax Rate:</span>
+                                      <span className="font-medium text-purple-600">30% Flat Rate</span>
                                     </div>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">Health & Education Cess:</span>
-                                      <span className="font-medium text-purple-600 dark:text-purple-400">4% on Tax</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">Health & Education Cess:</span>
+                                      <span className="font-medium text-purple-600">4% on Tax</span>
                                     </div>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">Total Effective Rate:</span>
-                                      <span className="font-medium text-purple-600 dark:text-purple-400">31.2% (30% + 4% Cess)</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">Total Effective Rate:</span>
+                                      <span className="font-medium text-purple-600">31.2% (30% + 4% Cess)</span>
                                     </div>
                                     <div className="flex justify-between items-center py-1">
-                                      <span className="text-gray-600 dark:text-gray-400">No Basic Exemption:</span>
-                                      <span className="font-medium text-red-600 dark:text-red-400">Tax from ₹1</span>
+                                      <span className="text-gray-600">No Basic Exemption:</span>
+                                      <span className="font-medium text-red-600">Tax from ₹1</span>
                                     </div>
                                   </>
                                 ) : (
                                   <>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">Tax Rate (Turnover ≤₹400 Cr):</span>
-                                      <span className="font-medium text-purple-600 dark:text-purple-400">25%</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">Tax Rate (Turnover ≤₹400 Cr):</span>
+                                      <span className="font-medium text-purple-600">25%</span>
                                     </div>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">Tax Rate (Turnover &gt;₹400 Cr):</span>
-                                      <span className="font-medium text-purple-600 dark:text-purple-400">30%</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">Tax Rate (Turnover &gt;₹400 Cr):</span>
+                                      <span className="font-medium text-purple-600">30%</span>
                                     </div>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">Health & Education Cess:</span>
-                                      <span className="font-medium text-purple-600 dark:text-purple-400">4% on Tax</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">Health & Education Cess:</span>
+                                      <span className="font-medium text-purple-600">4% on Tax</span>
                                     </div>
                                     <div className="flex justify-between items-center py-1">
-                                      <span className="text-gray-600 dark:text-gray-400">Your Current Rate:</span>
-                                      <span className="font-medium text-purple-600 dark:text-purple-400">
+                                      <span className="text-gray-600">Your Current Rate:</span>
+                                      <span className="font-medium text-purple-600">
                                         {(parseFloat(basicSalary) || 0) <= 40000000000 ? '26% (25% + 4% Cess)' : '31.2% (30% + 4% Cess)'}
                                       </span>
                                     </div>
@@ -2880,48 +2880,48 @@ export default function TaxCalculator() {
                             </div>
 
                             {/* Business Deductions */}
-                            <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4 border border-gray-100 dark:border-gray-600 transition-colors duration-300">
-                              <h5 className="font-bold text-gray-800 dark:text-gray-100 mb-3 text-sm flex items-center gap-2">
-                                <span className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full"></span>
+                            <div className="bg-white/60 rounded-xl p-4 border border-gray-100">
+                              <h5 className="font-bold text-gray-800 mb-3 text-sm flex items-center gap-2">
+                                <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                                 {entityType === 'firm' ? 'Partnership Deductions' : 'Corporate Deductions'}
                               </h5>
                               <div className="space-y-2 text-sm">
                                 {entityType === 'firm' ? (
                                   <>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">Partner Remuneration:</span>
-                                      <span className="font-medium text-blue-600 dark:text-blue-400">As per Income Tax provisions</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">Partner Remuneration:</span>
+                                      <span className="font-medium text-blue-600">As per Income Tax provisions</span>
                                     </div>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">Interest on Capital:</span>
-                                      <span className="font-medium text-blue-600 dark:text-blue-400">Max 12% per annum</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">Interest on Capital:</span>
+                                      <span className="font-medium text-blue-600">Max 12% per annum</span>
                                     </div>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">Business Expenses:</span>
-                                      <span className="font-medium text-blue-600 dark:text-blue-400">Fully Deductible</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">Business Expenses:</span>
+                                      <span className="font-medium text-blue-600">Fully Deductible</span>
                                     </div>
                                     <div className="flex justify-between items-center py-1">
-                                      <span className="text-gray-600 dark:text-gray-400">No Personal Deductions:</span>
-                                      <span className="font-medium text-red-600 dark:text-red-400">80C, 80D, etc. not applicable</span>
+                                      <span className="text-gray-600">No Personal Deductions:</span>
+                                      <span className="font-medium text-red-600">80C, 80D, etc. not applicable</span>
                                     </div>
                                   </>
                                 ) : (
                                   <>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">Depreciation:</span>
-                                      <span className="font-medium text-blue-600 dark:text-blue-400">As per IT rates</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">Depreciation:</span>
+                                      <span className="font-medium text-blue-600">As per IT rates</span>
                                     </div>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">CSR Expenses:</span>
-                                      <span className="font-medium text-blue-600 dark:text-blue-400">2% of avg. profit (if applicable)</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">CSR Expenses:</span>
+                                      <span className="font-medium text-blue-600">2% of avg. profit (if applicable)</span>
                                     </div>
-                                    <div className="flex justify-between items-center py-1 border-b border-gray-100 dark:border-gray-700">
-                                      <span className="text-gray-600 dark:text-gray-400">Operating Expenses:</span>
-                                      <span className="font-medium text-blue-600 dark:text-blue-400">Fully Deductible</span>
+                                    <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                                      <span className="text-gray-600">Operating Expenses:</span>
+                                      <span className="font-medium text-blue-600">Fully Deductible</span>
                                     </div>
                                     <div className="flex justify-between items-center py-1">
-                                      <span className="text-gray-600 dark:text-gray-400">Minimum Alternate Tax (MAT):</span>
-                                      <span className="font-medium text-orange-600 dark:text-orange-400">18.5% if applicable</span>
+                                      <span className="text-gray-600">Minimum Alternate Tax (MAT):</span>
+                                      <span className="font-medium text-orange-600">18.5% if applicable</span>
                                     </div>
                                   </>
                                 )}
@@ -2929,9 +2929,9 @@ export default function TaxCalculator() {
                             </div>
 
                             {/* Additional Business Tax Info */}
-                            <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-3 border border-yellow-200 dark:border-yellow-800 transition-colors duration-300">
+                            <div className="bg-yellow-50 rounded-xl p-3 border border-yellow-200">
                               <div className="text-sm space-y-2">
-                                <div className="font-semibold text-yellow-800 dark:text-yellow-300 mb-2 text-center">
+                                <div className="font-semibold text-yellow-800 mb-2 text-center">
                                   {entityType === 'firm' ? 'Partnership Tax Compliance:' : 'Corporate Tax Compliance:'}
                                 </div>
                                 
@@ -2960,9 +2960,9 @@ export default function TaxCalculator() {
                     </div>
 
                     {/* PDF Generation Section */}
-                    <div className="mt-8 p-6 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-lg transition-colors duration-300">
-                      <h4 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 text-center">Download Detailed Tax Reports (Form 16 Style)</h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 text-center mb-6">
+                    <div className="mt-8 p-6 bg-white rounded-2xl border border-gray-200 shadow-lg">
+                      <h4 className="text-lg font-bold text-gray-800 mb-4 text-center">Download Detailed Tax Reports (Form 16 Style)</h4>
+                      <p className="text-sm text-gray-600 text-center mb-6">
                         Get comprehensive tax calculation reports with complete breakdowns, deductions, and tax slabs - Similar to Form 16 format
                       </p>
                       
@@ -3004,7 +3004,7 @@ export default function TaxCalculator() {
                         </button>
                       </div>
 
-                      <div className="mt-4 text-xs text-gray-500 dark:text-gray-400 text-center">
+                      <div className="mt-4 text-xs text-gray-500 text-center">
                         PDFs include: Income breakdown, deduction details, tax slabs, effective rates, and professional tax computation format
                       </div>
                     </div>
@@ -3015,11 +3015,11 @@ export default function TaxCalculator() {
           </section>
 
           {/* Tax Planning Tips */}
-          <section className="py-24 bg-gray-50 dark:bg-gray-800 relative overflow-hidden transition-colors duration-300">
+          <section className="py-24 bg-gray-50 relative overflow-hidden">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-16">
                 <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                  <span className="text-gray-800 dark:text-gray-100">Tax Planning </span>
+                  <span className="text-gray-800">Tax Planning </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Tips & Strategies
                   </span>
@@ -3102,17 +3102,17 @@ export default function TaxCalculator() {
                     <div 
                       key={index} 
                       onClick={() => sectionId && router.push(`/tax-planning?section=${sectionId}`)}
-                      className="group bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer border border-gray-100 dark:border-gray-600"
+                      className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
                     >
                       <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                         <span className="drop-shadow-sm">{item.icon}</span>
                       </div>
                       
-                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-3 text-center">
+                      <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">
                         {item.title}
                       </h3>
                       
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center text-sm mb-4">
+                      <p className="text-gray-600 leading-relaxed text-center text-sm mb-4">
                         {item.description}
                       </p>
                       
@@ -3163,19 +3163,19 @@ export default function TaxCalculator() {
 
       {/* City List Modal */}
       {showCityListModal && (
-        <div className="fixed inset-0 bg-black/50 dark:bg-black/70 flex items-center justify-center z-[10000] p-4 transition-colors duration-300">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transition-colors duration-300">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[10000] p-4">
+          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="p-6">
               {/* Modal Header */}
-              <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
+              <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
+                <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
                   🏙️ Metro vs Non-Metro Cities for HRA Exemption
                 </h2>
                 <button
                   onClick={() => setShowCityListModal(false)}
-                  className="w-8 h-8 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full flex items-center justify-center transition-colors duration-200"
+                  className="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200"
                 >
-                  <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
@@ -3184,9 +3184,9 @@ export default function TaxCalculator() {
               {/* Modal Content */}
               <div className="space-y-6">
                 {/* Overview */}
-                <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800 transition-colors duration-300">
-                  <h3 className="font-bold text-blue-800 dark:text-blue-300 mb-2">📋 HRA Exemption Rules:</h3>
-                  <div className="text-sm text-blue-700 dark:text-blue-300 space-y-1">
+                <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
+                  <h3 className="font-bold text-blue-800 mb-2">📋 HRA Exemption Rules:</h3>
+                  <div className="text-sm text-blue-700 space-y-1">
                     <div>• <strong>Metro Cities:</strong> 50% of Basic Salary exemption limit</div>
                     <div>• <strong>Non-Metro Cities:</strong> 40% of Basic Salary exemption limit</div>
                     <div>• HRA exemption = Minimum of (HRA received, 50%/40% of Basic, Rent - 10% of Basic)</div>
@@ -3196,49 +3196,49 @@ export default function TaxCalculator() {
                 {/* City Lists */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* Metro Cities */}
-                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-800 transition-colors duration-300">
-                    <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-4 flex items-center gap-2">
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+                    <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center gap-2">
                       🏙️ Metro Cities (50% HRA exemption)
                     </h3>
                     <div className="space-y-3">
-                      <div className="bg-white/80 dark:bg-gray-700/80 rounded-lg p-4 transition-colors duration-300">
-                        <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">Tier 1 Metro Cities:</h4>
+                      <div className="bg-white/80 rounded-lg p-4">
+                        <h4 className="font-semibold text-blue-700 mb-2">Tier 1 Metro Cities:</h4>
                         <div className="grid grid-cols-2 gap-2 text-sm">
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                             <span>Mumbai</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                             <span>Delhi</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                             <span>Kolkata</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-blue-500 dark:bg-blue-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                             <span>Chennai</span>
                           </div>
                         </div>
                       </div>
-                      <div className="bg-white/80 dark:bg-gray-700/80 rounded-lg p-4 transition-colors duration-300">
-                        <h4 className="font-semibold text-blue-700 dark:text-blue-300 mb-2">Other Major Metro Cities:</h4>
+                      <div className="bg-white/80 rounded-lg p-4">
+                        <h4 className="font-semibold text-blue-700 mb-2">Other Major Metro Cities:</h4>
                         <div className="grid grid-cols-2 gap-2 text-sm">
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-indigo-500 dark:bg-indigo-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                             <span>Bangalore</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-indigo-500 dark:bg-indigo-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                             <span>Hyderabad</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-indigo-500 dark:bg-indigo-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                             <span>Ahmedabad</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-indigo-500 dark:bg-indigo-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
                             <span>Pune</span>
                           </div>
                         </div>
@@ -3247,39 +3247,39 @@ export default function TaxCalculator() {
                   </div>
 
                   {/* Non-Metro Cities */}
-                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl p-6 border border-green-200 dark:border-green-800 transition-colors duration-300">
-                    <h3 className="text-xl font-bold text-green-800 dark:text-green-300 mb-4 flex items-center gap-2">
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
+                    <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center gap-2">
                       🏘️ Non-Metro Cities (40% HRA exemption)
                     </h3>
                     <div className="space-y-3">
-                      <div className="bg-white/80 dark:bg-gray-700/80 rounded-lg p-4 transition-colors duration-300">
-                        <h4 className="font-semibold text-green-700 dark:text-green-300 mb-2">Definition:</h4>
-                        <p className="text-sm text-green-600 dark:text-green-300 mb-3">All cities in India except the 8 metro cities listed on the left</p>
+                      <div className="bg-white/80 rounded-lg p-4">
+                        <h4 className="font-semibold text-green-700 mb-2">Definition:</h4>
+                        <p className="text-sm text-green-600 mb-3">All cities in India except the 8 metro cities listed on the left</p>
                         
-                        <h4 className="font-semibold text-green-700 dark:text-green-300 mb-2">Popular Non-Metro Cities:</h4>
+                        <h4 className="font-semibold text-green-700 mb-2">Popular Non-Metro Cities:</h4>
                         <div className="grid grid-cols-1 gap-2 text-sm">
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                             <span>Jaipur, Lucknow, Kanpur, Agra</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                             <span>Indore, Bhopal, Nagpur, Surat</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                             <span>Coimbatore, Kochi, Mysore, Trichy</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                             <span>Chandigarh, Vadodara, Rajkot</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                             <span>Visakhapatnam, Nashik, Guwahati</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 bg-green-500 dark:bg-green-400 rounded-full"></span>
+                            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                             <span>Bhubaneswar, Dehradun, Shimla</span>
                           </div>
                         </div>
@@ -3289,8 +3289,8 @@ export default function TaxCalculator() {
                 </div>
 
                 {/* Important Notes */}
-                <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-4 border border-yellow-200 dark:border-yellow-800 transition-colors duration-300">
-                  <h3 className="font-bold text-yellow-800 dark:text-yellow-300 mb-3 flex items-center gap-2">
+                <div className="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
+                  <h3 className="font-bold text-yellow-800 mb-3 flex items-center gap-2">
                     💡 Important Notes
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700">

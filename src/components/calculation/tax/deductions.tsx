@@ -29,13 +29,13 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                         setSection80DParents, section80CCD1B, setSection80CCD1B, section80G50, setSection80G50, section80G100, setSection80G100,
                         section24B, setSection24B, professionalTax, setProfessionalTax, otherDeductions, setOtherDeductions, section80E, setSection80E}) => {
     return(
-        <div className="bg-orange-50 rounded-2xl p-6 border border-orange-200">
+        <div className="bg-orange-50 rounded-2xl p-6 border border-orange-200 dark:bg-orange-900/20 dark:border-orange-800 mb-6">
             <h3 className="text-lg font-bold text-orange-800 mb-4">
                 {entityType === 'individual' ? 'Deductions (Old Regime Only)' : 'HUF Deductions (Old Regime Only)'}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         80C (PF, ELSS, PPF etc.) (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -62,13 +62,13 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     <input
                         type="number"
                         placeholder="Max: 150000"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={section80C}
                         onChange={(e) => setSection80C(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         80D Self/Family (Health Insurance) (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -95,7 +95,7 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     <input
                         type="number"
                         placeholder={`Max: ${parseInt(age) >= 60 ? '50000' : '25000'}`}
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={section80DSelf}
                         onChange={(e) => setSection80DSelf(e.target.value)}
                     />
@@ -104,7 +104,7 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     </p>
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         80D Parents (Health Insurance) (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -132,7 +132,7 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     <input
                         type="number"
                         placeholder="Max: 50000"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={section80DParents}
                         onChange={(e) => setSection80DParents(e.target.value)}
                     />
@@ -141,7 +141,7 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     </p>
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         80CCD(1B) (NPS) (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -170,13 +170,13 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     <input
                         type="number"
                         placeholder="Max: 50000"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={section80CCD1B}
                         onChange={(e) => setSection80CCD1B(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         80E (Education Loan) (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-yellow-100 text-yellow-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -205,13 +205,13 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     <input
                         type="number"
                         placeholder="No limit"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={section80E}
                         onChange={(e) => setSection80E(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         80G Donations (50% deduction) (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-orange-100 text-orange-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -242,13 +242,13 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     <input
                         type="number"
                         placeholder="Donation amount (50% deductible)"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={section80G50}
                         onChange={(e) => setSection80G50(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         80G Donations (100% deduction) (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -281,13 +281,13 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     <input
                         type="number"
                         placeholder="Donation amount (100% deductible)"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={section80G100}
                         onChange={(e) => setSection80G100(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         24(b) (Home Loan Interest) (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-orange-100 text-orange-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -317,13 +317,13 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     <input
                         type="number"
                         placeholder="Max: 200000"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={section24B}
                         onChange={(e) => setSection24B(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         Professional Tax (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-red-100 text-red-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -352,14 +352,13 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     </label>
                     <input
                         type="number"
-                        placeholder="e.g., 2500"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={professionalTax}
                         onChange={(e) => setProfessionalTax(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         Other Deductions (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -382,7 +381,7 @@ const Deductions: React.FC<DeductionsProps> = ({entityType, section80C, setSecti
                     <input
                         type="number"
                         placeholder="80TTA, 80TTB etc."
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={otherDeductions}
                         onChange={(e) => setOtherDeductions(e.target.value)}
                     />

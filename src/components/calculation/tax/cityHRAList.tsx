@@ -7,10 +7,10 @@ interface CityWiseHRAListProps {
 const CityWiseHRAList: React.FC<CityWiseHRAListProps> = ({setShowCityListModal}) => {
     return(
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[10000] p-4">
-            <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="bg-white dark:bg-gray-700 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
                 <div className="p-6">
                     {/* Modal Header */}
-                    <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
+                    <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200 dark:border-gray-700 dark:border-gray-700">
                         <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
                             🏙️ Metro vs Non-Metro Cities for HRA Exemption
                         </h2>
@@ -18,7 +18,7 @@ const CityWiseHRAList: React.FC<CityWiseHRAListProps> = ({setShowCityListModal})
                             onClick={() => setShowCityListModal(false)}
                             className="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors duration-200"
                         >
-                            <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
@@ -27,7 +27,7 @@ const CityWiseHRAList: React.FC<CityWiseHRAListProps> = ({setShowCityListModal})
                     {/* Modal Content */}
                     <div className="space-y-6">
                         {/* Overview */}
-                        <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
+                        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
                             <h3 className="font-bold text-blue-800 mb-2">📋 HRA Exemption Rules:</h3>
                             <div className="text-sm text-blue-700 space-y-1">
                                 <div>• <strong>Metro Cities:</strong> 50% of Basic Salary exemption limit</div>
@@ -39,7 +39,7 @@ const CityWiseHRAList: React.FC<CityWiseHRAListProps> = ({setShowCityListModal})
                         {/* City Lists */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                             {/* Metro Cities */}
-                            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
+                            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
                                 <h3 className="text-xl font-bold text-blue-800 mb-4 flex items-center gap-2">
                                     🏙️ Metro Cities (50% HRA exemption)
                                 </h3>
@@ -90,7 +90,7 @@ const CityWiseHRAList: React.FC<CityWiseHRAListProps> = ({setShowCityListModal})
                             </div>
 
                             {/* Non-Metro Cities */}
-                            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200">
+                            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6 border border-green-200 dark:border-green-800">
                                 <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center gap-2">
                                     🏘️ Non-Metro Cities (40% HRA exemption)
                                 </h3>
@@ -132,7 +132,7 @@ const CityWiseHRAList: React.FC<CityWiseHRAListProps> = ({setShowCityListModal})
                         </div>
 
                         {/* Important Notes */}
-                        <div className="bg-yellow-50 rounded-xl p-4 border border-yellow-200">
+                        <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-4 border border-yellow-200 dark:border-yellow-700">
                             <h3 className="font-bold text-yellow-800 mb-3 flex items-center gap-2">
                                 💡 Important Notes
                             </h3>

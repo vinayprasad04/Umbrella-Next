@@ -4,16 +4,16 @@ import { useRouter } from "next/router";
 const TaxPlanningTips: React.FC = () => {
     const router = useRouter();
     return(
-        <section className="py-24 bg-gray-50 relative overflow-hidden">
+        <section className="py-24 bg-gray-50 dark:bg-gray-800 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                        <span className="text-gray-800">Tax Planning </span>
+                        <span className="text-gray-800 dark:text-gray-100">Tax Planning </span>
                         <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Tips & Strategies
                   </span>
                     </h2>
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+                    <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-6">
                         Smart strategies to optimize your tax liability and maximize savings
                     </p>
                     <div className="flex justify-center">
@@ -91,17 +91,17 @@ const TaxPlanningTips: React.FC = () => {
                             <div
                                 key={index}
                                 onClick={() => sectionId && router.push(`/tax-planning?section=${sectionId}`)}
-                                className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
+                                className="group bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer border border-gray-100 dark:border-gray-600"
                             >
                                 <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                                     <span className="drop-shadow-sm">{item.icon}</span>
                                 </div>
 
-                                <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">
+                                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-3 text-center">
                                     {item.title}
                                 </h3>
 
-                                <p className="text-gray-600 leading-relaxed text-center text-sm mb-4">
+                                <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center text-sm mb-4">
                                     {item.description}
                                 </p>
 

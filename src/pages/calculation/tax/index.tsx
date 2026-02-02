@@ -1034,7 +1034,7 @@ export default function TaxCalculator() {
           </script>
         </Head>
 
-        <div className="font-sans m-0 p-0 bg-white">
+        <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
           <Header />
 
           <main>
@@ -1042,14 +1042,14 @@ export default function TaxCalculator() {
             <Banner/>
 
             {/* Calculator Section */}
-            <section className="py-24 bg-white relative overflow-hidden">
+            <section className="py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
               <div className="w-full max-w-[1600px] mx-auto px-6">
                 <div className="max-w-7xl mx-auto">
                   <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
 
                     {/* Input Form */}
-                    <div className="lg:col-span-3 bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl border border-gray-100">
-                      <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                    <div className="lg:col-span-3 bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                      <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center transition-colors duration-300">
                         Tax Calculator
                       </h2>
 
@@ -1057,7 +1057,7 @@ export default function TaxCalculator() {
                       <div className="text-center mb-8">
                         <button
                             onClick={() => router.push('/tax-planning')}
-                            className="text-sm text-gray-600 hover:text-[#FF6B2C] underline underline-offset-2 transition-colors duration-200"
+                            className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#FF6B2C] dark:hover:text-[#FF8A50] underline underline-offset-2 transition-colors duration-200"
                         >
                           View Complete Tax Planning Guide →
                         </button>
@@ -1148,7 +1148,7 @@ export default function TaxCalculator() {
                         )}
 
                         <button
-                            className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                            className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] dark:from-[#FF8A50] dark:to-[#FFB380] text-white px-6 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                             onClick={calculateTax}
                         >
                           Calculate Tax & Compare Regimes
@@ -1186,20 +1186,20 @@ export default function TaxCalculator() {
             <CalculatorFAQ faqs={taxFAQs} title="Income Tax Calculator - Frequently Asked Questions" />
 
             {/* CTA Section */}
-            <section className="py-24 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
-              <div className="absolute inset-0 bg-black/10"></div>
+            <section className="py-24 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] dark:from-[#FF8A50] dark:to-[#FFB380] relative overflow-hidden transition-colors duration-300">
+              <div className="absolute inset-0 bg-black/10 dark:bg-black/20"></div>
               <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
                 <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
                   Optimize Your Tax Planning
                 </h2>
 
-                <p className="text-xl text-white/90 max-w-2xl mx-auto mb-8">
+                <p className="text-xl text-white/90 dark:text-white/80 max-w-2xl mx-auto mb-8">
                   Calculate your tax, save calculations, and plan your tax-saving investments effectively
                 </p>
 
                 <button
                     onClick={handleGetStarted}
-                    className="group bg-white text-[#FF6B2C] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
+                    className="group bg-white dark:bg-gray-800 text-[#FF6B2C] dark:text-[#FFB380] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
                 >
                   {isLoggedIn ? 'Save Tax Calculations' : 'Get Started Free'}
                   <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">

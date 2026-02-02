@@ -147,7 +147,7 @@ export default function UnlistedCompanies() {
       <Header />
 
       {/* Hero Section - Full Width */}
-      <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+      <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
@@ -164,46 +164,46 @@ export default function UnlistedCompanies() {
               Famous Unlisted
             </span>
             <br />
-            <span className="text-gray-800">Indian Companies</span>
+            <span className="text-gray-800 dark:text-gray-200">Indian Companies</span>
           </h1>
-          <p className="text-xl sm:text-2xl text-gray-700 mb-6 max-w-3xl mx-auto font-semibold">
+          <p className="text-xl sm:text-2xl text-gray-700 dark:text-gray-300 mb-6 max-w-3xl mx-auto font-semibold">
             Pre-IPO Investment Opportunities
           </p>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
             Explore India's most valuable unlisted companies with pre-IPO investment potential. These companies may list on stock exchanges in the future at premium valuations.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-            <div className="bg-white/80 backdrop-blur-md border border-gray-200 px-6 py-4 rounded-xl shadow-md">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 px-6 py-4 rounded-xl shadow-md">
               <div className="text-3xl font-bold text-[#FF6B2C] mb-1">{unlistedCompaniesData.length}</div>
-              <div className="text-sm text-gray-600 font-medium">Companies Listed</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">Companies Listed</div>
             </div>
-            <div className="bg-white/80 backdrop-blur-md border border-gray-200 px-6 py-4 rounded-xl shadow-md">
-              <div className="text-3xl font-bold text-green-600 mb-1">₹{(unlistedCompaniesData.reduce((sum, c) => sum + c['Approx Valuation (in crore)'], 0) / 100000).toFixed(2)}L Cr</div>
-              <div className="text-sm text-gray-600 font-medium">Total Valuation</div>
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 px-6 py-4 rounded-xl shadow-md">
+              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-1">₹{(unlistedCompaniesData.reduce((sum, c) => sum + c['Approx Valuation (in crore)'], 0) / 100000).toFixed(2)}L Cr</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">Total Valuation</div>
             </div>
-            <div className="bg-white/80 backdrop-blur-md border border-gray-200 px-6 py-4 rounded-xl shadow-md">
-              <div className="text-3xl font-bold text-blue-600 mb-1">15+</div>
-              <div className="text-sm text-gray-600 font-medium">Industries</div>
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200 dark:border-gray-700 px-6 py-4 rounded-xl shadow-md">
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1">15+</div>
+              <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">Industries</div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 py-12">
 
           {/* Info Banner */}
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-5 mb-10 rounded-lg shadow-sm">
+          <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-500 p-5 mb-10 rounded-lg shadow-sm">
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0 mt-0.5">
-                <svg className="h-5 w-5 text-amber-600" viewBox="0 0 20 20" fill="currentColor">
+                <svg className="h-5 w-5 text-amber-600 dark:text-amber-400" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="text-sm font-semibold text-amber-900 mb-1">Investment Disclaimer</p>
-                <p className="text-sm text-amber-800 leading-relaxed">
+                <p className="text-sm font-semibold text-amber-900 dark:text-amber-200 mb-1">Investment Disclaimer</p>
+                <p className="text-sm text-amber-800 dark:text-amber-300 leading-relaxed">
                   Investing in unlisted securities carries high risk. This information is for educational purposes only. Please conduct thorough research and consult certified financial advisors before investing in unlisted companies.
                 </p>
               </div>
@@ -211,18 +211,18 @@ export default function UnlistedCompanies() {
           </div>
 
           {/* Filters Section */}
-          <div className="bg-white rounded-xl shadow-md p-6 sm:p-8 mb-10 border border-gray-200">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 sm:p-8 mb-10 border border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-2 mb-6">
-              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
               </svg>
-              <h2 className="text-xl font-bold text-gray-900">Search & Filter Companies</h2>
+              <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">Search & Filter Companies</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {/* Search */}
               <div className="relative">
-                <label htmlFor="search" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="search" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                   Search Companies
                 </label>
                 <div className="relative">
@@ -232,9 +232,9 @@ export default function UnlistedCompanies() {
                     placeholder="Search by name or industry..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                    className="w-full pl-10 pr-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white dark:bg-gray-700 dark:text-gray-200 dark:placeholder-gray-400"
                   />
-                  <svg className="absolute left-3 top-3 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="absolute left-3 top-3 w-5 h-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </div>
@@ -242,14 +242,14 @@ export default function UnlistedCompanies() {
 
               {/* Industry Filter */}
               <div>
-                <label htmlFor="industry" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="industry" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                   Filter by Industry
                 </label>
                 <select
                   id="industry"
                   value={selectedIndustry}
                   onChange={(e) => setSelectedIndustry(e.target.value)}
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white"
+                  className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white dark:bg-gray-700 dark:text-gray-200"
                 >
                   {industries.map(industry => (
                     <option key={industry} value={industry}>
@@ -261,14 +261,14 @@ export default function UnlistedCompanies() {
 
               {/* Sort */}
               <div>
-                <label htmlFor="sort" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="sort" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                   Sort By
                 </label>
                 <select
                   id="sort"
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as 'valuation' | 'name')}
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white"
+                  className="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white dark:bg-gray-700 dark:text-gray-200"
                 >
                   <option value="valuation">Valuation (High to Low)</option>
                   <option value="name">Company Name (A-Z)</option>
@@ -276,10 +276,10 @@ export default function UnlistedCompanies() {
               </div>
             </div>
 
-            <div className="mt-6 pt-5 border-t border-gray-200">
+            <div className="mt-6 pt-5 border-t border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-between flex-wrap gap-3 text-sm">
-                <span className="text-gray-600">
-                  Showing <span className="font-bold text-blue-600 text-lg">{filteredCompanies.length}</span> of <span className="font-semibold">{unlistedCompaniesData.length}</span> companies
+                <span className="text-gray-600 dark:text-gray-400">
+                  Showing <span className="font-bold text-blue-600 dark:text-blue-400 text-lg">{filteredCompanies.length}</span> of <span className="font-semibold">{unlistedCompaniesData.length}</span> companies
                 </span>
                 {(searchTerm || selectedIndustry !== 'all') && (
                   <button
@@ -287,7 +287,7 @@ export default function UnlistedCompanies() {
                       setSearchTerm('');
                       setSelectedIndustry('all');
                     }}
-                    className="text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1 transition-colors"
+                    className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium flex items-center gap-1 transition-colors"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -300,9 +300,9 @@ export default function UnlistedCompanies() {
           </div>
 
           {/* Companies Table List */}
-          <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden mb-16">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden mb-16">
             {/* Table Header */}
-            <div className="bg-gradient-to-r from-slate-800 to-slate-700 px-6 py-4 overflow-x-auto">
+            <div className="bg-gradient-to-r from-slate-800 to-slate-700 dark:from-slate-700 dark:to-slate-600 px-6 py-4 overflow-x-auto">
               <div className="min-w-[1000px]">
                 <div className="grid grid-cols-12 gap-4 text-white font-semibold text-sm">
                   <div className="col-span-1 text-center">#</div>
@@ -316,28 +316,28 @@ export default function UnlistedCompanies() {
             </div>
 
             {/* Table Body */}
-            <div className="divide-y divide-gray-200 overflow-x-auto">
+            <div className="divide-y divide-gray-200 dark:divide-gray-700 overflow-x-auto">
               {filteredCompanies.map((company, index) => (
                 <div
                   key={index}
-                  className="group hover:bg-blue-50 transition-all duration-200 px-6 py-4"
+                  className="group hover:bg-blue-50 dark:hover:bg-gray-700/50 transition-all duration-200 px-6 py-4"
                 >
                   <div className="min-w-[1000px]">
                     <div className="grid grid-cols-12 gap-4 items-center">
                       {/* Rank */}
                       <div className="col-span-1 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-slate-100 text-slate-700 font-bold text-sm rounded-full">
+                        <span className="inline-flex items-center justify-center w-8 h-8 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-full">
                           {index + 1}
                         </span>
                       </div>
 
                       {/* Company Name */}
                       <div className="col-span-3">
-                        <h3 className="text-base font-bold text-gray-900 mb-1">
+                        <h3 className="text-base font-bold text-gray-900 dark:text-gray-100 mb-1">
                           {company.Company}
                         </h3>
                         {company['Approx Valuation (in crore)'] >= 50000 && (
-                          <span className="inline-block px-2 py-0.5 bg-yellow-100 text-yellow-800 text-xs font-bold rounded-full border border-yellow-200">
+                          <span className="inline-block px-2 py-0.5 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-300 text-xs font-bold rounded-full border border-yellow-200 dark:border-yellow-700">
                             ⭐ Top Valued
                           </span>
                         )}
@@ -345,29 +345,29 @@ export default function UnlistedCompanies() {
 
                       {/* Industry */}
                       <div className="col-span-2">
-                        <span className="inline-block px-3 py-1.5 bg-blue-50 text-blue-700 text-xs font-semibold rounded-lg border border-blue-100">
+                        <span className="inline-block px-3 py-1.5 bg-blue-50 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-semibold rounded-lg border border-blue-100 dark:border-blue-700">
                           {company.Industry}
                         </span>
                       </div>
 
                       {/* Valuation */}
                       <div className="col-span-2">
-                        <div className="text-xl font-bold text-emerald-600">
+                        <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">
                           {formatValuation(company['Approx Valuation (in crore)'])}
                         </div>
-                        <div className="text-xs text-gray-500">Approx Valuation</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">Approx Valuation</div>
                       </div>
 
                       {/* Major Investors */}
                       <div className="col-span-3">
-                        <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
+                        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-2">
                           {company['Major Investors']}
                         </p>
                       </div>
 
                       {/* IPO Timeline */}
                       <div className="col-span-1 text-center">
-                        <span className="inline-block text-xs font-semibold text-gray-700 bg-gray-100 px-2 py-1 rounded">
+                        <span className="inline-block text-xs font-semibold text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded">
                           {company['Expected IPO Timeline'] === 'No public timeline' || company['Expected IPO Timeline'] === 'No confirmed timeline' ? '—' : company['Expected IPO Timeline']}
                         </span>
                       </div>
@@ -378,8 +378,8 @@ export default function UnlistedCompanies() {
             </div>
 
             {/* Table Footer */}
-            <div className="bg-gradient-to-r from-slate-50 to-gray-50 px-6 py-3 border-t border-gray-200">
-              <div className="flex items-center justify-center gap-2 text-xs font-medium text-gray-600">
+            <div className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-800 dark:to-gray-800 px-6 py-3 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex items-center justify-center gap-2 text-xs font-medium text-gray-600 dark:text-gray-400">
                 <svg className="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -390,18 +390,18 @@ export default function UnlistedCompanies() {
 
           {/* No Results */}
           {filteredCompanies.length === 0 && (
-            <div className="text-center py-16 bg-white rounded-xl shadow-md border border-gray-200">
-              <svg className="mx-auto h-16 w-16 text-gray-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="text-center py-16 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700">
+              <svg className="mx-auto h-16 w-16 text-gray-300 dark:text-gray-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">No companies found</h3>
-              <p className="text-gray-500 mb-4">Try adjusting your search or filters</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">No companies found</h3>
+              <p className="text-gray-500 dark:text-gray-400 mb-4">Try adjusting your search or filters</p>
               <button
                 onClick={() => {
                   setSearchTerm('');
                   setSelectedIndustry('all');
                 }}
-                className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                className="px-6 py-2.5 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors font-medium"
               >
                 Reset Filters
               </button>
@@ -409,79 +409,79 @@ export default function UnlistedCompanies() {
           )}
 
           {/* Educational Content Section */}
-          <div className="mt-16 bg-white rounded-xl shadow-md p-8 sm:p-10 border border-gray-200">
+          <div className="mt-16 bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 sm:p-10 border border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-md">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold text-gray-900">About Unlisted Companies</h2>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">About Unlisted Companies</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gradient-to-br from-slate-50 to-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="bg-gradient-to-br from-slate-50 to-gray-50 dark:from-gray-700 dark:to-gray-700 rounded-lg p-6 border border-gray-200 dark:border-gray-600">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-700 font-bold text-sm">1</span>
-                  <h3 className="text-lg font-bold text-gray-900">What are Unlisted Companies?</h3>
+                  <span className="w-8 h-8 bg-blue-100 dark:bg-blue-900/50 rounded-lg flex items-center justify-center text-blue-700 dark:text-blue-300 font-bold text-sm">1</span>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">What are Unlisted Companies?</h3>
                 </div>
-                <p className="text-gray-700 leading-relaxed text-sm">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
                   Unlisted companies are those whose shares are not traded on official stock exchanges like NSE or BSE. Many of India's most valuable companies, including NSE itself, Serum Institute, and Zoho, remain unlisted. These companies may eventually go public through an Initial Public Offering (IPO).
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-slate-50 to-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="bg-gradient-to-br from-slate-50 to-gray-50 dark:from-gray-700 dark:to-gray-700 rounded-lg p-6 border border-gray-200 dark:border-gray-600">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-700 font-bold text-sm">2</span>
-                  <h3 className="text-lg font-bold text-gray-900">How to Invest in Unlisted Shares</h3>
+                  <span className="w-8 h-8 bg-indigo-100 dark:bg-indigo-900/50 rounded-lg flex items-center justify-center text-indigo-700 dark:text-indigo-300 font-bold text-sm">2</span>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">How to Invest in Unlisted Shares</h3>
                 </div>
-                <p className="text-gray-700 leading-relaxed text-sm">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
                   Unlisted shares can be purchased through authorized intermediaries, wealth management firms, or specialized platforms. Investors can buy shares of promising companies before they go public, potentially benefiting from their growth trajectory and future IPO listing.
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-slate-50 to-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="bg-gradient-to-br from-slate-50 to-gray-50 dark:from-gray-700 dark:to-gray-700 rounded-lg p-6 border border-gray-200 dark:border-gray-600">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center text-emerald-700 font-bold text-sm">3</span>
-                  <h3 className="text-lg font-bold text-gray-900">Investment Opportunities</h3>
+                  <span className="w-8 h-8 bg-emerald-100 dark:bg-emerald-900/50 rounded-lg flex items-center justify-center text-emerald-700 dark:text-emerald-300 font-bold text-sm">3</span>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">Investment Opportunities</h3>
                 </div>
-                <p className="text-gray-700 leading-relaxed text-sm">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
                   Investing in unlisted companies can offer substantial returns if the company successfully lists and performs well post-IPO. Companies like Zerodha (₹87,750 Cr), Dream11 (₹60,000 Cr), and Razorpay (₹56,000 Cr) represent high-growth sectors with strong fundamentals.
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-slate-50 to-gray-50 rounded-lg p-6 border border-gray-200">
+              <div className="bg-gradient-to-br from-slate-50 to-gray-50 dark:from-gray-700 dark:to-gray-700 rounded-lg p-6 border border-gray-200 dark:border-gray-600">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center text-red-700 font-bold text-sm">!</span>
-                  <h3 className="text-lg font-bold text-gray-900">Key Risk Factors</h3>
+                  <span className="w-8 h-8 bg-red-100 dark:bg-red-900/50 rounded-lg flex items-center justify-center text-red-700 dark:text-red-300 font-bold text-sm">!</span>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100">Key Risk Factors</h3>
                 </div>
-                <ul className="space-y-1.5 text-gray-700 text-sm">
+                <ul className="space-y-1.5 text-gray-700 dark:text-gray-300 text-sm">
                   <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-1 text-xs">•</span>
+                    <span className="text-red-500 dark:text-red-400 mt-1 text-xs">•</span>
                     <span>Lack of regulatory oversight and investor protection</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-1 text-xs">•</span>
+                    <span className="text-red-500 dark:text-red-400 mt-1 text-xs">•</span>
                     <span>Limited liquidity - difficult to sell shares quickly</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-1 text-xs">•</span>
+                    <span className="text-red-500 dark:text-red-400 mt-1 text-xs">•</span>
                     <span>No guarantee of IPO listing or timeline</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-red-500 mt-1 text-xs">•</span>
+                    <span className="text-red-500 dark:text-red-400 mt-1 text-xs">•</span>
                     <span>Valuation uncertainties and market volatility</span>
                   </li>
                 </ul>
               </div>
             </div>
 
-            <div className="mt-8 bg-blue-50 border-l-4 border-blue-500 p-5 rounded-r-lg">
+            <div className="mt-8 bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-500 dark:border-blue-400 p-5 rounded-r-lg">
               <div className="flex items-start gap-3">
-                <svg className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                 </svg>
-                <p className="text-sm text-blue-900 leading-relaxed">
+                <p className="text-sm text-blue-900 dark:text-blue-200 leading-relaxed">
                   <strong className="font-bold">Important:</strong> This information is provided for educational purposes only and should not be considered as investment advice. Unlisted securities investments are highly speculative and suitable only for investors with high risk tolerance. Always consult certified financial advisors and conduct thorough due diligence before making investment decisions.
                 </p>
               </div>
@@ -489,53 +489,53 @@ export default function UnlistedCompanies() {
           </div>
 
           {/* FAQ Section */}
-          <div className="mt-12 bg-white rounded-xl shadow-md p-8 sm:p-10 border border-gray-200">
+          <div className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 sm:p-10 border border-gray-200 dark:border-gray-700">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Frequently Asked Questions</h2>
             </div>
 
             <div className="space-y-4">
-              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
-                  <span className="text-blue-600 flex-shrink-0">Q:</span>
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-colors">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 flex items-start gap-2">
+                  <span className="text-blue-600 dark:text-blue-400 flex-shrink-0">Q:</span>
                   <span>How can I buy unlisted shares?</span>
                 </h3>
-                <p className="text-gray-700 leading-relaxed pl-6 text-sm">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-6 text-sm">
                   Unlisted shares can be purchased through intermediaries, wealth management firms, or platforms specializing in unlisted securities. Always verify the authenticity of the platform and understand the associated risks.
                 </p>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
-                  <span className="text-blue-600 flex-shrink-0">Q:</span>
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-colors">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 flex items-start gap-2">
+                  <span className="text-blue-600 dark:text-blue-400 flex-shrink-0">Q:</span>
                   <span>Which unlisted company has the highest valuation?</span>
                 </h3>
-                <p className="text-gray-700 leading-relaxed pl-6 text-sm">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-6 text-sm">
                   National Stock Exchange of India (NSE) leads with an approximate valuation of ₹4,70,250 crore, followed by Serum Institute of India at ₹2,11,610 crore.
                 </p>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
-                  <span className="text-blue-600 flex-shrink-0">Q:</span>
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-colors">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 flex items-start gap-2">
+                  <span className="text-blue-600 dark:text-blue-400 flex-shrink-0">Q:</span>
                   <span>What are the tax implications?</span>
                 </h3>
-                <p className="text-gray-700 leading-relaxed pl-6 text-sm">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-6 text-sm">
                   Gains from unlisted shares are typically taxed as long-term or short-term capital gains depending on the holding period. Consult a tax professional for specific guidance.
                 </p>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-gray-300 transition-colors">
-                <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-start gap-2">
-                  <span className="text-blue-600 flex-shrink-0">Q:</span>
+              <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-colors">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 flex items-start gap-2">
+                  <span className="text-blue-600 dark:text-blue-400 flex-shrink-0">Q:</span>
                   <span>Are unlisted shares safe investments?</span>
                 </h3>
-                <p className="text-gray-700 leading-relaxed pl-6 text-sm">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed pl-6 text-sm">
                   Unlisted shares carry higher risk than listed securities due to lack of regulation, limited liquidity, and information asymmetry. They are suitable only for informed investors with high risk appetite.
                 </p>
               </div>
@@ -543,11 +543,11 @@ export default function UnlistedCompanies() {
           </div>
 
           {/* Footer Note */}
-          <div className="mt-12 text-center bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-            <p className="text-sm text-gray-600 mb-2">
-              <span className="font-semibold text-gray-900">Last Updated:</span> November 2025 | Data sourced from public financial reports and market estimates
+          <div className="mt-12 text-center bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-gray-200 dark:border-gray-700">
+            <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+              <span className="font-semibold text-gray-900 dark:text-gray-100">Last Updated:</span> November 2025 | Data sourced from public financial reports and market estimates
             </p>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-500 dark:text-gray-400">
               Valuations are approximate and subject to change based on market conditions and company performance
             </p>
           </div>

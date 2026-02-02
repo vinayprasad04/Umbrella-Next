@@ -160,20 +160,20 @@ export default function GratuityCalculator() {
         </script>
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900/20 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-indigo-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
             </div>
 
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full border border-purple-200 mb-3 md:mb-4 lg:mb-6">
-                <span className="text-sm font-semibold text-purple-600">💼 Gratuity Calculator</span>
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 rounded-full border border-purple-200 dark:border-purple-700 mb-3 md:mb-4 lg:mb-6 transition-colors duration-300">
+                <span className="text-sm font-semibold text-purple-600 dark:text-purple-300 transition-colors duration-300">💼 Gratuity Calculator</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
@@ -181,51 +181,51 @@ export default function GratuityCalculator() {
                   Gratuity
                 </span>
                 <br />
-                <span className="text-gray-800">Calculator</span>
+                <span className="text-gray-800 dark:text-gray-100 transition-colors duration-300">Calculator</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
-                Calculate your gratuity amount based on your last drawn salary and years of service. 
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6 transition-colors duration-300">
+                Calculate your gratuity amount based on your last drawn salary and years of service.
                 Understand your eligibility and gratuity payment rules.
               </p>
-              
+
               <div className="grid grid-cols-3 gap-3 md:gap-5 lg:gap-8 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Legal</div>
-                  <div className="text-xs md:text-sm text-gray-600">Compliance</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1 transition-colors duration-300">Legal</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Compliance</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Accurate</div>
-                  <div className="text-xs md:text-sm text-gray-600">Calculation</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1 transition-colors duration-300">Accurate</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Calculation</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Easy</div>
-                  <div className="text-xs md:text-sm text-gray-600">To Use</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1 transition-colors duration-300">Easy</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">To Use</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Calculator Section */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                   {/* Input Form */}
-                  <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl border border-gray-100">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                  <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-800/50 rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center transition-colors duration-300">
                       Calculate Your Gratuity
                     </h2>
                     
                     <div className="space-y-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 transition-colors duration-300">
                           Basic salary+DA (₹)
                         </label>
                         <input
                           type="number"
                           placeholder="e.g., 50000"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400"
                           value={lastSalary}
                           onChange={(e) => setLastSalary(e.target.value)}
                         />
@@ -236,28 +236,28 @@ export default function GratuityCalculator() {
                               onClick={() => setLastSalary(amount)}
                               className={`px-3 py-2 rounded-lg text-xs font-medium transition-all duration-300 ${
                                 lastSalary === amount
-                                  ? 'bg-[#FF6B2C] text-white'
-                                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                  ? 'bg-[#FF6B2C] text-white dark:bg-[#FF6B2C] dark:text-white'
+                                  : 'bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-500'
                               }`}
                             >
                               ₹{(parseInt(amount) / 1000).toFixed(0)}K
                             </button>
                           ))}
                         </div>
-                        <p className="text-xs text-gray-500 mt-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 transition-colors duration-300">
                           💡 Basic Salary + Dearness Allowance (monthly amount)
                         </p>
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 transition-colors duration-300">
                           Years of Service
                         </label>
                         <input
                           type="number"
                           placeholder="e.g., 10"
                           step="0.1"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-400"
                           value={yearsOfService}
                           onChange={(e) => setYearsOfService(e.target.value)}
                         />
@@ -268,21 +268,21 @@ export default function GratuityCalculator() {
                               onClick={() => setYearsOfService(years)}
                               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                                 yearsOfService === years
-                                  ? 'bg-[#FF6B2C] text-white'
-                                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                  ? 'bg-[#FF6B2C] text-white dark:bg-[#FF6B2C] dark:text-white'
+                                  : 'bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-500'
                               }`}
                             >
                               {years}Y
                             </button>
                           ))}
                         </div>
-                        <p className="text-xs text-gray-500 mt-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 transition-colors duration-300">
                           ⚠️ Minimum 5 years of service required for gratuity eligibility
                         </p>
                       </div>
                       
-                      <button 
-                        className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                      <button
+                        className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] dark:from-[#FF6B2C] dark:to-[#FF8A50] text-white px-6 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                         onClick={calculateGratuity}
                       >
                         Calculate Gratuity
@@ -292,70 +292,70 @@ export default function GratuityCalculator() {
                       </button>
                     </div>
                   </div>
-                  
+
                   {/* Results */}
-                  <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-3xl p-8 border border-[#FF6B2C]/20">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                  <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 dark:from-[#FF6B2C]/20 dark:to-[#FF8A50]/20 rounded-3xl p-8 border border-[#FF6B2C]/20 dark:border-[#FF6B2C]/30 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center transition-colors duration-300">
                       Gratuity Calculation Results
                     </h3>
                     
                     {result ? (
                       <div className="space-y-6">
-                        <div className="bg-white/80 rounded-2xl p-6 shadow-lg">
+                        <div className="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-6 shadow-lg transition-colors duration-300">
                           <div className="text-center">
-                            <div className="text-sm text-gray-600 mb-2">Gratuity Amount</div>
-                            <div className="text-4xl font-bold text-[#FF6B2C] mb-4">
+                            <div className="text-sm text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-300">Gratuity Amount</div>
+                            <div className="text-4xl font-bold text-[#FF6B2C] dark:text-[#FF6B2C] mb-4">
                               ₹{result.gratuity.toLocaleString()}
                             </div>
                           </div>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 gap-4">
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Basic Salary + DA</div>
-                            <div className="text-xl font-bold text-gray-800">
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Basic Salary + DA</div>
+                            <div className="text-xl font-bold text-gray-800 dark:text-gray-100 transition-colors duration-300">
                               ₹{result.lastSalary.toLocaleString()}/month
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Years of Service</div>
-                            <div className="text-xl font-bold text-blue-600">
+
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Years of Service</div>
+                            <div className="text-xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">
                               {result.yearsOfService} years
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Eligibility Status</div>
-                            <div className={`text-xl font-bold ${result.eligibility.includes('Eligible') && !result.eligibility.includes('Not') ? 'text-green-600' : 'text-red-600'}`}>
+
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Eligibility Status</div>
+                            <div className={`text-xl font-bold ${result.eligibility.includes('Eligible') && !result.eligibility.includes('Not') ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'} transition-colors duration-300`}>
                               {result.eligibility}
                             </div>
                           </div>
                         </div>
 
-                        <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
-                          <h4 className="font-semibold text-blue-800 mb-3">📊 Calculation Breakdown:</h4>
+                        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800 transition-colors duration-300">
+                          <h4 className="font-semibold text-blue-800 dark:text-blue-300 mb-3 transition-colors duration-300">📊 Calculation Breakdown:</h4>
                           <div className="space-y-2 text-sm">
                             <div className="flex justify-between">
-                              <span className="text-blue-700">Formula:</span>
-                              <span className="text-blue-800 font-medium">(Basic salary+DA × 15 × Years) ÷ 26</span>
+                              <span className="text-blue-700 dark:text-blue-400 transition-colors duration-300">Formula:</span>
+                              <span className="text-blue-800 dark:text-blue-300 font-medium transition-colors duration-300">(Basic salary+DA × 15 × Years) ÷ 26</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-blue-700">Calculation:</span>
-                              <span className="text-blue-800 font-medium">
+                              <span className="text-blue-700 dark:text-blue-400 transition-colors duration-300">Calculation:</span>
+                              <span className="text-blue-800 dark:text-blue-300 font-medium transition-colors duration-300">
                                 (₹{result.lastSalary.toLocaleString()} × 15 × {result.yearsOfService}) ÷ 26
                               </span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-blue-700">Maximum Limit:</span>
-                              <span className="text-blue-800 font-medium">₹20,00,000</span>
+                              <span className="text-blue-700 dark:text-blue-400 transition-colors duration-300">Maximum Limit:</span>
+                              <span className="text-blue-800 dark:text-blue-300 font-medium transition-colors duration-300">₹20,00,000</span>
                             </div>
                           </div>
                         </div>
-                        
-                        <div className="bg-green-50 rounded-xl p-4 border border-green-200">
-                          <h4 className="font-semibold text-green-800 mb-2">💡 Important Notes:</h4>
-                          <ul className="text-xs text-green-700 space-y-1">
+
+                        <div className="bg-green-50 dark:bg-green-900/20 rounded-xl p-4 border border-green-200 dark:border-green-800 transition-colors duration-300">
+                          <h4 className="font-semibold text-green-800 dark:text-green-300 mb-2 transition-colors duration-300">💡 Important Notes:</h4>
+                          <ul className="text-xs text-green-700 dark:text-green-400 space-y-1 transition-colors duration-300">
                             <li>• Gratuity is payable after 5 years of continuous service</li>
                             <li>• Maximum gratuity limit is ₹20 lakhs as per current law</li>
                             <li>• Basic salary + DA is used for gratuity calculation</li>
@@ -364,11 +364,11 @@ export default function GratuityCalculator() {
                             <li>• Calculation formula: (Basic salary+DA) × 15 × Years of Service ÷ 26</li>
                           </ul>
                         </div>
-                        
+
                         <div className="text-center pt-4">
                           <button
                             onClick={handleGetStarted}
-                            className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+                            className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] dark:from-[#FF6B2C] dark:to-[#FF8A50] text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
                           >
                             {isLoggedIn ? 'Save This Calculation' : 'Create Free Account'}
                           </button>
@@ -376,12 +376,12 @@ export default function GratuityCalculator() {
                       </div>
                     ) : (
                       <div className="text-center py-12">
-                        <div className="w-20 h-20 bg-gradient-to-r from-gray-200 to-gray-300 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                          <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-20 h-20 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+                          <svg className="w-10 h-10 text-gray-500 dark:text-gray-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                           </svg>
                         </div>
-                        <p className="text-gray-500 text-lg">
+                        <p className="text-gray-500 dark:text-gray-400 text-lg transition-colors duration-300">
                           Enter your salary and service years to calculate gratuity
                         </p>
                       </div>
@@ -393,16 +393,16 @@ export default function GratuityCalculator() {
           </section>
 
           {/* Gratuity Information */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">Gratuity </span>
+                  <span className="text-gray-800 dark:text-gray-100 transition-colors duration-300">Gratuity </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Rules & Benefits
                   </span>
                 </h2>
-                <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
                   Understanding gratuity eligibility, calculation method, and payment rules
                 </p>
               </div>
@@ -446,16 +446,16 @@ export default function GratuityCalculator() {
                     color: 'from-teal-400 to-teal-600'
                   }
                 ].map((item, index) => (
-                  <div key={index} className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                  <div key={index} className="group bg-white dark:bg-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                     <div className={`w-16 h-16 bg-gradient-to-r ${item.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       <span className="drop-shadow-sm">{item.icon}</span>
                     </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-800 mb-3 text-center">
+
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-3 text-center transition-colors duration-300">
                       {item.title}
                     </h3>
-                    
-                    <p className="text-gray-600 leading-relaxed text-center">
+
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center transition-colors duration-300">
                       {item.description}
                     </p>
                   </div>
@@ -465,8 +465,8 @@ export default function GratuityCalculator() {
           </section>
 
           {/* CTA Section */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] relative overflow-hidden">
-            <div className="absolute inset-0 bg-black/10"></div>
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] dark:from-[#FF6B2C] dark:to-[#FF8A50] relative overflow-hidden transition-colors duration-300">
+            <div className="absolute inset-0 bg-black/10 dark:bg-black/30"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-4 lg:mb-6">
                 Calculate Your Retirement Benefits
@@ -478,7 +478,7 @@ export default function GratuityCalculator() {
 
               <button
                 onClick={handleGetStarted}
-                className="group bg-white text-[#FF6B2C] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
+                className="group bg-white dark:bg-gray-800 text-[#FF6B2C] dark:text-[#FF6B2C] px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
               >
                 {isLoggedIn ? 'Save Your Calculations' : 'Get Started Free'}
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">

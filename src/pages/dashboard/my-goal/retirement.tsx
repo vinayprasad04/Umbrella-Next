@@ -7,12 +7,12 @@ import DashboardLayout from '@/components/DashboardLayout';
 import Tooltip from '@/components/Tooltip';
 import type { NextPageWithLayout } from '../../_app';
 
-const inputClass = "border border-gray-300 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-blue-300";
-const labelClass = "text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1";
+const inputClass = "border border-gray-300 dark:border-gray-600 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-gray-700 dark:text-gray-200";
+const labelClass = "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1";
 
 const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
   <Tooltip content={tooltip}>
-    <svg className="ml-1 text-gray-400 w-3 h-3 hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="ml-1 text-gray-400 dark:text-gray-500 w-3 h-3 hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   </Tooltip>
@@ -314,10 +314,10 @@ const Retirement: NextPageWithLayout = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-300">Loading...</p>
         </div>
       </div>
     );
@@ -335,7 +335,7 @@ const Retirement: NextPageWithLayout = () => {
       {/* Content Area - Only this part will reload */}
       <div className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
           {/* Left Side - Breadcrumb, Heading & Form */}
-          <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 border-r-0 lg:border-r border-gray-200 lg:overflow-y-auto flex flex-col">
+          <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border-r-0 lg:border-r border-gray-200 dark:border-gray-700 lg:overflow-y-auto flex flex-col">
             {/* Breadcrumb & Header Section */}
             <div className="bg-gradient-to-r from-purple-600 to-orange-500 py-6 md:py-8 px-4 md:px-6 relative overflow-hidden">
               {/* Decorative Elements */}
@@ -345,11 +345,11 @@ const Retirement: NextPageWithLayout = () => {
               {/* Breadcrumb */}
               <div className="text-xs text-white/80 mb-4 flex items-center gap-1 relative z-10">
                 <Link href="/dashboard" className="hover:text-white transition-colors">Dashboard</Link>
-                <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="mx-1 text-gray-300 dark:text-gray-500 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
                 <Link href="/dashboard/my-goal" className="hover:text-white transition-colors">My Goal</Link>
-                <svg className="mx-1 text-gray-300 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="mx-1 text-gray-300 dark:text-gray-500 w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
                 <span className="text-white font-semibold">Retirement Planning</span>
@@ -371,24 +371,24 @@ const Retirement: NextPageWithLayout = () => {
             <div className="p-6">
               {/* Success/Error Messages */}
               {successMessage && (
-                <div className="mb-4 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-xl">
+                <div className="mb-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 text-green-700 dark:text-green-300 px-4 py-3 rounded-xl">
                   {successMessage}
                 </div>
               )}
               {errorMessage && (
-                <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
+                <div className="mb-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 text-red-700 px-4 py-3 rounded-xl">
                   {errorMessage}
                 </div>
               )}
 
               {/* Basic Information Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                   Basic Information
-                  <span className="text-sm text-gray-400 font-normal">Your current financial situation</span>
+                  <span className="text-sm text-gray-400 dark:text-gray-500 font-normal">Your current financial situation</span>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -418,7 +418,7 @@ const Retirement: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Monthly Income <span className="text-red-500">*</span> <InfoIcon tooltip="Your current gross monthly income from salary or business before any deductions." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="100000"
@@ -431,7 +431,7 @@ const Retirement: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Current Monthly Expenses <InfoIcon tooltip="Your current average monthly household expenses. This helps us understand your spending pattern for reference." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="50000"
@@ -444,7 +444,7 @@ const Retirement: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Current Savings <InfoIcon tooltip="Total amount you have saved till date in all investment accounts (mutual funds, stocks, FDs, PPF, etc.)." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="1000000"
@@ -458,13 +458,13 @@ const Retirement: NextPageWithLayout = () => {
               </div>
 
               {/* Rates & Assumptions Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
                   Rates & Assumptions
-                  <span className="text-sm text-gray-400 font-normal">Expected returns and inflation</span>
+                  <span className="text-sm text-gray-400 dark:text-gray-500 font-normal">Expected returns and inflation</span>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
@@ -510,14 +510,14 @@ const Retirement: NextPageWithLayout = () => {
               </div>
 
               {/* Asset Allocation Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
                   </svg>
                   Asset Allocation
-                  <span className="text-sm text-gray-400 font-normal">How you plan to invest (Total: {formData.equityAllocation + formData.debtAllocation + formData.goldAllocation}%)</span>
+                  <span className="text-sm text-gray-400 dark:text-gray-500 font-normal">How you plan to invest (Total: {formData.equityAllocation + formData.debtAllocation + formData.goldAllocation}%)</span>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
@@ -560,19 +560,19 @@ const Retirement: NextPageWithLayout = () => {
               </div>
 
               {/* Passive Income Sources Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   Desired Retirement Income
-                  <span className="text-sm text-gray-400 font-normal">Target monthly income at retirement (in today&apos;s value)</span>
+                  <span className="text-sm text-gray-400 dark:text-gray-500 font-normal">Target monthly income at retirement (in today&apos;s value)</span>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
                     <label className={labelClass}>Desired Monthly Pension <span className="text-red-500">*</span> <InfoIcon tooltip="The monthly pension/income you want at retirement (in today's value). For example, if you want ₹60,000/month, after 10 years with 6% inflation, you'll need approximately ₹1,07,454/month. We'll calculate the exact inflation-adjusted amount and required corpus." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="60000"
@@ -585,7 +585,7 @@ const Retirement: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Rental Income <InfoIcon tooltip="Expected monthly rental income from properties you own or plan to own. Enter current or estimated value." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -598,7 +598,7 @@ const Retirement: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Other Income <InfoIcon tooltip="Any other expected passive income like dividends, business income, royalties, etc. Enter today's monthly value." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -631,65 +631,65 @@ const Retirement: NextPageWithLayout = () => {
           </div>
 
           {/* Right Side - Results/Instructions */}
-          <div className="w-full lg:w-1/2 bg-white lg:overflow-y-auto">
+          <div className="w-full lg:w-1/2 bg-white dark:bg-gray-900 lg:overflow-y-auto">
             <div className="p-4 md:p-6">
               {!showResults ? (
                 /* Instructions Panel */
                 <div className="w-full mx-auto space-y-6">
-                  <div className="bg-white rounded-2xl shadow-xl p-8 border border-blue-200">
+                  <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-blue-200 dark:border-blue-700">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center">
                         🛒
                       </div>
                       <div>
-                        <h2 className="text-3xl font-bold text-gray-800">Retirement Planning Calculator</h2>
-                        <p className="text-gray-600">Plan your golden years with precision</p>
+                        <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Retirement Planning Calculator</h2>
+                        <p className="text-gray-600 dark:text-gray-400">Plan your golden years with precision</p>
                       </div>
                     </div>
 
                     <div className="space-y-6">
                       <div>
                         <h3 className="text-xl font-bold text-blue-700 mb-3">How It Works</h3>
-                        <ol className="space-y-3 text-gray-700">
+                        <ol className="space-y-3 text-gray-700 dark:text-gray-300">
                           <li className="flex items-start gap-3">
                             <span className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">1</span>
                             <div>
                               <strong>Enter Your Details</strong>
-                              <p className="text-sm text-gray-600 mt-1">Provide your current age, retirement age, and current savings</p>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Provide your current age, retirement age, and current savings</p>
                             </div>
                           </li>
                           <li className="flex items-start gap-3">
                             <span className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">2</span>
                             <div>
                               <strong>Set Desired Pension</strong>
-                              <p className="text-sm text-gray-600 mt-1">Enter the monthly pension you want at retirement in today&apos;s value (e.g., ₹60,000)</p>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Enter the monthly pension you want at retirement in today&apos;s value (e.g., ₹60,000)</p>
                             </div>
                           </li>
                           <li className="flex items-start gap-3">
                             <span className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">3</span>
                             <div>
                               <strong>Configure Assumptions</strong>
-                              <p className="text-sm text-gray-600 mt-1">Set inflation rate and expected investment returns</p>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Set inflation rate and expected investment returns</p>
                             </div>
                           </li>
                           <li className="flex items-start gap-3">
                             <span className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold text-sm">4</span>
                             <div>
                               <strong>Calculate & Review</strong>
-                              <p className="text-sm text-gray-600 mt-1">Get your inflation-adjusted pension amount, required corpus (using 4% withdrawal rule), and monthly SIP needed</p>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Get your inflation-adjusted pension amount, required corpus (using 4% withdrawal rule), and monthly SIP needed</p>
                             </div>
                           </li>
                         </ol>
                       </div>
 
-                      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
-                        <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+                      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-700">
+                        <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-3 flex items-center gap-2">
                           <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                           </svg>
                           What You&apos;ll Get
                         </h3>
-                        <ul className="space-y-2 text-sm text-gray-700">
+                        <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                           <li className="flex items-center gap-2">
                             <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -722,8 +722,8 @@ const Retirement: NextPageWithLayout = () => {
                           <svg className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                           </svg>
-                          <div className="text-sm text-gray-700">
-                            <strong className="text-gray-800">Important:</strong> This calculator provides estimates based on your inputs. Actual returns may vary. Consider consulting a financial advisor for personalized advice.
+                          <div className="text-sm text-gray-700 dark:text-gray-300">
+                            <strong className="text-gray-800 dark:text-gray-100">Important:</strong> This calculator provides estimates based on your inputs. Actual returns may vary. Consider consulting a financial advisor for personalized advice.
                           </div>
                         </div>
                       </div>
@@ -733,72 +733,72 @@ const Retirement: NextPageWithLayout = () => {
               ) : results ? (
                 /* Results Panel */
                 <div className="space-y-4">
-                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Retirement Analysis Results</h2>
+                  <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-700">
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">Retirement Analysis Results</h2>
                     <div className={`text-xl font-bold mb-2 ${results.goalColor}`}>
                       {results.goalStatus}
                     </div>
-                    <div className="text-sm text-gray-600 mb-4">
+                    <div className="text-sm text-gray-600 dark:text-gray-400 mb-4">
                       Based on your inputs, here&apos;s your comprehensive retirement analysis
                     </div>
 
                     <div className="grid grid-cols-1 gap-4">
-                      <div className="bg-white rounded-lg p-4 border border-blue-200">
-                        <div className="text-xs text-gray-500 mb-1">Years to Retirement</div>
+                      <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-blue-200 dark:border-blue-700">
+                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Years to Retirement</div>
                         <div className="text-2xl font-bold text-blue-600">{results.yearsToRetirement} years</div>
                       </div>
                     </div>
-                    <div className="bg-blue-50 rounded-lg p-3 mt-3 border border-blue-200">
-                      <div className="text-xs text-blue-700">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 mt-3 border border-blue-200 dark:border-blue-700">
+                      <div className="text-xs text-blue-700 dark:text-blue-300">
                         <strong>4% Withdrawal Rule:</strong> Your corpus will generate 4% annual income (₹{(results.requiredCorpus * 0.04 / 12).toLocaleString('en-IN')}/month) at retirement to cover your desired pension amount.
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                    <h3 className="text-lg font-bold text-gray-800 mb-4">Required Corpus & Investment</h3>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">Required Corpus & Investment</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center py-2 border-b">
-                        <span className="text-gray-700">Required Retirement Corpus</span>
+                        <span className="text-gray-700 dark:text-gray-300">Required Retirement Corpus</span>
                         <span className="font-bold text-lg text-blue-600">₹{(results.requiredCorpus / 10000000).toFixed(2)} Cr</span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b">
-                        <span className="text-gray-700">Monthly SIP Required</span>
+                        <span className="text-gray-700 dark:text-gray-300">Monthly SIP Required</span>
                         <span className="font-bold text-lg text-orange-600">₹{results.adjustedMonthlyInvestment.toLocaleString('en-IN')}</span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b">
-                        <span className="text-gray-700">Total Investment</span>
-                        <span className="font-bold text-gray-800">₹{(results.totalInvestment / 10000000).toFixed(2)} Cr</span>
+                        <span className="text-gray-700 dark:text-gray-300">Total Investment</span>
+                        <span className="font-bold text-gray-800 dark:text-gray-100">₹{(results.totalInvestment / 10000000).toFixed(2)} Cr</span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b">
-                        <span className="text-gray-700">Future Value</span>
+                        <span className="text-gray-700 dark:text-gray-300">Future Value</span>
                         <span className="font-bold text-green-600">₹{(results.futureValue / 10000000).toFixed(2)} Cr</span>
                       </div>
                       <div className="flex justify-between items-center py-2">
-                        <span className="text-gray-700">Net Gains</span>
+                        <span className="text-gray-700 dark:text-gray-300">Net Gains</span>
                         <span className="font-bold text-green-600">₹{(results.netGains / 10000000).toFixed(2)} Cr</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                    <h3 className="text-lg font-bold text-gray-800 mb-4">Retirement Income Analysis</h3>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">Retirement Income Analysis</h3>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center py-2 border-b">
-                        <span className="text-gray-700">Desired Pension (Today&apos;s Value)</span>
-                        <span className="font-bold text-gray-800">₹{formData.pension.toLocaleString('en-IN')}</span>
+                        <span className="text-gray-700 dark:text-gray-300">Desired Pension (Today&apos;s Value)</span>
+                        <span className="font-bold text-gray-800 dark:text-gray-100">₹{formData.pension.toLocaleString('en-IN')}</span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b">
-                        <span className="text-gray-700">Pension at Retirement (Inflation Adjusted)</span>
+                        <span className="text-gray-700 dark:text-gray-300">Pension at Retirement (Inflation Adjusted)</span>
                         <span className="font-bold text-orange-600">₹{results.monthlyExpensesAtRetirement.toLocaleString('en-IN')}</span>
                       </div>
                       <div className="flex justify-between items-center py-2 border-b">
-                        <span className="text-gray-700">Current Savings Growth</span>
+                        <span className="text-gray-700 dark:text-gray-300">Current Savings Growth</span>
                         <span className="font-bold text-blue-600">₹{(results.currentSavingsGrowth / 10000000).toFixed(2)} Cr</span>
                       </div>
                       {results.corpusShortfall > 0 && (
-                        <div className="flex justify-between items-center py-2 bg-red-50 px-3 rounded-lg">
-                          <span className="text-red-700 font-semibold">Corpus Shortfall</span>
+                        <div className="flex justify-between items-center py-2 bg-red-50 dark:bg-red-900/20 px-3 rounded-lg">
+                          <span className="text-red-700 dark:text-red-300 font-semibold">Corpus Shortfall</span>
                           <span className="font-bold text-red-600">₹{(results.corpusShortfall / 10000000).toFixed(2)} Cr</span>
                         </div>
                       )}
@@ -806,18 +806,18 @@ const Retirement: NextPageWithLayout = () => {
                   </div>
 
                   {results.recommendations.length > 0 && (
-                    <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                      <h3 className="text-lg font-bold text-gray-800 mb-4">Recommendations</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">Recommendations</h3>
                       <div className="space-y-2">
                         {results.recommendations.map((rec, idx) => (
                           <div
                             key={idx}
                             className={`p-3 rounded-lg border ${
                               rec.type === 'success'
-                                ? 'bg-green-50 border-green-200 text-green-800'
+                                ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-700 text-green-800 dark:text-green-300'
                                 : rec.type === 'warning'
-                                ? 'bg-yellow-50 border-yellow-200 text-yellow-800'
-                                : 'bg-blue-50 border-blue-200 text-blue-800'
+                                ? 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-700 text-yellow-800 dark:text-yellow-300'
+                                : 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-700 text-blue-800 dark:text-blue-300'
                             }`}
                           >
                             {rec.text}

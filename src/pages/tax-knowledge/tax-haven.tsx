@@ -80,20 +80,20 @@ export default function TaxHaven() {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-indigo-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
+              <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 dark:from-blue-400/5 dark:to-indigo-400/5 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-indigo-400/10 to-purple-400/10 dark:from-indigo-400/5 dark:to-purple-400/5 rounded-full blur-3xl"></div>
             </div>
-            
+
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full border border-blue-200 mb-3 md:mb-4 lg:mb-6">
-                <span className="text-xs md:text-sm font-semibold text-blue-600">🏦 Tax Knowledge</span>
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-full border border-blue-200 dark:border-blue-700 mb-3 md:mb-4 lg:mb-6 transition-colors duration-300">
+                <span className="text-xs md:text-sm font-semibold text-blue-600 dark:text-blue-400">🏦 Tax Knowledge</span>
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
@@ -101,20 +101,20 @@ export default function TaxHaven() {
                   Tax Haven
                 </span>
                 <br />
-                <span className="text-gray-800">Guide</span>
+                <span className="text-gray-800 dark:text-gray-100">Guide</span>
               </h1>
 
-              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6 transition-colors duration-300">
                 Understand tax havens, offshore financial centers, and legal tax optimization strategies.
                 Learn about compliance requirements and make informed decisions.
               </p>
-              
-              <div className="bg-yellow-50 border border-yellow-200 rounded-xl md:rounded-2xl p-4 md:p-6 max-w-4xl mx-auto mb-4 md:mb-5 lg:mb-6">
+
+              <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700 rounded-xl md:rounded-2xl p-4 md:p-6 max-w-4xl mx-auto mb-4 md:mb-5 lg:mb-6 transition-colors duration-300">
                 <div className="flex items-start gap-3 md:gap-4">
                   <div className="text-2xl md:text-3xl">⚠️</div>
                   <div className="text-left">
-                    <h3 className="text-base md:text-lg font-semibold text-yellow-800 mb-1 md:mb-2">Important Disclaimer</h3>
-                    <p className="text-xs md:text-sm text-yellow-700">
+                    <h3 className="text-base md:text-lg font-semibold text-yellow-800 dark:text-yellow-300 mb-1 md:mb-2">Important Disclaimer</h3>
+                    <p className="text-xs md:text-sm text-yellow-700 dark:text-yellow-400">
                       This information is for educational purposes only. Always consult with qualified tax professionals
                       and legal advisors before making any offshore financial decisions. Ensure full compliance with
                       your home country's tax laws and reporting requirements.
@@ -126,43 +126,43 @@ export default function TaxHaven() {
           </section>
 
           {/* What is a Tax Haven Section */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">What is a </span>
+                  <span className="text-gray-800 dark:text-gray-100">What is a </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Tax Haven?
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                   A tax haven is a country or jurisdiction that offers favorable tax policies to foreign individuals
                   and businesses, typically featuring low or zero tax rates, financial secrecy, and minimal reporting requirements.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6 mb-6 md:mb-8 lg:mb-12">
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg md:rounded-2xl p-4 md:p-6 border border-blue-100">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-lg md:rounded-2xl p-4 md:p-6 border border-blue-100 dark:border-blue-700">
                   <div className="text-2xl md:text-4xl mb-3 md:mb-4">💰</div>
-                  <h3 className="text-base md:text-xl font-bold text-gray-800 mb-2 md:mb-4">Low Tax Rates</h3>
-                  <p className="text-xs md:text-sm text-gray-600">
+                  <h3 className="text-base md:text-xl font-bold text-gray-800 dark:text-gray-100 mb-2 md:mb-4">Low Tax Rates</h3>
+                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
                     Tax havens typically offer significantly lower corporate and individual tax rates compared to high-tax jurisdictions.
                   </p>
                 </div>
 
-                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg md:rounded-2xl p-4 md:p-6 border border-green-100">
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/30 dark:to-emerald-900/30 rounded-lg md:rounded-2xl p-4 md:p-6 border border-green-100 dark:border-green-700">
                   <div className="text-2xl md:text-4xl mb-3 md:mb-4">🔒</div>
-                  <h3 className="text-base md:text-xl font-bold text-gray-800 mb-2 md:mb-4">Financial Privacy</h3>
-                  <p className="text-xs md:text-sm text-gray-600">
+                  <h3 className="text-base md:text-xl font-bold text-gray-800 dark:text-gray-100 mb-2 md:mb-4">Financial Privacy</h3>
+                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
                     Many tax havens provide enhanced financial privacy and confidentiality protections for account holders.
                   </p>
                 </div>
 
-                <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-lg md:rounded-2xl p-4 md:p-6 border border-purple-100">
+                <div className="bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-900/30 dark:to-violet-900/30 rounded-lg md:rounded-2xl p-4 md:p-6 border border-purple-100 dark:border-purple-700">
                   <div className="text-2xl md:text-4xl mb-3 md:mb-4">📋</div>
-                  <h3 className="text-base md:text-xl font-bold text-gray-800 mb-2 md:mb-4">Minimal Reporting</h3>
-                  <p className="text-xs md:text-sm text-gray-600">
+                  <h3 className="text-base md:text-xl font-bold text-gray-800 dark:text-gray-100 mb-2 md:mb-4">Minimal Reporting</h3>
+                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
                     Reduced regulatory requirements and simplified reporting procedures for businesses and individuals.
                   </p>
                 </div>
@@ -171,36 +171,36 @@ export default function TaxHaven() {
           </section>
 
           {/* Popular Tax Haven Countries */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">Popular </span>
+                  <span className="text-gray-800 dark:text-gray-100">Popular </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Tax Havens
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   Learn about some of the world's most well-known offshore financial centers and their key features
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
                 {taxHavenCountries.map((country, index) => (
-                  <div key={index} className="bg-white rounded-lg md:rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <div key={index} className="bg-white dark:bg-gray-800 rounded-lg md:rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
                     <div className="flex items-center mb-4 md:mb-6">
                       <div className="text-2xl md:text-4xl mr-3 md:mr-4">{country.icon}</div>
-                      <h3 className="text-lg md:text-2xl font-bold text-gray-800">{country.name}</h3>
+                      <h3 className="text-lg md:text-2xl font-bold text-gray-800 dark:text-gray-100">{country.name}</h3>
                     </div>
 
-                    <p className="text-xs md:text-sm text-gray-600 mb-4 md:mb-6">{country.description}</p>
-                    
+                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mb-4 md:mb-6">{country.description}</p>
+
                     <div className="space-y-3">
                       {country.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center">
                           <div className="w-2 h-2 bg-[#FF6B2C] rounded-full mr-3"></div>
-                          <span className="text-gray-700">{feature}</span>
+                          <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -211,29 +211,29 @@ export default function TaxHaven() {
           </section>
 
           {/* Legal Tax Planning Tips */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">Legal Tax </span>
+                  <span className="text-gray-800 dark:text-gray-100">Legal Tax </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Planning
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   Important considerations for legitimate and compliant tax optimization strategies
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 lg:gap-6">
                 {taxPlanningTips.map((tip, index) => (
-                  <div key={index} className="group bg-gradient-to-br from-white to-gray-50 rounded-lg md:rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <div key={index} className="group bg-gradient-to-br from-white to-gray-50 dark:from-gray-700 dark:to-gray-700 rounded-lg md:rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-600 hover:shadow-xl transition-all duration-300">
                     <div className="flex items-start gap-3 md:gap-4">
                       <div className="text-2xl md:text-4xl">{tip.icon}</div>
                       <div>
-                        <h3 className="text-base md:text-xl font-bold text-gray-800 mb-2 md:mb-4">{tip.title}</h3>
-                        <p className="text-xs md:text-sm text-gray-600">{tip.description}</p>
+                        <h3 className="text-base md:text-xl font-bold text-gray-800 dark:text-gray-100 mb-2 md:mb-4">{tip.title}</h3>
+                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">{tip.description}</p>
                       </div>
                     </div>
                   </div>
@@ -243,33 +243,33 @@ export default function TaxHaven() {
           </section>
 
           {/* Compliance Warning */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-red-50">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-red-50 dark:bg-red-900/20 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 shadow-xl border border-red-100">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 shadow-xl border border-red-100 dark:border-red-700">
                 <div className="text-center">
                   <div className="text-4xl md:text-5xl lg:text-6xl mb-3 md:mb-4 lg:mb-6">🚨</div>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-600 mb-4 md:mb-6">Compliance is Critical</h2>
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-red-600 dark:text-red-400 mb-4 md:mb-6">Compliance is Critical</h2>
 
                   <div className="text-left max-w-4xl mx-auto space-y-4 md:space-y-6">
-                    <div className="bg-red-50 rounded-lg md:rounded-xl p-4 md:p-6 border border-red-200">
-                      <h3 className="text-base md:text-xl font-semibold text-red-800 mb-2 md:mb-3">Reporting Obligations</h3>
-                      <p className="text-xs md:text-sm text-red-700">
+                    <div className="bg-red-50 dark:bg-red-900/20 rounded-lg md:rounded-xl p-4 md:p-6 border border-red-200 dark:border-red-700">
+                      <h3 className="text-base md:text-xl font-semibold text-red-800 dark:text-red-300 mb-2 md:mb-3">Reporting Obligations</h3>
+                      <p className="text-xs md:text-sm text-red-700 dark:text-red-400">
                         Many countries require their residents to report offshore accounts and income.
                         Failure to comply can result in severe penalties and legal consequences.
                       </p>
                     </div>
 
-                    <div className="bg-yellow-50 rounded-lg md:rounded-xl p-4 md:p-6 border border-yellow-200">
-                      <h3 className="text-base md:text-xl font-semibold text-yellow-800 mb-2 md:mb-3">FATCA & CRS</h3>
-                      <p className="text-xs md:text-sm text-yellow-700">
+                    <div className="bg-yellow-50 dark:bg-yellow-900/20 rounded-lg md:rounded-xl p-4 md:p-6 border border-yellow-200 dark:border-yellow-700">
+                      <h3 className="text-base md:text-xl font-semibold text-yellow-800 dark:text-yellow-300 mb-2 md:mb-3">FATCA & CRS</h3>
+                      <p className="text-xs md:text-sm text-yellow-700 dark:text-yellow-400">
                         The Foreign Account Tax Compliance Act (FATCA) and Common Reporting Standard (CRS)
                         have increased transparency and automatic information exchange between countries.
                       </p>
                     </div>
 
-                    <div className="bg-blue-50 rounded-lg md:rounded-xl p-4 md:p-6 border border-blue-200">
-                      <h3 className="text-base md:text-xl font-semibold text-blue-800 mb-2 md:mb-3">Seek Professional Advice</h3>
-                      <p className="text-xs md:text-sm text-blue-700">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg md:rounded-xl p-4 md:p-6 border border-blue-200 dark:border-blue-700">
+                      <h3 className="text-base md:text-xl font-semibold text-blue-800 dark:text-blue-300 mb-2 md:mb-3">Seek Professional Advice</h3>
+                      <p className="text-xs md:text-sm text-blue-700 dark:text-blue-400">
                         Always consult with qualified tax advisors, legal professionals, and financial experts
                         before making any offshore financial decisions or investments.
                       </p>

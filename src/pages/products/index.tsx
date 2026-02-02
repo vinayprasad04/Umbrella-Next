@@ -95,12 +95,12 @@ export default function Products() {
         <meta name="twitter:image" content="https://www.incomegrow.in/logo.png" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden">
+          <section className="relative py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
@@ -116,34 +116,34 @@ export default function Products() {
                   Complete
                 </span>
                 <br />
-                <span className="text-gray-800">Financial Solutions</span>
+                <span className="text-gray-800 dark:text-gray-200">Financial Solutions</span>
               </h1>
 
-              <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-6 md:mb-8 px-2">
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto mb-6 md:mb-8 px-2">
                 Everything you need to make informed financial decisions, achieve your goals,
                 and grow your wealth - all in one comprehensive platform.
               </p>
 
               <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-8 pt-2 md:pt-4">
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">5</div>
-                  <div className="text-xs md:text-sm text-gray-500">Core Products</div>
+                  <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-200">5</div>
+                  <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Core Products</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">10K+</div>
-                  <div className="text-xs md:text-sm text-gray-500">Active Users</div>
+                  <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-200">10K+</div>
+                  <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Active Users</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">99%</div>
-                  <div className="text-xs md:text-sm text-gray-500">Satisfaction</div>
+                  <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-200">99%</div>
+                  <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Satisfaction</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Products Grid */}
-          <section className="py-12 md:py-16 lg:py-24 bg-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-transparent to-purple-50/30"></div>
+          <section className="py-12 md:py-16 lg:py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-900/20 dark:via-transparent dark:to-purple-900/20"></div>
 
             <div className="relative w-full max-w-[1600px] mx-auto px-4 md:px-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
@@ -153,7 +153,7 @@ export default function Products() {
                     onClick={() => handleProductClick(product.href, product.external)}
                     className={`group relative bg-gradient-to-br ${product.bgColor} backdrop-blur-sm border border-white/50 rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer`}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 "></div>
 
                     <div className="relative z-10">
                       <div className="flex items-start gap-3 md:gap-4 lg:gap-6 mb-4 md:mb-6">
@@ -162,11 +162,11 @@ export default function Products() {
                         </div>
 
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-2 md:mb-3">
+                          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2 md:mb-3">
                             {product.title}
                           </h3>
 
-                          <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-3 md:mb-4">
+                          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-3 md:mb-4">
                             {product.description}
                           </p>
                         </div>
@@ -176,14 +176,14 @@ export default function Products() {
                         {product.features.map((feature, featureIndex) => (
                           <div key={featureIndex} className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] rounded-full flex-shrink-0"></div>
-                            <span className="text-xs md:text-sm text-gray-700 font-medium">{feature}</span>
+                            <span className="text-xs md:text-sm text-gray-700 dark:text-gray-300 font-medium">{feature}</span>
                           </div>
                         ))}
                       </div>
 
                       <div className="flex items-center justify-between gap-2">
                         <div className="opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="inline-flex items-center text-sm md:text-base font-semibold text-gray-700 group-hover:text-gray-800">
+                          <div className="inline-flex items-center text-sm md:text-base font-semibold text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200">
                             <span className="hidden md:inline">Explore {product.title}</span>
                             <span className="md:hidden">Explore</span>
                             {product.external ? (
@@ -198,7 +198,7 @@ export default function Products() {
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-gray-500">
+                        <div className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-gray-500 dark:text-gray-400">
                           <span>Free to start</span>
                           <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-400 rounded-full"></div>
                         </div>

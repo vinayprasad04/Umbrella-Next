@@ -13,11 +13,11 @@ interface CapitalGainsProps {
 
 const CapitalGains: React.FC<CapitalGainsProps> = ({stcgEquity, setStcgEquity, ltcgEquity, setLtcgEquity, stcgOther, setStcgOther, ltcgOther, setLtcgOther}) => {
     return(
-        <div className="bg-red-50 rounded-2xl p-6 border border-red-200">
+        <div className="bg-red-50 dark:bg-red-900/20 rounded-2xl p-6 border border-red-200">
             <h3 className="text-lg font-bold text-red-800 mb-4">Capital Gains from Stock Market (Annual)</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         STCG - Equity Shares (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-red-100 text-red-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -46,8 +46,7 @@ const CapitalGains: React.FC<CapitalGainsProps> = ({stcgEquity, setStcgEquity, l
                     </label>
                     <input
                         type="number"
-                        placeholder="e.g., 50000"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={stcgEquity}
                         onChange={(e) => setStcgEquity(e.target.value)}
                     />
@@ -56,7 +55,7 @@ const CapitalGains: React.FC<CapitalGainsProps> = ({stcgEquity, setStcgEquity, l
                     </p>
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         LTCG - Equity Shares (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -85,8 +84,7 @@ const CapitalGains: React.FC<CapitalGainsProps> = ({stcgEquity, setStcgEquity, l
                     </label>
                     <input
                         type="number"
-                        placeholder="e.g., 150000"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={ltcgEquity}
                         onChange={(e) => setLtcgEquity(e.target.value)}
                     />
@@ -95,7 +93,7 @@ const CapitalGains: React.FC<CapitalGainsProps> = ({stcgEquity, setStcgEquity, l
                     </p>
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         STCG - Other Investments (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -125,8 +123,7 @@ const CapitalGains: React.FC<CapitalGainsProps> = ({stcgEquity, setStcgEquity, l
                     </label>
                     <input
                         type="number"
-                        placeholder="e.g., 25000"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={stcgOther}
                         onChange={(e) => setStcgOther(e.target.value)}
                     />
@@ -135,7 +132,7 @@ const CapitalGains: React.FC<CapitalGainsProps> = ({stcgEquity, setStcgEquity, l
                     </p>
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         LTCG - Other Investments (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -165,8 +162,7 @@ const CapitalGains: React.FC<CapitalGainsProps> = ({stcgEquity, setStcgEquity, l
                     </label>
                     <input
                         type="number"
-                        placeholder="e.g., 75000"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={ltcgOther}
                         onChange={(e) => setLtcgOther(e.target.value)}
                     />

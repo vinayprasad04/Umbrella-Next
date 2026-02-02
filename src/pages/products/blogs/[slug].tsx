@@ -147,23 +147,23 @@ export default function BlogDetails() {
         <Head>
           <title>Loading... - IncomeGrow Financial</title>
         </Head>
-        <div className="font-sans m-0 p-0 bg-white">
+        <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
           <Header />
           <main className="py-16">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="animate-pulse">
-                <div className="h-8 bg-gray-200 rounded w-3/4 mb-4"></div>
-                <div className="h-4 bg-gray-200 rounded w-1/2 mb-8"></div>
+                <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4"></div>
+                <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mb-8"></div>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   <div className="lg:col-span-2">
                     <div className="space-y-4">
-                      <div className="h-4 bg-gray-200 rounded"></div>
-                      <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                      <div className="h-4 bg-gray-200 rounded w-4/6"></div>
+                      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded"></div>
+                      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6"></div>
+                      <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-4/6"></div>
                     </div>
                   </div>
                   <div>
-                    <div className="h-64 bg-gray-200 rounded"></div>
+                    <div className="h-64 bg-gray-200 dark:bg-gray-700 rounded"></div>
                   </div>
                 </div>
               </div>
@@ -181,13 +181,13 @@ export default function BlogDetails() {
         <Head>
           <title>Error - IncomeGrow Financial</title>
         </Head>
-        <div className="font-sans m-0 p-0 bg-white">
+        <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
           <Header />
           <main className="py-16">
             <div className="w-full max-w-[1600px] mx-auto px-6 text-center">
               <div className="text-6xl mb-4">😞</div>
-              <h1 className="text-3xl font-bold text-gray-800 mb-4">{error}</h1>
-              <p className="text-gray-600 mb-8">The blog post you&apos;re looking for might have been moved or doesn&apos;t exist.</p>
+              <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4">{error}</h1>
+              <p className="text-gray-600 dark:text-gray-400 mb-8">The blog post you&apos;re looking for might have been moved or doesn&apos;t exist.</p>
               <button
                 onClick={() => router.push('/products/blogs')}
                 className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
@@ -311,40 +311,40 @@ export default function BlogDetails() {
         />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Breadcrumb */}
-          <section className="py-4 bg-gray-50 border-b border-gray-200">
+          <section className="py-4 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <nav className="flex items-center space-x-2 text-sm text-gray-600">
-                <button 
+              <nav className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
+                <button
                   onClick={() => router.push('/')}
                   className="hover:text-[#FF6B2C] transition-colors"
                 >
                   Home
                 </button>
                 <span>→</span>
-                <button 
+                <button
                   onClick={() => router.push('/products/blogs')}
                   className="hover:text-[#FF6B2C] transition-colors"
                 >
                   Blogs
                 </button>
                 <span>→</span>
-                <span className="text-gray-800 font-medium">{blog.title}</span>
+                <span className="text-gray-800 dark:text-gray-200 font-medium">{blog.title}</span>
               </nav>
             </div>
           </section>
 
           {/* Main Content */}
-          <section className="py-16 bg-white">
+          <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Left Side - Main Content */}
                 <div className="lg:col-span-2">
-                  <article className="bg-white">
+                  <article className="bg-white dark:bg-gray-900">
                     {/* Article Header */}
                     <header className="mb-2">
                       {/* Category Badge */}
@@ -355,19 +355,19 @@ export default function BlogDetails() {
                       </div>
                       
                       {/* Title */}
-                      <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                      <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-6 leading-tight">
                         {blog.title}
                       </h1>
                       
                       {/* Meta Information */}
-                      <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-6">
+                      <div className="flex flex-wrap items-center gap-6 text-gray-600 dark:text-gray-400 mb-6">
                         <div className="flex items-center gap-2">
                           <div className="w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
                             {blog.author.split(' ').map(n => n[0]).join('')}
                           </div>
                           <div>
-                            <div className="text-sm font-semibold text-gray-800">{blog.author}</div>
-                            <div className="text-xs text-gray-500">Author</div>
+                            <div className="text-sm font-semibold text-gray-800 dark:text-gray-200">{blog.author}</div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400">Author</div>
                           </div>
                         </div>
                         
@@ -397,7 +397,7 @@ export default function BlogDetails() {
                       {/* Tags */}
                       <div className="flex flex-wrap gap-2 mb-2">
                         {blog.tags.map((tag, index) => (
-                          <span key={index} className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition-colors">
+                          <span key={index} className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
                             #{tag}
                           </span>
                         ))}
@@ -416,18 +416,17 @@ export default function BlogDetails() {
                     </header>
                     
                     {/* Article Content */}
-                    <div 
-                      className="prose prose-lg max-w-none mb-12"
+                    <div
+                      className="prose prose-lg dark:prose-invert max-w-none mb-12 text-gray-700 dark:text-gray-300"
                       dangerouslySetInnerHTML={{ __html: blog.content }}
                       style={{
                         lineHeight: '1.8',
-                        fontSize: '1.1rem',
-                        color: '#374151'
+                        fontSize: '1.1rem'
                       }}
                     />
                     
                     {/* Article Footer */}
-                    <footer className="border-t border-gray-200 pt-8">
+                    <footer className="border-t border-gray-200 dark:border-gray-700 pt-8">
                       {/* Copy Success Notification */}
                       {showCopySuccess && (
                         <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg flex items-center gap-2 animate-fade-in">
@@ -440,7 +439,7 @@ export default function BlogDetails() {
 
                       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                         <div>
-                          <h3 className="text-lg font-semibold text-gray-800 mb-4">Share this article</h3>
+                          <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Share this article</h3>
                           <div className="flex flex-wrap gap-3">
                             <button
                               onClick={() => handleShare('twitter')}
@@ -496,7 +495,7 @@ export default function BlogDetails() {
                         </div>
                         
                         <div className="text-right">
-                          <p className="text-sm text-gray-600">
+                          <p className="text-sm text-gray-600 dark:text-gray-400">
                             Last updated: {new Date(blog.updatedAt).toLocaleDateString('en-US', {
                               year: 'numeric',
                               month: 'long',
@@ -521,8 +520,8 @@ export default function BlogDetails() {
                 <div className="lg:col-span-1">
                   <div className="space-y-8 sticky top-8">
                     {/* Recent Blogs */}
-                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-                      <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6 flex items-center gap-2">
                         <svg className="w-5 h-5 text-[#FF6B2C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -532,7 +531,7 @@ export default function BlogDetails() {
                       <div className="space-y-4">
                         {recentBlogs.map((recentBlog) => (
                           <article key={recentBlog.id} className="group cursor-pointer" onClick={() => router.push(`/products/blogs/${recentBlog.slug}`)}>
-                            <div className="flex gap-4 p-3 rounded-xl hover:bg-gray-50 transition-colors">
+                            <div className="flex gap-4 p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
                               {recentBlog.featuredImage ? (
                                 <img 
                                   src={recentBlog.featuredImage} 
@@ -540,18 +539,18 @@ export default function BlogDetails() {
                                   className="w-16 h-16 object-cover rounded-lg flex-shrink-0"
                                 />
                               ) : (
-                                <div className="w-16 h-16 bg-gradient-to-r from-gray-200 to-gray-300 rounded-lg flex items-center justify-center flex-shrink-0">
-                                  <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <div className="w-16 h-16 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                                  <svg className="w-6 h-6 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                   </svg>
                                 </div>
                               )}
-                              
+
                               <div className="flex-1 min-w-0">
-                                <h4 className="text-sm font-semibold text-gray-800 group-hover:text-[#FF6B2C] transition-colors line-clamp-2 mb-1">
+                                <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200 group-hover:text-[#FF6B2C] transition-colors line-clamp-2 mb-1">
                                   {recentBlog.title}
                                 </h4>
-                                <div className="flex items-center gap-2 text-xs text-gray-500">
+                                <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
                                   <span>{recentBlog.date}</span>
                                   <span>•</span>
                                   <span>{recentBlog.readTime}</span>
@@ -573,8 +572,8 @@ export default function BlogDetails() {
                     </div>
 
                     {/* Categories */}
-                    <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-                      <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-6 flex items-center gap-2">
                         <svg className="w-5 h-5 text-[#FF6B2C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                         </svg>
@@ -586,12 +585,12 @@ export default function BlogDetails() {
                           <button
                             key={category.id}
                             onClick={() => router.push(`/products/blogs?category=${category.id}`)}
-                            className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition-colors text-left group"
+                            className="w-full flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-left group"
                           >
-                            <span className="text-gray-700 group-hover:text-[#FF6B2C] transition-colors">
+                            <span className="text-gray-700 dark:text-gray-300 group-hover:text-[#FF6B2C] transition-colors">
                               {category.name}
                             </span>
-                            <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                            <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">
                               {category.count}
                             </span>
                           </button>

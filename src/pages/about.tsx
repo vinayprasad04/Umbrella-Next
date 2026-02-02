@@ -136,30 +136,30 @@ export default function About() {
         <meta name="twitter:image" content="https://www.incomegrow.in/logo.png" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-green-400/10 rounded-full blur-3xl"></div>
             </div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-full border border-orange-200 mb-3 md:mb-4 lg:mb-6">
-                <span className="text-xs md:text-sm font-semibold text-orange-600">🏢 About IncomeGrow Financial</span>
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-orange-900/30 dark:to-yellow-900/30 rounded-full border border-orange-200 dark:border-orange-700 mb-3 md:mb-4 lg:mb-6">
+                <span className="text-xs md:text-sm font-semibold text-orange-600 dark:text-orange-400">🏢 About IncomeGrow Financial</span>
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
-                <span className="text-gray-800">Empowering Your </span>
+                <span className="text-gray-800 dark:text-gray-100">Empowering Your </span>
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Financial Future
                 </span>
               </h1>
 
-              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
                 We're on a mission to democratize investing and make financial freedom accessible to everyone.
                 Through cutting-edge technology and expert insights, we help millions build wealth systematically.
               </p>
@@ -177,7 +177,7 @@ export default function About() {
           </section>
 
           {/* Mission & Vision */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
                 <div>
@@ -189,19 +189,19 @@ export default function About() {
                   </h2>
 
                   <div className="space-y-4 md:space-y-5 lg:space-y-6">
-                    <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed">
+                    <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                       At IncomeGrow Financial, we believe that everyone deserves access to professional-grade
                       investment tools and strategies, regardless of their wealth or background.
                     </p>
 
-                    <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed">
+                    <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                       We're breaking down the barriers to smart investing by providing intuitive calculators,
                       expert insights, and personalized guidance that was once available only to high-net-worth individuals.
                     </p>
 
-                    <div className="bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-lg md:rounded-2xl p-4 md:p-5 lg:p-6 border border-[#FF6B2C]/20">
-                      <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-2 md:mb-3">Our Vision</h3>
-                      <p className="text-xs md:text-sm lg:text-base text-gray-700">
+                    <div className="bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 dark:from-[#FF6B2C]/5 dark:to-[#FF8A50]/5 rounded-lg md:rounded-2xl p-4 md:p-5 lg:p-6 border border-[#FF6B2C]/20 dark:border-[#FF6B2C]/30 transition-colors duration-300">
+                      <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-100 mb-2 md:mb-3">Our Vision</h3>
+                      <p className="text-xs md:text-sm lg:text-base text-gray-700 dark:text-gray-300">
                         To become India's most trusted financial platform, helping millions of families
                         achieve financial independence through smart, systematic investing.
                       </p>
@@ -224,31 +224,31 @@ export default function About() {
           </section>
 
           {/* Achievements */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">Our </span>
+                  <span className="text-gray-800 dark:text-gray-100">Our </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Impact
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   Numbers that speak to our commitment to helping you succeed
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
                 {achievements.map((achievement, index) => (
-                  <div key={index} className="group bg-white rounded-lg md:rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center">
+                  <div key={index} className="group bg-white dark:bg-gray-800 rounded-lg md:rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 text-center">
                     <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#FF6B2C] mb-2 md:mb-3 group-hover:scale-110 transition-transform duration-300">
                       {achievement.number}
                     </div>
-                    <div className="text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-1 md:mb-2">
+                    <div className="text-base md:text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-100 mb-1 md:mb-2">
                       {achievement.label}
                     </div>
-                    <div className="text-xs md:text-sm text-gray-600">
+                    <div className="text-xs md:text-sm text-gray-600 dark:text-gray-300">
                       {achievement.description}
                     </div>
                   </div>
@@ -258,33 +258,33 @@ export default function About() {
           </section>
 
           {/* Values */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">Our </span>
+                  <span className="text-gray-800 dark:text-gray-100">Our </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Values
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   The principles that guide everything we do
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                 {values.map((value, index) => (
-                  <div key={index} className="group bg-gradient-to-br from-white to-gray-50 rounded-lg md:rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <div key={index} className="group bg-gradient-to-br from-white to-gray-50 dark:from-gray-700 dark:to-gray-800 rounded-lg md:rounded-2xl p-4 md:p-6 lg:p-8 shadow-lg border border-gray-100 dark:border-gray-600 hover:shadow-xl transition-all duration-300">
                     <div className="text-2xl md:text-3xl lg:text-4xl mb-3 md:mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300">
                       {value.icon}
                     </div>
 
-                    <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-2 md:mb-3 lg:mb-4">
+                    <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-100 mb-2 md:mb-3 lg:mb-4">
                       {value.title}
                     </h3>
 
-                    <p className="text-xs md:text-sm lg:text-base text-gray-600 leading-relaxed">
+                    <p className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                       {value.description}
                     </p>
                   </div>
@@ -294,29 +294,29 @@ export default function About() {
           </section>
 
           {/* Team */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">Meet Our </span>
+                  <span className="text-gray-800 dark:text-gray-100">Meet Our </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Team
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   Experienced professionals dedicated to your financial success
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
                 {teamMembers.map((member, index) => (
-                  <div key={index} className="group bg-white rounded-lg md:rounded-2xl p-4 md:p-5 lg:p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 text-center">
-                    <div className="w-16 md:w-20 h-16 md:h-20 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div key={index} className="group bg-white dark:bg-gray-800 rounded-lg md:rounded-2xl p-4 md:p-5 lg:p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 text-center">
+                    <div className="w-16 md:w-20 h-16 md:h-20 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-600 dark:to-gray-700 rounded-lg md:rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 lg:mb-6 group-hover:scale-110 transition-transform duration-300">
                       <span className="text-2xl md:text-3xl">{member.image}</span>
                     </div>
 
-                    <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-1 md:mb-2">
+                    <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-100 mb-1 md:mb-2">
                       {member.name}
                     </h3>
 
@@ -324,11 +324,11 @@ export default function About() {
                       {member.role}
                     </div>
 
-                    <p className="text-xs md:text-sm text-gray-600 leading-relaxed mb-2 md:mb-3">
+                    <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-2 md:mb-3">
                       {member.description}
                     </p>
 
-                    <div className="text-xs text-gray-500 bg-gray-50 rounded-lg p-2">
+                    <div className="text-xs text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 rounded-lg p-2">
                       {member.background}
                     </div>
                   </div>

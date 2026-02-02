@@ -7,8 +7,8 @@ import DashboardLayout from '@/components/DashboardLayout';
 import Tooltip from '@/components/Tooltip';
 import type { NextPageWithLayout } from '../../_app';
 
-const inputClass = "border border-gray-300 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300";
-const labelClass = "text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1";
+const inputClass = "border border-gray-300 dark:border-gray-600 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300 dark:bg-gray-700 dark:text-gray-200";
+const labelClass = "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1";
 
 const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
   <Tooltip content={tooltip}>
@@ -456,7 +456,7 @@ const HousePage: NextPageWithLayout = () => {
       {/* Content Area - Only this part will reload */}
       <div className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
           {/* Left Side - Breadcrumb, Heading & Form */}
-          <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 border-r-0 lg:border-r border-gray-200 lg:overflow-y-auto flex flex-col">
+          <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border-r-0 lg:border-r border-gray-200 dark:border-gray-700 lg:overflow-y-auto flex flex-col">
             {/* Breadcrumb & Header Section */}
             <div className="bg-gradient-to-r from-purple-600 to-orange-500 py-6 md:py-8 px-4 md:px-6 relative overflow-hidden">
               {/* Decorative Elements */}
@@ -497,13 +497,13 @@ const HousePage: NextPageWithLayout = () => {
                 </div>
               )}
               {errorMessage && (
-                <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
+                <div className="mb-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-300 px-4 py-3 rounded-xl">
                   {errorMessage}
                 </div>
               )}
 
               {/* Basic Information Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -537,7 +537,7 @@ const HousePage: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Monthly Income <InfoIcon tooltip="Your current monthly income (used for EMI affordability check)" /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         type="text"
                         className={inputClass}
@@ -551,7 +551,7 @@ const HousePage: NextPageWithLayout = () => {
               </div>
 
               {/* Property Details Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -561,10 +561,10 @@ const HousePage: NextPageWithLayout = () => {
                 </div>
 
                 {/* Loan Toggle */}
-                <div className="mb-4 p-4 bg-purple-50 rounded-lg border border-purple-200">
+                <div className="mb-4 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-700">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <label className="text-sm font-semibold text-gray-700">Do you want to take a home loan?</label>
+                      <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">Do you want to take a home loan?</label>
                       <InfoIcon tooltip="Choose 'Yes' if you plan to take a home loan. Choose 'No' if you want to save and buy the property with full payment." />
                     </div>
                     <button
@@ -580,7 +580,7 @@ const HousePage: NextPageWithLayout = () => {
                       />
                     </button>
                   </div>
-                  <div className="mt-2 text-xs text-gray-600">
+                  <div className="mt-2 text-xs text-gray-600 dark:text-gray-400">
                     {formData.wantLoan ? (
                       <span className="text-purple-700 font-medium">✓ You'll need to save for down payment + costs, and pay EMI for the loan</span>
                     ) : (
@@ -593,7 +593,7 @@ const HousePage: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Current Property Value <span className="text-red-500">*</span> <InfoIcon tooltip="Current market value of the property you want to buy" /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         type="text"
                         className={inputClass}
@@ -631,7 +631,7 @@ const HousePage: NextPageWithLayout = () => {
               </div>
 
               {/* Additional Costs Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -677,7 +677,7 @@ const HousePage: NextPageWithLayout = () => {
               </div>
 
               {/* Savings & Investment Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -689,7 +689,7 @@ const HousePage: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Current Savings <InfoIcon tooltip="Money you have already saved for house purchase" /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         type="text"
                         className={inputClass}
@@ -726,7 +726,7 @@ const HousePage: NextPageWithLayout = () => {
 
               {/* Home Loan Details Card - Only show if user wants loan */}
               {formData.wantLoan && (
-                <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                   <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
                     <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -787,11 +787,11 @@ const HousePage: NextPageWithLayout = () => {
           </div>
 
           {/* Right Side - Results */}
-          <div className="w-full lg:w-1/2 bg-gray-50 lg:overflow-y-auto p-4 md:p-6">
+          <div className="w-full lg:w-1/2 bg-gray-50 dark:bg-gray-900 lg:overflow-y-auto p-4 md:p-6">
             {showResults && results ? (
               <div className="space-y-4">
                 {/* Goal Status */}
-                <div className="bg-white rounded-xl border p-6 shadow-sm">
+                <div className="bg-white dark:bg-gray-800 rounded-xl border p-6 shadow-sm">
                   <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                     <svg className="text-purple-500 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -804,7 +804,7 @@ const HousePage: NextPageWithLayout = () => {
                 </div>
 
                 {/* Property Details */}
-                <div className="bg-white rounded-xl border p-6 shadow-sm">
+                <div className="bg-white dark:bg-gray-800 rounded-xl border p-6 shadow-sm">
                   <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                     <svg className="text-purple-500 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -812,40 +812,40 @@ const HousePage: NextPageWithLayout = () => {
                     Property Details
                   </h2>
                   <div className="space-y-3 text-sm">
-                    <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Years to Target:</span>
-                      <span className="font-semibold text-gray-900">{results.yearsToTarget} years</span>
+                    <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                      <span className="text-gray-600 dark:text-gray-400">Years to Target:</span>
+                      <span className="font-semibold text-gray-900 dark:text-gray-100">{results.yearsToTarget} years</span>
                     </div>
-                    <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Current Property Value:</span>
-                      <span className="font-semibold text-gray-900">₹{(formData.propertyValue / 100000).toFixed(2)} Lakhs</span>
+                    <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                      <span className="text-gray-600 dark:text-gray-400">Current Property Value:</span>
+                      <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(formData.propertyValue / 100000).toFixed(2)} Lakhs</span>
                     </div>
-                    <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Future Property Value:</span>
-                      <span className="font-semibold text-purple-700">₹{(results.futurePropertyValue / 10000000).toFixed(2)} Cr</span>
+                    <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                      <span className="text-gray-600 dark:text-gray-400">Future Property Value:</span>
+                      <span className="font-semibold text-purple-700 dark:text-purple-400">₹{(results.futurePropertyValue / 10000000).toFixed(2)} Cr</span>
                     </div>
                     {formData.wantLoan ? (
                       <>
-                        <div className="flex justify-between py-2 border-b border-gray-100">
-                          <span className="text-gray-600">Down Payment Required:</span>
-                          <span className="font-semibold text-gray-900">₹{(results.downPaymentAmount / 10000000).toFixed(2)} Cr</span>
+                        <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                          <span className="text-gray-600 dark:text-gray-400">Down Payment Required:</span>
+                          <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(results.downPaymentAmount / 10000000).toFixed(2)} Cr</span>
                         </div>
-                        <div className="flex justify-between py-2 border-b border-gray-100">
-                          <span className="text-gray-600">Loan Amount:</span>
-                          <span className="font-semibold text-gray-900">₹{(results.loanAmount / 10000000).toFixed(2)} Cr</span>
+                        <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                          <span className="text-gray-600 dark:text-gray-400">Loan Amount:</span>
+                          <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(results.loanAmount / 10000000).toFixed(2)} Cr</span>
                         </div>
                       </>
                     ) : (
-                      <div className="flex justify-between py-2 border-b border-gray-100">
-                        <span className="text-gray-600">Full Payment (No Loan):</span>
+                      <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                        <span className="text-gray-600 dark:text-gray-400">Full Payment (No Loan):</span>
                         <span className="font-semibold text-green-700">₹{(results.futurePropertyValue / 10000000).toFixed(2)} Cr</span>
                       </div>
                     )}
-                    <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Additional Costs:</span>
-                      <span className="font-semibold text-gray-900">₹{(results.totalCosts / 100000).toFixed(2)} Lakhs</span>
+                    <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                      <span className="text-gray-600 dark:text-gray-400">Additional Costs:</span>
+                      <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(results.totalCosts / 100000).toFixed(2)} Lakhs</span>
                     </div>
-                    <div className="flex justify-between pt-3 mt-2 border-t-2 border-purple-200">
+                    <div className="flex justify-between pt-3 mt-2 border-t-2 border-purple-200 dark:border-purple-700">
                       <span className="text-gray-900 font-bold">Total Required at Purchase:</span>
                       <span className="font-bold text-purple-700 text-lg">₹{(results.totalRequiredAtPurchase / 10000000).toFixed(2)} Cr</span>
                     </div>
@@ -853,7 +853,7 @@ const HousePage: NextPageWithLayout = () => {
                 </div>
 
                 {/* Savings Plan */}
-                <div className="bg-white rounded-xl border p-6 shadow-sm">
+                <div className="bg-white dark:bg-gray-800 rounded-xl border p-6 shadow-sm">
                   <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                     <svg className="text-purple-500 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -861,28 +861,28 @@ const HousePage: NextPageWithLayout = () => {
                     Savings Plan
                   </h2>
                   <div className="space-y-3 text-sm">
-                    <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Current Savings Growth:</span>
-                      <span className="font-semibold text-gray-900">₹{(results.currentSavingsGrowth / 100000).toFixed(2)} Lakhs</span>
+                    <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                      <span className="text-gray-600 dark:text-gray-400">Current Savings Growth:</span>
+                      <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(results.currentSavingsGrowth / 100000).toFixed(2)} Lakhs</span>
                     </div>
-                    <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Additional Savings Needed:</span>
-                      <span className="font-semibold text-gray-900">₹{(results.additionalSavingsNeeded / 10000000).toFixed(2)} Cr</span>
+                    <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                      <span className="text-gray-600 dark:text-gray-400">Additional Savings Needed:</span>
+                      <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(results.additionalSavingsNeeded / 10000000).toFixed(2)} Cr</span>
                     </div>
-                    <div className="flex justify-between pt-3 mt-2 border-t-2 border-purple-200">
+                    <div className="flex justify-between pt-3 mt-2 border-t-2 border-purple-200 dark:border-purple-700">
                       <span className="text-gray-900 font-bold">Monthly SIP Required:</span>
                       <span className="font-bold text-purple-700 text-lg">₹{results.monthlySIPRequired.toLocaleString('en-IN')}</span>
                     </div>
-                    <div className="flex justify-between py-2 border-b border-gray-100 mt-3">
-                      <span className="text-gray-600">Total Investment:</span>
-                      <span className="font-semibold text-gray-900">₹{(results.totalInvestment / 10000000).toFixed(2)} Cr</span>
+                    <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700 mt-3">
+                      <span className="text-gray-600 dark:text-gray-400">Total Investment:</span>
+                      <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(results.totalInvestment / 10000000).toFixed(2)} Cr</span>
                     </div>
-                    <div className="flex justify-between py-2 border-b border-gray-100">
-                      <span className="text-gray-600">Future Value:</span>
-                      <span className="font-semibold text-gray-900">₹{(results.futureValue / 10000000).toFixed(2)} Cr</span>
+                    <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                      <span className="text-gray-600 dark:text-gray-400">Future Value:</span>
+                      <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(results.futureValue / 10000000).toFixed(2)} Cr</span>
                     </div>
                     <div className="flex justify-between py-2">
-                      <span className="text-gray-600">Net Gains:</span>
+                      <span className="text-gray-600 dark:text-gray-400">Net Gains:</span>
                       <span className="font-semibold text-green-600">₹{((results.futureValue - results.totalInvestment - formData.currentSavings) / 10000000).toFixed(2)} Cr</span>
                     </div>
                   </div>
@@ -890,7 +890,7 @@ const HousePage: NextPageWithLayout = () => {
 
                 {/* Home Loan EMI - Only show if user wants loan */}
                 {formData.wantLoan && results.loanAmount > 0 && (
-                  <div className="bg-white rounded-xl border p-6 shadow-sm">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border p-6 shadow-sm">
                     <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                       <svg className="text-purple-500 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -898,28 +898,28 @@ const HousePage: NextPageWithLayout = () => {
                       Home Loan EMI
                     </h2>
                     <div className="space-y-3 text-sm">
-                      <div className="flex justify-between py-2 border-b border-gray-100">
-                        <span className="text-gray-600">Loan Amount:</span>
-                        <span className="font-semibold text-gray-900">₹{(results.loanAmount / 10000000).toFixed(2)} Cr</span>
+                      <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                        <span className="text-gray-600 dark:text-gray-400">Loan Amount:</span>
+                        <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(results.loanAmount / 10000000).toFixed(2)} Cr</span>
                       </div>
-                      <div className="flex justify-between py-2 border-b border-gray-100">
-                        <span className="text-gray-600">Interest Rate:</span>
-                        <span className="font-semibold text-gray-900">{formData.interestRate}% per year</span>
+                      <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                        <span className="text-gray-600 dark:text-gray-400">Interest Rate:</span>
+                        <span className="font-semibold text-gray-900 dark:text-gray-100">{formData.interestRate}% per year</span>
                       </div>
-                      <div className="flex justify-between py-2 border-b border-gray-100">
-                        <span className="text-gray-600">Loan Tenure:</span>
-                        <span className="font-semibold text-gray-900">{formData.loanTenure} years</span>
+                      <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                        <span className="text-gray-600 dark:text-gray-400">Loan Tenure:</span>
+                        <span className="font-semibold text-gray-900 dark:text-gray-100">{formData.loanTenure} years</span>
                       </div>
                       <div className="flex justify-between pt-3 mt-2 border-t-2 border-red-200">
                         <span className="text-gray-900 font-bold">Monthly EMI:</span>
                         <span className="font-bold text-red-600 text-lg">₹{results.emiAmount.toLocaleString('en-IN')}</span>
                       </div>
-                      <div className="flex justify-between py-2 border-b border-gray-100 mt-3">
-                        <span className="text-gray-600">Total Payment:</span>
-                        <span className="font-semibold text-gray-900">₹{(results.totalLoanPayment / 10000000).toFixed(2)} Cr</span>
+                      <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700 mt-3">
+                        <span className="text-gray-600 dark:text-gray-400">Total Payment:</span>
+                        <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(results.totalLoanPayment / 10000000).toFixed(2)} Cr</span>
                       </div>
                       <div className="flex justify-between py-2">
-                        <span className="text-gray-600">Total Interest:</span>
+                        <span className="text-gray-600 dark:text-gray-400">Total Interest:</span>
                         <span className="font-semibold text-orange-600">₹{(results.totalInterestPaid / 10000000).toFixed(2)} Cr</span>
                       </div>
                     </div>
@@ -928,7 +928,7 @@ const HousePage: NextPageWithLayout = () => {
 
                 {/* No Loan Summary - Show if user doesn't want loan */}
                 {!formData.wantLoan && (
-                  <div className="bg-white rounded-xl border p-6 shadow-sm border-green-200">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border p-6 shadow-sm border-green-200">
                     <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                       <svg className="text-green-500 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -936,8 +936,8 @@ const HousePage: NextPageWithLayout = () => {
                       No Loan - Full Ownership
                     </h2>
                     <div className="space-y-3 text-sm">
-                      <div className="bg-green-50 p-4 rounded-lg mb-3">
-                        <p className="text-green-800 font-medium">Great choice! By saving the full amount, you'll:</p>
+                      <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg mb-3">
+                        <p className="text-green-800 dark:text-green-300 font-medium">Great choice! By saving the full amount, you'll:</p>
                         <ul className="mt-2 space-y-1 text-green-700 text-xs">
                           <li>✓ Own the property outright from day one</li>
                           <li>✓ Save ₹{((results.futurePropertyValue * 0.8 * formData.interestRate / 100 * formData.loanTenure) / 10000000).toFixed(2)} Cr+ in interest payments</li>
@@ -945,13 +945,13 @@ const HousePage: NextPageWithLayout = () => {
                           <li>✓ Build wealth faster through disciplined savings</li>
                         </ul>
                       </div>
-                      <div className="flex justify-between py-2 border-b border-gray-100">
-                        <span className="text-gray-600">Property Value at Purchase:</span>
-                        <span className="font-semibold text-gray-900">₹{(results.futurePropertyValue / 10000000).toFixed(2)} Cr</span>
+                      <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                        <span className="text-gray-600 dark:text-gray-400">Property Value at Purchase:</span>
+                        <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(results.futurePropertyValue / 10000000).toFixed(2)} Cr</span>
                       </div>
-                      <div className="flex justify-between py-2 border-b border-gray-100">
-                        <span className="text-gray-600">Additional Costs:</span>
-                        <span className="font-semibold text-gray-900">₹{(results.totalCosts / 100000).toFixed(2)} Lakhs</span>
+                      <div className="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                        <span className="text-gray-600 dark:text-gray-400">Additional Costs:</span>
+                        <span className="font-semibold text-gray-900 dark:text-gray-100">₹{(results.totalCosts / 100000).toFixed(2)} Lakhs</span>
                       </div>
                       <div className="flex justify-between pt-3 border-t-2 border-green-200">
                         <span className="text-gray-900 font-bold">Total Amount to Save:</span>
@@ -963,7 +963,7 @@ const HousePage: NextPageWithLayout = () => {
 
                 {/* Recommendations */}
                 {results.recommendations.length > 0 && (
-                  <div className="bg-white rounded-xl border p-6 shadow-sm">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border p-6 shadow-sm">
                     <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
                       <svg className="text-purple-500 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -988,8 +988,8 @@ const HousePage: NextPageWithLayout = () => {
                 )}
               </div>
             ) : (
-              <div className="bg-white rounded-xl border p-12 shadow-sm">
-                <div className="text-center text-gray-500">
+              <div className="bg-white dark:bg-gray-800 rounded-xl border p-12 shadow-sm">
+                <div className="text-center text-gray-500 dark:text-gray-400">
                   <svg className="mx-auto h-16 w-16 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>

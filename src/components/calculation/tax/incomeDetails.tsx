@@ -23,7 +23,7 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                            specialAllowance, setSpecialAllowance, otherAllowances, setOtherAllowances,
                            bonus, setBonus,otherIncome, setOtherIncome, housePropertyIncome, setHousePropertyIncome }) => {
     return(
-        <div className="bg-green-50 rounded-2xl p-6 border border-green-200">
+        <div className="bg-green-50 dark:bg-green-900/20 rounded-2xl p-6 border border-green-200 dark:border-green-800">
             <h3 className="text-lg font-bold text-green-800 mb-4">
                 {entityType === 'individual' || entityType === 'huf' ? 'Income Details (Annual)' :
                     entityType === 'firm' ? 'Business Income (Annual)' :
@@ -33,7 +33,7 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                 {(entityType === 'individual' || entityType === 'huf') && (
                     <>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                 Basic Salary (Rs.)
                                 <div className="group relative inline-block ml-1">
                                     <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -64,14 +64,13 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                             </label>
                             <input
                                 type="number"
-                                placeholder="e.g., 800000"
-                                className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                                className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                                 value={basicSalary}
                                 onChange={(e) => setBasicSalary(e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                 HRA (Rs.)
                                 <div className="group relative inline-block ml-1">
                                     <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -103,14 +102,13 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                             </label>
                             <input
                                 type="number"
-                                placeholder="e.g., 240000"
-                                className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                                className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                                 value={hra}
                                 onChange={(e) => setHra(e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                 Special Allowance (Rs.)
                                 <div className="group relative inline-block ml-1">
                                     <span className="w-4 h-4 bg-green-100 text-green-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -143,14 +141,13 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                             </label>
                             <input
                                 type="number"
-                                placeholder="e.g., 100000"
-                                className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                                className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                                 value={specialAllowance}
                                 onChange={(e) => setSpecialAllowance(e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                 Other Allowances (Rs.)
                                 <div className="group relative inline-block ml-1">
                                     <span className="w-4 h-4 bg-yellow-100 text-yellow-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -185,14 +182,13 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                             </label>
                             <input
                                 type="number"
-                                placeholder="e.g., 50000"
-                                className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                                className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                                 value={otherAllowances}
                                 onChange={(e) => setOtherAllowances(e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                 Bonus (Rs.)
                                 <div className="group relative inline-block ml-1">
                                     <span className="w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -227,8 +223,7 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                             </label>
                             <input
                                 type="number"
-                                placeholder="e.g., 80000"
-                                className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                                className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                                 value={bonus}
                                 onChange={(e) => setBonus(e.target.value)}
                             />
@@ -240,7 +235,7 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                 {(entityType === 'firm' || entityType === 'company') && (
                     <>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                 {entityType === 'firm' ? 'Partnership Income (Rs.)' : 'Corporate Turnover (Rs.)'}
                                 <div className="group relative inline-block ml-1">
                                     <span className="w-4 h-4 bg-indigo-100 text-indigo-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -276,13 +271,13 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                             <input
                                 type="number"
                                 placeholder={entityType === 'firm' ? 'e.g., 2500000' : 'e.g., 50000000'}
-                                className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                                className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                                 value={basicSalary}
                                 onChange={(e) => setBasicSalary(e.target.value)}
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                                 {entityType === 'firm' ? 'Business Expenses (₹)' : 'Operating Expenses (₹)'}
                                 <div className="group relative inline-block ml-1">
                                     <span className="w-4 h-4 bg-red-100 text-red-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -305,7 +300,7 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                             <input
                                 type="number"
                                 placeholder={entityType === 'firm' ? 'e.g., 800000' : 'e.g., 15000000'}
-                                className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                                className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                                 value={hra}
                                 onChange={(e) => setHra(e.target.value)}
                             />
@@ -314,7 +309,7 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                 )}
 
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         Other Income (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-red-100 text-red-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -354,14 +349,13 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                     </label>
                     <input
                         type="number"
-                        placeholder="e.g., 25000"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={otherIncome}
                         onChange={(e) => setOtherIncome(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         Income from House Property (₹)
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-orange-100 text-orange-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -395,7 +389,7 @@ const IncomeDetails: React.FC<IncomeDetailsProps> = ({entityType, basicSalary, s
                     <input
                         type="number"
                         placeholder="After 30% deduction, e.g., 70000"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={housePropertyIncome}
                         onChange={(e) => setHousePropertyIncome(e.target.value)}
                     />

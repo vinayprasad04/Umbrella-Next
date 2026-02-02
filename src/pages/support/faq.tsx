@@ -215,20 +215,20 @@ export default function FAQ() {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
             </div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-200 mb-3 md:mb-4 lg:mb-6">
-                <span className="text-xs md:text-sm font-semibold text-blue-600">❓ Help Center</span>
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full border border-blue-200 dark:border-blue-700 mb-3 md:mb-4 lg:mb-6">
+                <span className="text-xs md:text-sm font-semibold text-blue-600 dark:text-blue-400">❓ Help Center</span>
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
@@ -236,10 +236,10 @@ export default function FAQ() {
                   Frequently Asked
                 </span>
                 <br />
-                <span className="text-gray-800">Questions</span>
+                <span className="text-gray-800 dark:text-gray-100">Questions</span>
               </h1>
 
-              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
                 Find quick answers to the most common questions about our services,
                 calculators, investments, and platform features.
               </p>
@@ -250,7 +250,7 @@ export default function FAQ() {
                   <input
                     type="text"
                     placeholder="Search FAQs..."
-                    className="w-full px-4 md:px-6 py-3 md:py-4 pl-10 md:pl-12 bg-white border border-gray-200 rounded-lg md:rounded-2xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-base md:text-lg shadow-lg"
+                    className="w-full px-4 md:px-6 py-3 md:py-4 pl-10 md:pl-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md:rounded-2xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-base md:text-lg shadow-lg"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
@@ -263,7 +263,7 @@ export default function FAQ() {
           </section>
 
           {/* Categories */}
-          <section className="py-6 md:py-8 lg:py-10 bg-white border-b border-gray-200">
+          <section className="py-6 md:py-8 lg:py-10 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="flex flex-wrap justify-center gap-2 md:gap-3 lg:gap-4">
                 {categories.map((category) => (
@@ -289,18 +289,18 @@ export default function FAQ() {
           </section>
 
           {/* FAQ Content */}
-          <section id="faq-content" className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
+          <section id="faq-content" className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-4xl mx-auto">
                 {filteredFAQs.length > 0 ? (
                   <div className="space-y-3 md:space-y-4">
                     {filteredFAQs.map((faq, index) => (
-                      <div key={index} className="bg-white rounded-lg md:rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                      <div key={index} className="bg-white dark:bg-gray-800 rounded-lg md:rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
                         <button
                           onClick={() => toggleFAQ(index)}
-                          className="w-full p-4 md:p-5 lg:p-6 text-left hover:bg-gray-50 transition-all duration-200 flex items-center justify-between"
+                          className="w-full p-4 md:p-5 lg:p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 flex items-center justify-between"
                         >
-                          <h3 className="text-sm md:text-base lg:text-lg font-semibold text-gray-800 pr-4">
+                          <h3 className="text-sm md:text-base lg:text-lg font-semibold text-gray-800 dark:text-gray-100 pr-4">
                             {faq.question}
                           </h3>
                           <svg 
@@ -316,8 +316,8 @@ export default function FAQ() {
                         </button>
                         
                         {openFAQ === `${activeCategory}-${index}` && (
-                          <div className="px-4 md:px-5 lg:px-6 pb-4 md:pb-5 lg:pb-6 pt-0 border-t border-gray-100">
-                            <p className="text-xs md:text-sm lg:text-base text-gray-600 leading-relaxed">
+                          <div className="px-4 md:px-5 lg:px-6 pb-4 md:pb-5 lg:pb-6 pt-0 border-t border-gray-100 dark:border-gray-600">
+                            <p className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                               {faq.answer}
                             </p>
                           </div>
@@ -328,8 +328,8 @@ export default function FAQ() {
                 ) : (
                   <div className="text-center py-10 md:py-12 lg:py-16">
                     <div className="text-4xl md:text-5xl lg:text-6xl mb-3 md:mb-4 lg:mb-6">🔍</div>
-                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-2 md:mb-3 lg:mb-4">No FAQs Found</h3>
-                    <p className="text-xs md:text-sm lg:text-base text-gray-600 mb-4 md:mb-5 lg:mb-6">
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2 md:mb-3 lg:mb-4">No FAQs Found</h3>
+                    <p className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-300 mb-4 md:mb-5 lg:mb-6">
                       We couldn't find any FAQs matching your search. Try different keywords or browse categories.
                     </p>
                     <button
@@ -345,15 +345,15 @@ export default function FAQ() {
           </section>
 
           {/* Contact Support */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-xl md:rounded-2xl lg:rounded-3xl p-6 md:p-8 lg:p-12 text-center border border-[#FF6B2C]/20">
+              <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 dark:from-[#FF6B2C]/5 dark:to-[#FF8A50]/5 rounded-xl md:rounded-2xl lg:rounded-3xl p-6 md:p-8 lg:p-12 text-center border border-[#FF6B2C]/20 dark:border-[#FF6B2C]/30 transition-colors duration-300">
                 <div className="text-4xl md:text-5xl lg:text-5xl mb-3 md:mb-4 lg:mb-6">🤝</div>
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-3 md:mb-4 lg:mb-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-3 md:mb-4 lg:mb-6">
                   Can't Find What You're Looking For?
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-4 md:mb-6 lg:mb-8 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 mb-4 md:mb-6 lg:mb-8 max-w-2xl mx-auto">
                   Our support team is here to help! Contact us for personalized assistance
                   with any questions not covered in our FAQ section.
                 </p>
@@ -371,7 +371,7 @@ export default function FAQ() {
 
                   <button
                     onClick={handleGetStarted}
-                    className="bg-white text-[#FF6B2C] px-6 md:px-8 py-3 md:py-4 border-2 border-[#FF6B2C] rounded-lg md:rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:bg-[#FF6B2C] hover:text-white transition-all duration-300"
+                    className="bg-white dark:bg-gray-800 text-[#FF6B2C] px-6 md:px-8 py-3 md:py-4 border-2 border-[#FF6B2C] rounded-lg md:rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:bg-[#FF6B2C] hover:text-white transition-all duration-300"
                   >
                     {isLoggedIn ? 'Go to Dashboard' : 'Get Started'}
                   </button>
@@ -381,17 +381,17 @@ export default function FAQ() {
           </section>
 
           {/* Popular Topics */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">Popular </span>
+                  <span className="text-gray-800 dark:text-gray-100">Popular </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Topics
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   Quick access to the most searched topics and questions
                 </p>
               </div>
@@ -402,17 +402,17 @@ export default function FAQ() {
                   const faqCount = categoryData?.faqs.length || 0;
                   
                   return (
-                    <div key={index} className="group bg-white rounded-lg md:rounded-2xl p-4 md:p-5 lg:p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer"
+                    <div key={index} className="group bg-white dark:bg-gray-800 rounded-lg md:rounded-2xl p-4 md:p-5 lg:p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer"
                          onClick={() => handleCategoryClick(category.id)}>
                       <div className="flex items-center justify-between mb-3 md:mb-4">
                         <div className="flex items-center gap-2 md:gap-3">
                           <div className="text-xl md:text-2xl">{category.icon}</div>
-                          <h3 className="text-sm md:text-base lg:text-lg font-bold text-gray-800">{category.name}</h3>
+                          <h3 className="text-sm md:text-base lg:text-lg font-bold text-gray-800 dark:text-gray-100">{category.name}</h3>
                         </div>
                         <div className="text-xs md:text-sm text-gray-500">{faqCount} FAQs</div>
                       </div>
 
-                      <p className="text-xs md:text-sm text-gray-600 mb-3 md:mb-4">
+                      <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mb-3 md:mb-4">
                         {categoryData?.faqs[0]?.question || 'Click to explore questions in this category'}
                       </p>
 

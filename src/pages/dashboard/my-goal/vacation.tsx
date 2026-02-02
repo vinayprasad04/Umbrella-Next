@@ -7,8 +7,8 @@ import DashboardLayout from '@/components/DashboardLayout';
 import Tooltip from '@/components/Tooltip';
 import type { NextPageWithLayout } from '../../_app';
 
-const inputClass = "border border-gray-300 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300";
-const labelClass = "text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1";
+const inputClass = "border border-gray-300 dark:border-gray-600 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300 dark:bg-gray-700 dark:text-gray-200";
+const labelClass = "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1";
 
 const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
   <Tooltip content={tooltip}>
@@ -380,10 +380,10 @@ const Vacation: NextPageWithLayout = () => {
             {/* Form Content */}
             <div className="p-6">
             {/* Basic Information Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
               <div className="flex items-center space-x-2 mb-4">
                 <span className="text-xl">📅</span>
-                <h2 className="text-xl font-semibold text-gray-800">Trip Timeline</h2>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Trip Timeline</h2>
               </div>
 
               <div className="space-y-4">
@@ -417,8 +417,8 @@ const Vacation: NextPageWithLayout = () => {
                   />
                 </div>
 
-                <div className="bg-purple-50 p-3 rounded-lg">
-                  <p className="text-sm text-purple-700">
+                <div className="bg-purple-50 dark:bg-purple-900/20 p-3 rounded-lg">
+                  <p className="text-sm text-purple-700 dark:text-purple-300">
                     Planning Timeline: <span className="font-semibold">{formData.targetAge - formData.currentAge} year{formData.targetAge - formData.currentAge !== 1 ? 's' : ''}</span>
                   </p>
                   {formData.targetAge - formData.currentAge === 0 && (
@@ -431,10 +431,10 @@ const Vacation: NextPageWithLayout = () => {
             </div>
 
             {/* Vacation Costs Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
               <div className="flex items-center space-x-2 mb-4">
                 <span className="text-xl">📍</span>
-                <h2 className="text-xl font-semibold text-gray-800">Vacation Budget</h2>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Vacation Budget</h2>
               </div>
 
               <div className="space-y-4">
@@ -444,7 +444,7 @@ const Vacation: NextPageWithLayout = () => {
                     <InfoIcon tooltip="Total estimated cost at current prices. Includes base expenses, activities, shopping, etc." />
                   </label>
                   <div className="flex items-center gap-2">
-                    <span className="text-xl text-gray-500">₹</span>
+                    <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                     <input
                       type="number"
                       value={formData.vacationBudget}
@@ -473,7 +473,7 @@ const Vacation: NextPageWithLayout = () => {
                       max="100"
                       step="0.1"
                     />
-                    <span className="absolute right-3 top-2 text-gray-500">%</span>
+                    <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                   </div>
                 </div>
 
@@ -492,7 +492,7 @@ const Vacation: NextPageWithLayout = () => {
                       max="100"
                       step="0.1"
                     />
-                    <span className="absolute right-3 top-2 text-gray-500">%</span>
+                    <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                   </div>
                 </div>
 
@@ -511,17 +511,17 @@ const Vacation: NextPageWithLayout = () => {
                       max="100"
                       step="0.1"
                     />
-                    <span className="absolute right-3 top-2 text-gray-500">%</span>
+                    <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Financial Details Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
               <div className="flex items-center space-x-2 mb-4">
                 <span className="text-xl">💰</span>
-                <h2 className="text-xl font-semibold text-gray-800">Financial Details</h2>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Financial Details</h2>
               </div>
 
               <div className="space-y-4">
@@ -531,7 +531,7 @@ const Vacation: NextPageWithLayout = () => {
                     <InfoIcon tooltip="Amount you've already saved specifically for this vacation. This will grow with your expected return rate." />
                   </label>
                   <div className="flex items-center gap-2">
-                    <span className="text-xl text-gray-500">₹</span>
+                    <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                     <input
                       type="number"
                       value={formData.currentSavings}
@@ -548,7 +548,7 @@ const Vacation: NextPageWithLayout = () => {
                     <InfoIcon tooltip="Your monthly income used to assess if the required SIP is affordable for you." />
                   </label>
                   <div className="flex items-center gap-2">
-                    <span className="text-xl text-gray-500">₹</span>
+                    <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                     <input
                       type="number"
                       value={formData.monthlyIncome}
@@ -562,21 +562,21 @@ const Vacation: NextPageWithLayout = () => {
             </div>
 
             {/* Travel Loan Option Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6 border border-red-100">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-red-100 dark:border-red-700">
               <div className="flex items-center space-x-2 mb-4">
                 <span className="text-xl">⚠️</span>
-                <h2 className="text-xl font-semibold text-gray-800">Travel Loan Option</h2>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Travel Loan Option</h2>
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-red-50 rounded-lg border-2 border-red-300">
+                <div className="flex items-center justify-between p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border-2 border-red-300 dark:border-red-600">
                   <div className="flex items-center space-x-3">
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl ${formData.wantLoan ? 'bg-red-600' : 'bg-gray-300'}`}>
                       ⚠️
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">Take Travel/Personal Loan</p>
-                      <p className="text-sm text-red-700">NOT RECOMMENDED - High interest, no tax benefits</p>
+                      <p className="font-medium text-gray-900 dark:text-gray-100">Take Travel/Personal Loan</p>
+                      <p className="text-sm text-red-700 dark:text-red-300">NOT RECOMMENDED - High interest, no tax benefits</p>
                     </div>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
@@ -591,9 +591,9 @@ const Vacation: NextPageWithLayout = () => {
                 </div>
 
                 {formData.wantLoan && (
-                  <div className="space-y-4 p-4 bg-red-50 rounded-lg border border-red-300">
-                    <div className="bg-red-100 p-3 rounded border border-red-300">
-                      <p className="text-xs text-red-800 font-semibold">
+                  <div className="space-y-4 p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-300 dark:border-red-600">
+                    <div className="bg-red-100 dark:bg-red-900/20 p-3 rounded border border-red-300 dark:border-red-600">
+                      <p className="text-xs text-red-800 dark:text-red-300 font-semibold">
                         ⚠️ WARNING: Taking loans for discretionary expenses like vacations is financially unwise. Consider saving instead!
                       </p>
                     </div>
@@ -628,7 +628,7 @@ const Vacation: NextPageWithLayout = () => {
                           max="20"
                           step="0.1"
                         />
-                        <span className="absolute right-3 top-2 text-gray-500">%</span>
+                        <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                       </div>
                     </div>
                   </div>
@@ -637,10 +637,10 @@ const Vacation: NextPageWithLayout = () => {
             </div>
 
             {/* Investment Parameters Card */}
-            <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
               <div className="flex items-center space-x-2 mb-4">
                 <span className="text-xl">📈</span>
-                <h2 className="text-xl font-semibold text-gray-800">Investment Parameters</h2>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Investment Parameters</h2>
               </div>
 
               <div className="space-y-4">
@@ -658,7 +658,7 @@ const Vacation: NextPageWithLayout = () => {
                       min="0"
                       step="0.1"
                     />
-                    <span className="absolute right-3 top-2 text-gray-500">%</span>
+                    <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                   </div>
                 </div>
 
@@ -676,7 +676,7 @@ const Vacation: NextPageWithLayout = () => {
                       min="0"
                       step="0.1"
                     />
-                    <span className="absolute right-3 top-2 text-gray-500">%</span>
+                    <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                   </div>
                 </div>
               </div>
@@ -703,14 +703,14 @@ const Vacation: NextPageWithLayout = () => {
           </div>
 
           {/* Right Side - Results (50%) */}
-          <div className="w-1/2 bg-white overflow-y-auto">
+          <div className="w-1/2 bg-white dark:bg-gray-900 overflow-y-auto">
             <div className="p-6">
             {results ? (
               <>
                 {/* Goal Achievability Card */}
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-xl font-semibold text-gray-800">Goal Achievability</h2>
+                    <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Goal Achievability</h2>
                     <div className={`px-4 py-2 rounded-full ${
                       results.achievabilityRatio >= 100 ? 'bg-green-100 text-green-700' :
                       results.achievabilityRatio >= 80 ? 'bg-yellow-100 text-yellow-700' :
@@ -735,54 +735,54 @@ const Vacation: NextPageWithLayout = () => {
 
                   <div className="mt-6 grid grid-cols-2 gap-4">
                     <div className="bg-purple-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Total Required</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Required</p>
                       <p className="text-lg font-bold text-purple-600">₹{formatIndianNumber(results.totalRequiredAtStart)}</p>
                     </div>
                     <div className="bg-blue-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Future Value</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Future Value</p>
                       <p className="text-lg font-bold text-blue-600">₹{formatIndianNumber(results.futureValue)}</p>
                     </div>
                     <div className="bg-green-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Years to Trip</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Years to Trip</p>
                       <p className="text-lg font-bold text-green-600">{results.yearsToGoal} year{results.yearsToGoal !== 1 ? 's' : ''}</p>
                     </div>
                     <div className="bg-yellow-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Trip Year</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Trip Year</p>
                       <p className="text-lg font-bold text-yellow-600">{new Date().getFullYear() + results.yearsToGoal}</p>
                     </div>
                   </div>
 
                   {results.shortfall > 0 && (
-                    <div className="mt-4 bg-red-50 p-4 rounded-lg border border-red-200">
-                      <p className="text-sm text-gray-600 mb-1">Shortfall</p>
+                    <div className="mt-4 bg-red-50 p-4 rounded-lg border border-red-200 dark:border-red-700">
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Shortfall</p>
                       <p className="text-lg font-bold text-red-600">₹{formatIndianNumber(results.shortfall)}</p>
                     </div>
                   )}
                 </div>
 
                 {/* Vacation Cost Breakdown Card */}
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-4">Vacation Cost Breakdown</h2>
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
+                  <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Vacation Cost Breakdown</h2>
 
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                      <span className="text-gray-700">Base Vacation Budget</span>
+                    <div className="flex justify-between items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Base Vacation Budget</span>
                       <span className="font-semibold text-purple-600">₹{formatIndianNumber(results.vacationBudgetAmount)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                      <span className="text-gray-700">Flight Tickets</span>
+                    <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Flight Tickets</span>
                       <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.flightAmount)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                      <span className="text-gray-700">Hotel & Stay</span>
+                    <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Hotel & Stay</span>
                       <span className="font-semibold text-green-600">₹{formatIndianNumber(results.hotelAmount)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                      <span className="text-gray-700">Other Expenses</span>
+                    <div className="flex justify-between items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Other Expenses</span>
                       <span className="font-semibold text-yellow-600">₹{formatIndianNumber(results.otherCostAmount)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-gray-100 rounded-lg border-2 border-purple-300">
-                      <span className="text-gray-900 font-semibold">Total Trip Cost</span>
+                    <div className="flex justify-between items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg border-2 border-purple-300 dark:border-purple-600">
+                      <span className="text-gray-900 dark:text-gray-100 font-semibold">Total Trip Cost</span>
                       <span className="font-bold text-purple-700 text-lg">₹{formatIndianNumber(results.totalVacationCost)}</span>
                     </div>
                   </div>
@@ -790,37 +790,37 @@ const Vacation: NextPageWithLayout = () => {
 
                 {/* Loan Details Card (if loan selected) */}
                 {formData.wantLoan && results.loanAmount > 0 && (
-                  <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-red-300 bg-red-50">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border-2 border-red-300 dark:border-red-600">
                     <div className="flex items-center space-x-2 mb-4">
                       <span className="text-2xl">⚠️</span>
-                      <h2 className="text-xl font-semibold text-red-800">Travel Loan Details</h2>
+                      <h2 className="text-xl font-semibold text-red-800 dark:text-red-300">Travel Loan Details</h2>
                     </div>
 
                     <div className="space-y-3">
-                      <div className="flex justify-between items-center p-3 bg-red-100 rounded-lg border border-red-300">
-                        <span className="text-gray-700">Loan Amount (70%)</span>
+                      <div className="flex justify-between items-center p-3 bg-red-100 dark:bg-red-900/20 rounded-lg border border-red-300">
+                        <span className="text-gray-700 dark:text-gray-300">Loan Amount (70%)</span>
                         <span className="font-semibold text-red-700">₹{formatIndianNumber(results.loanAmount)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                        <span className="text-gray-700">Your Contribution (30%)</span>
+                      <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-300">Your Contribution (30%)</span>
                         <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.totalRequiredAtStart)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg border-2 border-orange-400">
+                      <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-2 border-orange-400 dark:border-orange-600">
                         <span className="text-gray-700 font-semibold">Monthly EMI</span>
                         <span className="font-bold text-orange-700">₹{formatIndianNumber(results.emiAmount)}/month</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-red-100 rounded-lg border-2 border-red-400">
-                        <span className="text-gray-700">Total Repayment</span>
+                      <div className="flex justify-between items-center p-3 bg-red-100 dark:bg-red-900/20 rounded-lg border-2 border-red-400 dark:border-red-600">
+                        <span className="text-gray-700 dark:text-gray-300">Total Repayment</span>
                         <span className="font-semibold text-red-700">₹{formatIndianNumber(results.totalLoanRepayment)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-red-200 rounded-lg border-2 border-red-500">
-                        <span className="text-gray-900 font-semibold">Total Interest Paid</span>
-                        <span className="font-bold text-red-800 text-lg">₹{formatIndianNumber(results.totalLoanRepayment - results.loanAmount)}</span>
+                      <div className="flex justify-between items-center p-3 bg-red-200 dark:bg-red-900/30 rounded-lg border-2 border-red-500 dark:border-red-700">
+                        <span className="text-gray-900 dark:text-gray-100 font-semibold">Total Interest Paid</span>
+                        <span className="font-bold text-red-800 dark:text-red-300 text-lg">₹{formatIndianNumber(results.totalLoanRepayment - results.loanAmount)}</span>
                       </div>
                     </div>
 
-                    <div className="mt-4 p-4 bg-red-100 rounded-lg border-2 border-red-400">
-                      <p className="text-sm text-red-800 font-semibold">
+                    <div className="mt-4 p-4 bg-red-100 dark:bg-red-900/20 rounded-lg border-2 border-red-400 dark:border-red-600">
+                      <p className="text-sm text-red-800 dark:text-red-300 font-semibold">
                         🚫 Paying ₹{formatIndianNumber(results.totalLoanRepayment - results.loanAmount)} in interest for vacation memories! Consider saving instead.
                       </p>
                     </div>
@@ -828,46 +828,46 @@ const Vacation: NextPageWithLayout = () => {
                 )}
 
                 {/* Investment Plan Card */}
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-4">Investment Plan</h2>
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
+                  <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Investment Plan</h2>
 
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                      <span className="text-gray-700">Current Savings</span>
+                    <div className="flex justify-between items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Current Savings</span>
                       <span className="font-semibold text-purple-600">₹{formatIndianNumber(formData.currentSavings)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                      <span className="text-gray-700">Monthly SIP Required</span>
+                    <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Monthly SIP Required</span>
                       <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.sipRequired)}/month</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                      <span className="text-gray-700">Total Investment</span>
+                    <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Total Investment</span>
                       <span className="font-semibold text-green-600">₹{formatIndianNumber(results.totalInvestment)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                      <span className="text-gray-700">Future Value</span>
+                    <div className="flex justify-between items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Future Value</span>
                       <span className="font-semibold text-yellow-600">₹{formatIndianNumber(results.futureValue)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-indigo-50 rounded-lg border-2 border-indigo-300">
-                      <span className="text-gray-900 font-semibold">Net Gains</span>
+                    <div className="flex justify-between items-center p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border-2 border-indigo-300 dark:border-indigo-600">
+                      <span className="text-gray-900 dark:text-gray-100 font-semibold">Net Gains</span>
                       <span className="font-bold text-indigo-700">₹{formatIndianNumber(results.futureValue - results.totalInvestment)}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Recommendations Card */}
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-4">Recommendations</h2>
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
+                  <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Recommendations</h2>
 
                   <div className="space-y-3">
                     {results.recommendations.map((rec, index) => (
                       <div
                         key={index}
                         className={`p-4 rounded-lg border-l-4 ${
-                          rec.type === 'success' ? 'bg-green-50 border-green-500' :
-                          rec.type === 'warning' ? 'bg-yellow-50 border-yellow-500' :
-                          rec.type === 'error' ? 'bg-red-50 border-red-500' :
-                          'bg-blue-50 border-blue-500'
+                          rec.type === 'success' ? 'bg-green-50 dark:bg-green-900/20 border-green-500 dark:border-green-600' :
+                          rec.type === 'warning' ? 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-500 dark:border-yellow-600' :
+                          rec.type === 'error' ? 'bg-red-50 dark:bg-red-900/20 border-red-500 dark:border-red-600' :
+                          'bg-blue-50 dark:bg-blue-900/20 border-blue-500 dark:border-blue-600'
                         }`}
                       >
                         <div className="flex items-start space-x-3">
@@ -894,10 +894,10 @@ const Vacation: NextPageWithLayout = () => {
                 <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-5xl">
                   ✈️
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Ready for Your Dream Vacation?</h3>
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">Ready for Your Dream Vacation?</h3>
                 <p className="text-gray-600 mb-6">Fill in your details and click &quot;Calculate Plan&quot; to see how you can save for your perfect getaway without loans or financial stress.</p>
-                <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                  <p className="text-sm text-purple-700">
+                <div className="bg-purple-50 p-4 rounded-lg border border-purple-200 dark:border-purple-700">
+                  <p className="text-sm text-purple-700 dark:text-purple-300">
                     <strong>Tip:</strong> Start a dedicated vacation fund! Even ₹5,000/month can fund an international trip in 2-3 years.
                   </p>
                 </div>

@@ -25,31 +25,31 @@ export default function Section87ARebates() {
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-16 bg-gradient-to-br from-amber-50 via-white to-yellow-50 overflow-hidden">
+          <section className="relative py-16 bg-gradient-to-br from-amber-50 via-white to-yellow-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-10 left-10 w-48 h-48 bg-gradient-to-r from-amber-400/10 to-yellow-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 right-10 w-64 h-64 bg-gradient-to-r from-orange-400/10 to-amber-400/10 rounded-full blur-3xl"></div>
             </div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-full border border-amber-200 mb-6">
-                <span className="text-sm font-semibold text-amber-600">💰 Section 87A Guide</span>
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/30 dark:to-yellow-900/30 rounded-full border border-amber-200 dark:border-amber-700 mb-6 transition-colors duration-300">
+                <span className="text-sm font-semibold text-amber-600 dark:text-amber-400">💰 Section 87A Guide</span>
               </div>
-              
+
               <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Section 87A Tax Rebate
                 </span>
                 <br />
-                <span className="text-gray-800">FY 2025-26 Revolution</span>
+                <span className="text-gray-800 dark:text-gray-100 transition-colors duration-300">FY 2025-26 Revolution</span>
               </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
+
+              <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8 transition-colors duration-300">
                 Revolutionary update for FY 2025-26! Section 87A now provides ₹60,000 rebate and complete tax exemption up to ₹12 lakh. Middle-class taxpayers save thousands!
               </p>
               
@@ -62,7 +62,7 @@ export default function Section87ARebates() {
                 </button>
                 <button
                   onClick={() => router.push('/tax-planning')}
-                  className="bg-gray-100 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-300"
+                  className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-8 py-4 rounded-xl font-semibold hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300"
                 >
                   View All Tax Tips
                 </button>
@@ -71,58 +71,58 @@ export default function Section87ARebates() {
           </section>
 
           {/* Main Content */}
-          <section className="py-16 bg-white">
+          <section className="py-16 bg-white dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="space-y-8">
-                <div className="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl p-8 border border-amber-200">
-                  <h2 className="text-3xl font-bold text-amber-800 mb-4 flex items-center gap-3">
+                <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 rounded-2xl p-8 border border-amber-200 dark:border-amber-700 transition-colors duration-300">
+                  <h2 className="text-3xl font-bold text-amber-800 dark:text-amber-300 mb-4 flex items-center gap-3">
                     💰 Section 87A Tax Rebate
                   </h2>
-                  <p className="text-lg text-amber-700 mb-6">
+                  <p className="text-lg text-amber-700 dark:text-amber-400 mb-6">
                     Section 87A has been revolutionized for FY 2025-26! The rebate has increased from ₹25,000 to ₹60,000, and the income limit has jumped from ₹7 lakh to ₹12 lakh, making it a game-changer for middle-class taxpayers.
                   </p>
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className="bg-white rounded-xl p-6 shadow-md">
-                      <h3 className="text-xl font-bold text-gray-800 mb-4">🎯 Eligibility & Rebate Amount</h3>
+                    <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">🎯 Eligibility & Rebate Amount</h3>
                       <div className="space-y-4">
-                        <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                          <h4 className="font-semibold text-gray-800 mb-2">Old Regime: Income up to ₹5,00,000</h4>
-                          <p className="text-sm text-gray-600 mb-2">Rebate: 100% of tax or ₹12,500 (whichever is lower)</p>
-                          <div className="text-xs text-green-600">💡 Effective zero tax for income ≤ ₹5L (old regime)</div>
+                        <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500 dark:border-green-600 transition-colors duration-300">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Old Regime: Income up to ₹5,00,000</h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Rebate: 100% of tax or ₹12,500 (whichever is lower)</p>
+                          <div className="text-xs text-green-600 dark:text-green-400">💡 Effective zero tax for income ≤ ₹5L (old regime)</div>
                         </div>
-                        
-                        <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                          <h4 className="font-semibold text-gray-800 mb-2">FY 2024-25: Income up to ₹7,00,000</h4>
-                          <p className="text-sm text-gray-600 mb-2">Rebate: ₹25,000 (complete tax exemption up to ₹7L)</p>
-                          <div className="text-xs text-blue-600">💡 Zero tax liability for income ≤ ₹7L</div>
+
+                        <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500 dark:border-blue-600 transition-colors duration-300">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">FY 2024-25: Income up to ₹7,00,000</h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Rebate: ₹25,000 (complete tax exemption up to ₹7L)</p>
+                          <div className="text-xs text-blue-600 dark:text-blue-400">💡 Zero tax liability for income ≤ ₹7L</div>
                         </div>
-                        
-                        <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                          <h4 className="font-semibold text-gray-800 mb-2">🎉 FY 2025-26: Income up to ₹12,00,000</h4>
-                          <p className="text-sm text-gray-600 mb-2">Rebate: ₹60,000 (complete tax exemption up to ₹12L)</p>
-                          <div className="text-xs text-purple-600">🚀 Revolutionary enhancement for middle class!</div>
+
+                        <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500 dark:border-purple-600 transition-colors duration-300">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">🎉 FY 2025-26: Income up to ₹12,00,000</h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">Rebate: ₹60,000 (complete tax exemption up to ₹12L)</p>
+                          <div className="text-xs text-purple-600 dark:text-purple-400">🚀 Revolutionary enhancement for middle class!</div>
                         </div>
-                        
-                        <div className="p-4 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                          <h4 className="font-semibold text-gray-800 mb-2">Marginal Relief Benefits</h4>
-                          <p className="text-sm text-gray-600 mb-2">For income slightly above ₹12L, tax limited to excess amount</p>
-                          <div className="text-xs text-emerald-600">💡 Prevents sudden tax jumps beyond threshold</div>
+
+                        <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500 dark:border-emerald-600 transition-colors duration-300">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Marginal Relief Benefits</h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">For income slightly above ₹12L, tax limited to excess amount</p>
+                          <div className="text-xs text-emerald-600 dark:text-emerald-400">💡 Prevents sudden tax jumps beyond threshold</div>
                         </div>
-                        
-                        <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                          <h4 className="font-semibold text-gray-800 mb-2">Important Note</h4>
-                          <p className="text-sm text-gray-600">Only individual taxpayers eligible (not HUF, companies, etc.)</p>
+
+                        <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500 dark:border-purple-600 transition-colors duration-300">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Important Note</h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-300">Only individual taxpayers eligible (not HUF, companies, etc.)</p>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-white rounded-xl p-6 shadow-md">
-                      <h3 className="text-xl font-bold text-gray-800 mb-4">📊 Calculation Examples</h3>
+                    <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">📊 Calculation Examples</h3>
                       <div className="space-y-4">
-                        <div className="p-4 bg-gray-50 rounded-lg">
-                          <h4 className="font-semibold text-gray-800 mb-2">Example 1: Income ₹4,50,000</h4>
-                          <div className="text-sm space-y-1">
+                        <div className="p-4 bg-gray-50 dark:bg-gray-600 rounded-lg transition-colors duration-300">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Example 1: Income ₹4,50,000</h4>
+                          <div className="text-sm space-y-1 text-gray-700 dark:text-gray-300">
                             <div className="flex justify-between">
                               <span>Gross Income:</span>
                               <span>₹4,50,000</span>
@@ -141,18 +141,18 @@ export default function Section87ARebates() {
                             </div>
                             <div className="flex justify-between">
                               <span>87A Rebate:</span>
-                              <span className="text-green-600">-₹6,250</span>
+                              <span className="text-green-600 dark:text-green-400">-₹6,250</span>
                             </div>
-                            <div className="flex justify-between border-t pt-1 font-semibold">
+                            <div className="flex justify-between border-t dark:border-gray-500 pt-1 font-semibold">
                               <span>Final Tax:</span>
-                              <span className="text-green-600">₹0</span>
+                              <span className="text-green-600 dark:text-green-400">₹0</span>
                             </div>
                           </div>
                         </div>
-                        
-                        <div className="p-4 bg-gray-50 rounded-lg">
-                          <h4 className="font-semibold text-gray-800 mb-2">Example 2: Income ₹10,00,000 (FY 2025-26)</h4>
-                          <div className="text-sm space-y-1">
+
+                        <div className="p-4 bg-gray-50 dark:bg-gray-600 rounded-lg transition-colors duration-300">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Example 2: Income ₹10,00,000 (FY 2025-26)</h4>
+                          <div className="text-sm space-y-1 text-gray-700 dark:text-gray-300">
                             <div className="flex justify-between">
                               <span>Gross Income:</span>
                               <span>₹10,00,000</span>
@@ -171,19 +171,19 @@ export default function Section87ARebates() {
                             </div>
                             <div className="flex justify-between">
                               <span>87A Rebate (FY 2025-26):</span>
-                              <span className="text-green-600">-₹52,500</span>
+                              <span className="text-green-600 dark:text-green-400">-₹52,500</span>
                             </div>
-                            <div className="flex justify-between border-t pt-1 font-semibold">
+                            <div className="flex justify-between border-t dark:border-gray-500 pt-1 font-semibold">
                               <span>Final Tax:</span>
-                              <span className="text-green-600">₹0</span>
+                              <span className="text-green-600 dark:text-green-400">₹0</span>
                             </div>
                             <p className="text-xs text-green-600 mt-2">Complete rebate as income ≤ ₹12L (FY 2025-26)</p>
                           </div>
                         </div>
                         
-                        <div className="p-4 bg-gray-50 rounded-lg">
-                          <h4 className="font-semibold text-gray-800 mb-2">Example 3: Income ₹12,25,000 (Marginal Relief)</h4>
-                          <div className="text-sm space-y-1">
+                        <div className="p-4 bg-gray-50 dark:bg-gray-600 rounded-lg transition-colors duration-300">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Example 3: Income ₹12,25,000 (Marginal Relief)</h4>
+                          <div className="text-sm space-y-1 text-gray-700 dark:text-gray-300">
                             <div className="flex justify-between">
                               <span>Taxable Income:</span>
                               <span>₹11,50,000</span>
@@ -198,25 +198,25 @@ export default function Section87ARebates() {
                             </div>
                             <div className="flex justify-between">
                               <span>87A Rebate:</span>
-                              <span className="text-green-600">-₹42,500</span>
+                              <span className="text-green-600 dark:text-green-400">-₹42,500</span>
                             </div>
-                            <div className="flex justify-between border-t pt-1 font-semibold">
+                            <div className="flex justify-between border-t dark:border-gray-500 pt-1 font-semibold">
                               <span>Final Tax (= Excess):</span>
-                              <span className="text-orange-600">₹25,000</span>
+                              <span className="text-orange-600 dark:text-orange-400">₹25,000</span>
                             </div>
-                            <p className="text-xs text-orange-600 mt-2">Marginal relief: Tax = excess above ₹12L</p>
+                            <p className="text-xs text-orange-600 dark:text-orange-400 mt-2">Marginal relief: Tax = excess above ₹12L</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="mt-8 bg-white rounded-xl p-6 shadow-md">
-                    <h3 className="text-xl font-bold text-gray-800 mb-6">⚖️ Old vs New Tax Regime - Section 87A Comparison</h3>
-                    
+                  <div className="mt-8 bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6">⚖️ Old vs New Tax Regime - Section 87A Comparison</h3>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
-                        <h4 className="font-semibold text-gray-800 mb-3">🏛️ Old Tax Regime</h4>
+                      <div className="p-4 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg border border-blue-200 dark:border-blue-700 transition-colors duration-300">
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-3">🏛️ Old Tax Regime</h4>
                         <div className="space-y-2 text-sm">
                           <div className="flex justify-between">
                             <span>Income Limit:</span>
@@ -237,26 +237,26 @@ export default function Section87ARebates() {
                         </div>
                       </div>
                       
-                      <div className="p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-200">
-                        <h4 className="font-semibold text-gray-800 mb-3">🆕 New Tax Regime</h4>
-                        <div className="space-y-2 text-sm">
+                      <div className="p-4 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-lg border border-green-200 dark:border-green-700 transition-colors duration-300">
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-3">🆕 New Tax Regime</h4>
+                        <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                           <div className="flex justify-between">
                             <span>FY 2024-25 Limit:</span>
                             <span className="font-medium">₹7,00,000</span>
                           </div>
                           <div className="flex justify-between">
                             <span>FY 2025-26 Limit:</span>
-                            <span className="font-medium text-green-600">₹12,00,000</span>
+                            <span className="font-medium text-green-600 dark:text-green-400">₹12,00,000</span>
                           </div>
                           <div className="flex justify-between">
                             <span>Enhanced Rebate:</span>
-                            <span className="font-medium text-purple-600">₹60,000</span>
+                            <span className="font-medium text-purple-600 dark:text-purple-400">₹60,000</span>
                           </div>
                           <div className="flex justify-between">
                             <span>Zero Tax Income:</span>
-                            <span className="font-medium text-green-600">Up to ₹12L</span>
+                            <span className="font-medium text-green-600 dark:text-green-400">Up to ₹12L</span>
                           </div>
-                          <p className="text-xs text-green-600 mt-2">
+                          <p className="text-xs text-green-600 dark:text-green-400 mt-2">
                             • Revolutionary 71% increase in rebate limit (₹7L → ₹12L)
                             <br />• Marginal relief available beyond ₹12L
                             <br />• Massive benefit for middle-class taxpayers
@@ -267,9 +267,9 @@ export default function Section87ARebates() {
                     </div>
                   </div>
                   
-                  <div className="mt-8 bg-yellow-50 rounded-xl p-6 border border-yellow-200">
-                    <h3 className="text-lg font-bold text-yellow-800 mb-3">💡 Key Points to Remember</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700">
+                  <div className="mt-8 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-700 transition-colors duration-300">
+                    <h3 className="text-lg font-bold text-yellow-800 dark:text-yellow-300 mb-3">💡 Key Points to Remember</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700 dark:text-yellow-400">
                       <div>• Rebate applies only to individuals, not HUF or companies</div>
                       <div>• Total income includes salary, house property, business income</div>
                       <div>• Rebate calculated on total income after all deductions</div>
@@ -279,21 +279,21 @@ export default function Section87ARebates() {
                     </div>
                   </div>
                   
-                  <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-200">
-                    <h3 className="text-lg font-bold text-blue-800 mb-3">📋 How to Claim Section 87A Rebate</h3>
+                  <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-700 transition-colors duration-300">
+                    <h3 className="text-lg font-bold text-blue-800 dark:text-blue-200 mb-3">📋 How to Claim Section 87A Rebate</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div className="bg-white p-4 rounded-lg">
-                        <h4 className="font-semibold text-gray-800 mb-2">Salaried Employees</h4>
-                        <div className="space-y-2 text-sm text-gray-600">
+                      <div className="bg-white dark:bg-gray-700 p-4 rounded-lg transition-colors duration-300">
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Salaried Employees</h4>
+                        <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                           <div>1. Employer automatically calculates during salary processing</div>
                           <div>2. Reflects in Form 16 issued by employer</div>
                           <div>3. No separate application required</div>
                           <div>4. Verify in salary slips and Form 16</div>
                         </div>
                       </div>
-                      <div className="bg-white p-4 rounded-lg">
-                        <h4 className="font-semibold text-gray-800 mb-2">Self-Employed/Business</h4>
-                        <div className="space-y-2 text-sm text-gray-600">
+                      <div className="bg-white dark:bg-gray-700 p-4 rounded-lg transition-colors duration-300">
+                        <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Self-Employed/Business</h4>
+                        <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                           <div>1. Calculate total income for the year</div>
                           <div>2. Apply rebate if income ≤ ₹5L (old) or ₹7L (new)</div>
                           <div>3. Claim while filing ITR</div>

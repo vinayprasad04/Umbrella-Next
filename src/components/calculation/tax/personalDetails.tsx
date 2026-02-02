@@ -16,11 +16,11 @@ interface PersonalDetailsProps {
 
 const PersonalDetails: React.FC<PersonalDetailsProps> = ({assessmentYear, setAssessmentYear, entityType, age, setAge, gender, setGender, residentialStatus, setResidentialStatus}) => {
     return(
-        <div className="bg-blue-50 rounded-2xl p-6 border border-blue-200">
+        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-6 border border-blue-200 dark:border-blue-800">
             <h3 className="text-lg font-bold text-blue-800 mb-4">Personal Details</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div className="md:col-span-2">
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         Assessment Year
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -49,7 +49,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({assessmentYear, setAss
                         </div>
                     </label>
                     <select
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm font-medium"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm font-medium transition-colors duration-300"
                         value={assessmentYear}
                         onChange={(e) => setAssessmentYear(e.target.value)}
                     >
@@ -66,7 +66,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({assessmentYear, setAss
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {(entityType === 'individual' || entityType === 'huf') && (
                     <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                             Age
                             <div className="group relative inline-block ml-1">
                                 <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -96,8 +96,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({assessmentYear, setAss
                         </label>
                         <input
                             type="number"
-                            placeholder="e.g., 30"
-                            className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                            className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                             value={age}
                             onChange={(e) => setAge(e.target.value)}
                         />
@@ -110,7 +109,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({assessmentYear, setAss
                 )}
                 {(entityType === 'individual' || entityType === 'huf') && (
                     <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                             Gender
                             <div className="group relative inline-block ml-1">
                                 <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -138,7 +137,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({assessmentYear, setAss
                             </div>
                         </label>
                         <select
-                            className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                            className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                             value={gender}
                             onChange={(e) => setGender(e.target.value)}
                         >
@@ -152,7 +151,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({assessmentYear, setAss
                     </div>
                 )}
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         Residential Status
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-blue-100 text-blue-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -178,7 +177,7 @@ const PersonalDetails: React.FC<PersonalDetailsProps> = ({assessmentYear, setAss
                         </div>
                     </label>
                     <select
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={residentialStatus}
                         onChange={(e) => setResidentialStatus(e.target.value)}
                     >

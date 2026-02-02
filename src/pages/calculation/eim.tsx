@@ -192,20 +192,20 @@ export default function EIM() {
         </script>
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-indigo-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-indigo-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-full blur-3xl"></div>
             </div>
 
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full border border-indigo-200 mb-3 md:mb-4 lg:mb-6">
-                <span className="text-sm font-semibold text-indigo-600">📈 EIM Calculator</span>
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-full border border-indigo-200 dark:border-indigo-700 mb-3 md:mb-4 lg:mb-6 transition-colors duration-300">
+                <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">📈 EIM Calculator</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
@@ -213,77 +213,77 @@ export default function EIM() {
                   Equity Investment
                 </span>
                 <br />
-                <span className="text-gray-800">Management</span>
+                <span className="text-gray-800 dark:text-gray-100">Management</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
-                Plan your retirement with our Equity Investment Management calculator. 
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6 transition-colors duration-300">
+                Plan your retirement with our Equity Investment Management calculator.
                 Calculate how much you need to invest to maintain your lifestyle after retirement.
               </p>
-              
+
               <div className="grid grid-cols-3 gap-3 md:gap-5 lg:gap-8 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Retirement</div>
-                  <div className="text-xs md:text-sm text-gray-600">Planning</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1">Retirement</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Planning</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Inflation</div>
-                  <div className="text-xs md:text-sm text-gray-600">Protected</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1">Inflation</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Protected</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Wealth</div>
-                  <div className="text-xs md:text-sm text-gray-600">Creation</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1">Wealth</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Creation</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Calculator Section */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                   {/* Input Form */}
-                  <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl border border-gray-100">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                  <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-800/80 rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">
                       Plan Your Retirement
                     </h2>
                     
                     <div className="space-y-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Current Monthly Income (₹)
                         </label>
                         <input
                           type="number"
                           placeholder="e.g., 50000"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 dark:placeholder-gray-400 transition-all duration-300 text-lg"
                           value={monthlyIncome}
                           onChange={(e) => setMonthlyIncome(e.target.value)}
                         />
                       </div>
-                      
+
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Current Age (Years)
                         </label>
                         <input
                           type="number"
                           placeholder="e.g., 30"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 dark:placeholder-gray-400 transition-all duration-300 text-lg"
                           value={currentAge}
                           onChange={(e) => setCurrentAge(e.target.value)}
                         />
                       </div>
-                      
+
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Retirement Age (Years)
                         </label>
                         <input
                           type="number"
                           placeholder="60"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 dark:placeholder-gray-400 transition-all duration-300 text-lg"
                           value={retirementAge}
                           onChange={(e) => setRetirementAge(e.target.value)}
                         />
@@ -295,7 +295,7 @@ export default function EIM() {
                               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                                 retirementAge === age
                                   ? 'bg-[#FF6B2C] text-white'
-                                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                               }`}
                             >
                               {age}Y
@@ -305,13 +305,13 @@ export default function EIM() {
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Current Savings/Investments (₹)
                         </label>
                         <input
                           type="number"
                           placeholder="0"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 dark:placeholder-gray-400 transition-all duration-300 text-lg"
                           value={currentSavings}
                           onChange={(e) => setCurrentSavings(e.target.value)}
                         />
@@ -323,27 +323,27 @@ export default function EIM() {
                               className={`px-3 py-2 rounded-lg text-xs font-medium transition-all duration-300 ${
                                 currentSavings === amount
                                   ? 'bg-[#FF6B2C] text-white'
-                                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                               }`}
                             >
                               {amount === '0' ? '₹0' : `₹${(parseInt(amount) / 100000).toFixed(0)}L`}
                             </button>
                           ))}
                         </div>
-                        <p className="text-xs text-gray-500 mt-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
                           💡 Include your existing FD, PPF, mutual funds, stocks, etc.
                         </p>
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Expected Inflation Rate (%)
                         </label>
                         <input
                           type="number"
                           step="0.1"
                           placeholder="6"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 dark:placeholder-gray-400 transition-all duration-300 text-lg"
                           value={inflationRate}
                           onChange={(e) => setInflationRate(e.target.value)}
                         />
@@ -355,7 +355,7 @@ export default function EIM() {
                               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                                 inflationRate === rate
                                   ? 'bg-[#FF6B2C] text-white'
-                                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                               }`}
                             >
                               {rate}%
@@ -363,16 +363,16 @@ export default function EIM() {
                           ))}
                         </div>
                       </div>
-                      
+
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Expected Annual Return (%)
                         </label>
                         <input
                           type="number"
                           step="0.1"
                           placeholder="12"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 dark:placeholder-gray-400 transition-all duration-300 text-lg"
                           value={returnRate}
                           onChange={(e) => setReturnRate(e.target.value)}
                         />
@@ -384,7 +384,7 @@ export default function EIM() {
                               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                                 returnRate === rate
                                   ? 'bg-[#FF6B2C] text-white'
-                                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                               }`}
                             >
                               {rate}%
@@ -406,98 +406,98 @@ export default function EIM() {
                   </div>
                   
                   {/* Results */}
-                  <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-3xl p-8 border border-[#FF6B2C]/20">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                  <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 dark:from-[#FF6B2C]/20 dark:to-[#FF8A50]/20 rounded-3xl p-8 border border-[#FF6B2C]/20 dark:border-[#FF6B2C]/30 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">
                       Retirement Plan Summary
                     </h3>
-                    
+
                     {result ? (
                       <div className="space-y-6">
-                        <div className="bg-white/80 rounded-2xl p-6 shadow-lg">
+                        <div className="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-6 shadow-lg transition-colors duration-300">
                           <div className="text-center">
-                            <div className="text-sm text-gray-600 mb-2">Monthly Investment Needed</div>
+                            <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">Monthly Investment Needed</div>
                             <div className="text-4xl font-bold text-[#FF6B2C] mb-2">
                               ₹{result.adjustedMonthlyInvestment.toLocaleString()}
                             </div>
                             {parseFloat(currentSavings) > 0 && (
-                              <div className="text-xs text-green-600">
+                              <div className="text-xs text-green-600 dark:text-green-400">
                                 💡 Reduced from ₹{result.monthlyInvestment.toLocaleString()} due to current savings!
                               </div>
                             )}
                           </div>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 gap-4">
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Years to Retirement</div>
-                            <div className="text-xl font-bold text-gray-800">
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Years to Retirement</div>
+                            <div className="text-xl font-bold text-gray-800 dark:text-gray-100">
                               {result.yearsToRetirement} years
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Required Corpus</div>
-                            <div className="text-xl font-bold text-green-600">
+
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Required Corpus</div>
+                            <div className="text-xl font-bold text-green-600 dark:text-green-400">
                               ₹{result.requiredCorpus.toLocaleString()}
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Total Investment</div>
-                            <div className="text-xl font-bold text-blue-600">
+
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Total Investment</div>
+                            <div className="text-xl font-bold text-blue-600 dark:text-blue-400">
                               ₹{result.totalInvestment.toLocaleString()}
                             </div>
                           </div>
-                          
+
                           {parseFloat(currentSavings) > 0 && (
-                            <div className="bg-white/60 rounded-xl p-4">
-                              <div className="text-sm text-gray-600">Current Savings Growth</div>
-                              <div className="text-xl font-bold text-teal-600">
+                            <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                              <div className="text-sm text-gray-600 dark:text-gray-400">Current Savings Growth</div>
+                              <div className="text-xl font-bold text-teal-600 dark:text-teal-400">
                                 ₹{result.currentSavingsGrowth.toLocaleString()}
                               </div>
-                              <div className="text-xs text-gray-500 mt-1">
+                              <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                                 From ₹{parseFloat(currentSavings).toLocaleString()} today
                               </div>
                             </div>
                           )}
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Post-Retirement Income</div>
-                            <div className="text-xl font-bold text-purple-600">
+
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Post-Retirement Income</div>
+                            <div className="text-xl font-bold text-purple-600 dark:text-purple-400">
                               ₹{result.postRetirementIncome.toLocaleString()}/month
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Portfolio Value at Retirement</div>
-                            <div className="text-xl font-bold text-indigo-600">
+
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Portfolio Value at Retirement</div>
+                            <div className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
                               ₹{result.futureValue.toLocaleString()}
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Net Gains from Investment</div>
-                            <div className="text-xl font-bold text-emerald-600">
+
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Net Gains from Investment</div>
+                            <div className="text-xl font-bold text-emerald-600 dark:text-emerald-400">
                               ₹{result.netGains.toLocaleString()}
                             </div>
                           </div>
                         </div>
                         
-                        <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl p-4 border border-emerald-200">
+                        <div className="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/30 dark:to-green-900/30 rounded-xl p-4 border border-emerald-200 dark:border-emerald-700 transition-colors duration-300">
                           <div className="text-center">
-                            <div className="text-sm text-emerald-700 font-medium mb-1">Return on Investment</div>
-                            <div className="text-2xl font-bold text-emerald-700">
+                            <div className="text-sm text-emerald-700 dark:text-emerald-400 font-medium mb-1">Return on Investment</div>
+                            <div className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">
                               {(result.totalInvestment + parseFloat(currentSavings)) > 0 ? ((result.netGains / (result.totalInvestment + parseFloat(currentSavings))) * 100).toFixed(1) : 0}%
                             </div>
-                            <div className="text-xs text-emerald-600 mt-1">
+                            <div className="text-xs text-emerald-600 dark:text-emerald-500 mt-1">
                               Total returns over {result.yearsToRetirement} years
                             </div>
                           </div>
                         </div>
-                        
-                        <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
-                          <h4 className="font-semibold text-blue-800 mb-2">💡 Key Assumptions:</h4>
-                          <ul className="text-xs text-blue-700 space-y-1">
+
+                        <div className="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-4 border border-blue-200 dark:border-blue-700 transition-colors duration-300">
+                          <h4 className="font-semibold text-blue-800 dark:text-blue-300 mb-2">💡 Key Assumptions:</h4>
+                          <ul className="text-xs text-blue-700 dark:text-blue-400 space-y-1">
                             <li>• Uses the 4% withdrawal rule (25x annual income)</li>
                             <li>• Assumes {inflationRate}% annual inflation</li>
                             <li>• Expects {returnRate}% annual returns from equity</li>
@@ -507,7 +507,7 @@ export default function EIM() {
                             )}
                           </ul>
                         </div>
-                        
+
                         <div className="text-center pt-4">
                           <button
                             onClick={handleGetStarted}
@@ -519,12 +519,12 @@ export default function EIM() {
                       </div>
                     ) : (
                       <div className="text-center py-12">
-                        <div className="w-20 h-20 bg-gradient-to-r from-gray-200 to-gray-300 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                          <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-20 h-20 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+                          <svg className="w-10 h-10 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                           </svg>
                         </div>
-                        <p className="text-gray-500 text-lg">
+                        <p className="text-gray-500 dark:text-gray-400 text-lg">
                           Enter your details to see your retirement plan
                         </p>
                       </div>
@@ -536,17 +536,17 @@ export default function EIM() {
           </section>
 
           {/* How It Works */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">How </span>
+                  <span className="text-gray-800 dark:text-gray-100">How </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     EIM Works
                   </span>
                 </h2>
 
-                <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   Strategic equity investment management for a secure retirement future
                 </p>
               </div>
@@ -584,12 +584,12 @@ export default function EIM() {
                         {item.step}
                       </div>
                     </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">
                       {item.title}
                     </h3>
-                    
-                    <p className="text-gray-600 leading-relaxed">
+
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

@@ -10,7 +10,7 @@ interface DashboardLayoutProps {
 
 const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, currentPage }) => {
   return (
-    <div className="flex flex-col min-h-screen bg-[#fafbfc]">
+    <div className="flex flex-col min-h-screen bg-[#fafbfc] dark:bg-gray-900">
        <Header dashboard={true} />
 
       <main className="flex lg:flex flex-1 w-full gap-0 relative overflow-hidden">

@@ -11,13 +11,13 @@ interface HRADetailsProps {
 
 const HRADetails: React.FC<HRADetailsProps> = ({cityType, setCityType, setShowCityListModal, rentPaid, setRentPaid}) => {
     return(
-        <div className="bg-purple-50 rounded-2xl p-6 border border-purple-200">
+        <div className="bg-purple-50 dark:bg-purple-900/20 rounded-2xl p-6 border border-purple-200">
             <h3 className="text-lg font-bold text-purple-800 mb-4">HRA Exemption Details</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">City Type</label>
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">City Type</label>
                     <select
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={cityType}
                         onChange={(e) => setCityType(e.target.value)}
                     >
@@ -38,11 +38,10 @@ const HRADetails: React.FC<HRADetailsProps> = ({cityType, setCityType, setShowCi
                     </div>
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Annual Rent Paid (₹)</label>
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Annual Rent Paid (₹)</label>
                     <input
                         type="number"
-                        placeholder="e.g., 240000"
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={rentPaid}
                         onChange={(e) => setRentPaid(e.target.value)}
                     />

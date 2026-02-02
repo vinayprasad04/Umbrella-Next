@@ -26,31 +26,31 @@ export default function OldVsNewRegime() {
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-16 bg-gradient-to-br from-slate-50 via-white to-gray-50 overflow-hidden">
+          <section className="relative py-16 bg-gradient-to-br from-slate-50 via-white to-gray-50 dark:from-slate-900/20 dark:via-gray-900 dark:to-gray-800/20 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-10 left-10 w-48 h-48 bg-gradient-to-r from-slate-400/10 to-gray-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 right-10 w-64 h-64 bg-gradient-to-r from-indigo-400/10 to-slate-400/10 rounded-full blur-3xl"></div>
             </div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-slate-50 to-gray-50 rounded-full border border-slate-200 mb-6">
-                <span className="text-sm font-semibold text-slate-600">⚖️ Tax Regime Comparison</span>
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-900/30 dark:to-gray-800/30 rounded-full border border-slate-200 dark:border-slate-700 mb-6 transition-colors duration-300">
+                <span className="text-sm font-semibold text-slate-600 dark:text-slate-400 transition-colors duration-300">⚖️ Tax Regime Comparison</span>
               </div>
-              
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight transition-colors duration-300">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Old vs New Tax Regime
                 </span>
                 <br />
-                <span className="text-gray-800">FY 2025-26 Revolution</span>
+                <span className="text-gray-800 dark:text-gray-100 transition-colors duration-300">FY 2025-26 Revolution</span>
               </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-8">
+
+              <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-8 transition-colors duration-300">
                 Revolutionary update for FY 2025-26! New regime now offers complete tax exemption up to ₹12 lakh with ₹60,000 rebate. Compare regimes with updated examples.
               </p>
               
@@ -63,7 +63,7 @@ export default function OldVsNewRegime() {
                 </button>
                 <button
                   onClick={() => router.push('/tax-planning')}
-                  className="bg-gray-100 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-300"
+                  className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-xl font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
                 >
                   View All Tax Tips
                 </button>
@@ -72,11 +72,11 @@ export default function OldVsNewRegime() {
           </section>
 
           {/* Entity Type Selection */}
-          <section className="py-8 bg-gray-50">
+          <section className="py-8 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">🏢 Select Your Entity Type</h2>
-                <p className="text-gray-600">Different entities have different tax rules and regime options</p>
+                <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🏢 Select Your Entity Type</h2>
+                <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Different entities have different tax rules and regime options</p>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                 {[
@@ -90,18 +90,18 @@ export default function OldVsNewRegime() {
                     onClick={() => setEntityType(entity.id)}
                     className={`p-4 rounded-xl border-2 transition-all duration-200 ${
                       entityType === entity.id
-                        ? 'border-[#FF6B2C] bg-orange-50 shadow-md'
-                        : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'
+                        ? 'border-[#FF6B2C] bg-orange-50 dark:bg-orange-900/20 shadow-md'
+                        : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-sm'
                     }`}
                   >
                     <div className="text-center">
                       <div className="text-2xl mb-2">{entity.icon}</div>
-                      <div className={`font-semibold text-sm ${
-                        entityType === entity.id ? 'text-[#FF6B2C]' : 'text-gray-700'
+                      <div className={`font-semibold text-sm transition-colors duration-300 ${
+                        entityType === entity.id ? 'text-[#FF6B2C]' : 'text-gray-700 dark:text-gray-300'
                       }`}>
                         {entity.label}
                       </div>
-                      <div className="text-xs text-gray-500 mt-1">{entity.description}</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1 transition-colors duration-300">{entity.description}</div>
                     </div>
                   </button>
                 ))}
@@ -110,18 +110,18 @@ export default function OldVsNewRegime() {
           </section>
 
           {/* Main Content */}
-          <section className="py-16 bg-white">
+          <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="space-y-8">
                 {/* Tax Rates Comparison */}
-                <div className="bg-gradient-to-r from-slate-50 to-gray-50 rounded-2xl p-8 border border-slate-200">
-                  <h2 className="text-3xl font-bold text-slate-800 mb-4 flex items-center gap-3">
+                <div className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-900/20 dark:to-gray-800/20 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 transition-colors duration-300">
+                  <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-3 transition-colors duration-300">
                     ⚖️ {entityType === 'individual' ? 'Personal Tax Rates Comparison' :
                          entityType === 'huf' ? 'HUF Tax Rates Comparison' :
                          entityType === 'firm' ? 'Partnership Firm Tax Structure' :
                          'Corporate Tax Structure'}
                   </h2>
-                  <p className="text-lg text-slate-700 mb-6">
+                  <p className="text-lg text-slate-700 dark:text-slate-300 mb-6 transition-colors duration-300">
                     {entityType === 'individual' || entityType === 'huf' ? 
                       'Compare income tax slabs and rates between old and new tax regimes for FY 2025-26 with revolutionary Section 87A benefits.' :
                       entityType === 'firm' ? 
@@ -131,11 +131,11 @@ export default function OldVsNewRegime() {
 
                   {/* Warning for Firm/Company */}
                   {(entityType === 'firm' || entityType === 'company') && (
-                    <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
+                    <div className="bg-yellow-100 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-600 p-4 mb-6 rounded-r-lg transition-colors duration-300">
                       <div className="flex items-center gap-2 mb-2">
-                        <span className="text-yellow-600 font-semibold">⚠️ Important:</span>
+                        <span className="text-yellow-600 dark:text-yellow-400 font-semibold transition-colors duration-300">⚠️ Important:</span>
                       </div>
-                      <p className="text-yellow-800">
+                      <p className="text-yellow-800 dark:text-yellow-300 transition-colors duration-300">
                         {entityType === 'firm' ? 
                           'Partnership firms do not have old vs new regime choice. They follow a flat 30% tax structure.' :
                           'Companies do not have old vs new regime choice. Corporate tax rates are based on turnover and company type.'}
@@ -146,30 +146,30 @@ export default function OldVsNewRegime() {
                   {/* Individual/HUF Tax Slabs */}
                   {(entityType === 'individual' || entityType === 'huf') && (
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-blue-500">
-                      <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border-l-4 border-blue-500 dark:border-blue-600 transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">
                         🏛️ {entityType === 'individual' ? 'Old Tax Regime' : 'HUF Tax Structure (Old Regime)'}
                       </h3>
                       <div className="space-y-3">
-                        <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                          <span className="font-medium">Up to ₹2.5 lakh</span>
-                          <span className="font-bold text-green-600">0%</span>
+                        <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg transition-colors duration-300">
+                          <span className="font-medium text-gray-800 dark:text-gray-200 transition-colors duration-300">Up to ₹2.5 lakh</span>
+                          <span className="font-bold text-green-600 dark:text-green-400 transition-colors duration-300">0%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                          <span className="font-medium">₹2.5L - ₹5L</span>
-                          <span className="font-bold text-yellow-600">5%</span>
+                        <div className="flex justify-between items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg transition-colors duration-300">
+                          <span className="font-medium text-gray-800 dark:text-gray-200 transition-colors duration-300">₹2.5L - ₹5L</span>
+                          <span className="font-bold text-yellow-600 dark:text-yellow-400 transition-colors duration-300">5%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
-                          <span className="font-medium">₹5L - ₹10L</span>
-                          <span className="font-bold text-orange-600">20%</span>
+                        <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg transition-colors duration-300">
+                          <span className="font-medium text-gray-800 dark:text-gray-200 transition-colors duration-300">₹5L - ₹10L</span>
+                          <span className="font-bold text-orange-600 dark:text-orange-400 transition-colors duration-300">20%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
-                          <span className="font-medium">Above ₹10L</span>
-                          <span className="font-bold text-red-600">30%</span>
+                        <div className="flex justify-between items-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg transition-colors duration-300">
+                          <span className="font-medium text-gray-800 dark:text-gray-200 transition-colors duration-300">Above ₹10L</span>
+                          <span className="font-bold text-red-600 dark:text-red-400 transition-colors duration-300">30%</span>
                         </div>
-                        <div className="mt-4 p-3 bg-green-50 rounded-lg">
-                          <h4 className="font-semibold text-gray-800 mb-2">Available Deductions</h4>
-                          <div className="text-sm text-green-700 space-y-1">
+                        <div className="mt-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg transition-colors duration-300">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2 transition-colors duration-300">Available Deductions</h4>
+                          <div className="text-sm text-green-700 dark:text-green-400 space-y-1 transition-colors duration-300">
                             <div>• Section 80C: ₹1.5 lakh</div>
                             <div>• Section 80D: ₹25,000-₹50,000</div>
                             <div>• HRA, LTA, and other allowances</div>
@@ -178,37 +178,38 @@ export default function OldVsNewRegime() {
                         </div>
                       </div>
                     </div>
-                    
-                    <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-green-500">
-                      <h3 className="text-xl font-bold text-gray-800 mb-4">🆕 New Tax Regime</h3>
+
+
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border-l-4 border-green-500 dark:border-green-600 transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🆕 New Tax Regime</h3>
                       <div className="space-y-3">
-                        <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                          <span className="font-medium">Up to ₹3 lakh</span>
-                          <span className="font-bold text-green-600">0%</span>
+                        <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg transition-colors duration-300">
+                          <span className="font-medium text-gray-800 dark:text-gray-200 transition-colors duration-300">Up to ₹3 lakh</span>
+                          <span className="font-bold text-green-600 dark:text-green-400 transition-colors duration-300">0%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                          <span className="font-medium">₹3L - ₹6L</span>
-                          <span className="font-bold text-blue-600">5%</span>
+                        <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg transition-colors duration-300">
+                          <span className="font-medium text-gray-800 dark:text-gray-200 transition-colors duration-300">₹3L - ₹6L</span>
+                          <span className="font-bold text-blue-600 dark:text-blue-400 transition-colors duration-300">5%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                          <span className="font-medium">₹6L - ₹9L</span>
-                          <span className="font-bold text-purple-600">10%</span>
+                        <div className="flex justify-between items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg transition-colors duration-300">
+                          <span className="font-medium text-gray-800 dark:text-gray-200 transition-colors duration-300">₹6L - ₹9L</span>
+                          <span className="font-bold text-purple-600 dark:text-purple-400 transition-colors duration-300">10%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                          <span className="font-medium">₹9L - ₹12L</span>
-                          <span className="font-bold text-yellow-600">15%</span>
+                        <div className="flex justify-between items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg transition-colors duration-300">
+                          <span className="font-medium text-gray-800 dark:text-gray-200 transition-colors duration-300">₹9L - ₹12L</span>
+                          <span className="font-bold text-yellow-600 dark:text-yellow-400 transition-colors duration-300">15%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
-                          <span className="font-medium">₹12L - ₹15L</span>
-                          <span className="font-bold text-orange-600">20%</span>
+                        <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg transition-colors duration-300">
+                          <span className="font-medium text-gray-800 dark:text-gray-200 transition-colors duration-300">₹12L - ₹15L</span>
+                          <span className="font-bold text-orange-600 dark:text-orange-400 transition-colors duration-300">20%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
-                          <span className="font-medium">Above ₹15L</span>
-                          <span className="font-bold text-red-600">30%</span>
+                        <div className="flex justify-between items-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg transition-colors duration-300">
+                          <span className="font-medium text-gray-800 dark:text-gray-200 transition-colors duration-300">Above ₹15L</span>
+                          <span className="font-bold text-red-600 dark:text-red-400 transition-colors duration-300">30%</span>
                         </div>
-                        <div className="mt-4 p-3 bg-green-50 rounded-lg">
-                          <h4 className="font-semibold text-gray-800 mb-2">FY 2025-26 Revolutionary Benefits</h4>
-                          <div className="text-sm text-green-700 space-y-1">
+                        <div className="mt-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg transition-colors duration-300">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2 transition-colors duration-300">FY 2025-26 Revolutionary Benefits</h4>
+                          <div className="text-sm text-green-700 dark:text-green-400 space-y-1 transition-colors duration-300">
                             <div>• Standard deduction: ₹75,000</div>
                             <div>• NPS employer contribution: ₹50,000</div>
                             <div>🎉 <strong>Section 87A: ₹60,000 rebate up to ₹12L income</strong></div>
@@ -223,24 +224,24 @@ export default function OldVsNewRegime() {
                   {/* Partnership Firm Tax Structure */}
                   {entityType === 'firm' && (
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-purple-500">
-                      <h3 className="text-xl font-bold text-gray-800 mb-4">🤝 Partnership Firm Tax Structure</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border-l-4 border-purple-500">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">🤝 Partnership Firm Tax Structure</h3>
                       <div className="space-y-3">
-                        <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                          <span className="font-medium">Tax Rate on All Income</span>
-                          <span className="font-bold text-purple-600">30%</span>
+                        <div className="flex justify-between items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                          <span className="font-medium text-gray-700 dark:text-gray-300">Tax Rate on All Income</span>
+                          <span className="font-bold text-purple-600 dark:text-purple-400">30%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
-                          <span className="font-medium">Health & Education Cess</span>
-                          <span className="font-bold text-red-600">4%</span>
+                        <div className="flex justify-between items-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                          <span className="font-medium text-gray-700 dark:text-gray-300">Health & Education Cess</span>
+                          <span className="font-bold text-red-600 dark:text-red-400">4%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
-                          <span className="font-medium">Total Effective Rate</span>
-                          <span className="font-bold text-orange-600">31.2%</span>
+                        <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                          <span className="font-medium text-gray-700 dark:text-gray-300">Total Effective Rate</span>
+                          <span className="font-bold text-orange-600 dark:text-orange-400">31.2%</span>
                         </div>
-                        <div className="mt-4 p-3 bg-purple-50 rounded-lg">
-                          <h4 className="font-semibold text-gray-800 mb-2">Key Features</h4>
-                          <div className="text-sm text-purple-700 space-y-1">
+                        <div className="mt-4 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Key Features</h4>
+                          <div className="text-sm text-purple-700 dark:text-purple-300 space-y-1">
                             <div>• No basic exemption - tax from ₹1</div>
                             <div>• Partner remuneration allowed</div>
                             <div>• Interest on capital (max 12%)</div>
@@ -251,21 +252,21 @@ export default function OldVsNewRegime() {
                       </div>
                     </div>
                     
-                    <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-gray-500">
-                      <h3 className="text-xl font-bold text-gray-800 mb-4">👥 Partner Taxation</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border-l-4 border-gray-500">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">👥 Partner Taxation</h3>
                       <div className="space-y-3">
-                        <div className="p-3 bg-blue-50 rounded-lg">
-                          <h4 className="font-semibold text-blue-800 mb-2">Individual Partner Tax</h4>
-                          <div className="text-sm text-blue-700 space-y-1">
+                        <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">Individual Partner Tax</h4>
+                          <div className="text-sm text-blue-700 dark:text-blue-300 space-y-1">
                             <div>• Partners taxed separately on their share</div>
                             <div>• Share of profit is taxable income</div>
                             <div>• Remuneration is also taxable</div>
                             <div>• Can choose old/new regime for personal tax</div>
                           </div>
                         </div>
-                        <div className="p-3 bg-yellow-50 rounded-lg">
-                          <h4 className="font-semibold text-yellow-800 mb-2">Compliance</h4>
-                          <div className="text-sm text-yellow-700 space-y-1">
+                        <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                          <h4 className="font-semibold text-yellow-800 dark:text-yellow-200 mb-2">Compliance</h4>
+                          <div className="text-sm text-yellow-700 dark:text-yellow-300 space-y-1">
                             <div>• Firm files separate return</div>
                             <div>• Partners file individual returns</div>
                             <div>• Advance tax applicable</div>
@@ -280,28 +281,28 @@ export default function OldVsNewRegime() {
                   {/* Company Tax Structure */}
                   {entityType === 'company' && (
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-indigo-500">
-                      <h3 className="text-xl font-bold text-gray-800 mb-4">🏢 Corporate Tax Structure</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border-l-4 border-indigo-500">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">🏢 Corporate Tax Structure</h3>
                       <div className="space-y-3">
-                        <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                          <span className="font-medium">Turnover ≤ ₹400 Crore</span>
-                          <span className="font-bold text-green-600">25%</span>
+                        <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                          <span className="font-medium text-gray-700 dark:text-gray-300">Turnover ≤ ₹400 Crore</span>
+                          <span className="font-bold text-green-600 dark:text-green-400">25%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
-                          <span className="font-medium">Turnover &gt; ₹400 Crore</span>
-                          <span className="font-bold text-orange-600">30%</span>
+                        <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                          <span className="font-medium text-gray-700 dark:text-gray-300">Turnover &gt; ₹400 Crore</span>
+                          <span className="font-bold text-orange-600 dark:text-orange-400">30%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
-                          <span className="font-medium">Health & Education Cess</span>
-                          <span className="font-bold text-red-600">4%</span>
+                        <div className="flex justify-between items-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                          <span className="font-medium text-gray-700 dark:text-gray-300">Health & Education Cess</span>
+                          <span className="font-bold text-red-600 dark:text-red-400">4%</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                          <span className="font-medium">MAT (if applicable)</span>
-                          <span className="font-bold text-purple-600">18.5%</span>
+                        <div className="flex justify-between items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                          <span className="font-medium text-gray-700 dark:text-gray-300">MAT (if applicable)</span>
+                          <span className="font-bold text-purple-600 dark:text-purple-400">18.5%</span>
                         </div>
-                        <div className="mt-4 p-3 bg-indigo-50 rounded-lg">
-                          <h4 className="font-semibold text-gray-800 mb-2">Available Deductions</h4>
-                          <div className="text-sm text-indigo-700 space-y-1">
+                        <div className="mt-4 p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+                          <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Available Deductions</h4>
+                          <div className="text-sm text-indigo-700 dark:text-indigo-300 space-y-1">
                             <div>• Depreciation as per IT rates</div>
                             <div>• CSR expenses (2% of profit)</div>
                             <div>• Operating expenses</div>
@@ -312,21 +313,21 @@ export default function OldVsNewRegime() {
                       </div>
                     </div>
                     
-                    <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-blue-500">
-                      <h3 className="text-xl font-bold text-gray-800 mb-4">📋 Corporate Compliance</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md border-l-4 border-blue-500">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">📋 Corporate Compliance</h3>
                       <div className="space-y-3">
-                        <div className="p-3 bg-blue-50 rounded-lg">
-                          <h4 className="font-semibold text-blue-800 mb-2">Tax Rates Based On:</h4>
-                          <div className="text-sm text-blue-700 space-y-1">
+                        <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">Tax Rates Based On:</h4>
+                          <div className="text-sm text-blue-700 dark:text-blue-300 space-y-1">
                             <div>• Annual turnover threshold</div>
                             <div>• Domestic vs foreign company</div>
                             <div>• New company benefits available</div>
                             <div>• Section 115BAA: 25% for new cos.</div>
                           </div>
                         </div>
-                        <div className="p-3 bg-green-50 rounded-lg">
-                          <h4 className="font-semibold text-green-800 mb-2">Key Benefits</h4>
-                          <div className="text-sm text-green-700 space-y-1">
+                        <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                          <h4 className="font-semibold text-green-800 dark:text-green-200 mb-2">Key Benefits</h4>
+                          <div className="text-sm text-green-700 dark:text-green-300 space-y-1">
                             <div>• Dividend Distribution Tax abolished</div>
                             <div>• Lower rates for manufacturing</div>
                             <div>• Carry forward of losses</div>
@@ -340,8 +341,8 @@ export default function OldVsNewRegime() {
                 </div>
 
                 {/* Detailed Comparison */}
-                <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
+                  <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">
                     📊 {entityType === 'individual' ? 'Side-by-Side Feature Comparison' :
                          entityType === 'huf' ? 'HUF vs Individual Tax Comparison' :
                          entityType === 'firm' ? 'Partnership Firm Tax Details' :
@@ -351,65 +352,65 @@ export default function OldVsNewRegime() {
                   <div className="overflow-x-auto">
                     {/* Individual/HUF Comparison Table */}
                     {(entityType === 'individual' || entityType === 'huf') && (
-                    <table className="w-full border-collapse border border-gray-300">
+                    <table className="w-full border-collapse border border-gray-300 dark:border-gray-600">
                       <thead>
-                        <tr className="bg-gray-50">
-                          <th className="border border-gray-300 p-4 text-left font-semibold">Feature</th>
-                          <th className="border border-gray-300 p-4 text-center font-semibold text-blue-700">
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <th className="border border-gray-300 dark:border-gray-600 p-4 text-left font-semibold">Feature</th>
+                          <th className="border border-gray-300 dark:border-gray-600 p-4 text-center font-semibold text-blue-700 dark:text-blue-300">
                             {entityType === 'individual' ? 'Old Regime' : 'HUF Tax Structure (Old)'}
                           </th>
-                          <th className="border border-gray-300 p-4 text-center font-semibold text-green-700">
+                          <th className="border border-gray-300 dark:border-gray-600 p-4 text-center font-semibold text-green-700 dark:text-green-300">
                             {entityType === 'individual' ? 'New Regime' : 'HUF Tax Structure (New)'}
                           </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td className="border border-gray-300 p-4 font-medium">Tax-free income limit</td>
-                          <td className="border border-gray-300 p-4 text-center">₹2.5 lakh</td>
-                          <td className="border border-gray-300 p-4 text-center text-green-600">₹3 lakh</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Tax-free income limit</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center">₹2.5 lakh</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-green-600 dark:text-green-400">₹3 lakh</td>
                         </tr>
-                        <tr className="bg-gray-50">
-                          <td className="border border-gray-300 p-4 font-medium">Standard deduction</td>
-                          <td className="border border-gray-300 p-4 text-center">₹75,000</td>
-                          <td className="border border-gray-300 p-4 text-center text-green-600">₹75,000</td>
-                        </tr>
-                        <tr>
-                          <td className="border border-gray-300 p-4 font-medium">Section 80C deductions</td>
-                          <td className="border border-gray-300 p-4 text-center text-blue-600">₹1.5 lakh</td>
-                          <td className="border border-gray-300 p-4 text-center text-red-600">Not allowed</td>
-                        </tr>
-                        <tr className="bg-gray-50">
-                          <td className="border border-gray-300 p-4 font-medium">Health insurance (80D)</td>
-                          <td className="border border-gray-300 p-4 text-center text-blue-600">₹25K-₹50K</td>
-                          <td className="border border-gray-300 p-4 text-center text-red-600">Not allowed</td>
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Standard deduction</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center">₹75,000</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-green-600 dark:text-green-400">₹75,000</td>
                         </tr>
                         <tr>
-                          <td className="border border-gray-300 p-4 font-medium">HRA exemption</td>
-                          <td className="border border-gray-300 p-4 text-center text-blue-600">{entityType === 'individual' ? 'Available' : 'N/A for HUF'}</td>
-                          <td className="border border-gray-300 p-4 text-center text-red-600">Not allowed</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Section 80C deductions</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-blue-600 dark:text-blue-400">₹1.5 lakh</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-red-600 dark:text-red-400">Not allowed</td>
                         </tr>
-                        <tr className="bg-gray-50">
-                          <td className="border border-gray-300 p-4 font-medium">87A rebate limit (FY 2025-26)</td>
-                          <td className="border border-gray-300 p-4 text-center">₹12,500 (₹5L income)</td>
-                          <td className="border border-gray-300 p-4 text-center text-green-600"><strong>₹60,000 (₹12L income)</strong></td>
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Health insurance (80D)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-blue-600 dark:text-blue-400">₹25K-₹50K</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-red-600 dark:text-red-400">Not allowed</td>
                         </tr>
                         <tr>
-                          <td className="border border-gray-300 p-4 font-medium">Education loan interest</td>
-                          <td className="border border-gray-300 p-4 text-center text-blue-600">Unlimited (80E)</td>
-                          <td className="border border-gray-300 p-4 text-center text-red-600">Not allowed</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">HRA exemption</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-blue-600 dark:text-blue-400">{entityType === 'individual' ? 'Available' : 'N/A for HUF'}</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-red-600 dark:text-red-400">Not allowed</td>
+                        </tr>
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">87A rebate limit (FY 2025-26)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center">₹12,500 (₹5L income)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-green-600 dark:text-green-400"><strong>₹60,000 (₹12L income)</strong></td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Education loan interest</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-blue-600 dark:text-blue-400">Unlimited (80E)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-red-600 dark:text-red-400">Not allowed</td>
                         </tr>
                         {entityType === 'huf' && (
                         <tr>
-                          <td className="border border-gray-300 p-4 font-medium">Property income exemption</td>
-                          <td className="border border-gray-300 p-4 text-center text-blue-600">Available (24(a))</td>
-                          <td className="border border-gray-300 p-4 text-center text-blue-600">Available (24(a))</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Property income exemption</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-blue-600 dark:text-blue-400">Available (24(a))</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-blue-600 dark:text-blue-400">Available (24(a))</td>
                         </tr>
                         )}
-                        <tr className="bg-green-50">
-                          <td className="border border-gray-300 p-4 font-medium"><strong>🎉 Zero Tax Income (FY 2025-26)</strong></td>
-                          <td className="border border-gray-300 p-4 text-center">Up to ₹6.5L (with deductions)</td>
-                          <td className="border border-gray-300 p-4 text-center text-green-600"><strong>Up to ₹12L (complete exemption!)</strong></td>
+                        <tr className="bg-green-50 dark:bg-green-900/20">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium"><strong>🎉 Zero Tax Income (FY 2025-26)</strong></td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center">Up to ₹6.5L (with deductions)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-green-600 dark:text-green-400"><strong>Up to ₹12L (complete exemption!)</strong></td>
                         </tr>
                       </tbody>
                     </table>
@@ -417,49 +418,49 @@ export default function OldVsNewRegime() {
 
                     {/* Partnership Firm Table */}
                     {entityType === 'firm' && (
-                    <table className="w-full border-collapse border border-gray-300">
+                    <table className="w-full border-collapse border border-gray-300 dark:border-gray-600">
                       <thead>
-                        <tr className="bg-gray-50">
-                          <th className="border border-gray-300 p-4 text-left font-semibold">Feature</th>
-                          <th className="border border-gray-300 p-4 text-center font-semibold text-purple-700">Partnership Firm Structure</th>
-                          <th className="border border-gray-300 p-4 text-center font-semibold text-gray-700">Partner Individual Tax</th>
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <th className="border border-gray-300 dark:border-gray-600 p-4 text-left font-semibold">Feature</th>
+                          <th className="border border-gray-300 dark:border-gray-600 p-4 text-center font-semibold text-purple-700 dark:text-purple-300">Partnership Firm Structure</th>
+                          <th className="border border-gray-300 dark:border-gray-600 p-4 text-center font-semibold text-gray-700 dark:text-gray-300">Partner Individual Tax</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td className="border border-gray-300 p-4 font-medium">Tax rate on firm income</td>
-                          <td className="border border-gray-300 p-4 text-center text-purple-600"><strong>30% + 4% Cess = 31.2%</strong></td>
-                          <td className="border border-gray-300 p-4 text-center">N/A (Firm level)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Tax rate on firm income</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-purple-600 dark:text-purple-400"><strong>30% + 4% Cess = 31.2%</strong></td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center">N/A (Firm level)</td>
                         </tr>
-                        <tr className="bg-gray-50">
-                          <td className="border border-gray-300 p-4 font-medium">Basic exemption</td>
-                          <td className="border border-gray-300 p-4 text-center text-red-600">None (tax from ₹1)</td>
-                          <td className="border border-gray-300 p-4 text-center text-blue-600">Available (Partner&apos;s share)</td>
-                        </tr>
-                        <tr>
-                          <td className="border border-gray-300 p-4 font-medium">Personal deductions (80C, 80D)</td>
-                          <td className="border border-gray-300 p-4 text-center text-red-600">Not available</td>
-                          <td className="border border-gray-300 p-4 text-center text-blue-600">Available for partners</td>
-                        </tr>
-                        <tr className="bg-gray-50">
-                          <td className="border border-gray-300 p-4 font-medium">Partner remuneration</td>
-                          <td className="border border-gray-300 p-4 text-center text-purple-600">Allowed (business expense)</td>
-                          <td className="border border-gray-300 p-4 text-center text-orange-600">Taxable in partner&apos;s hands</td>
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Basic exemption</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-red-600 dark:text-red-400">None (tax from ₹1)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-blue-600 dark:text-blue-400">Available (Partner&apos;s share)</td>
                         </tr>
                         <tr>
-                          <td className="border border-gray-300 p-4 font-medium">Interest on capital</td>
-                          <td className="border border-gray-300 p-4 text-center text-purple-600">Max 12% allowed</td>
-                          <td className="border border-gray-300 p-4 text-center text-orange-600">Taxable in partner&apos;s hands</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Personal deductions (80C, 80D)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-red-600 dark:text-red-400">Not available</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-blue-600 dark:text-blue-400">Available for partners</td>
                         </tr>
-                        <tr className="bg-gray-50">
-                          <td className="border border-gray-300 p-4 font-medium">Double taxation</td>
-                          <td className="border border-gray-300 p-4 text-center text-green-600">No (pass-through entity)</td>
-                          <td className="border border-gray-300 p-4 text-center text-blue-600">Partners taxed on share</td>
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Partner remuneration</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-purple-600 dark:text-purple-400">Allowed (business expense)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-orange-600 dark:text-orange-400">Taxable in partner&apos;s hands</td>
                         </tr>
-                        <tr className="bg-yellow-50">
-                          <td className="border border-gray-300 p-4 font-medium"><strong>⚠️ Regime Choice</strong></td>
-                          <td className="border border-gray-300 p-4 text-center text-red-600"><strong>No choice - Fixed 30%</strong></td>
-                          <td className="border border-gray-300 p-4 text-center text-green-600"><strong>Partners can choose regime</strong></td>
+                        <tr>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Interest on capital</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-purple-600 dark:text-purple-400">Max 12% allowed</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-orange-600 dark:text-orange-400">Taxable in partner&apos;s hands</td>
+                        </tr>
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium">Double taxation</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-green-600 dark:text-green-400">No (pass-through entity)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-blue-600 dark:text-blue-400">Partners taxed on share</td>
+                        </tr>
+                        <tr className="bg-yellow-50 dark:bg-yellow-900/20">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium"><strong>⚠️ Regime Choice</strong></td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-red-600 dark:text-red-400"><strong>No choice - Fixed 30%</strong></td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-green-600 dark:text-green-400"><strong>Partners can choose regime</strong></td>
                         </tr>
                       </tbody>
                     </table>
@@ -467,49 +468,49 @@ export default function OldVsNewRegime() {
 
                     {/* Company Table */}
                     {entityType === 'company' && (
-                    <table className="w-full border-collapse border border-gray-300">
+                    <table className="w-full border-collapse border border-gray-300 dark:border-gray-600">
                       <thead>
-                        <tr className="bg-gray-50">
-                          <th className="border border-gray-300 p-4 text-left font-semibold">Feature</th>
-                          <th className="border border-gray-300 p-4 text-center font-semibold text-indigo-700">Domestic Company</th>
-                          <th className="border border-gray-300 p-4 text-center font-semibold text-blue-700">Additional Details</th>
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <th className="border border-gray-300 dark:border-gray-600 p-4 text-left font-semibold">Feature</th>
+                          <th className="border border-gray-300 dark:border-gray-600 p-4 text-center font-semibold text-indigo-700 dark:text-indigo-300">Domestic Company</th>
+                          <th className="border border-gray-300 dark:border-gray-600 p-4 text-center font-semibold text-blue-700 dark:text-blue-300">Additional Details</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td className="border border-gray-300 p-4 font-medium">Tax rate (Turnover ≤ ₹400 Cr)</td>
-                          <td className="border border-gray-300 p-4 text-center text-green-600"><strong>25% + 4% Cess = 26%</strong></td>
-                          <td className="border border-gray-300 p-4 text-center">For eligible companies</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium text-gray-700 dark:text-gray-300">Tax rate (Turnover ≤ ₹400 Cr)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-green-600 dark:text-green-400"><strong>25% + 4% Cess = 26%</strong></td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-gray-700 dark:text-gray-300">For eligible companies</td>
                         </tr>
-                        <tr className="bg-gray-50">
-                          <td className="border border-gray-300 p-4 font-medium">Tax rate (Turnover &gt; ₹400 Cr)</td>
-                          <td className="border border-gray-300 p-4 text-center text-orange-600"><strong>30% + 4% Cess = 31.2%</strong></td>
-                          <td className="border border-gray-300 p-4 text-center">Standard rate</td>
-                        </tr>
-                        <tr>
-                          <td className="border border-gray-300 p-4 font-medium">New company rate (115BAA)</td>
-                          <td className="border border-gray-300 p-4 text-center text-blue-600"><strong>25% + 4% Cess = 26%</strong></td>
-                          <td className="border border-gray-300 p-4 text-center">With conditions</td>
-                        </tr>
-                        <tr className="bg-gray-50">
-                          <td className="border border-gray-300 p-4 font-medium">Manufacturing company (115BAB)</td>
-                          <td className="border border-gray-300 p-4 text-center text-green-600"><strong>15% + 4% Cess = 15.6%</strong></td>
-                          <td className="border border-gray-300 p-4 text-center">New manufacturing units</td>
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium text-gray-700 dark:text-gray-300">Tax rate (Turnover &gt; ₹400 Cr)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-orange-600 dark:text-orange-400"><strong>30% + 4% Cess = 31.2%</strong></td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-gray-700 dark:text-gray-300">Standard rate</td>
                         </tr>
                         <tr>
-                          <td className="border border-gray-300 p-4 font-medium">Minimum Alternate Tax (MAT)</td>
-                          <td className="border border-gray-300 p-4 text-center text-purple-600">18.5% + 4% Cess = 19.25%</td>
-                          <td className="border border-gray-300 p-4 text-center">On book profits</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium text-gray-700 dark:text-gray-300">New company rate (115BAA)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-blue-600 dark:text-blue-400"><strong>25% + 4% Cess = 26%</strong></td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-gray-700 dark:text-gray-300">With conditions</td>
                         </tr>
-                        <tr className="bg-gray-50">
-                          <td className="border border-gray-300 p-4 font-medium">Dividend tax</td>
-                          <td className="border border-gray-300 p-4 text-center text-green-600">No DDT (shareholders taxed)</td>
-                          <td className="border border-gray-300 p-4 text-center">Classic system</td>
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium text-gray-700 dark:text-gray-300">Manufacturing company (115BAB)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-green-600 dark:text-green-400"><strong>15% + 4% Cess = 15.6%</strong></td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-gray-700 dark:text-gray-300">New manufacturing units</td>
                         </tr>
-                        <tr className="bg-yellow-50">
-                          <td className="border border-gray-300 p-4 font-medium"><strong>⚠️ Regime Choice</strong></td>
-                          <td className="border border-gray-300 p-4 text-center text-red-600"><strong>No old vs new regime</strong></td>
-                          <td className="border border-gray-300 p-4 text-center">Fixed corporate rates</td>
+                        <tr>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium text-gray-700 dark:text-gray-300">Minimum Alternate Tax (MAT)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-purple-600 dark:text-purple-400">18.5% + 4% Cess = 19.25%</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-gray-700 dark:text-gray-300">On book profits</td>
+                        </tr>
+                        <tr className="bg-gray-50 dark:bg-gray-700">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium text-gray-700 dark:text-gray-300">Dividend tax</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-green-600 dark:text-green-400">No DDT (shareholders taxed)</td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-gray-700 dark:text-gray-300">Classic system</td>
+                        </tr>
+                        <tr className="bg-yellow-50 dark:bg-yellow-900/20">
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 font-medium text-gray-700 dark:text-gray-300"><strong>⚠️ Regime Choice</strong></td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-red-600 dark:text-red-400"><strong>No old vs new regime</strong></td>
+                          <td className="border border-gray-300 dark:border-gray-600 p-4 text-center text-gray-700 dark:text-gray-300">Fixed corporate rates</td>
                         </tr>
                       </tbody>
                     </table>
@@ -518,8 +519,8 @@ export default function OldVsNewRegime() {
                 </div>
 
                 {/* Calculation Examples */}
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-200">
-                  <h2 className="text-2xl font-bold text-indigo-800 mb-6">
+                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-indigo-200 dark:border-indigo-700">
+                  <h2 className="text-2xl font-bold text-indigo-800 dark:text-indigo-200 mb-6">
                     💰 {entityType === 'individual' || entityType === 'huf' ? 'Tax Calculation Examples (Updated for FY 2025-26)' :
                          entityType === 'firm' ? 'Partnership Firm Tax Examples' :
                          'Corporate Tax Calculation Examples'}
@@ -528,124 +529,124 @@ export default function OldVsNewRegime() {
                   {/* Individual/HUF Examples */}
                   {(entityType === 'individual' || entityType === 'huf') && (
                   <>
-                  <div className="mb-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-2 border-green-200">
-                    <h3 className="text-xl font-bold text-green-800 mb-4 text-center">🎉 FY 2025-26 Revolutionary Example</h3>
-                    <div className="bg-white rounded-lg p-4">
-                      <h4 className="text-lg font-bold text-gray-800 mb-3">💰 {entityType === 'individual' ? 'Individual' : 'HUF'} Income: ₹12 Lakh - Complete Tax Exemption!</h4>
+                  <div className="mb-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border-2 border-green-200 dark:border-green-700">
+                    <h3 className="text-xl font-bold text-green-800 dark:text-green-200 mb-4 text-center">🎉 FY 2025-26 Revolutionary Example</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-lg p-4">
+                      <h4 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-3">💰 {entityType === 'individual' ? 'Individual' : 'HUF'} Income: ₹12 Lakh - Complete Tax Exemption!</h4>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="p-3 bg-blue-50 rounded-lg">
-                          <h5 className="font-semibold text-blue-800 mb-2">{entityType === 'individual' ? 'Old Regime' : 'HUF Tax (Old Structure)'}</h5>
+                        <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <h5 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">{entityType === 'individual' ? 'Old Regime' : 'HUF Tax (Old Structure)'}</h5>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹12,00,000</div>
                             <div>80C + 80D: ₹1,75,000</div>
                             <div>Standard Deduction: ₹75,000</div>
                             <div>Taxable Income: ₹9,50,000</div>
-                            <div className="font-bold text-blue-600">Tax: ₹1,50,000</div>
+                            <div className="font-bold text-blue-600 dark:text-blue-400">Tax: ₹1,50,000</div>
                           </div>
                         </div>
-                        <div className="p-3 bg-green-50 rounded-lg">
-                          <h5 className="font-semibold text-green-800 mb-2">{entityType === 'individual' ? 'New Regime' : 'HUF Tax (New Structure)'} (FY 2025-26)</h5>
+                        <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                          <h5 className="font-semibold text-green-800 dark:text-green-200 mb-2">{entityType === 'individual' ? 'New Regime' : 'HUF Tax (New Structure)'} (FY 2025-26)</h5>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹12,00,000</div>
                             <div>Standard Deduction: ₹75,000</div>
                             <div>Taxable Income: ₹11,25,000</div>
                             <div>Tax Calculated: ₹60,000</div>
-                            <div className="font-bold text-green-600">After 87A Rebate: ₹0</div>
+                            <div className="font-bold text-green-600 dark:text-green-400">After 87A Rebate: ₹0</div>
                           </div>
                         </div>
                       </div>
-                      <div className="text-center mt-4 p-3 bg-green-100 rounded-lg">
-                        <span className="text-lg font-bold text-green-700">💰 SAVE ₹1,50,000 with New Regime!</span>
+                      <div className="text-center mt-4 p-3 bg-green-100 dark:bg-green-900/30 rounded-lg">
+                        <span className="text-lg font-bold text-green-700 dark:text-green-300">💰 SAVE ₹1,50,000 with New Regime!</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* Example 1 - Low Income */}
-                    <div className="bg-white rounded-xl p-6 shadow-md">
-                      <h3 className="text-lg font-bold text-gray-800 mb-4">💼 Income: ₹6 Lakh</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">💼 Income: ₹6 Lakh</h3>
                       <div className="space-y-4">
-                        <div className="p-3 bg-blue-50 rounded-lg">
-                          <h4 className="font-semibold text-blue-800 mb-2">Old Structure</h4>
+                        <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">Old Structure</h4>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹6,00,000</div>
                             <div>80C Investment: ₹1,50,000</div>
                             <div>Standard Deduction: ₹75,000</div>
                             <div>Taxable Income: ₹3,75,000</div>
                             <div>Tax: ₹6,250</div>
-                            <div className="font-bold text-green-600">After 87A Rebate: ₹0</div>
+                            <div className="font-bold text-green-600 dark:text-green-400">After 87A Rebate: ₹0</div>
                           </div>
                         </div>
-                        <div className="p-3 bg-green-50 rounded-lg">
-                          <h4 className="font-semibold text-green-800 mb-2">New Structure (FY 2025-26)</h4>
+                        <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                          <h4 className="font-semibold text-green-800 dark:text-green-200 mb-2">New Structure (FY 2025-26)</h4>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹6,00,000</div>
                             <div>Standard Deduction: ₹75,000</div>
                             <div>Taxable Income: ₹5,25,000</div>
                             <div>Tax: ₹11,250</div>
-                            <div className="font-bold text-green-600">After 87A Rebate: ₹0</div>
+                            <div className="font-bold text-green-600 dark:text-green-400">After 87A Rebate: ₹0</div>
                           </div>
                         </div>
-                        <div className="text-center font-bold text-lg text-green-600">
+                        <div className="text-center font-bold text-lg text-green-600 dark:text-green-400">
                           Winner: Both Equal (₹0 tax)
                         </div>
                       </div>
                     </div>
 
                     {/* Example 2 - Medium Income */}
-                    <div className="bg-white rounded-xl p-6 shadow-md">
-                      <h3 className="text-lg font-bold text-gray-800 mb-4">💼 Income: ₹10 Lakh</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">💼 Income: ₹10 Lakh</h3>
                       <div className="space-y-4">
-                        <div className="p-3 bg-blue-50 rounded-lg">
-                          <h4 className="font-semibold text-blue-800 mb-2">Old Structure</h4>
+                        <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">Old Structure</h4>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹10,00,000</div>
                             <div>80C + 80D: ₹1,75,000</div>
                             <div>Standard Deduction: ₹75,000</div>
                             <div>Taxable Income: ₹7,50,000</div>
-                            <div className="font-bold text-blue-600">Tax: ₹1,00,000</div>
+                            <div className="font-bold text-blue-600 dark:text-blue-400">Tax: ₹1,00,000</div>
                           </div>
                         </div>
-                        <div className="p-3 bg-green-50 rounded-lg">
-                          <h4 className="font-semibold text-green-800 mb-2">New Structure (FY 2025-26)</h4>
+                        <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                          <h4 className="font-semibold text-green-800 dark:text-green-200 mb-2">New Structure (FY 2025-26)</h4>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹10,00,000</div>
                             <div>Standard Deduction: ₹75,000</div>
                             <div>Taxable Income: ₹9,25,000</div>
                             <div>Tax: ₹52,500</div>
-                            <div className="font-bold text-green-600">After 87A Rebate: ₹0</div>
+                            <div className="font-bold text-green-600 dark:text-green-400">After 87A Rebate: ₹0</div>
                           </div>
                         </div>
-                        <div className="text-center font-bold text-lg text-green-600">
+                        <div className="text-center font-bold text-lg text-green-600 dark:text-green-400">
                           Winner: New Structure (₹1,00,000 saved!)
                         </div>
                       </div>
                     </div>
 
                     {/* Example 3 - High Income */}
-                    <div className="bg-white rounded-xl p-6 shadow-md">
-                      <h3 className="text-lg font-bold text-gray-800 mb-4">💼 Income: ₹20 Lakh</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">💼 Income: ₹20 Lakh</h3>
                       <div className="space-y-4">
-                        <div className="p-3 bg-blue-50 rounded-lg">
-                          <h4 className="font-semibold text-blue-800 mb-2">Old Structure</h4>
+                        <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">Old Structure</h4>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹20,00,000</div>
                             <div>80C + 80D + Others: ₹3,00,000</div>
                             <div>Standard Deduction: ₹75,000</div>
                             <div>Taxable Income: ₹16,25,000</div>
-                            <div className="font-bold text-blue-600">Tax: ₹2,87,500</div>
+                            <div className="font-bold text-blue-600 dark:text-blue-400">Tax: ₹2,87,500</div>
                           </div>
                         </div>
-                        <div className="p-3 bg-green-50 rounded-lg">
-                          <h4 className="font-semibold text-green-800 mb-2">New Structure (FY 2025-26)</h4>
+                        <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                          <h4 className="font-semibold text-green-800 dark:text-green-200 mb-2">New Structure (FY 2025-26)</h4>
                           <div className="text-sm space-y-1">
                             <div>Gross Income: ₹20,00,000</div>
                             <div>Standard Deduction: ₹75,000</div>
                             <div>Taxable Income: ₹19,25,000</div>
-                            <div className="font-bold text-green-600">Tax: ₹2,85,000</div>
+                            <div className="font-bold text-green-600 dark:text-green-400">Tax: ₹2,85,000</div>
                           </div>
                         </div>
-                        <div className="text-center font-bold text-lg text-green-600">
+                        <div className="text-center font-bold text-lg text-green-600 dark:text-green-400">
                           Winner: New Structure (₹2,500 saved)
                         </div>
                       </div>
@@ -657,11 +658,11 @@ export default function OldVsNewRegime() {
                   {/* Partnership Firm Examples */}
                   {entityType === 'firm' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-white rounded-xl p-6 shadow-md">
-                      <h3 className="text-lg font-bold text-gray-800 mb-4">🤝 Partnership Firm - ₹10 Lakh Profit</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">🤝 Partnership Firm - ₹10 Lakh Profit</h3>
                       <div className="space-y-4">
-                        <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                          <h4 className="font-semibold text-purple-800 mb-3">At Firm Level</h4>
+                        <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500">
+                          <h4 className="font-semibold text-purple-800 dark:text-purple-200 mb-3">At Firm Level</h4>
                           <div className="text-sm space-y-2">
                             <div>Business Income: ₹10,00,000</div>
                             <div>Partner A Remuneration: ₹3,00,000</div>
@@ -669,12 +670,12 @@ export default function OldVsNewRegime() {
                             <div>Interest on Capital (12%): ₹1,00,000</div>
                             <div className="border-t pt-2 mt-2">
                               <div>Net Profit: ₹4,00,000</div>
-                              <div className="font-bold text-purple-600">Tax on Firm @ 31.2%: ₹1,24,800</div>
+                              <div className="font-bold text-purple-600 dark:text-purple-400">Tax on Firm @ 31.2%: ₹1,24,800</div>
                             </div>
                           </div>
                         </div>
-                        <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                          <h4 className="font-semibold text-blue-800 mb-3">Partner A Individual Tax</h4>
+                        <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500">
+                          <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-3">Partner A Individual Tax</h4>
                           <div className="text-sm space-y-2">
                             <div>Share of Profit (50%): ₹2,00,000</div>
                             <div>Remuneration Received: ₹3,00,000</div>
@@ -683,31 +684,31 @@ export default function OldVsNewRegime() {
                               <div>Total Income: ₹5,60,000</div>
                               <div>Less: Standard Deduction: ₹75,000</div>
                               <div>After 80C (₹1.5L): ₹3,35,000</div>
-                              <div className="font-bold text-blue-600">Personal Tax: ₹4,250</div>
-                              <div className="font-bold text-green-600">After 87A Rebate: ₹0</div>
+                              <div className="font-bold text-blue-600 dark:text-blue-400">Personal Tax: ₹4,250</div>
+                              <div className="font-bold text-green-600 dark:text-green-400">After 87A Rebate: ₹0</div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-white rounded-xl p-6 shadow-md">
-                      <h3 className="text-lg font-bold text-gray-800 mb-4">📊 Total Tax Impact</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">📊 Total Tax Impact</h3>
                       <div className="space-y-4">
-                        <div className="p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
-                          <h4 className="font-semibold text-yellow-800 mb-3">Tax Summary</h4>
+                        <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-l-4 border-yellow-500">
+                          <h4 className="font-semibold text-yellow-800 dark:text-yellow-200 mb-3">Tax Summary</h4>
                           <div className="text-sm space-y-2">
                             <div>Firm Tax Paid: ₹1,24,800</div>
                             <div>Partner A Personal Tax: ₹0</div>
                             <div>Partner B Personal Tax: ₹0</div>
-                            <div className="border-t pt-2 mt-2 font-bold text-yellow-600">
+                            <div className="border-t pt-2 mt-2 font-bold text-yellow-600 dark:text-yellow-400">
                               Total Tax Burden: ₹1,24,800
                             </div>
                           </div>
                         </div>
-                        <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                          <h4 className="font-semibold text-green-800 mb-3">Key Benefits</h4>
-                          <div className="text-sm space-y-2 text-green-700">
+                        <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500">
+                          <h4 className="font-semibold text-green-800 dark:text-green-200 mb-3">Key Benefits</h4>
+                          <div className="text-sm space-y-2 text-green-700 dark:text-green-300">
                             <div>• No double taxation</div>
                             <div>• Partner remuneration deductible</div>
                             <div>• Partners get personal exemptions</div>
@@ -723,26 +724,26 @@ export default function OldVsNewRegime() {
                   {/* Company Examples */}
                   {entityType === 'company' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-white rounded-xl p-6 shadow-md">
-                      <h3 className="text-lg font-bold text-gray-800 mb-4">🏢 Small Company (Turnover ≤ ₹400 Cr)</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">🏢 Small Company (Turnover ≤ ₹400 Cr)</h3>
                       <div className="space-y-4">
-                        <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                          <h4 className="font-semibold text-green-800 mb-3">Tax Calculation - ₹50 Lakh Profit</h4>
+                        <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500">
+                          <h4 className="font-semibold text-green-800 dark:text-green-200 mb-3">Tax Calculation - ₹50 Lakh Profit</h4>
                           <div className="text-sm space-y-2">
                             <div>Net Profit: ₹50,00,000</div>
                             <div>Less: Depreciation: ₹5,00,000</div>
                             <div>Less: Other Deductions: ₹3,00,000</div>
                             <div className="border-t pt-2 mt-2">
                               <div>Taxable Income: ₹42,00,000</div>
-                              <div className="font-bold text-green-600">Tax @ 26%: ₹10,92,000</div>
+                              <div className="font-bold text-green-600 dark:text-green-400">Tax @ 26%: ₹10,92,000</div>
                             </div>
                           </div>
                         </div>
-                        <div className="p-4 bg-blue-50 rounded-lg">
-                          <h4 className="font-semibold text-blue-800 mb-3">MAT Comparison</h4>
+                        <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-3">MAT Comparison</h4>
                           <div className="text-sm space-y-2">
                             <div>Book Profit: ₹45,00,000</div>
-                            <div className="font-bold text-blue-600">MAT @ 19.25%: ₹8,66,250</div>
+                            <div className="font-bold text-blue-600 dark:text-blue-400">MAT @ 19.25%: ₹8,66,250</div>
                             <div className="text-green-600 font-medium mt-2">
                               Regular tax is higher, so pay ₹10,92,000
                             </div>
@@ -751,11 +752,11 @@ export default function OldVsNewRegime() {
                       </div>
                     </div>
                     
-                    <div className="bg-white rounded-xl p-6 shadow-md">
-                      <h3 className="text-lg font-bold text-gray-800 mb-4">🏭 Large Company (Turnover &gt; ₹400 Cr)</h3>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4">🏭 Large Company (Turnover &gt; ₹400 Cr)</h3>
                       <div className="space-y-4">
-                        <div className="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
-                          <h4 className="font-semibold text-orange-800 mb-3">Tax Calculation - ₹100 Crore Profit</h4>
+                        <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-orange-500">
+                          <h4 className="font-semibold text-orange-800 dark:text-orange-200 mb-3">Tax Calculation - ₹100 Crore Profit</h4>
                           <div className="text-sm space-y-2">
                             <div>Net Profit: ₹100,00,00,000</div>
                             <div>Less: Depreciation: ₹20,00,00,000</div>
@@ -763,13 +764,13 @@ export default function OldVsNewRegime() {
                             <div>Less: Other Deductions: ₹10,00,00,000</div>
                             <div className="border-t pt-2 mt-2">
                               <div>Taxable Income: ₹68,00,00,000</div>
-                              <div className="font-bold text-orange-600">Tax @ 31.2%: ₹21,21,60,000</div>
+                              <div className="font-bold text-orange-600 dark:text-orange-400">Tax @ 31.2%: ₹21,21,60,000</div>
                             </div>
                           </div>
                         </div>
-                        <div className="p-4 bg-indigo-50 rounded-lg">
-                          <h4 className="font-semibold text-indigo-800 mb-3">Additional Benefits</h4>
-                          <div className="text-sm space-y-2 text-indigo-700">
+                        <div className="p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
+                          <h4 className="font-semibold text-indigo-800 dark:text-indigo-200 mb-3">Additional Benefits</h4>
+                          <div className="text-sm space-y-2 text-indigo-700 dark:text-indigo-300">
                             <div>• Carry forward losses (8 years)</div>
                             <div>• Set-off against future profits</div>
                             <div>• Accelerated depreciation</div>
@@ -784,8 +785,8 @@ export default function OldVsNewRegime() {
                 </div>
 
                 {/* Decision Guide */}
-                <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-lg">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-6">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700 shadow-lg">
+                  <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6">
                     🎯 {entityType === 'individual' || entityType === 'huf' ? 'Which Regime Should You Choose?' :
                          entityType === 'firm' ? 'Partnership Firm Tax Strategy' :
                          'Corporate Tax Planning Guide'}
@@ -794,11 +795,11 @@ export default function OldVsNewRegime() {
                   {/* Individual/HUF Decision Guide */}
                   {(entityType === 'individual' || entityType === 'huf') && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="p-6 bg-blue-50 rounded-xl border border-blue-200">
-                      <h3 className="text-xl font-bold text-blue-800 mb-4">
+                    <div className="p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-700">
+                      <h3 className="text-xl font-bold text-blue-800 dark:text-blue-200 mb-4">
                         Choose Old {entityType === 'individual' ? 'Regime' : 'Tax Structure'} If:
                       </h3>
-                      <div className="space-y-3 text-blue-700">
+                      <div className="space-y-3 text-blue-700 dark:text-blue-300">
                         <div className="flex items-start gap-2">
                           <span className="text-green-500 mt-1">✅</span>
                           <span>You have significant investments in 80C instruments (PPF, ELSS, etc.)</span>
@@ -830,11 +831,11 @@ export default function OldVsNewRegime() {
                       </div>
                     </div>
                     
-                    <div className="p-6 bg-green-50 rounded-xl border border-green-200">
-                      <h3 className="text-xl font-bold text-green-800 mb-4">
+                    <div className="p-6 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-700">
+                      <h3 className="text-xl font-bold text-green-800 dark:text-green-200 mb-4">
                         Choose New {entityType === 'individual' ? 'Regime' : 'Tax Structure'} If:
                       </h3>
-                      <div className="space-y-3 text-green-700">
+                      <div className="space-y-3 text-green-700 dark:text-green-300">
                         <div className="flex items-start gap-2">
                           <span className="text-green-500 mt-1">🎉</span>
                           <span><strong>Your income is up to ₹12 lakhs (FY 2025-26): ZERO TAX!</strong></span>
@@ -869,9 +870,9 @@ export default function OldVsNewRegime() {
                   {/* Partnership Firm Strategy */}
                   {entityType === 'firm' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="p-6 bg-purple-50 rounded-xl border border-purple-200">
-                      <h3 className="text-xl font-bold text-purple-800 mb-4">🤝 Firm Level Strategies</h3>
-                      <div className="space-y-3 text-purple-700">
+                    <div className="p-6 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-700">
+                      <h3 className="text-xl font-bold text-purple-800 dark:text-purple-200 mb-4">🤝 Firm Level Strategies</h3>
+                      <div className="space-y-3 text-purple-700 dark:text-purple-300">
                         <div className="flex items-start gap-2">
                           <span className="text-green-500 mt-1">💡</span>
                           <span>Optimize partner remuneration (salary vs. profit share)</span>
@@ -895,9 +896,9 @@ export default function OldVsNewRegime() {
                       </div>
                     </div>
                     
-                    <div className="p-6 bg-blue-50 rounded-xl border border-blue-200">
-                      <h3 className="text-xl font-bold text-blue-800 mb-4">👥 Partner Level Planning</h3>
-                      <div className="space-y-3 text-blue-700">
+                    <div className="p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-700">
+                      <h3 className="text-xl font-bold text-blue-800 dark:text-blue-200 mb-4">👥 Partner Level Planning</h3>
+                      <div className="space-y-3 text-blue-700 dark:text-blue-300">
                         <div className="flex items-start gap-2">
                           <span className="text-green-500 mt-1">🎯</span>
                           <span>Partners can choose between old/new tax regime</span>
@@ -926,9 +927,9 @@ export default function OldVsNewRegime() {
                   {/* Company Strategy */}
                   {entityType === 'company' && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="p-6 bg-indigo-50 rounded-xl border border-indigo-200">
-                      <h3 className="text-xl font-bold text-indigo-800 mb-4">🏢 Corporate Tax Optimization</h3>
-                      <div className="space-y-3 text-indigo-700">
+                    <div className="p-6 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-200 dark:border-indigo-700">
+                      <h3 className="text-xl font-bold text-indigo-800 dark:text-indigo-200 mb-4">🏢 Corporate Tax Optimization</h3>
+                      <div className="space-y-3 text-indigo-700 dark:text-indigo-300">
                         <div className="flex items-start gap-2">
                           <span className="text-green-500 mt-1">💼</span>
                           <span>Maximize depreciation and business deductions</span>
@@ -952,9 +953,9 @@ export default function OldVsNewRegime() {
                       </div>
                     </div>
                     
-                    <div className="p-6 bg-green-50 rounded-xl border border-green-200">
-                      <h3 className="text-xl font-bold text-green-800 mb-4">📈 Strategic Considerations</h3>
-                      <div className="space-y-3 text-green-700">
+                    <div className="p-6 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-700">
+                      <h3 className="text-xl font-bold text-green-800 dark:text-green-200 mb-4">📈 Strategic Considerations</h3>
+                      <div className="space-y-3 text-green-700 dark:text-green-300">
                         <div className="flex items-start gap-2">
                           <span className="text-green-500 mt-1">🚀</span>
                           <span>Monitor turnover for rate optimization (₹400 Cr threshold)</span>

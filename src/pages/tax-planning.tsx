@@ -116,24 +116,24 @@ export default function TaxPlanning() {
       case 'itr-filing-guide':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-200">
-              <h2 className="text-3xl font-bold text-purple-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-8 border border-purple-200 dark:border-purple-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-purple-800 dark:text-purple-300 mb-4 transition-colors duration-300 flex items-center gap-3">
                 📋 ITR Filing Guide
               </h2>
-              <p className="text-lg text-purple-700 mb-6">
+              <p className="text-lg text-purple-700 dark:text-purple-400 mb-6 transition-colors duration-300">
                 Choose the correct Income Tax Return (ITR) form based on your income sources. Filing the wrong ITR can lead to penalties and delays.
               </p>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* ITR Forms Overview */}
                 <div className="space-y-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">🎯 ITR Forms Overview</h3>
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🎯 ITR Forms Overview</h3>
                   
                   <div className="space-y-4">
-                    <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                    <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500 dark:border-green-600 transition-colors duration-300">
                       <h4 className="font-semibold text-gray-800 mb-2">ITR-1 (Sahaj)</h4>
-                      <p className="text-sm text-gray-600 mb-2">For salaried individuals with simple income</p>
-                      <div className="text-xs text-green-600">
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">For salaried individuals with simple income</p>
+                      <div className="text-xs text-green-600 dark:text-green-400">
                         ✓ Only salary income<br/>
                         ✓ One house property<br/>
                         ✓ Income up to ₹50 lakhs<br/>
@@ -141,10 +141,10 @@ export default function TaxPlanning() {
                       </div>
                     </div>
                     
-                    <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                    <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500 dark:border-blue-600 transition-colors duration-300">
                       <h4 className="font-semibold text-gray-800 mb-2">ITR-2</h4>
-                      <p className="text-sm text-gray-600 mb-2">For individuals with capital gains/multiple properties</p>
-                      <div className="text-xs text-blue-600">
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">For individuals with capital gains/multiple properties</p>
+                      <div className="text-xs text-blue-600 dark:text-blue-400">
                         ✓ Capital gains from stocks/mutual funds<br/>
                         ✓ Multiple house properties<br/>
                         ✓ Foreign income/assets<br/>
@@ -152,10 +152,10 @@ export default function TaxPlanning() {
                       </div>
                     </div>
                     
-                    <div className="p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                    <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg border-l-4 border-orange-500 dark:border-orange-600 transition-colors duration-300">
                       <h4 className="font-semibold text-gray-800 mb-2">ITR-3</h4>
-                      <p className="text-sm text-gray-600 mb-2">For business/professional income</p>
-                      <div className="text-xs text-orange-600">
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">For business/professional income</p>
+                      <div className="text-xs text-orange-600 dark:text-orange-400">
                         ✓ Business income<br/>
                         ✓ Professional income<br/>
                         ✓ Partnership firm income<br/>
@@ -163,10 +163,10 @@ export default function TaxPlanning() {
                       </div>
                     </div>
                     
-                    <div className="p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
+                    <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg border-l-4 border-red-500 dark:border-red-600 transition-colors duration-300">
                       <h4 className="font-semibold text-gray-800 mb-2">ITR-4 (Sugam)</h4>
-                      <p className="text-sm text-gray-600 mb-2">For presumptive business income</p>
-                      <div className="text-xs text-red-600">
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">For presumptive business income</p>
+                      <div className="text-xs text-red-600 dark:text-red-400">
                         ✓ Business income under Section 44AD<br/>
                         ✓ Professional income under Section 44ADA<br/>
                         ✓ Total income up to ₹50 lakhs<br/>
@@ -178,36 +178,36 @@ export default function TaxPlanning() {
 
                 {/* Quick Decision Tree */}
                 <div className="space-y-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">🤔 Which ITR Should You File?</h3>
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🤔 Which ITR Should You File?</h3>
                   
-                  <div className="p-6 bg-gray-50 rounded-lg border border-gray-200">
+                  <div className="p-6 bg-gray-50 dark:bg-gray-600 rounded-lg border border-gray-200 dark:border-gray-500 transition-colors duration-300">
                     <div className="space-y-4">
-                      <div className="p-3 bg-white rounded border-l-4 border-purple-500">
-                        <h4 className="font-semibold text-purple-800 mb-2">💼 Only Salary Income?</h4>
-                        <p className="text-sm text-gray-600 mb-2">
+                      <div className="p-3 bg-white dark:bg-gray-500 rounded border-l-4 border-purple-500 dark:border-purple-600 transition-colors duration-300">
+                        <h4 className="font-semibold text-purple-800 dark:text-purple-300 mb-2">💼 Only Salary Income?</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">
                           Income from salary, pension, one house property
                         </p>
-                        <div className="text-xs bg-green-100 text-green-800 p-2 rounded">
+                        <div className="text-xs bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 p-2 rounded transition-colors duration-300">
                           <strong>Use ITR-1</strong> (if income ≤ ₹50L)
                         </div>
                       </div>
-                      
-                      <div className="p-3 bg-white rounded border-l-4 border-blue-500">
-                        <h4 className="font-semibold text-blue-800 mb-2">📈 Stock Market Profits?</h4>
-                        <p className="text-sm text-gray-600 mb-2">
+
+                      <div className="p-3 bg-white dark:bg-gray-500 rounded border-l-4 border-blue-500 dark:border-blue-600 transition-colors duration-300">
+                        <h4 className="font-semibold text-blue-800 dark:text-blue-300 mb-2">📈 Stock Market Profits?</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">
                           Capital gains from shares, mutual funds, property
                         </p>
-                        <div className="text-xs bg-blue-100 text-blue-800 p-2 rounded">
+                        <div className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 p-2 rounded transition-colors duration-300">
                           <strong>Use ITR-2</strong> (mandatory for capital gains)
                         </div>
                       </div>
-                      
-                      <div className="p-3 bg-white rounded border-l-4 border-orange-500">
-                        <h4 className="font-semibold text-orange-800 mb-2">🏪 Business Income?</h4>
-                        <p className="text-sm text-gray-600 mb-2">
+
+                      <div className="p-3 bg-white dark:bg-gray-500 rounded border-l-4 border-orange-500 dark:border-orange-600 transition-colors duration-300">
+                        <h4 className="font-semibold text-orange-800 dark:text-orange-300 mb-2">🏪 Business Income?</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">
                           Trading, freelancing, consulting, shop business
                         </p>
-                        <div className="text-xs bg-orange-100 text-orange-800 p-2 rounded">
+                        <div className="text-xs bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-300 p-2 rounded transition-colors duration-300">
                           <strong>Use ITR-3</strong> (for regular books)<br/>
                           <strong>Use ITR-4</strong> (for presumptive scheme)
                         </div>
@@ -215,9 +215,9 @@ export default function TaxPlanning() {
                     </div>
                   </div>
                   
-                  <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-                    <h4 className="font-semibold text-yellow-800 mb-2">⚠️ Common Mistakes to Avoid</h4>
-                    <ul className="text-xs text-yellow-700 space-y-1">
+                  <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-700 transition-colors duration-300">
+                    <h4 className="font-semibold text-yellow-800 dark:text-yellow-300 mb-2">⚠️ Common Mistakes to Avoid</h4>
+                    <ul className="text-xs text-yellow-700 dark:text-yellow-400 space-y-1">
                       <li>• Don&apos;t use ITR-1 if you have capital gains</li>
                       <li>• Don&apos;t forget to report small stock profits</li>
                       <li>• Multiple house properties need ITR-2</li>
@@ -237,7 +237,7 @@ export default function TaxPlanning() {
                 </button>
                 <button
                   onClick={() => router.push('/calculation/tax')}
-                  className="bg-white text-purple-600 border-2 border-purple-200 px-8 py-3 rounded-xl font-semibold hover:bg-purple-50 transition-all duration-300"
+                  className="bg-white dark:bg-gray-700 text-purple-600 dark:text-purple-400 border-2 border-purple-200 dark:border-purple-700 px-8 py-3 rounded-xl font-semibold hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-all duration-300"
                 >
                   Calculate Your Tax →
                 </button>
@@ -248,68 +248,68 @@ export default function TaxPlanning() {
       case 'section-80c':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
-              <h2 className="text-3xl font-bold text-blue-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-blue-800 dark:text-blue-300 mb-4 flex items-center gap-3 transition-colors duration-300">
                 💰 Section 80C Investments
               </h2>
-              <p className="text-lg text-blue-700 mb-6">
+              <p className="text-lg text-blue-700 dark:text-blue-400 mb-6 transition-colors duration-300">
                 Save up to ₹46,800 annually by investing ₹1.5 lakhs in tax-saving instruments under Section 80C.
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">🏦 Bank/Government Options</h3>
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🏦 Bank/Government Options</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-green-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Public Provident Fund (PPF)</h4>
-                      <p className="text-sm text-gray-600 mb-2">Lock-in: 15 years | Returns: 7.1% (tax-free)</p>
+                    <div className="border-l-4 border-green-500 dark:border-green-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Public Provident Fund (PPF)</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Lock-in: 15 years | Returns: 7.1% (tax-free)</p>
                       <div className="flex gap-2">
-                        <a href="https://www.sbi.co.in/web/personal-banking/investments/government-schemes/public-provident-fund" 
+                        <a href="https://www.sbi.co.in/web/personal-banking/investments/government-schemes/public-provident-fund"
                            target="_blank" rel="noopener noreferrer"
-                           className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">
+                           className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
                           SBI PPF
                         </a>
-                        <a href="https://www.hdfcbank.com/personal/save/accounts/public-provident-fund" 
+                        <a href="https://www.hdfcbank.com/personal/save/accounts/public-provident-fund"
                            target="_blank" rel="noopener noreferrer"
-                           className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">
+                           className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
                           HDFC PPF
                         </a>
                       </div>
                     </div>
-                    
-                    <div className="border-l-4 border-orange-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Employee Provident Fund (EPF)</h4>
-                      <p className="text-sm text-gray-600 mb-2">Auto-deducted | Returns: 8.25% (tax-free)</p>
-                      <a href="https://www.epfindia.gov.in/" 
+
+                    <div className="border-l-4 border-orange-500 dark:border-orange-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Employee Provident Fund (EPF)</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Auto-deducted | Returns: 8.25% (tax-free)</p>
+                      <a href="https://www.epfindia.gov.in/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-orange-100 text-orange-700 px-3 py-1 rounded-full hover:bg-orange-200 transition-colors">
+                         className="text-xs bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 px-3 py-1 rounded-full hover:bg-orange-200 dark:hover:bg-orange-900/50 transition-colors">
                         EPF Portal
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-purple-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">National Savings Certificate (NSC)</h4>
-                      <p className="text-sm text-gray-600 mb-2">Lock-in: 5 years | Returns: 6.8%</p>
-                      <a href="https://www.indiapost.gov.in/VAS/Pages/NSC.aspx" 
+
+                    <div className="border-l-4 border-purple-500 dark:border-purple-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">National Savings Certificate (NSC)</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Lock-in: 5 years | Returns: 6.8%</p>
+                      <a href="https://www.indiapost.gov.in/VAS/Pages/NSC.aspx"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full hover:bg-purple-200 transition-colors">
+                         className="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 px-3 py-1 rounded-full hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors">
                         India Post NSC
                       </a>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-6">📈 Market-Linked Options</h3>
-                  
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6">📈 Market-Linked Options</h3>
+
                   {/* Featured Investment Platforms */}
                   <div className="mb-6 space-y-4">
-                    <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-2 border-blue-200">
+                    <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl border-2 border-blue-200 dark:border-blue-700 transition-colors duration-300">
                       <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-bold text-lg text-gray-800">Groww</h4>
+                        <h4 className="font-bold text-lg text-gray-800 dark:text-gray-100">Groww</h4>
                         <span className="text-xs bg-blue-500 text-white px-2 py-1 rounded-full font-semibold">PARTNER</span>
                       </div>
-                      <p className="text-sm text-gray-600 mb-3">₹0 commission on ELSS | 500+ mutual funds | Easy SIP</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">₹0 commission on ELSS | 500+ mutual funds | Easy SIP</p>
                       <a href="https://groww.in/mutual-funds/category/elss" 
                          target="_blank" rel="noopener noreferrer"
                          className="inline-block bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
@@ -317,12 +317,12 @@ export default function TaxPlanning() {
                       </a>
                     </div>
                     
-                    <div className="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-2 border-green-200">
+                    <div className="p-4 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border-2 border-green-200 dark:border-green-700 transition-colors duration-300">
                       <div className="flex items-center justify-between mb-3">
-                        <h4 className="font-bold text-lg text-gray-800">Zerodha Coin</h4>
+                        <h4 className="font-bold text-lg text-gray-800 dark:text-gray-100">Zerodha Coin</h4>
                         <span className="text-xs bg-green-500 text-white px-2 py-1 rounded-full font-semibold">PARTNER</span>
                       </div>
-                      <p className="text-sm text-gray-600 mb-3">₹0 commission on direct plans | Research tools | Portfolio tracker</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">₹0 commission on direct plans | Research tools | Portfolio tracker</p>
                       <a href="https://coin.zerodha.com/funds/elss" 
                          target="_blank" rel="noopener noreferrer"
                          className="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
@@ -332,18 +332,18 @@ export default function TaxPlanning() {
                   </div>
                   
                   <div className="space-y-4">
-                    <div className="border-l-4 border-green-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">Equity Linked Savings Scheme (ELSS)</h4>
-                      <p className="text-sm text-gray-600 mb-2">Lock-in: 3 years | Returns: 10-15% potential</p>
+                    <div className="border-l-4 border-green-600 dark:border-green-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Equity Linked Savings Scheme (ELSS)</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Lock-in: 3 years | Returns: 10-15% potential</p>
                       <div className="flex gap-2 flex-wrap">
-                        <a href="https://www.axismf.com/schemes/equity-schemes/axis-long-term-equity-fund" 
+                        <a href="https://www.axismf.com/schemes/equity-schemes/axis-long-term-equity-fund"
                            target="_blank" rel="noopener noreferrer"
-                           className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full hover:bg-green-200 transition-colors">
+                           className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors">
                           Axis ELSS
                         </a>
-                        <a href="https://www.icicipruamc.com/mutual-fund/equity-funds/icici-prudential-long-term-equity-fund" 
+                        <a href="https://www.icicipruamc.com/mutual-fund/equity-funds/icici-prudential-long-term-equity-fund"
                            target="_blank" rel="noopener noreferrer"
-                           className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full hover:bg-green-200 transition-colors">
+                           className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors">
                           ICICI ELSS
                         </a>
                         <a href="https://www.sbimf.com/schemes/equity-schemes/sbi-long-term-equity-fund" 
@@ -366,7 +366,7 @@ export default function TaxPlanning() {
                     
                     <div className="border-l-4 border-blue-600 pl-4">
                       <h4 className="font-semibold text-gray-800">Unit Linked Insurance Plans (ULIP)</h4>
-                      <p className="text-sm text-gray-600 mb-2">Lock-in: 5 years | Returns: Variable</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Lock-in: 5 years | Returns: Variable</p>
                       <div className="flex gap-2 flex-wrap">
                         <a href="https://www.lic.in/" 
                            target="_blank" rel="noopener noreferrer"
@@ -384,9 +384,9 @@ export default function TaxPlanning() {
                 </div>
               </div>
               
-              <div className="mt-8 bg-yellow-50 rounded-xl p-6 border border-yellow-200">
-                <h3 className="text-lg font-bold text-yellow-800 mb-3">💡 Pro Tips for 80C Planning</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700">
+              <div className="mt-8 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-700 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-yellow-800 dark:text-yellow-300 mb-3">💡 Pro Tips for 80C Planning</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700 dark:text-yellow-400">
                   <div>• Start early in the financial year for better planning</div>
                   <div>• Mix high-return (ELSS) with safe options (PPF)</div>
                   <div>• Consider lock-in periods before investing</div>
@@ -410,54 +410,54 @@ export default function TaxPlanning() {
       case 'health-insurance':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
-              <h2 className="text-3xl font-bold text-green-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-8 border border-green-200 dark:border-green-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-green-800 dark:text-green-300 mb-4 flex items-center gap-3 transition-colors duration-300">
                 🏥 Health Insurance Tax Benefits (Section 80D)
               </h2>
-              <p className="text-lg text-green-700 mb-6">
+              <p className="text-lg text-green-700 dark:text-green-400 mb-6 transition-colors duration-300">
                 Get tax deductions up to ₹1 lakh on health insurance premiums for self, family, and parents.
               </p>
-              
+
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="space-y-6">
-                  <div className="bg-white rounded-xl p-6 shadow-md">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">👨‍👩‍👧‍👦 Self & Family Coverage</h3>
+                  <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">👨‍👩‍👧‍👦 Self & Family Coverage</h3>
                     <div className="space-y-4">
-                      <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                        <span className="font-medium">Below 60 years</span>
-                        <span className="font-bold text-blue-600">₹25,000</span>
+                      <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg transition-colors duration-300">
+                        <span className="font-medium text-gray-700 dark:text-gray-200">Below 60 years</span>
+                        <span className="font-bold text-blue-600 dark:text-blue-400">₹25,000</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
-                        <span className="font-medium">60+ years (Senior Citizen)</span>
-                        <span className="font-bold text-orange-600">₹50,000</span>
+                      <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg transition-colors duration-300">
+                        <span className="font-medium text-gray-700 dark:text-gray-200">60+ years (Senior Citizen)</span>
+                        <span className="font-bold text-orange-600 dark:text-orange-400">₹50,000</span>
                       </div>
                     </div>
                   </div>
                   
-                  <div className="bg-white rounded-xl p-6 shadow-md">
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">👴👵 Parents Coverage</h3>
+                  <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">👴👵 Parents Coverage</h3>
                     <div className="space-y-4">
-                      <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                        <span className="font-medium">Additional for Parents</span>
-                        <span className="font-bold text-purple-600">₹50,000</span>
+                      <div className="flex justify-between items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg transition-colors duration-300">
+                        <span className="font-medium text-gray-700 dark:text-gray-200">Additional for Parents</span>
+                        <span className="font-bold text-purple-600 dark:text-purple-400">₹50,000</span>
                       </div>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
                         💡 This is over and above the self/family limit, making total possible deduction ₹1,00,000
                       </p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-6">🏥 Best Health Insurance Options</h3>
-                  
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6">🏥 Best Health Insurance Options</h3>
+
                   {/* Featured Partner - PolicyBazaar */}
-                  <div className="mb-6 p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl border-2 border-orange-200">
+                  <div className="mb-6 p-4 bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl border-2 border-orange-200 dark:border-orange-700 transition-colors duration-300">
                     <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-bold text-lg text-gray-800">PolicyBazaar</h4>
+                      <h4 className="font-bold text-lg text-gray-800 dark:text-gray-100">PolicyBazaar</h4>
                       <span className="text-xs bg-orange-500 text-white px-2 py-1 rounded-full font-semibold">PARTNER</span>
                     </div>
-                    <p className="text-sm text-gray-600 mb-3">Compare 45+ insurers | Get best quotes | Expert guidance</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">Compare 45+ insurers | Get best quotes | Expert guidance</p>
                     <a href="https://www.policybazaar.com/health-insurance/" 
                        target="_blank" rel="noopener noreferrer"
                        className="inline-block bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
@@ -466,29 +466,29 @@ export default function TaxPlanning() {
                   </div>
                   
                   <div className="space-y-4">
-                    <div className="border-l-4 border-red-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Star Health Insurance</h4>
-                      <p className="text-sm text-gray-600 mb-2">Comprehensive health coverage specialist</p>
-                      <a href="https://www.starhealth.in/" 
+                    <div className="border-l-4 border-red-500 dark:border-red-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Star Health Insurance</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Comprehensive health coverage specialist</p>
+                      <a href="https://www.starhealth.in/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full hover:bg-red-200 transition-colors">
+                         className="text-xs bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 px-3 py-1 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors">
                         Get Quote
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-blue-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">HDFC ERGO Health</h4>
-                      <p className="text-sm text-gray-600 mb-2">Wide network and cashless facilities</p>
-                      <a href="https://www.hdfcergo.com/health-insurance" 
+
+                    <div className="border-l-4 border-blue-500 dark:border-blue-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">HDFC ERGO Health</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Wide network and cashless facilities</p>
+                      <a href="https://www.hdfcergo.com/health-insurance"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">
+                         className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
                         Get Quote
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-green-500 pl-4">
+
+                    <div className="border-l-4 border-green-500 dark:border-green-600 pl-4 transition-colors duration-300">
                       <h4 className="font-semibold text-gray-800">ICICI Lombard Health</h4>
-                      <p className="text-sm text-gray-600 mb-2">Digital-first health insurance</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Digital-first health insurance</p>
                       <a href="https://www.icicilombard.com/health-insurance" 
                          target="_blank" rel="noopener noreferrer"
                          className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full hover:bg-green-200 transition-colors">
@@ -498,7 +498,7 @@ export default function TaxPlanning() {
                     
                     <div className="border-l-4 border-purple-500 pl-4">
                       <h4 className="font-semibold text-gray-800">Care Health Insurance</h4>
-                      <p className="text-sm text-gray-600 mb-2">Affordable and comprehensive plans</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Affordable and comprehensive plans</p>
                       <a href="https://www.careinsurance.com/" 
                          target="_blank" rel="noopener noreferrer"
                          className="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full hover:bg-purple-200 transition-colors">
@@ -509,20 +509,20 @@ export default function TaxPlanning() {
                 </div>
               </div>
               
-              <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-200">
-                <h3 className="text-lg font-bold text-blue-800 mb-3">💰 Tax Savings Calculator</h3>
+              <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-700 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-blue-800 dark:text-blue-300 mb-3">💰 Tax Savings Calculator</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-                  <div className="bg-white p-4 rounded-lg">
-                    <div className="font-semibold text-gray-800">30% Tax Bracket</div>
-                    <div className="text-blue-600">Save up to ₹30,000</div>
+                  <div className="bg-white dark:bg-gray-600 p-4 rounded-lg transition-colors duration-300">
+                    <div className="font-semibold text-gray-800 dark:text-gray-100">30% Tax Bracket</div>
+                    <div className="text-blue-600 dark:text-blue-400">Save up to ₹30,000</div>
                   </div>
-                  <div className="bg-white p-4 rounded-lg">
-                    <div className="font-semibold text-gray-800">20% Tax Bracket</div>
-                    <div className="text-blue-600">Save up to ₹20,000</div>
+                  <div className="bg-white dark:bg-gray-600 p-4 rounded-lg transition-colors duration-300">
+                    <div className="font-semibold text-gray-800 dark:text-gray-100">20% Tax Bracket</div>
+                    <div className="text-blue-600 dark:text-blue-400">Save up to ₹20,000</div>
                   </div>
-                  <div className="bg-white p-4 rounded-lg">
-                    <div className="font-semibold text-gray-800">5% Tax Bracket</div>
-                    <div className="text-blue-600">Save up to ₹5,000</div>
+                  <div className="bg-white dark:bg-gray-600 p-4 rounded-lg transition-colors duration-300">
+                    <div className="font-semibold text-gray-800 dark:text-gray-100">5% Tax Bracket</div>
+                    <div className="text-blue-600 dark:text-blue-400">Save up to ₹5,000</div>
                   </div>
                 </div>
               </div>
@@ -543,77 +543,77 @@ export default function TaxPlanning() {
       case 'home-loan':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl p-8 border border-orange-200">
-              <h2 className="text-3xl font-bold text-orange-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-2xl p-8 border border-orange-200 dark:border-orange-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-orange-800 dark:text-orange-300 mb-4 flex items-center gap-3 transition-colors duration-300">
                 🏠 Home Loan Tax Benefits
               </h2>
-              <p className="text-lg text-orange-700 mb-6">
+              <p className="text-lg text-orange-700 dark:text-orange-400 mb-6 transition-colors duration-300">
                 Maximize your home loan tax benefits with principal and interest deductions up to ₹3.5 lakhs annually.
               </p>
-              
+
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">📋 Tax Deduction Breakdown</h3>
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">📋 Tax Deduction Breakdown</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-blue-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Principal Repayment (Section 80C)</h4>
-                      <p className="text-sm text-gray-600 mb-2">Up to ₹1.5 lakh (part of overall 80C limit)</p>
-                      <div className="text-xs text-blue-600">💡 Shares the ₹1.5L limit with other 80C investments</div>
+                    <div className="border-l-4 border-blue-500 dark:border-blue-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Principal Repayment (Section 80C)</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Up to ₹1.5 lakh (part of overall 80C limit)</p>
+                      <div className="text-xs text-blue-600 dark:text-blue-400">💡 Shares the ₹1.5L limit with other 80C investments</div>
                     </div>
-                    
-                    <div className="border-l-4 border-green-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Interest Payment (Section 24B)</h4>
-                      <p className="text-sm text-gray-600 mb-2">Up to ₹2 lakh for self-occupied property</p>
-                      <div className="text-xs text-green-600">💡 Separate limit, not part of 80C</div>
+
+                    <div className="border-l-4 border-green-500 dark:border-green-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Interest Payment (Section 24B)</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Up to ₹2 lakh for self-occupied property</p>
+                      <div className="text-xs text-green-600 dark:text-green-400">💡 Separate limit, not part of 80C</div>
                     </div>
-                    
-                    <div className="border-l-4 border-purple-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Let-out Property Interest</h4>
-                      <p className="text-sm text-gray-600 mb-2">No limit on interest deduction</p>
-                      <div className="text-xs text-purple-600">💡 Full interest deductible from rental income</div>
+
+                    <div className="border-l-4 border-purple-500 dark:border-purple-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Let-out Property Interest</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">No limit on interest deduction</p>
+                      <div className="text-xs text-purple-600 dark:text-purple-400">💡 Full interest deductible from rental income</div>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">🏦 Best Home Loan Providers</h3>
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🏦 Best Home Loan Providers</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-blue-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">SBI Home Loans</h4>
-                      <p className="text-sm text-gray-600 mb-2">Starting from 8.50% | Tenure up to 30 years</p>
-                      <a href="https://sbi.co.in/web/personal-banking/loans/home-loans" 
+                    <div className="border-l-4 border-blue-600 dark:border-blue-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">SBI Home Loans</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Starting from 8.50% | Tenure up to 30 years</p>
+                      <a href="https://sbi.co.in/web/personal-banking/loans/home-loans"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">
+                         className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
                         Apply Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-red-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">HDFC Home Loans</h4>
-                      <p className="text-sm text-gray-600 mb-2">Starting from 8.60% | Quick processing</p>
-                      <a href="https://www.hdfc.com/home-loans" 
+
+                    <div className="border-l-4 border-red-600 dark:border-red-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">HDFC Home Loans</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Starting from 8.60% | Quick processing</p>
+                      <a href="https://www.hdfc.com/home-loans"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full hover:bg-red-200 transition-colors">
+                         className="text-xs bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 px-3 py-1 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors">
                         Apply Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-green-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">ICICI Bank Home Loans</h4>
-                      <p className="text-sm text-gray-600 mb-2">Starting from 8.75% | Digital processing</p>
-                      <a href="https://www.icicibank.com/personal-banking/loans/home-loan" 
+
+                    <div className="border-l-4 border-green-600 dark:border-green-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">ICICI Bank Home Loans</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Starting from 8.75% | Digital processing</p>
+                      <a href="https://www.icicibank.com/personal-banking/loans/home-loan"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full hover:bg-green-200 transition-colors">
+                         className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors">
                         Apply Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-purple-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">Axis Bank Home Loans</h4>
-                      <p className="text-sm text-gray-600 mb-2">Starting from 8.80% | Flexible repayment</p>
-                      <a href="https://www.axisbank.com/retail/loans/home-loan" 
+
+                    <div className="border-l-4 border-purple-600 dark:border-purple-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Axis Bank Home Loans</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Starting from 8.80% | Flexible repayment</p>
+                      <a href="https://www.axisbank.com/retail/loans/home-loan"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full hover:bg-purple-200 transition-colors">
+                         className="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 px-3 py-1 rounded-full hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors">
                         Apply Now
                       </a>
                     </div>
@@ -621,12 +621,12 @@ export default function TaxPlanning() {
                 </div>
               </div>
               
-              <div className="mt-8 bg-yellow-50 rounded-xl p-6 border border-yellow-200">
-                <h3 className="text-lg font-bold text-yellow-800 mb-3">📊 Tax Savings Example</h3>
+              <div className="mt-8 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-700 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-yellow-800 dark:text-yellow-300 mb-3">📊 Tax Savings Example</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-2">Scenario: ₹50L Home Loan</h4>
-                    <div className="space-y-2 text-sm">
+                  <div className="bg-white dark:bg-gray-600 p-4 rounded-lg transition-colors duration-300">
+                    <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Scenario: ₹50L Home Loan</h4>
+                    <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                       <div className="flex justify-between">
                         <span>Principal Repayment:</span>
                         <span className="font-medium">₹1,50,000</span>
@@ -637,13 +637,13 @@ export default function TaxPlanning() {
                       </div>
                       <div className="flex justify-between border-t pt-2">
                         <span className="font-semibold">Total Deduction:</span>
-                        <span className="font-bold text-orange-600">₹3,50,000</span>
+                        <span className="font-bold text-orange-600 dark:text-orange-400">₹3,50,000</span>
                       </div>
                     </div>
                   </div>
-                  <div className="bg-white p-4 rounded-lg">
-                    <h4 className="font-semibold text-gray-800 mb-2">Tax Savings (30% bracket)</h4>
-                    <div className="space-y-2 text-sm">
+                  <div className="bg-white dark:bg-gray-600 p-4 rounded-lg transition-colors duration-300">
+                    <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Tax Savings (30% bracket)</h4>
+                    <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                       <div className="flex justify-between">
                         <span>On Principal:</span>
                         <span className="font-medium">₹45,000</span>
@@ -652,9 +652,9 @@ export default function TaxPlanning() {
                         <span>On Interest:</span>
                         <span className="font-medium">₹60,000</span>
                       </div>
-                      <div className="flex justify-between border-t pt-2">
+                      <div className="flex justify-between border-t dark:border-gray-500 pt-2">
                         <span className="font-semibold">Total Savings:</span>
-                        <span className="font-bold text-green-600">₹1,05,000</span>
+                        <span className="font-bold text-green-600 dark:text-green-400">₹1,05,000</span>
                       </div>
                     </div>
                   </div>
@@ -677,71 +677,71 @@ export default function TaxPlanning() {
       case 'education-loan':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl p-8 border border-purple-200">
-              <h2 className="text-3xl font-bold text-purple-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-2xl p-8 border border-purple-200 dark:border-purple-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-purple-800 dark:text-purple-300 mb-4 transition-colors duration-300 flex items-center gap-3">
                 🎓 Education Loan Tax Benefits (Section 80E)
               </h2>
-              <p className="text-lg text-purple-700 mb-6">
+              <p className="text-lg text-purple-700 dark:text-purple-400 mb-6 transition-colors duration-300">
                 Get full deduction on education loan interest with no upper limit for higher education expenses.
               </p>
-              
+
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">📋 Key Benefits</h3>
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">📋 Key Benefits</h3>
                   <div className="space-y-4">
-                    <div className="flex items-start gap-3 p-3 bg-green-50 rounded-lg">
-                      <span className="text-green-600 mt-1">✓</span>
+                    <div className="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg transition-colors duration-300">
+                      <span className="text-green-600 dark:text-green-400 mt-1">✓</span>
                       <div>
-                        <div className="font-semibold text-gray-800">No Upper Limit</div>
-                        <div className="text-sm text-gray-600">Full interest amount is deductible</div>
+                        <div className="font-semibold text-gray-800 dark:text-gray-100">No Upper Limit</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-300">Full interest amount is deductible</div>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
-                      <span className="text-blue-600 mt-1">✓</span>
+                    <div className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg transition-colors duration-300">
+                      <span className="text-blue-600 dark:text-blue-400 mt-1">✓</span>
                       <div>
-                        <div className="font-semibold text-gray-800">8 Year Benefit</div>
-                        <div className="text-sm text-gray-600">From the year you start repaying</div>
+                        <div className="font-semibold text-gray-800 dark:text-gray-100">8 Year Benefit</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-300">From the year you start repaying</div>
                       </div>
                     </div>
-                    <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg">
-                      <span className="text-purple-600 mt-1">✓</span>
+                    <div className="flex items-start gap-3 p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg transition-colors duration-300">
+                      <span className="text-purple-600 dark:text-purple-400 mt-1">✓</span>
                       <div>
-                        <div className="font-semibold text-gray-800">For Self, Spouse, Children</div>
-                        <div className="text-sm text-gray-600">Can claim for dependent relatives</div>
+                        <div className="font-semibold text-gray-800 dark:text-gray-100">For Self, Spouse, Children</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-300">Can claim for dependent relatives</div>
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">🏦 Best Education Loan Providers</h3>
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🏦 Best Education Loan Providers</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-blue-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">SBI Education Loan</h4>
-                      <p className="text-sm text-gray-600 mb-2">9.05% onwards | Up to ₹1.5 crore</p>
-                      <a href="https://sbi.co.in/web/personal-banking/loans/education-loans" 
+                    <div className="border-l-4 border-blue-600 dark:border-blue-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">SBI Education Loan</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">9.05% onwards | Up to ₹1.5 crore</p>
+                      <a href="https://sbi.co.in/web/personal-banking/loans/education-loans"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">
+                         className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
                         Apply Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-green-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">HDFC Credila</h4>
-                      <p className="text-sm text-gray-600 mb-2">10.5% onwards | Abroad studies specialist</p>
-                      <a href="https://www.hdfccredila.com/" 
+
+                    <div className="border-l-4 border-green-600 dark:border-green-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">HDFC Credila</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">10.5% onwards | Abroad studies specialist</p>
+                      <a href="https://www.hdfccredila.com/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full hover:bg-green-200 transition-colors">
+                         className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors">
                         Apply Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-purple-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">Axis Bank Education Loan</h4>
-                      <p className="text-sm text-gray-600 mb-2">10.75% onwards | Quick processing</p>
-                      <a href="https://www.axisbank.com/retail/loans/education-loan" 
+
+                    <div className="border-l-4 border-purple-600 dark:border-purple-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Axis Bank Education Loan</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">10.75% onwards | Quick processing</p>
+                      <a href="https://www.axisbank.com/retail/loans/education-loan"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full hover:bg-purple-200 transition-colors">
+                         className="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 px-3 py-1 rounded-full hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors">
                         Apply Now
                       </a>
                     </div>
@@ -765,21 +765,21 @@ export default function TaxPlanning() {
       case 'donations':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-pink-50 to-red-50 rounded-2xl p-8 border border-pink-200">
-              <h2 className="text-3xl font-bold text-pink-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-pink-50 to-red-50 dark:from-pink-900/20 dark:to-red-900/20 rounded-2xl p-8 border border-pink-200 dark:border-pink-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-pink-800 dark:text-pink-300 mb-4 flex items-center gap-3 transition-colors duration-300">
                 ❤️ Donation Tax Benefits (Section 80G)
               </h2>
-              <p className="text-lg text-pink-700 mb-6">
+              <p className="text-lg text-pink-700 dark:text-pink-400 mb-6 transition-colors duration-300">
                 Get 50% or 100% tax deduction on donations to approved charitable organizations and government funds.
               </p>
-              
+
               {/* Featured Donation Platform */}
-              <div className="mb-8 p-4 bg-gradient-to-r from-pink-50 to-red-50 rounded-xl border-2 border-pink-200">
+              <div className="mb-8 p-4 bg-gradient-to-r from-pink-50 to-red-50 dark:from-pink-900/20 dark:to-red-900/20 rounded-xl border-2 border-pink-200 dark:border-pink-700 transition-colors duration-300">
                 <div className="flex items-center justify-between mb-3">
-                  <h4 className="font-bold text-lg text-gray-800">GiveIndia</h4>
+                  <h4 className="font-bold text-lg text-gray-800 dark:text-gray-100">GiveIndia</h4>
                   <span className="text-xs bg-pink-500 text-white px-2 py-1 rounded-full font-semibold">PARTNER</span>
                 </div>
-                <p className="text-sm text-gray-600 mb-3">India&apos;s largest donation platform | 80G certified NGOs | Easy tax receipt</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">India&apos;s largest donation platform | 80G certified NGOs | Easy tax receipt</p>
                 <a href="https://www.giveindia.org/" 
                    target="_blank" rel="noopener noreferrer"
                    className="inline-block bg-gradient-to-r from-pink-500 to-red-500 text-white px-6 py-2 rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">
@@ -788,97 +788,97 @@ export default function TaxPlanning() {
               </div>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">💝 100% Deduction Organizations</h3>
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">💝 100% Deduction Organizations</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-green-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">PM CARES Fund</h4>
-                      <p className="text-sm text-gray-600 mb-2">COVID-19 relief and healthcare</p>
-                      <a href="https://www.pmcares.gov.in/" 
+                    <div className="border-l-4 border-green-500 dark:border-green-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">PM CARES Fund</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">COVID-19 relief and healthcare</p>
+                      <a href="https://www.pmcares.gov.in/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full hover:bg-green-200 transition-colors">
+                         className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-blue-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Swachh Bharat Kosh</h4>
-                      <p className="text-sm text-gray-600 mb-2">Clean India mission support</p>
-                      <a href="https://sbm.gov.in/sbmcms/donation.aspx" 
+
+                    <div className="border-l-4 border-blue-500 dark:border-blue-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Swachh Bharat Kosh</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Clean India mission support</p>
+                      <a href="https://sbm.gov.in/sbmcms/donation.aspx"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">
+                         className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-purple-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Clean Ganga Fund</h4>
-                      <p className="text-sm text-gray-600 mb-2">River cleaning initiative</p>
-                      <a href="https://nmcg.nic.in/" 
+
+                    <div className="border-l-4 border-purple-500 dark:border-purple-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Clean Ganga Fund</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">River cleaning initiative</p>
+                      <a href="https://nmcg.nic.in/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full hover:bg-purple-200 transition-colors">
+                         className="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 px-3 py-1 rounded-full hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-indigo-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">National Defence Fund</h4>
-                      <p className="text-sm text-gray-600 mb-2">Armed forces welfare and modernization</p>
-                      <a href="https://ndf.gov.in/" 
+
+                    <div className="border-l-4 border-indigo-500 dark:border-indigo-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">National Defence Fund</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Armed forces welfare and modernization</p>
+                      <a href="https://ndf.gov.in/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full hover:bg-indigo-200 transition-colors">
+                         className="text-xs bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 px-3 py-1 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-red-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">PM National Relief Fund</h4>
-                      <p className="text-sm text-gray-600 mb-2">Natural calamity and disaster relief</p>
-                      <a href="https://pmnrf.gov.in/" 
+
+                    <div className="border-l-4 border-red-500 dark:border-red-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">PM National Relief Fund</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Natural calamity and disaster relief</p>
+                      <a href="https://pmnrf.gov.in/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full hover:bg-red-200 transition-colors">
+                         className="text-xs bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 px-3 py-1 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
                   </div>
                 </div>
-                
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">💙 50% Deduction Organizations</h3>
+
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">💙 50% Deduction Organizations</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-orange-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Akshaya Patra Foundation</h4>
-                      <p className="text-sm text-gray-600 mb-2">Mid-day meal program for children</p>
-                      <a href="https://www.akshayapatra.org/" 
+                    <div className="border-l-4 border-orange-500 dark:border-orange-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Akshaya Patra Foundation</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Mid-day meal program for children</p>
+                      <a href="https://www.akshayapatra.org/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-orange-100 text-orange-700 px-3 py-1 rounded-full hover:bg-orange-200 transition-colors">
+                         className="text-xs bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 px-3 py-1 rounded-full hover:bg-orange-200 dark:hover:bg-orange-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-teal-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">CRY (Child Rights and You)</h4>
-                      <p className="text-sm text-gray-600 mb-2">Child welfare and education</p>
-                      <a href="https://www.cry.org/" 
+
+                    <div className="border-l-4 border-teal-500 dark:border-teal-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">CRY (Child Rights and You)</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Child welfare and education</p>
+                      <a href="https://www.cry.org/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-teal-100 text-teal-700 px-3 py-1 rounded-full hover:bg-teal-200 transition-colors">
+                         className="text-xs bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 px-3 py-1 rounded-full hover:bg-teal-200 dark:hover:bg-teal-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
                     
                     <div className="border-l-4 border-indigo-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Teach for India</h4>
-                      <p className="text-sm text-gray-600 mb-2">Education equality movement</p>
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Teach for India</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Education equality movement</p>
                       <a href="https://www.teachforindia.org/" 
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full hover:bg-indigo-200 transition-colors">
+                         className="text-xs bg-indigo-100 text-indigo-700 dark:text-indigo-400 px-3 py-1 rounded-full hover:bg-indigo-200 transition-colors">
                         Donate Now
                       </a>
                     </div>
                     
                     <div className="border-l-4 border-pink-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Smile Foundation</h4>
-                      <p className="text-sm text-gray-600 mb-2">Education, healthcare, livelihood programs</p>
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Smile Foundation</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Education, healthcare, livelihood programs</p>
                       <a href="https://www.smilefoundationindia.org/" 
                          target="_blank" rel="noopener noreferrer"
                          className="text-xs bg-pink-100 text-pink-700 px-3 py-1 rounded-full hover:bg-pink-200 transition-colors">
@@ -887,18 +887,18 @@ export default function TaxPlanning() {
                     </div>
                     
                     <div className="border-l-4 border-emerald-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">HelpAge India</h4>
-                      <p className="text-sm text-gray-600 mb-2">Elderly care and support services</p>
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">HelpAge India</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Elderly care and support services</p>
                       <a href="https://www.helpageindia.org/" 
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full hover:bg-emerald-200 transition-colors">
+                         className="text-xs bg-emerald-100 text-emerald-700 dark:text-emerald-400 px-3 py-1 rounded-full hover:bg-emerald-200 transition-colors">
                         Donate Now
                       </a>
                     </div>
                     
                     <div className="border-l-4 border-violet-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Goonj</h4>
-                      <p className="text-sm text-gray-600 mb-2">Clothing, disaster relief, rural development</p>
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Goonj</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Clothing, disaster relief, rural development</p>
                       <a href="https://goonj.org/" 
                          target="_blank" rel="noopener noreferrer"
                          className="text-xs bg-violet-100 text-violet-700 px-3 py-1 rounded-full hover:bg-violet-200 transition-colors">
@@ -907,11 +907,11 @@ export default function TaxPlanning() {
                     </div>
                     
                     <div className="border-l-4 border-cyan-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Pratham</h4>
-                      <p className="text-sm text-gray-600 mb-2">Education for underprivileged children</p>
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Pratham</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Education for underprivileged children</p>
                       <a href="https://www.pratham.org/" 
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full hover:bg-cyan-200 transition-colors">
+                         className="text-xs bg-cyan-100 text-cyan-700 dark:text-cyan-400 px-3 py-1 rounded-full hover:bg-cyan-200 transition-colors">
                         Donate Now
                       </a>
                     </div>
@@ -921,85 +921,85 @@ export default function TaxPlanning() {
               </div>
               
               {/* Healthcare & Medical NGOs Section - Full Width */}
-              <div className="mt-8 bg-white rounded-xl p-8 shadow-md">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">🏥 Healthcare & Medical NGOs (50% Deduction)</h3>
+              <div className="mt-8 bg-white dark:bg-gray-600 rounded-xl p-8 shadow-md transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center">🏥 Healthcare & Medical NGOs (50% Deduction)</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div className="border-l-4 border-red-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Tata Memorial Centre</h4>
-                      <p className="text-sm text-gray-600 mb-2">Cancer treatment and research for underprivileged</p>
-                      <a href="https://tmc.gov.in/" 
+                    <div className="border-l-4 border-red-500 dark:border-red-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Tata Memorial Centre</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Cancer treatment and research for underprivileged</p>
+                      <a href="https://tmc.gov.in/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-red-100 text-red-700 px-3 py-1 rounded-full hover:bg-red-200 transition-colors">
+                         className="text-xs bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 px-3 py-1 rounded-full hover:bg-red-200 dark:hover:bg-red-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-pink-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Indian Cancer Society</h4>
-                      <p className="text-sm text-gray-600 mb-2">Cancer awareness, prevention and patient support</p>
-                      <a href="https://www.indiancancersociety.org/" 
+
+                    <div className="border-l-4 border-pink-500 dark:border-pink-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Indian Cancer Society</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Cancer awareness, prevention and patient support</p>
+                      <a href="https://www.indiancancersociety.org/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-pink-100 text-pink-700 px-3 py-1 rounded-full hover:bg-pink-200 transition-colors">
+                         className="text-xs bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-400 px-3 py-1 rounded-full hover:bg-pink-200 dark:hover:bg-pink-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-purple-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Narayana Health Foundation</h4>
-                      <p className="text-sm text-gray-600 mb-2">Heart surgeries and critical care for children</p>
-                      <a href="https://www.narayanahealth.org/" 
+
+                    <div className="border-l-4 border-purple-500 dark:border-purple-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Narayana Health Foundation</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Heart surgeries and critical care for children</p>
+                      <a href="https://www.narayanahealth.org/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full hover:bg-purple-200 transition-colors">
+                         className="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 px-3 py-1 rounded-full hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-blue-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">NACO (National AIDS Control)</h4>
-                      <p className="text-sm text-gray-600 mb-2">HIV/AIDS prevention, treatment and awareness</p>
-                      <a href="http://naco.gov.in/" 
+
+                    <div className="border-l-4 border-blue-500 dark:border-blue-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">NACO (National AIDS Control)</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">HIV/AIDS prevention, treatment and awareness</p>
+                      <a href="http://naco.gov.in/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">
+                         className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-green-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Cuddles Foundation</h4>
-                      <p className="text-sm text-gray-600 mb-2">Malnutrition treatment in hospitalized children</p>
-                      <a href="https://cuddlesfoundation.org/" 
+
+                    <div className="border-l-4 border-green-500 dark:border-green-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Cuddles Foundation</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Malnutrition treatment in hospitalized children</p>
+                      <a href="https://cuddlesfoundation.org/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full hover:bg-green-200 transition-colors">
+                         className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-orange-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Sankara Eye Foundation</h4>
-                      <p className="text-sm text-gray-600 mb-2">Free eye care and cataract surgeries</p>
-                      <a href="https://www.sankaraeye.com/" 
+
+                    <div className="border-l-4 border-orange-500 dark:border-orange-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Sankara Eye Foundation</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Free eye care and cataract surgeries</p>
+                      <a href="https://www.sankaraeye.com/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-orange-100 text-orange-700 px-3 py-1 rounded-full hover:bg-orange-200 transition-colors">
+                         className="text-xs bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 px-3 py-1 rounded-full hover:bg-orange-200 dark:hover:bg-orange-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-teal-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Rotary Foundation India</h4>
-                      <p className="text-sm text-gray-600 mb-2">Polio eradication and immunization programs</p>
-                      <a href="https://www.rotaryindia.org/" 
+
+                    <div className="border-l-4 border-teal-500 dark:border-teal-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Rotary Foundation India</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Polio eradication and immunization programs</p>
+                      <a href="https://www.rotaryindia.org/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-teal-100 text-teal-700 px-3 py-1 rounded-full hover:bg-teal-200 transition-colors">
+                         className="text-xs bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 px-3 py-1 rounded-full hover:bg-teal-200 dark:hover:bg-teal-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-indigo-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Asha for Education</h4>
-                      <p className="text-sm text-gray-600 mb-2">Healthcare and education in rural communities</p>
-                      <a href="https://www.ashanet.org/" 
+
+                    <div className="border-l-4 border-indigo-500 dark:border-indigo-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Asha for Education</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Healthcare and education in rural communities</p>
+                      <a href="https://www.ashanet.org/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full hover:bg-indigo-200 transition-colors">
+                         className="text-xs bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 px-3 py-1 rounded-full hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition-colors">
                         Donate Now
                       </a>
                     </div>
@@ -1007,43 +1007,43 @@ export default function TaxPlanning() {
               </div>
               
               {/* Additional Donation Platforms */}
-              <div className="mt-8 bg-white rounded-xl p-6 shadow-md">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">🌐 Other Donation Platforms</h3>
+              <div className="mt-8 bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🌐 Other Donation Platforms</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <a href="https://www.ketto.org/" 
+                  <a href="https://www.ketto.org/"
                      target="_blank" rel="noopener noreferrer"
-                     className="p-3 bg-blue-50 rounded-lg text-center hover:bg-blue-100 transition-colors">
-                    <div className="font-semibold text-gray-800 text-sm">Ketto</div>
-                    <div className="text-xs text-gray-600">Crowdfunding</div>
+                     className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-center hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors">
+                    <div className="font-semibold text-gray-800 dark:text-gray-100 text-sm">Ketto</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-300">Crowdfunding</div>
                   </a>
-                  <a href="https://milaap.org/" 
+                  <a href="https://milaap.org/"
                      target="_blank" rel="noopener noreferrer"
-                     className="p-3 bg-green-50 rounded-lg text-center hover:bg-green-100 transition-colors">
-                    <div className="font-semibold text-gray-800 text-sm">Milaap</div>
-                    <div className="text-xs text-gray-600">Social Impact</div>
+                     className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg text-center hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors">
+                    <div className="font-semibold text-gray-800 dark:text-gray-100 text-sm">Milaap</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-300">Social Impact</div>
                   </a>
-                  <a href="https://www.donatekart.com/" 
+                  <a href="https://www.donatekart.com/"
                      target="_blank" rel="noopener noreferrer"
-                     className="p-3 bg-purple-50 rounded-lg text-center hover:bg-purple-100 transition-colors">
-                    <div className="font-semibold text-gray-800 text-sm">DonateKart</div>
-                    <div className="text-xs text-gray-600">NGO Platform</div>
+                     className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-center hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors">
+                    <div className="font-semibold text-gray-800 dark:text-gray-100 text-sm">DonateKart</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-300">NGO Platform</div>
                   </a>
-                  <a href="https://www.charitywater.org/" 
+                  <a href="https://www.charitywater.org/"
                      target="_blank" rel="noopener noreferrer"
-                     className="p-3 bg-orange-50 rounded-lg text-center hover:bg-orange-100 transition-colors">
-                    <div className="font-semibold text-gray-800 text-sm">Charity Water</div>
-                    <div className="text-xs text-gray-600">Clean Water</div>
+                     className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg text-center hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-colors">
+                    <div className="font-semibold text-gray-800 dark:text-gray-100 text-sm">Charity Water</div>
+                    <div className="text-xs text-gray-600 dark:text-gray-300">Clean Water</div>
                   </a>
                 </div>
               </div>
               
               {/* Important Clarifications */}
-              <div className="mt-8 bg-yellow-50 rounded-xl p-6 border border-yellow-200">
-                <h3 className="text-lg font-bold text-yellow-800 mb-4">⚠️ Important: What&apos;s NOT Eligible for 80G Deduction</h3>
+              <div className="mt-8 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-700 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-yellow-800 dark:text-yellow-300 mb-4">⚠️ Important: What&apos;s NOT Eligible for 80G Deduction</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-800 text-sm">❌ Religious Donations (No Tax Benefit)</h4>
-                    <div className="space-y-2 text-sm text-gray-700">
+                    <h4 className="font-semibold text-gray-800 dark:text-gray-100 text-sm">❌ Religious Donations (No Tax Benefit)</h4>
+                    <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                       <div>• Temple, Church, Mosque, Gurudwara donations</div>
                       <div>• Religious festivals and ceremonies</div>
                       <div>• Personal religious offerings</div>
@@ -1052,8 +1052,8 @@ export default function TaxPlanning() {
                   </div>
                   
                   <div className="space-y-3">
-                    <h4 className="font-semibold text-gray-800 text-sm">❌ Political Donations (No Tax Benefit)</h4>
-                    <div className="space-y-2 text-sm text-gray-700">
+                    <h4 className="font-semibold text-gray-800 dark:text-gray-100 text-sm">❌ Political Donations (No Tax Benefit)</h4>
+                    <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                       <div>• BJP, Congress, AAP, or any political party</div>
                       <div>• Electoral bonds (discontinued from 2024)</div>
                       <div>• Political campaign contributions</div>
@@ -1062,21 +1062,21 @@ export default function TaxPlanning() {
                   </div>
                 </div>
                 
-                <div className="mt-6 p-4 bg-white rounded-lg border border-yellow-300">
-                  <h4 className="font-semibold text-gray-800 mb-2">💡 Alternative: Political Party Donations</h4>
-                  <p className="text-sm text-gray-700 mb-2">
+                <div className="mt-6 p-4 bg-white dark:bg-gray-600 rounded-lg border border-yellow-300 dark:border-yellow-600 transition-colors duration-300">
+                  <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">💡 Alternative: Political Party Donations</h4>
+                  <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
                     While political donations don&apos;t qualify for Section 80G, they have separate provisions:
                   </p>
-                  <div className="space-y-1 text-sm text-gray-600">
+                  <div className="space-y-1 text-sm text-gray-600 dark:text-gray-300">
                     <div>• <strong>Section 80GGB:</strong> Corporate donations to political parties (100% deduction)</div>
                     <div>• <strong>Individual donations:</strong> No tax deduction available</div>
                     <div>• <strong>Electoral bonds:</strong> Were anonymous but discontinued in 2024</div>
                   </div>
                 </div>
                 
-                <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
-                  <h4 className="font-semibold text-gray-800 mb-2">✅ What Qualifies for 80G</h4>
-                  <p className="text-sm text-gray-700">
+                <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200 dark:border-blue-700 dark:bg-gray-600  transition-colors duration-300">
+                  <h4 className="font-semibold text-gray-800 mb-2 dark:text-gray-100">✅ What Qualifies for 80G</h4>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
                     Only donations to <strong>registered charitable organizations</strong> with valid 80G certificates qualify. 
                     Always verify the organization&apos;s 80G registration before donating for tax benefits.
                   </p>
@@ -1099,90 +1099,90 @@ export default function TaxPlanning() {
       case 'other-deductions':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-2xl p-8 border border-teal-200">
-              <h2 className="text-3xl font-bold text-teal-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-2xl p-8 border border-teal-200 dark:border-teal-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-teal-800 dark:text-teal-300 mb-4 flex items-center gap-3">
                 📝 Other Tax Deductions
               </h2>
-              <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-6 rounded-r-lg">
+              <div className="bg-yellow-100 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-600 p-4 mb-6 rounded-r-lg transition-colors duration-300">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-yellow-600 font-semibold">⚠️ Important Note:</span>
+                  <span className="text-yellow-600 dark:text-yellow-400 font-semibold">⚠️ Important Note:</span>
                 </div>
-                <p className="text-yellow-800 font-medium">
-                  These deductions are available only under the <strong>Old Tax Regime</strong>. 
+                <p className="text-yellow-800 dark:text-yellow-300 font-medium">
+                  These deductions are available only under the <strong>Old Tax Regime</strong>.
                   New tax regime does not allow these deductions.
                 </p>
               </div>
-              <p className="text-lg text-teal-700 mb-6">
+              <p className="text-lg text-teal-700 dark:text-teal-400 mb-6">
                 Additional tax savings beyond standard deductions through specialized sections for specific expenses and investments.
               </p>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">💰 Interest & Savings Deductions</h3>
+                <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">💰 Interest & Savings Deductions</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-blue-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Section 80TTA - Savings Interest</h4>
-                      <p className="text-sm text-gray-600 mb-2">Up to ₹10,000 deduction on savings account interest</p>
-                      <div className="text-xs text-blue-600">💡 Available for individuals and HUFs across multiple accounts</div>
+                    <div className="border-l-4 border-blue-500 dark:border-blue-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Section 80TTA - Savings Interest</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Up to ₹10,000 deduction on savings account interest</p>
+                      <div className="text-xs text-blue-600 dark:text-blue-400">💡 Available for individuals and HUFs across multiple accounts</div>
                     </div>
-                    
-                    <div className="border-l-4 border-purple-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Section 80TTB - Senior Citizens</h4>
-                      <p className="text-sm text-gray-600 mb-2">Up to ₹50,000 deduction for senior citizens (60+ years)</p>
-                      <div className="text-xs text-purple-600">💡 Covers savings, FD, RD interest income</div>
+
+                    <div className="border-l-4 border-purple-500 dark:border-purple-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Section 80TTB - Senior Citizens</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Up to ₹50,000 deduction for senior citizens (60+ years)</p>
+                      <div className="text-xs text-purple-600 dark:text-purple-400">💡 Covers savings, FD, RD interest income</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">🏠 Property & Vehicle Deductions</h3>
+                <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🏠 Property & Vehicle Deductions</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-green-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Section 80EE - Home Loan (First-time)</h4>
-                      <p className="text-sm text-gray-600 mb-2">Additional ₹50,000 deduction for first-time home buyers</p>
-                      <div className="text-xs text-green-600">⚠️ Only for loans sanctioned between Apr 2016 - Mar 2017</div>
+                    <div className="border-l-4 border-green-500 dark:border-green-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Section 80EE - Home Loan (First-time)</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Additional ₹50,000 deduction for first-time home buyers</p>
+                      <div className="text-xs text-green-600 dark:text-green-400">⚠️ Only for loans sanctioned between Apr 2016 - Mar 2017</div>
                     </div>
-                    
-                    <div className="border-l-4 border-teal-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Section 80EEB - Electric Vehicle</h4>
-                      <p className="text-sm text-gray-600 mb-2">Up to ₹1.5 lakh deduction on EV loan interest</p>
-                      <div className="text-xs text-teal-600">⚠️ Only for loans sanctioned between Apr 2019 - Mar 2023</div>
+
+                    <div className="border-l-4 border-teal-500 dark:border-teal-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Section 80EEB - Electric Vehicle</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Up to ₹1.5 lakh deduction on EV loan interest</p>
+                      <div className="text-xs text-teal-600 dark:text-teal-400">⚠️ Only for loans sanctioned between Apr 2019 - Mar 2023</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">🏥 Medical & Care Deductions</h3>
+                <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🏥 Medical & Care Deductions</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-orange-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Section 80DD - Disabled Dependent</h4>
-                      <p className="text-sm text-gray-600 mb-2">₹75,000 (40% disability) or ₹1.25 lakh (80% disability)</p>
-                      <div className="text-xs text-orange-600">💡 Fixed deduction amount based on disability percentage</div>
+                    <div className="border-l-4 border-orange-500 dark:border-orange-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Section 80DD - Disabled Dependent</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">₹75,000 (40% disability) or ₹1.25 lakh (80% disability)</p>
+                      <div className="text-xs text-orange-600 dark:text-orange-400">💡 Fixed deduction amount based on disability percentage</div>
                     </div>
-                    
-                    <div className="border-l-4 border-red-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Section 80DDB - Medical Treatment</h4>
-                      <p className="text-sm text-gray-600 mb-2">₹40,000 (below 60) or ₹1 lakh (senior citizens)</p>
-                      <div className="text-xs text-red-600">💡 For specified diseases like cancer, kidney ailments, etc.</div>
+
+                    <div className="border-l-4 border-red-500 dark:border-red-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Section 80DDB - Medical Treatment</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">₹40,000 (below 60) or ₹1 lakh (senior citizens)</p>
+                      <div className="text-xs text-red-600 dark:text-red-400">💡 For specified diseases like cancer, kidney ailments, etc.</div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">💡 Tax Savings Calculator</h3>
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">💡 Tax Savings Calculator</h3>
                   <div className="space-y-4">
-                    <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Potential Annual Savings</h4>
-                      <div className="space-y-2 text-sm text-gray-600">
+                    <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg border-l-4 border-blue-500 dark:border-blue-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Potential Annual Savings</h4>
+                      <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                         <div>• 20% tax slab: Save 20% of deduction amount</div>
                         <div>• 30% tax slab: Save 30% of deduction amount</div>
                         <div>• Example: ₹50,000 deductions = ₹10,000-₹15,000 tax savings</div>
                       </div>
                     </div>
-                    
-                    <div className="p-4 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">⚠️ Important Conditions</h4>
-                      <div className="space-y-1 text-xs text-gray-600">
+
+                    <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-l-4 border-yellow-500 dark:border-yellow-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">⚠️ Important Conditions</h4>
+                      <div className="space-y-1 text-xs text-gray-600 dark:text-gray-300">
                         <div>• 80EE: Specific loan sanction dates</div>
                         <div>• 80EEB: Specific loan sanction dates</div>
                         <div>• 80TTB: Only for 60+ age group</div>
@@ -1193,12 +1193,12 @@ export default function TaxPlanning() {
                 </div>
               </div>
 
-              <div className="mt-8 p-6 bg-gradient-to-r from-teal-100 to-cyan-100 rounded-xl border border-teal-300">
-                <h3 className="text-xl font-bold text-teal-800 mb-4">🎯 Key Takeaways</h3>
+              <div className="mt-8 p-6 bg-gradient-to-r from-teal-100 to-cyan-100 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-xl border border-teal-300 dark:border-teal-600 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-teal-800 dark:text-teal-300 mb-4">🎯 Key Takeaways</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">✅ Best Practices</h4>
-                    <ul className="space-y-1 text-sm text-gray-700">
+                    <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">✅ Best Practices</h4>
+                    <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                       <li>• Maintain proper documentation</li>
                       <li>• Check eligibility criteria carefully</li>
                       <li>• Combine with other deductions for maximum benefit</li>
@@ -1206,8 +1206,8 @@ export default function TaxPlanning() {
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">⚠️ Common Mistakes</h4>
-                    <ul className="space-y-1 text-sm text-gray-700">
+                    <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">⚠️ Common Mistakes</h4>
+                    <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                       <li>• Claiming expired section benefits</li>
                       <li>• Missing age criteria for 80TTB</li>
                       <li>• Not maintaining medical certificates for 80DD/80DDB</li>
@@ -1223,64 +1223,64 @@ export default function TaxPlanning() {
       case 'capital-gains':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl p-8 border border-red-200">
-              <h2 className="text-3xl font-bold text-red-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 rounded-2xl p-8 border border-red-200 dark:border-red-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-red-800 dark:text-red-300 mb-4 flex items-center gap-3">
                 📈 Capital Gains Tax Planning
               </h2>
-              <p className="text-lg text-red-700 mb-6">
+              <p className="text-lg text-red-700 dark:text-red-400 mb-6">
                 Optimize your stock market investments with smart tax planning strategies for both short-term and long-term gains.
               </p>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">📊 Tax Planning Strategies</h3>
+                <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">📊 Tax Planning Strategies</h3>
                   <div className="space-y-4">
-                    <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Hold for Long Term</h4>
-                      <p className="text-sm text-gray-600">Hold equity investments &gt;12 months for 10.4% tax vs 15.6% STCG</p>
+                    <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500 dark:border-green-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Hold for Long Term</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">Hold equity investments &gt;12 months for 10.4% tax vs 15.6% STCG</p>
                     </div>
-                    
-                    <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Utilize ₹1L LTCG Exemption</h4>
-                      <p className="text-sm text-gray-600">First ₹1 lakh of LTCG equity is tax-free every financial year</p>
+
+                    <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500 dark:border-blue-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Utilize ₹1L LTCG Exemption</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">First ₹1 lakh of LTCG equity is tax-free every financial year</p>
                     </div>
-                    
-                    <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Tax Loss Harvesting</h4>
-                      <p className="text-sm text-gray-600">Book losses to offset gains and reduce overall tax liability</p>
+
+                    <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500 dark:border-purple-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Tax Loss Harvesting</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">Book losses to offset gains and reduce overall tax liability</p>
                     </div>
                   </div>
                 </div>
-                
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">🏦 Best Investment Platforms</h3>
+
+                <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🏦 Best Investment Platforms</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-blue-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">Zerodha</h4>
-                      <p className="text-sm text-gray-600 mb-2">₹0 brokerage on equity delivery | Best for beginners</p>
-                      <a href="https://zerodha.com/" 
+                    <div className="border-l-4 border-blue-600 dark:border-blue-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Zerodha</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">₹0 brokerage on equity delivery | Best for beginners</p>
+                      <a href="https://zerodha.com/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">
+                         className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
                         Open Account
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-green-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">Groww</h4>
-                      <p className="text-sm text-gray-600 mb-2">₹0 brokerage | Mutual funds & stocks</p>
-                      <a href="https://groww.in/" 
+
+                    <div className="border-l-4 border-green-600 dark:border-green-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Groww</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">₹0 brokerage | Mutual funds & stocks</p>
+                      <a href="https://groww.in/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full hover:bg-green-200 transition-colors">
+                         className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors">
                         Open Account
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-purple-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">Upstox</h4>
-                      <p className="text-sm text-gray-600 mb-2">₹20 per trade | Advanced tools</p>
-                      <a href="https://upstox.com/" 
+
+                    <div className="border-l-4 border-purple-600 dark:border-purple-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Upstox</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">₹20 per trade | Advanced tools</p>
+                      <a href="https://upstox.com/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full hover:bg-purple-200 transition-colors">
+                         className="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 px-3 py-1 rounded-full hover:bg-purple-200 dark:hover:bg-purple-900/50 transition-colors">
                         Open Account
                       </a>
                     </div>
@@ -1304,45 +1304,45 @@ export default function TaxPlanning() {
       case 'nps-additional':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-2xl p-8 border border-indigo-200">
-              <h2 className="text-3xl font-bold text-indigo-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-indigo-200 dark:border-indigo-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-indigo-800 dark:text-indigo-300 mb-4 flex items-center gap-3 transition-colors duration-300">
                 👴 NPS Additional Benefits (Section 80CCD1B)
               </h2>
-              <p className="text-lg text-indigo-700 mb-6">
+              <p className="text-lg text-indigo-700 dark:text-indigo-400 mb-6 transition-colors duration-300">
                 Get an additional ₹50,000 tax deduction on National Pension System investments over and above Section 80C limit.
               </p>
-              
+
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">💰 Tax Benefits Breakdown</h3>
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">💰 Tax Benefits Breakdown</h3>
                   <div className="space-y-4">
-                    <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Section 80C Limit</h4>
-                      <p className="text-sm text-gray-600">Up to ₹1,50,000 under general 80C provisions</p>
+                    <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500 dark:border-blue-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Section 80C Limit</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">Up to ₹1,50,000 under general 80C provisions</p>
                     </div>
-                    
-                    <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Additional 80CCD1B</h4>
-                      <p className="text-sm text-gray-600">Extra ₹50,000 deduction specifically for NPS</p>
+
+                    <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500 dark:border-green-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Additional 80CCD1B</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">Extra ₹50,000 deduction specifically for NPS</p>
                     </div>
-                    
-                    <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Total NPS Benefit</h4>
-                      <p className="text-sm text-gray-600">Maximum ₹2,00,000 annual deduction possible</p>
+
+                    <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500 dark:border-purple-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Total NPS Benefit</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">Maximum ₹2,00,000 annual deduction possible</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-6">🏦 NPS Investment Options</h3>
-                  
+                <div className="bg-white dark:bg-gray-600 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6">🏦 NPS Investment Options</h3>
+
                   {/* Official NPS Direct - Featured */}
-                  <div className="mb-6 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl border-2 border-indigo-200">
+                  <div className="mb-6 p-4 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl border-2 border-indigo-200 dark:border-indigo-700 transition-colors duration-300">
                     <div className="flex items-center justify-between mb-3">
-                      <h4 className="font-bold text-lg text-gray-800">National Pension System (Official)</h4>
+                      <h4 className="font-bold text-lg text-gray-800 dark:text-gray-100">National Pension System (Official)</h4>
                       <span className="text-xs bg-indigo-500 text-white px-2 py-1 rounded-full font-semibold">OFFICIAL</span>
                     </div>
-                    <p className="text-sm text-gray-600 mb-3">Government portal | Direct account opening | Lower charges | eNPS facility</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">Government portal | Direct account opening | Lower charges | eNPS facility</p>
                     <div className="flex gap-3 flex-wrap">
                       <a href="https://www.npscra.nsdl.co.in/nsdl-web/NPS/subscriptionRegistrationPage/subscriptionRegistrationPage.action" 
                          target="_blank" rel="noopener noreferrer"
@@ -1358,29 +1358,29 @@ export default function TaxPlanning() {
                   </div>
                   
                   <div className="space-y-4">
-                    <div className="border-l-4 border-blue-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">HDFC Pension</h4>
-                      <p className="text-sm text-gray-600 mb-2">Low charges | Digital platform</p>
-                      <a href="https://www.hdfcpension.com/" 
+                    <div className="border-l-4 border-blue-600 dark:border-blue-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">HDFC Pension</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Low charges | Digital platform</p>
+                      <a href="https://www.hdfcpension.com/"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full hover:bg-blue-200 transition-colors">
+                         className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 px-3 py-1 rounded-full hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors">
                         Open NPS
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-green-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">ICICI Prudential NPS</h4>
-                      <p className="text-sm text-gray-600 mb-2">Comprehensive retirement planning</p>
-                      <a href="https://www.icicipruamc.com/nps" 
+
+                    <div className="border-l-4 border-green-600 dark:border-green-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">ICICI Prudential NPS</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Comprehensive retirement planning</p>
+                      <a href="https://www.icicipruamc.com/nps"
                          target="_blank" rel="noopener noreferrer"
-                         className="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full hover:bg-green-200 transition-colors">
+                         className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 px-3 py-1 rounded-full hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors">
                         Open NPS
                       </a>
                     </div>
-                    
-                    <div className="border-l-4 border-purple-600 pl-4">
-                      <h4 className="font-semibold text-gray-800">SBI Pension Funds</h4>
-                      <p className="text-sm text-gray-600 mb-2">Government backed | Reliable</p>
+
+                    <div className="border-l-4 border-purple-600 dark:border-purple-500 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">SBI Pension Funds</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Government backed | Reliable</p>
                       <a href="https://www.sbipensionsfund.com/" 
                          target="_blank" rel="noopener noreferrer"
                          className="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full hover:bg-purple-200 transition-colors">
@@ -1390,7 +1390,7 @@ export default function TaxPlanning() {
                     
                     <div className="border-l-4 border-orange-600 pl-4">
                       <h4 className="font-semibold text-gray-800">Other Digital Platforms</h4>
-                      <p className="text-sm text-gray-600 mb-2">Easy online NPS account opening</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Easy online NPS account opening</p>
                       <div className="flex gap-2 flex-wrap">
                         <a href="https://groww.in/nps" 
                            target="_blank" rel="noopener noreferrer"
@@ -1413,9 +1413,9 @@ export default function TaxPlanning() {
                 </div>
               </div>
               
-              <div className="mt-8 bg-yellow-50 rounded-xl p-6 border border-yellow-200">
-                <h3 className="text-lg font-bold text-yellow-800 mb-3">⚠️ Important Notes</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700">
+              <div className="mt-8 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-700 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-yellow-800 dark:text-yellow-300 mb-3">⚠️ Important Notes</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700 dark:text-yellow-400">
                   <div>• Lock-in until 60 years of age</div>
                   <div>• 60% withdrawal at maturity (40% annuity mandatory)</div>
                   <div>• Partial withdrawals allowed after 3 years</div>
@@ -1439,50 +1439,50 @@ export default function TaxPlanning() {
       case 'salary-restructure':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-2xl p-8 border border-teal-200">
-              <h2 className="text-3xl font-bold text-teal-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-2xl p-8 border border-teal-200 dark:border-teal-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-teal-800 dark:text-teal-300 mb-4 flex items-center gap-3">
                 💼 Salary Restructuring for Tax Savings
               </h2>
-              <p className="text-lg text-teal-700 mb-6">
+              <p className="text-lg text-teal-700 dark:text-teal-400 mb-6">
                 Optimize your salary structure by converting taxable components into tax-free allowances and benefits.
               </p>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">📋 Tax-Free Components</h3>
+                <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">📋 Tax-Free Components</h3>
                   <div className="space-y-4">
-                    <div className="border-l-4 border-green-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">House Rent Allowance (HRA)</h4>
-                      <p className="text-sm text-gray-600 mb-2">40% of basic in non-metro, 50% in metro cities</p>
-                      <div className="text-xs text-green-600">💡 Submit rent receipts for exemption</div>
+                    <div className="border-l-4 border-green-500 dark:border-green-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">House Rent Allowance (HRA)</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">40% of basic in non-metro, 50% in metro cities</p>
+                      <div className="text-xs text-green-600 dark:text-green-400">💡 Submit rent receipts for exemption</div>
                     </div>
-                    
-                    <div className="border-l-4 border-blue-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Leave Travel Allowance (LTA)</h4>
-                      <p className="text-sm text-gray-600 mb-2">Twice in a block of 4 years for domestic travel</p>
-                      <div className="text-xs text-blue-600">💡 Keep all travel tickets and receipts</div>
+
+                    <div className="border-l-4 border-blue-500 dark:border-blue-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Leave Travel Allowance (LTA)</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Twice in a block of 4 years for domestic travel</p>
+                      <div className="text-xs text-blue-600 dark:text-blue-400">💡 Keep all travel tickets and receipts</div>
                     </div>
-                    
-                    <div className="border-l-4 border-purple-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Food Allowance</h4>
-                      <p className="text-sm text-gray-600 mb-2">Up to ₹50 per meal (₹26,000 annually)</p>
-                      <div className="text-xs text-purple-600">💡 Meal coupons or cafeteria facility</div>
+
+                    <div className="border-l-4 border-purple-500 dark:border-purple-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Food Allowance</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Up to ₹50 per meal (₹26,000 annually)</p>
+                      <div className="text-xs text-purple-600 dark:text-purple-400">💡 Meal coupons or cafeteria facility</div>
                     </div>
-                    
-                    <div className="border-l-4 border-orange-500 pl-4">
-                      <h4 className="font-semibold text-gray-800">Phone/Internet Reimbursement</h4>
-                      <p className="text-sm text-gray-600 mb-2">Actual business usage bills</p>
-                      <div className="text-xs text-orange-600">💡 Keep separate business phone/connection</div>
+
+                    <div className="border-l-4 border-orange-500 dark:border-orange-600 pl-4 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100">Phone/Internet Reimbursement</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Actual business usage bills</p>
+                      <div className="text-xs text-orange-600 dark:text-orange-400">💡 Keep separate business phone/connection</div>
                     </div>
                   </div>
                 </div>
-                
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">💡 Restructuring Examples</h3>
+
+                <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">💡 Restructuring Examples</h3>
                   <div className="space-y-4">
-                    <div className="p-4 bg-gray-50 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">Before Restructuring</h4>
-                      <div className="space-y-2 text-sm">
+                    <div className="p-4 bg-gray-50 dark:bg-gray-600 rounded-lg transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Before Restructuring</h4>
+                      <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                         <div className="flex justify-between">
                           <span>Basic Salary:</span>
                           <span>₹80,000</span>
@@ -1491,16 +1491,16 @@ export default function TaxPlanning() {
                           <span>Gross Salary:</span>
                           <span>₹80,000</span>
                         </div>
-                        <div className="flex justify-between text-red-600">
+                        <div className="flex justify-between text-red-600 dark:text-red-400">
                           <span>Taxable Income:</span>
                           <span>₹80,000</span>
                         </div>
                       </div>
                     </div>
-                    
-                    <div className="p-4 bg-green-50 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">After Restructuring</h4>
-                      <div className="space-y-2 text-sm">
+
+                    <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">After Restructuring</h4>
+                      <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                         <div className="flex justify-between">
                           <span>Basic Salary:</span>
                           <span>₹40,000</span>
@@ -1513,11 +1513,11 @@ export default function TaxPlanning() {
                           <span>Other Allowances:</span>
                           <span>₹20,000</span>
                         </div>
-                        <div className="flex justify-between border-t pt-2">
+                        <div className="flex justify-between border-t dark:border-gray-500 pt-2">
                           <span>Gross Salary:</span>
                           <span>₹80,000</span>
                         </div>
-                        <div className="flex justify-between text-green-600 font-semibold">
+                        <div className="flex justify-between text-green-600 dark:text-green-400 font-semibold">
                           <span>Taxable Income:</span>
                           <span>₹45,000</span>
                         </div>
@@ -1527,9 +1527,9 @@ export default function TaxPlanning() {
                 </div>
               </div>
               
-              <div className="mt-8 bg-blue-50 rounded-xl p-6 border border-blue-200">
-                <h3 className="text-lg font-bold text-blue-800 mb-3">🎯 Key Strategies</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-blue-700">
+              <div className="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-700 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-blue-800 dark:text-blue-300 mb-3">🎯 Key Strategies</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-blue-700 dark:text-blue-400">
                   <div>• Keep basic salary around 40% of total CTC</div>
                   <div>• Maximize HRA if living in rented accommodation</div>
                   <div>• Use company lease car instead of car allowance</div>
@@ -1553,50 +1553,50 @@ export default function TaxPlanning() {
       case 'rebates':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-8 border border-emerald-200">
-              <h2 className="text-3xl font-bold text-emerald-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 rounded-2xl p-8 border border-emerald-200 dark:border-emerald-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-emerald-800 dark:text-emerald-300 mb-4 flex items-center gap-3">
                 🎯 Section 87A Tax Rebates
               </h2>
-              <p className="text-lg text-emerald-700 mb-6">
+              <p className="text-lg text-emerald-700 dark:text-emerald-400 mb-6">
                 Section 87A rebate has been revolutionized for FY 2025-26! New regime now offers ₹60,000 rebate for income up to ₹12 lakhs, providing complete tax exemption to a much larger taxpayer base.
               </p>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">💰 Old Tax Regime Rebates</h3>
+                <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">💰 Old Tax Regime Rebates</h3>
                   <div className="space-y-4">
-                    <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Section 87A Rebate</h4>
-                      <p className="text-sm text-gray-600 mb-2">₹12,500 rebate if total income ≤ ₹5 lakhs</p>
-                      <div className="text-xs text-green-600">💡 This can make your tax liability zero</div>
+                    <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500 dark:border-green-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Section 87A Rebate</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">₹12,500 rebate if total income ≤ ₹5 lakhs</p>
+                      <div className="text-xs text-green-600 dark:text-green-400">💡 This can make your tax liability zero</div>
                     </div>
-                    
-                    <div className="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Effective Tax-Free Income</h4>
-                      <p className="text-sm text-gray-600 mb-2">Up to ₹6.5 lakhs with deductions + rebate</p>
-                      <div className="text-xs text-blue-600">💡 ₹1.5L deductions + ₹5L rebate limit</div>
+
+                    <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border-l-4 border-blue-500 dark:border-blue-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Effective Tax-Free Income</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">Up to ₹6.5 lakhs with deductions + rebate</p>
+                      <div className="text-xs text-blue-600 dark:text-blue-400">💡 ₹1.5L deductions + ₹5L rebate limit</div>
                     </div>
                   </div>
                 </div>
-                
-                <div className="bg-white rounded-xl p-6 shadow-md">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">🆕 New Tax Regime Rebates</h3>
+
+                <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🆕 New Tax Regime Rebates</h3>
                   <div className="space-y-4">
-                    <div className="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">FY 2024-25: Rebate up to ₹7L</h4>
-                      <p className="text-sm text-gray-600 mb-2">₹25,000 rebate if total income ≤ ₹7 lakhs</p>
-                      <div className="text-xs text-purple-600">💡 Complete tax exemption up to ₹7L</div>
+                    <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-l-4 border-purple-500 dark:border-purple-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">FY 2024-25: Rebate up to ₹7L</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">₹25,000 rebate if total income ≤ ₹7 lakhs</p>
+                      <div className="text-xs text-purple-600 dark:text-purple-400">💡 Complete tax exemption up to ₹7L</div>
                     </div>
-                    
-                    <div className="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">FY 2025-26: MAJOR ENHANCEMENT!</h4>
-                      <p className="text-sm text-gray-600 mb-2">₹60,000 rebate if total income ≤ ₹12 lakhs</p>
-                      <div className="text-xs text-green-600">🎉 Complete tax exemption up to ₹12L!</div>
+
+                    <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border-l-4 border-green-500 dark:border-green-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">FY 2025-26: MAJOR ENHANCEMENT!</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2 transition-colors duration-300">₹60,000 rebate if total income ≤ ₹12 lakhs</p>
+                      <div className="text-xs text-green-600 dark:text-green-400">🎉 Complete tax exemption up to ₹12L!</div>
                     </div>
-                    
-                    <div className="p-4 bg-emerald-50 rounded-lg border-l-4 border-emerald-500">
-                      <h4 className="font-semibold text-gray-800 mb-2">Marginal Relief</h4>
-                      <div className="text-xs text-emerald-600 space-y-1">
+
+                    <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-l-4 border-emerald-500 dark:border-emerald-600 transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Marginal Relief</h4>
+                      <div className="text-xs text-emerald-600 dark:text-emerald-400 space-y-1">
                         <div>• FY 2024-25: Relief for income just above ₹7L</div>
                         <div>• FY 2025-26: Relief for income just above ₹12L</div>
                         <div>• Tax limited to excess income above threshold</div>
@@ -1606,76 +1606,76 @@ export default function TaxPlanning() {
                 </div>
               </div>
               
-              <div className="mt-8 bg-white rounded-xl p-6 shadow-md">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">📊 Rebate Comparison Table</h3>
+              <div className="mt-8 bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">📊 Rebate Comparison Table</h3>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b-2 border-gray-200">
-                        <th className="text-left py-3 px-4 font-semibold">Income Range</th>
-                        <th className="text-left py-3 px-4 font-semibold">Old Regime</th>
-                        <th className="text-left py-3 px-4 font-semibold">New Regime</th>
+                      <tr className="border-b-2 border-gray-200 dark:border-gray-600">
+                        <th className="text-left py-3 px-4 font-semibold text-gray-800 dark:text-gray-100">Income Range</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-800 dark:text-gray-100">Old Regime</th>
+                        <th className="text-left py-3 px-4 font-semibold text-gray-800 dark:text-gray-100">New Regime</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-3 px-4">₹0 - ₹2.5L</td>
-                        <td className="py-3 px-4 text-green-600">No Tax</td>
-                        <td className="py-3 px-4 text-green-600">No Tax</td>
+                      <tr className="border-b border-gray-100 dark:border-gray-600">
+                        <td className="py-3 px-4 text-gray-700 dark:text-gray-300">₹0 - ₹2.5L</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400">No Tax</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400">No Tax</td>
                       </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-3 px-4">₹2.5L - ₹3L</td>
-                        <td className="py-3 px-4 text-green-600">5% Tax</td>
-                        <td className="py-3 px-4 text-green-600">No Tax</td>
+                      <tr className="border-b border-gray-100 dark:border-gray-600">
+                        <td className="py-3 px-4 text-gray-700 dark:text-gray-300">₹2.5L - ₹3L</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400">5% Tax</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400">No Tax</td>
                       </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-3 px-4">₹3L - ₹5L</td>
-                        <td className="py-3 px-4 text-green-600">5% Tax (87A Rebate)</td>
-                        <td className="py-3 px-4 text-green-600">5% Tax</td>
+                      <tr className="border-b border-gray-100 dark:border-gray-600">
+                        <td className="py-3 px-4 text-gray-700 dark:text-gray-300">₹3L - ₹5L</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400">5% Tax (87A Rebate)</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400">5% Tax</td>
                       </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-3 px-4">₹5L - ₹6L</td>
-                        <td className="py-3 px-4 text-orange-600">20% Tax</td>
-                        <td className="py-3 px-4 text-green-600">5% Tax</td>
+                      <tr className="border-b border-gray-100 dark:border-gray-600">
+                        <td className="py-3 px-4 text-gray-700 dark:text-gray-300">₹5L - ₹6L</td>
+                        <td className="py-3 px-4 text-orange-600 dark:text-orange-400">20% Tax</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400">5% Tax</td>
                       </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-3 px-4">₹6L - ₹7L</td>
-                        <td className="py-3 px-4 text-orange-600">20% Tax</td>
-                        <td className="py-3 px-4 text-green-600">10% Tax (FY24-25: 87A Rebate)</td>
+                      <tr className="border-b border-gray-100 dark:border-gray-600">
+                        <td className="py-3 px-4 text-gray-700 dark:text-gray-300">₹6L - ₹7L</td>
+                        <td className="py-3 px-4 text-orange-600 dark:text-orange-400">20% Tax</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400">10% Tax (FY24-25: 87A Rebate)</td>
                       </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-3 px-4">₹7L - ₹9L</td>
-                        <td className="py-3 px-4 text-red-600">20% Tax</td>
-                        <td className="py-3 px-4 text-green-600">10% Tax (FY25-26: 87A Rebate)</td>
+                      <tr className="border-b border-gray-100 dark:border-gray-600">
+                        <td className="py-3 px-4 text-gray-700 dark:text-gray-300">₹7L - ₹9L</td>
+                        <td className="py-3 px-4 text-red-600 dark:text-red-400">20% Tax</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400">10% Tax (FY25-26: 87A Rebate)</td>
                       </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-3 px-4">₹9L - ₹10L</td>
-                        <td className="py-3 px-4 text-red-600">20% Tax</td>
-                        <td className="py-3 px-4 text-green-600">15% Tax (FY25-26: 87A Rebate)</td>
+                      <tr className="border-b border-gray-100 dark:border-gray-600">
+                        <td className="py-3 px-4 text-gray-700 dark:text-gray-300">₹9L - ₹10L</td>
+                        <td className="py-3 px-4 text-red-600 dark:text-red-400">20% Tax</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400">15% Tax (FY25-26: 87A Rebate)</td>
                       </tr>
-                      <tr className="border-b border-gray-100">
-                        <td className="py-3 px-4">₹10L - ₹12L</td>
-                        <td className="py-3 px-4 text-red-600">30% Tax</td>
-                        <td className="py-3 px-4 text-green-600">15% Tax (FY25-26: 87A Rebate)</td>
+                      <tr className="border-b border-gray-100 dark:border-gray-600">
+                        <td className="py-3 px-4 text-gray-700 dark:text-gray-300">₹10L - ₹12L</td>
+                        <td className="py-3 px-4 text-red-600 dark:text-red-400">30% Tax</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400">15% Tax (FY25-26: 87A Rebate)</td>
                       </tr>
-                      <tr className="border-b border-gray-100 bg-yellow-50">
-                        <td className="py-3 px-4 font-semibold">Up to ₹12L</td>
-                        <td className="py-3 px-4 text-red-600 font-semibold">Tax Applicable</td>
-                        <td className="py-3 px-4 text-green-600 font-semibold">₹0 Tax (FY25-26)</td>
+                      <tr className="border-b border-gray-100 dark:border-gray-600 bg-yellow-50 dark:bg-yellow-900/20">
+                        <td className="py-3 px-4 font-semibold text-gray-800 dark:text-gray-100">Up to ₹12L</td>
+                        <td className="py-3 px-4 text-red-600 dark:text-red-400 font-semibold">Tax Applicable</td>
+                        <td className="py-3 px-4 text-green-600 dark:text-green-400 font-semibold">₹0 Tax (FY25-26)</td>
                       </tr>
                       <tr>
-                        <td className="py-3 px-4">Above ₹12L</td>
-                        <td className="py-3 px-4 text-red-600">30% Tax</td>
-                        <td className="py-3 px-4 text-orange-600">20% Tax + Marginal Relief</td>
+                        <td className="py-3 px-4 text-gray-700 dark:text-gray-300">Above ₹12L</td>
+                        <td className="py-3 px-4 text-red-600 dark:text-red-400">30% Tax</td>
+                        <td className="py-3 px-4 text-orange-600 dark:text-orange-400">20% Tax + Marginal Relief</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
               </div>
               
-              <div className="mt-8 bg-yellow-50 rounded-xl p-6 border border-yellow-200">
-                <h3 className="text-lg font-bold text-yellow-800 mb-3">🎉 MAJOR UPDATE for FY 2025-26</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700">
+              <div className="mt-8 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-700 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-yellow-800 dark:text-yellow-300 mb-3">🎉 MAJOR UPDATE for FY 2025-26</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700 dark:text-yellow-400">
                   <div>• Zero tax up to ₹12L in new regime (FY 2025-26)</div>
                   <div>• Enhanced rebate: ₹60,000 (vs ₹25,000 in FY 2024-25)</div>
                   <div>• Marginal relief now available for income above ₹12L</div>
@@ -1685,9 +1685,9 @@ export default function TaxPlanning() {
                 </div>
               </div>
               
-              <div className="mt-6 bg-blue-50 rounded-xl p-6 border border-blue-200">
-                <h3 className="text-lg font-bold text-blue-800 mb-3">🎯 Who Benefits Most from New Regime?</h3>
-                <div className="space-y-3 text-sm text-blue-700">
+              <div className="mt-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-700 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-blue-800 dark:text-blue-300 mb-3">🎯 Who Benefits Most from New Regime?</h3>
+                <div className="space-y-3 text-sm text-blue-700 dark:text-blue-400">
                   <div className="flex items-start gap-2">
                     <span className="text-green-500 mt-1">✓</span>
                     <span><strong>Income up to ₹12L (FY 2025-26):</strong> Complete tax exemption with ₹60,000 rebate</span>
@@ -1727,21 +1727,21 @@ export default function TaxPlanning() {
       case 'regime-comparison':
         return (
           <div className="space-y-8">
-            <div className="bg-gradient-to-r from-slate-50 to-gray-50 rounded-2xl p-8 border border-slate-200">
-              <h2 className="text-3xl font-bold text-slate-800 mb-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-slate-50 to-gray-50 dark:from-slate-900/20 dark:to-gray-900/20 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 transition-colors duration-300">
+              <h2 className="text-3xl font-bold text-slate-800 dark:text-slate-300 mb-4 flex items-center gap-3">
                 ⚖️ Old vs New Tax Regime Comparison
               </h2>
-              <p className="text-lg text-slate-700 mb-6">
+              <p className="text-lg text-slate-700 dark:text-slate-400 mb-6">
                 Choose the right tax regime based on your income level, investments, and tax-saving strategy.
               </p>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-blue-500">
-                  <h3 className="text-xl font-bold text-blue-800 mb-4">📊 Old Tax Regime</h3>
+                <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md border-l-4 border-blue-500 dark:border-blue-600 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-blue-800 dark:text-blue-300 mb-4">📊 Old Tax Regime</h3>
                   <div className="space-y-4">
-                    <div className="p-3 bg-blue-50 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">Tax Slabs (AY 2025-26)</h4>
-                      <div className="space-y-1 text-sm">
+                    <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Tax Slabs (AY 2025-26)</h4>
+                      <div className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                         <div>₹0 - ₹2.5L: 0%</div>
                         <div>₹2.5L - ₹5L: 5%</div>
                         <div>₹5L - ₹10L: 20%</div>
@@ -1749,9 +1749,9 @@ export default function TaxPlanning() {
                       </div>
                     </div>
                     
-                    <div className="p-3 bg-green-50 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">✅ Benefits</h4>
-                      <div className="space-y-1 text-sm text-green-700">
+                    <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">✅ Benefits</h4>
+                      <div className="space-y-1 text-sm text-green-700 dark:text-green-400">
                         <div>• All deductions available (80C, 80D, etc.)</div>
                         <div>• HRA exemption allowed</div>
                         <div>• LTA exemption available</div>
@@ -1759,9 +1759,9 @@ export default function TaxPlanning() {
                       </div>
                     </div>
                     
-                    <div className="p-3 bg-red-50 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">❌ Drawbacks</h4>
-                      <div className="space-y-1 text-sm text-red-700">
+                    <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">❌ Drawbacks</h4>
+                      <div className="space-y-1 text-sm text-red-700 dark:text-red-400">
                         <div>• Lower rebate (₹12,500)</div>
                         <div>• Higher tax rates</div>
                         <div>• Requires investment planning</div>
@@ -1770,12 +1770,12 @@ export default function TaxPlanning() {
                   </div>
                 </div>
                 
-                <div className="bg-white rounded-xl p-6 shadow-md border-l-4 border-purple-500">
-                  <h3 className="text-xl font-bold text-purple-800 mb-4">🆕 New Tax Regime</h3>
+                <div className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md border-l-4 border-purple-500 dark:border-purple-600 transition-colors duration-300">
+                  <h3 className="text-xl font-bold text-purple-800 dark:text-purple-300 mb-4 transition-colors duration-300">🆕 New Tax Regime</h3>
                   <div className="space-y-4">
-                    <div className="p-3 bg-purple-50 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">Tax Slabs (AY 2025-26)</h4>
-                      <div className="space-y-1 text-sm">
+                    <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">Tax Slabs (AY 2025-26)</h4>
+                      <div className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
                         <div>₹0 - ₹3L: 0%</div>
                         <div>₹3L - ₹7L: 5%</div>
                         <div>₹7L - ₹10L: 10%</div>
@@ -1785,9 +1785,9 @@ export default function TaxPlanning() {
                       </div>
                     </div>
                     
-                    <div className="p-3 bg-green-50 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">✅ Benefits</h4>
-                      <div className="space-y-1 text-sm text-green-700">
+                    <div className="p-3 bg-green-50 dark:bg-green-900/20 rounded-lg transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">✅ Benefits</h4>
+                      <div className="space-y-1 text-sm text-green-700 dark:text-green-400">
                         <div>• Higher rebate (₹25,000)</div>
                         <div>• Lower tax rates initially</div>
                         <div>• No investment compulsion</div>
@@ -1795,9 +1795,9 @@ export default function TaxPlanning() {
                       </div>
                     </div>
                     
-                    <div className="p-3 bg-red-50 rounded-lg">
-                      <h4 className="font-semibold text-gray-800 mb-2">❌ Drawbacks</h4>
-                      <div className="space-y-1 text-sm text-red-700">
+                    <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg transition-colors duration-300">
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-100 mb-2">❌ Drawbacks</h4>
+                      <div className="space-y-1 text-sm text-red-700 dark:text-red-400">
                         <div>• No 80C, 80D deductions</div>
                         <div>• No HRA exemption</div>
                         <div>• No LTA exemption</div>
@@ -1808,32 +1808,32 @@ export default function TaxPlanning() {
                 </div>
               </div>
               
-              <div className="mt-8 bg-white rounded-xl p-6 shadow-md">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">🎯 Which Regime to Choose?</h3>
+              <div className="mt-8 bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">🎯 Which Regime to Choose?</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="p-4 bg-blue-50 rounded-lg text-center">
-                    <h4 className="font-semibold text-blue-800 mb-2">Choose Old Regime If:</h4>
-                    <div className="space-y-2 text-sm text-blue-700">
+                  <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-center transition-colors duration-300">
+                    <h4 className="font-semibold text-blue-800 dark:text-blue-300 mb-2">Choose Old Regime If:</h4>
+                    <div className="space-y-2 text-sm text-blue-700 dark:text-blue-400">
                       <div>• Income &gt; ₹15 lakhs</div>
                       <div>• Heavy investments in 80C</div>
                       <div>• Paying house rent (HRA)</div>
                       <div>• High health insurance premiums</div>
                     </div>
                   </div>
-                  
-                  <div className="p-4 bg-purple-50 rounded-lg text-center">
-                    <h4 className="font-semibold text-purple-800 mb-2">Choose New Regime If:</h4>
-                    <div className="space-y-2 text-sm text-purple-700">
+
+                  <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-center transition-colors duration-300">
+                    <h4 className="font-semibold text-purple-800 dark:text-purple-300 mb-2">Choose New Regime If:</h4>
+                    <div className="space-y-2 text-sm text-purple-700 dark:text-purple-400">
                       <div>• Income ₹7-15 lakhs</div>
                       <div>• Minimal investments</div>
                       <div>• No HRA claims</div>
                       <div>• Want simplicity</div>
                     </div>
                   </div>
-                  
-                  <div className="p-4 bg-green-50 rounded-lg text-center">
-                    <h4 className="font-semibold text-green-800 mb-2">Both Are Equal If:</h4>
-                    <div className="space-y-2 text-sm text-green-700">
+
+                  <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg text-center transition-colors duration-300">
+                    <h4 className="font-semibold text-green-800 dark:text-green-300 mb-2">Both Are Equal If:</h4>
+                    <div className="space-y-2 text-sm text-green-700 dark:text-green-400">
                       <div>• Income around ₹6-8 lakhs</div>
                       <div>• Moderate investments</div>
                       <div>• Calculate both scenarios</div>
@@ -1843,9 +1843,9 @@ export default function TaxPlanning() {
                 </div>
               </div>
               
-              <div className="mt-8 bg-yellow-50 rounded-xl p-6 border border-yellow-200">
-                <h3 className="text-lg font-bold text-yellow-800 mb-3">⚠️ Important Notes</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700">
+              <div className="mt-8 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl p-6 border border-yellow-200 dark:border-yellow-700 transition-colors duration-300">
+                <h3 className="text-lg font-bold text-yellow-800 dark:text-yellow-300 mb-3">⚠️ Important Notes</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-yellow-700 dark:text-yellow-400">
                   <div>• Choice can be changed every year</div>
                   <div>• Cannot switch mid-year</div>
                   <div>• Default is New Regime for new taxpayers</div>
@@ -1884,30 +1884,30 @@ export default function TaxPlanning() {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-10 lg:py-12 xl:py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+          <section className="relative py-8 md:py-10 lg:py-12 xl:py-16 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-10 left-10 w-48 h-48 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 right-10 w-64 h-64 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
             </div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-200 mb-3 md:mb-4 lg:mb-6">
-                <span className="text-xs md:text-sm font-semibold text-blue-600">💡 Tax Planning Guide</span>
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full border border-blue-200 dark:border-blue-700 transition-colors duration-300 dark:border-blue-700 mb-3 md:mb-4 lg:mb-6 transition-colors duration-300">
+                <span className="text-xs md:text-sm font-semibold text-blue-600 dark:text-blue-400">💡 Tax Planning Guide</span>
               </div>
 
               <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-5 leading-tight">
                 <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                   Tax Planning Tips
                 </span>
-                <span className="text-gray-800"> & Strategies</span>
+                <span className="text-gray-800 dark:text-gray-100 transition-colors duration-300"> & Strategies</span>
               </h1>
 
-              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6 transition-colors duration-300">
                 Comprehensive guide to legal tax savings with investment recommendations,
                 deduction strategies, and expert tips to minimize your tax liability.
               </p>
@@ -1915,14 +1915,14 @@ export default function TaxPlanning() {
           </section>
 
           {/* Main Content */}
-          <section className="py-8 md:py-10 lg:py-12 xl:py-16 bg-gray-50">
+          <section className="py-8 md:py-10 lg:py-12 xl:py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="flex flex-col lg:flex-row gap-8">
-                
+
                 {/* Sidebar Menu */}
                 <div className="lg:w-1/4">
-                  <div className="bg-white rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg sticky top-24">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-6">📋 Topics</h3>
+                  <div className="bg-white dark:bg-gray-700 rounded-xl md:rounded-2xl p-4 md:p-6 shadow-lg sticky top-24 transition-colors duration-300">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 md:mb-6">📋 Topics</h3>
                     <div className="space-y-2">
                       {menuItems.map((item) => (
                         <button
@@ -1931,7 +1931,7 @@ export default function TaxPlanning() {
                           className={`w-full text-left p-3 md:p-4 rounded-lg md:rounded-xl transition-all duration-300 ${
                             activeSection === item.id
                               ? 'bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white shadow-lg'
-                              : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
+                              : 'bg-gray-50 dark:bg-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-500'
                           }`}
                         >
                           <div className="flex items-start gap-2 md:gap-3">
@@ -1939,7 +1939,7 @@ export default function TaxPlanning() {
                             <div>
                               <div className="font-semibold text-xs md:text-sm">{item.title}</div>
                               <div className={`text-xs mt-1 ${
-                                activeSection === item.id ? 'text-white/80' : 'text-gray-500'
+                                activeSection === item.id ? 'text-white/80' : 'text-gray-500 dark:text-gray-400'
                               }`}>
                                 {item.description}
                               </div>
@@ -1949,7 +1949,7 @@ export default function TaxPlanning() {
                       ))}
                     </div>
                     
-                    <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-200 space-y-2 md:space-y-3">
+                    <div className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-gray-200 dark:border-gray-600 space-y-2 md:space-y-3">
                       <button
                         onClick={() => router.push('/calculation/tax')}
                         className="w-full bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white py-2 md:py-3 px-3 md:px-4 rounded-lg md:rounded-xl text-sm md:text-base font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
@@ -1971,7 +1971,7 @@ export default function TaxPlanning() {
                 
                 {/* Main Content Area */}
                 <div className="lg:w-3/4">
-                  <div className="bg-white rounded-xl md:rounded-2xl shadow-lg min-h-[600px]">
+                  <div className="bg-white dark:bg-gray-700 rounded-xl md:rounded-2xl shadow-lg min-h-[600px] transition-colors duration-300">
                     <div className="p-4 md:p-6 lg:p-8">
                       {renderContent()}
                     </div>

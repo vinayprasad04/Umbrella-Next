@@ -49,10 +49,10 @@ const Settings = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FF6B2C] mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-300">Loading...</p>
         </div>
       </div>
     );
@@ -74,25 +74,25 @@ const Settings = () => {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900">
         <Header />
         
-        <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-orange-50">
+        <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <div className="w-full max-w-[1600px] mx-auto px-4 py-8">
             {/* Breadcrumb */}
             <nav className="mb-8">
-              <div className="flex items-center space-x-2 text-sm bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg w-fit">
-                <Link href="/dashboard" className="text-gray-600 hover:text-purple-600 font-semibold transition-colors">
+              <div className="flex items-center space-x-2 text-sm bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg w-fit">
+                <Link href="/dashboard" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 font-semibold transition-colors">
                   Dashboard
                 </Link>
                 <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-                <span className="text-purple-600 font-bold">Settings</span>
+                <span className="text-purple-600 dark:text-purple-400 font-bold">Settings</span>
               </div>
             </nav>
 
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-200">
+            <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-200 dark:border-purple-700">
               {/* Settings Header */}
               <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 px-8 py-16 relative overflow-hidden">
                 {/* Background decorative elements */}
@@ -117,7 +117,7 @@ const Settings = () => {
 
               <div className="flex flex-col lg:flex-row">
                 {/* Sidebar Tabs */}
-                <div className="lg:w-80 border-r-2 border-purple-200 bg-gradient-to-br from-purple-50 to-blue-50">
+                <div className="lg:w-80 border-r-2 border-purple-200 dark:border-purple-700 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20">
                   <nav className="p-6 space-y-3">
                     {tabs.map((tab) => (
                       <button
@@ -126,7 +126,7 @@ const Settings = () => {
                         className={`w-full flex items-center space-x-4 px-5 py-4 text-left rounded-2xl transition-all transform hover:scale-105 shadow-md border-2 ${
                           activeTab === tab.id
                             ? 'bg-gradient-to-r from-purple-600 to-orange-500 text-white font-bold border-transparent shadow-xl scale-105'
-                            : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white border-purple-200'
+                            : 'bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-600 border-purple-200 dark:border-purple-600'
                         }`}
                       >
                         <span className="text-2xl">{tab.icon}</span>
@@ -142,7 +142,7 @@ const Settings = () => {
                 </div>
 
                 {/* Settings Content */}
-                <div className="flex-1 p-8 bg-gradient-to-br from-white to-purple-50">
+                <div className="flex-1 p-8 bg-gradient-to-br from-white to-purple-50 dark:from-gray-800 dark:to-gray-900">
                   {activeTab === 'account' && (
                     <div className="space-y-6">
                       <div className="flex items-center gap-3 mb-6">
@@ -151,12 +151,12 @@ const Settings = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                           </svg>
                         </div>
-                        <h2 className="text-3xl font-bold text-gray-900">Account Information</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Account Information</h2>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-white rounded-2xl p-5 border-2 border-purple-200 shadow-lg">
-                          <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                        <div className="bg-white dark:bg-gray-700 rounded-2xl p-5 border-2 border-purple-200 dark:border-purple-700 shadow-lg">
+                          <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
                             <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
@@ -166,12 +166,12 @@ const Settings = () => {
                             type="text"
                             value={userName}
                             onChange={(e) => setUserName(e.target.value)}
-                            className="w-full border-2 border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent font-semibold transition-all"
+                            className="w-full border-2 border-purple-300 dark:border-purple-600 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-600 dark:text-gray-200 focus:border-transparent font-semibold transition-all"
                           />
                         </div>
 
-                        <div className="bg-white rounded-2xl p-5 border-2 border-blue-200 shadow-lg">
-                          <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                        <div className="bg-white dark:bg-gray-700 rounded-2xl p-5 border-2 border-blue-200 dark:border-blue-700 shadow-lg">
+                          <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
                             <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
@@ -181,12 +181,12 @@ const Settings = () => {
                             type="email"
                             value={userEmail}
                             onChange={(e) => setUserEmail(e.target.value)}
-                            className="w-full border-2 border-blue-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-semibold transition-all"
+                            className="w-full border-2 border-blue-300 dark:border-blue-600 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-600 dark:text-gray-200 focus:border-transparent font-semibold transition-all"
                           />
                         </div>
 
-                        <div className="bg-white rounded-2xl p-5 border-2 border-green-200 shadow-lg">
-                          <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                        <div className="bg-white dark:bg-gray-700 rounded-2xl p-5 border-2 border-green-200 dark:border-green-700 shadow-lg">
+                          <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
                             <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
@@ -195,12 +195,12 @@ const Settings = () => {
                           <input
                             type="tel"
                             placeholder="+91 XXXXX XXXXX"
-                            className="w-full border-2 border-green-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent font-semibold transition-all"
+                            className="w-full border-2 border-green-300 dark:border-green-600 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-600 dark:text-gray-200 focus:border-transparent font-semibold transition-all"
                           />
                         </div>
 
-                        <div className="bg-white rounded-2xl p-5 border-2 border-orange-200 shadow-lg">
-                          <label className="block text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                        <div className="bg-white dark:bg-gray-700 rounded-2xl p-5 border-2 border-orange-200 dark:border-orange-700 shadow-lg">
+                          <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 flex items-center gap-2">
                             <svg className="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                             </svg>
@@ -208,7 +208,7 @@ const Settings = () => {
                           </label>
                           <input
                             type="date"
-                            className="w-full border-2 border-orange-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent font-semibold transition-all"
+                            className="w-full border-2 border-orange-300 dark:border-orange-600 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 dark:bg-gray-600 dark:text-gray-200 focus:border-transparent font-semibold transition-all"
                           />
                         </div>
                       </div>
@@ -224,13 +224,13 @@ const Settings = () => {
 
                   {activeTab === 'notifications' && (
                     <div className="space-y-6">
-                      <h2 className="text-2xl font-bold text-gray-900">Notification Preferences</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Notification Preferences</h2>
                       
                       <div className="space-y-4">
-                        <div className="flex items-center justify-between py-4 border-b border-gray-200">
+                        <div className="flex items-center justify-between py-4 border-b border-gray-200 dark:border-gray-700">
                           <div>
-                            <h3 className="font-medium text-gray-900">Email Notifications</h3>
-                            <p className="text-sm text-gray-500">Receive updates via email</p>
+                            <h3 className="font-medium text-gray-900 dark:text-gray-100">Email Notifications</h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">Receive updates via email</p>
                           </div>
                           <label className="relative inline-flex items-center cursor-pointer">
                             <input
@@ -243,10 +243,10 @@ const Settings = () => {
                           </label>
                         </div>
                         
-                        <div className="flex items-center justify-between py-4 border-b border-gray-200">
+                        <div className="flex items-center justify-between py-4 border-b border-gray-200 dark:border-gray-700">
                           <div>
-                            <h3 className="font-medium text-gray-900">Push Notifications</h3>
-                            <p className="text-sm text-gray-500">Receive push notifications on your device</p>
+                            <h3 className="font-medium text-gray-900 dark:text-gray-100">Push Notifications</h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">Receive push notifications on your device</p>
                           </div>
                           <label className="relative inline-flex items-center cursor-pointer">
                             <input
@@ -259,10 +259,10 @@ const Settings = () => {
                           </label>
                         </div>
                         
-                        <div className="flex items-center justify-between py-4 border-b border-gray-200">
+                        <div className="flex items-center justify-between py-4 border-b border-gray-200 dark:border-gray-700">
                           <div>
-                            <h3 className="font-medium text-gray-900">Marketing Emails</h3>
-                            <p className="text-sm text-gray-500">Receive promotional content and updates</p>
+                            <h3 className="font-medium text-gray-900 dark:text-gray-100">Marketing Emails</h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">Receive promotional content and updates</p>
                           </div>
                           <label className="relative inline-flex items-center cursor-pointer">
                             <input
@@ -287,17 +287,17 @@ const Settings = () => {
 
                   {activeTab === 'preferences' && (
                     <div className="space-y-6">
-                      <h2 className="text-2xl font-bold text-gray-900">Application Preferences</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Application Preferences</h2>
                       
                       <div className="space-y-6">
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             Language
                           </label>
                           <select
                             value={language}
                             onChange={(e) => setLanguage(e.target.value)}
-                            className="w-full max-w-xs border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF6B2C] focus:border-transparent"
+                            className="w-full max-w-xs border border-gray-300 dark:border-gray-600 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF6B2C] dark:bg-gray-700 dark:text-gray-200 focus:border-transparent"
                           >
                             <option value="english">English</option>
                             <option value="hindi">Hindi</option>
@@ -306,13 +306,13 @@ const Settings = () => {
                         </div>
                         
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             Currency
                           </label>
                           <select
                             value={currency}
                             onChange={(e) => setCurrency(e.target.value)}
-                            className="w-full max-w-xs border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF6B2C] focus:border-transparent"
+                            className="w-full max-w-xs border border-gray-300 dark:border-gray-600 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FF6B2C] dark:bg-gray-700 dark:text-gray-200 focus:border-transparent"
                           >
                             <option value="INR">INR (₹)</option>
                             <option value="USD">USD ($)</option>
@@ -320,10 +320,10 @@ const Settings = () => {
                           </select>
                         </div>
                         
-                        <div className="flex items-center justify-between py-4 border-b border-gray-200">
+                        <div className="flex items-center justify-between py-4 border-b border-gray-200 dark:border-gray-700">
                           <div>
-                            <h3 className="font-medium text-gray-900">Dark Mode</h3>
-                            <p className="text-sm text-gray-500">Switch to dark theme</p>
+                            <h3 className="font-medium text-gray-900 dark:text-gray-100">Dark Mode</h3>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">Switch to dark theme</p>
                           </div>
                           <label className="relative inline-flex items-center cursor-pointer">
                             <input
@@ -348,12 +348,12 @@ const Settings = () => {
 
                   {activeTab === 'security' && (
                     <div className="space-y-6">
-                      <h2 className="text-2xl font-bold text-gray-900">Security Settings</h2>
+                      <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Security Settings</h2>
                       
                       <div className="space-y-6">
-                        <div className="border border-gray-200 rounded-lg p-6">
-                          <h3 className="font-medium text-gray-900 mb-2">Password</h3>
-                          <p className="text-sm text-gray-600 mb-4">
+                        <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+                          <h3 className="font-medium text-gray-900 dark:text-gray-100 mb-2">Password</h3>
+                          <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
                             Keep your account secure with a strong password
                           </p>
                           <button className="bg-[#FF6B2C] hover:bg-[#e85d1f] text-white px-4 py-2 rounded font-medium transition">
@@ -361,11 +361,11 @@ const Settings = () => {
                           </button>
                         </div>
                         
-                        <div className="border border-gray-200 rounded-lg p-6">
+                        <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
                           <div className="flex items-center justify-between">
                             <div>
-                              <h3 className="font-medium text-gray-900">Two-Factor Authentication</h3>
-                              <p className="text-sm text-gray-600 mt-1">
+                              <h3 className="font-medium text-gray-900 dark:text-gray-100">Two-Factor Authentication</h3>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
                                 Add an extra layer of security to your account
                               </p>
                             </div>
@@ -381,25 +381,25 @@ const Settings = () => {
                           </div>
                         </div>
                         
-                        <div className="border border-gray-200 rounded-lg p-6">
-                          <h3 className="font-medium text-gray-900 mb-2">Active Sessions</h3>
-                          <p className="text-sm text-gray-600 mb-4">
+                        <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+                          <h3 className="font-medium text-gray-900 dark:text-gray-100 mb-2">Active Sessions</h3>
+                          <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
                             Manage devices that are currently signed in to your account
                           </p>
                           <div className="space-y-3">
-                            <div className="flex items-center justify-between p-3 bg-gray-50 rounded">
+                            <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded">
                               <div>
-                                <p className="font-medium text-gray-900">Current Session</p>
-                                <p className="text-sm text-gray-500">Windows • Chrome • {new Date().toLocaleDateString()}</p>
+                                <p className="font-medium text-gray-900 dark:text-gray-100">Current Session</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">Windows • Chrome • {new Date().toLocaleDateString()}</p>
                               </div>
                               <span className="text-green-600 text-sm font-medium">Active</span>
                             </div>
                           </div>
                         </div>
                         
-                        <div className="border border-red-200 rounded-lg p-6 bg-red-50">
-                          <h3 className="font-medium text-red-900 mb-2">Danger Zone</h3>
-                          <p className="text-sm text-red-600 mb-4">
+                        <div className="border border-red-200 dark:border-red-700 rounded-lg p-6 bg-red-50 dark:bg-red-900/20">
+                          <h3 className="font-medium text-red-900 dark:text-red-300 mb-2">Danger Zone</h3>
+                          <p className="text-sm text-red-600 dark:text-red-400 mb-4">
                             Once you delete your account, there is no going back. Please be certain.
                           </p>
                           <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded font-medium transition">

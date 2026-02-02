@@ -159,7 +159,7 @@ export default function ContactUs() {
     {
       category: 'Technical Support',
       questions: [
-        'I&apos;m having trouble logging into my account',
+        'I am having trouble logging into my account',
         'The website is not loading properly',
         'How do I reset my password?'
       ]
@@ -178,20 +178,20 @@ export default function ContactUs() {
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-green-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-green-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-green-400/10 rounded-full blur-3xl"></div>
             </div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-green-50 to-blue-50 rounded-full border border-green-200 mb-3 md:mb-4 lg:mb-6">
-                <span className="text-xs md:text-sm font-semibold text-green-600">📞 Support Center</span>
+              <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/30 dark:to-blue-900/30 rounded-full border border-green-200 dark:border-green-700 mb-3 md:mb-4 lg:mb-6">
+                <span className="text-xs md:text-sm font-semibold text-green-600 dark:text-green-400">📞 Support Center</span>
               </div>
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
@@ -199,58 +199,58 @@ export default function ContactUs() {
                   Contact
                 </span>
                 <br />
-                <span className="text-gray-800">Our Team</span>
+                <span className="text-gray-800 dark:text-gray-100">Our Team</span>
               </h1>
 
-              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
                 We're here to help! Reach out to our expert team for support with investments,
                 financial planning, or any questions about our services.
               </p>
 
               <div className="grid grid-cols-3 md:grid-cols-3 gap-3 md:gap-4 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xl md:text-3xl font-bold text-gray-800 mb-1">24/7</div>
-                  <div className="text-xs md:text-sm text-gray-600">Support</div>
+                  <div className="text-xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1">24/7</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Support</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-3xl font-bold text-gray-800 mb-1">Expert</div>
-                  <div className="text-xs md:text-sm text-gray-600">Guidance</div>
+                  <div className="text-xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1">Expert</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Guidance</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-3xl font-bold text-gray-800 mb-1">Quick</div>
-                  <div className="text-xs md:text-sm text-gray-600">Response</div>
+                  <div className="text-xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1">Quick</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-300">Response</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Contact Methods */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">Get in </span>
+                  <span className="text-gray-800 dark:text-gray-100">Get in </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Touch
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   Choose your preferred way to contact us. We're available through multiple channels
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                 {contactMethods.map((method, index) => (
-                  <div key={index} className="group bg-gradient-to-br from-white to-gray-50 rounded-lg md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+                  <div key={index} className="group bg-gradient-to-br from-white to-gray-50 dark:from-gray-700 dark:to-gray-800 rounded-lg md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100 dark:border-gray-600 hover:shadow-xl transition-all duration-300">
                     <div className="text-center">
                       <div className="text-2xl md:text-4xl mb-2 md:mb-4">{method.icon}</div>
-                      <h3 className="text-base md:text-xl font-bold text-gray-800 mb-2 md:mb-3">{method.title}</h3>
-                      <p className="text-xs md:text-sm text-gray-600 mb-3 md:mb-4">{method.description}</p>
+                      <h3 className="text-base md:text-xl font-bold text-gray-800 dark:text-gray-100 mb-2 md:mb-3">{method.title}</h3>
+                      <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mb-3 md:mb-4">{method.description}</p>
                       <div className="bg-[#FF6B2C]/10 rounded-lg p-2 md:p-3 mb-1 md:mb-2">
                         <div className="text-xs md:text-sm font-semibold text-[#FF6B2C]">{method.contact}</div>
                       </div>
-                      <div className="text-xs text-gray-500">{method.available}</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-400">{method.available}</div>
                     </div>
                   </div>
                 ))}
@@ -259,31 +259,31 @@ export default function ContactUs() {
           </section>
 
           {/* Contact Form */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-6 md:mb-8 lg:mb-12">
                   <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                    <span className="text-gray-800">Send us a </span>
+                    <span className="text-gray-800 dark:text-gray-100">Send us a </span>
                     <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                       Message
                     </span>
                   </h2>
 
-                  <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                  <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                     Fill out the form below and we'll get back to you as soon as possible
                   </p>
                 </div>
 
                 {showSuccess && (
-                  <div className="bg-green-50 border border-green-200 rounded-lg md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
+                  <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 transition-colors duration-300 rounded-lg md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
                     <div className="flex items-center gap-3">
                       <div className="text-2xl">✅</div>
                       <div>
-                        <h3 className="text-lg font-semibold text-green-800">Message Sent Successfully!</h3>
-                        <p className="text-green-700 mb-2">Thank you for contacting us. We&apos;ll get back to you within 24 hours.</p>
+                        <h3 className="text-lg font-semibold text-green-800 dark:text-green-200">Message Sent Successfully!</h3>
+                        <p className="text-green-700 dark:text-green-300 mb-2">Thank you for contacting us. We&apos;ll get back to you within 24 hours.</p>
                         {contactId && (
-                          <p className="text-xs text-green-600 bg-green-100 px-2 py-1 rounded">
+                          <p className="text-xs text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded">
                             Reference ID: {contactId.slice(-8).toUpperCase()}
                           </p>
                         )}
@@ -293,22 +293,22 @@ export default function ContactUs() {
                 )}
 
                 {error && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
+                  <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 transition-colors duration-300 rounded-lg md:rounded-2xl p-4 md:p-6 mb-6 md:mb-8">
                     <div className="flex items-center gap-3">
                       <div className="text-2xl">❌</div>
                       <div>
-                        <h3 className="text-base md:text-lg font-semibold text-red-800">Error Sending Message</h3>
-                        <p className="text-xs md:text-sm text-red-700">{error}</p>
+                        <h3 className="text-base md:text-lg font-semibold text-red-800 dark:text-red-200">Error Sending Message</h3>
+                        <p className="text-xs md:text-sm text-red-700 dark:text-red-300">{error}</p>
                       </div>
                     </div>
                   </div>
                 )}
 
-                <div className="bg-white rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-6 lg:p-8 shadow-xl border border-gray-100">
+                <div className="bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-6 lg:p-8 shadow-xl border border-gray-100 dark:border-gray-600">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Full Name *
                         </label>
                         <input
@@ -316,14 +316,14 @@ export default function ContactUs() {
                           name="name"
                           required
                           placeholder="Your full name"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
                           value={formData.name}
                           onChange={handleInputChange}
                         />
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Email Address *
                         </label>
                         <input
@@ -331,7 +331,7 @@ export default function ContactUs() {
                           name="email"
                           required
                           placeholder="your.email@example.com"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
                           value={formData.email}
                           onChange={handleInputChange}
                         />
@@ -340,26 +340,26 @@ export default function ContactUs() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Phone Number
                         </label>
                         <input
                           type="tel"
                           name="phone"
                           placeholder="+91 9876543210"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
                           value={formData.phone}
                           onChange={handleInputChange}
                         />
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Category
                         </label>
                         <select
                           name="category"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
                           value={formData.category}
                           onChange={handleInputChange}
                         >
@@ -375,7 +375,7 @@ export default function ContactUs() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                         Subject *
                       </label>
                       <input
@@ -383,14 +383,14 @@ export default function ContactUs() {
                         name="subject"
                         required
                         placeholder="Brief description of your inquiry"
-                        className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
+                        className="w-full px-4 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300"
                         value={formData.subject}
                         onChange={handleInputChange}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                         Message *
                       </label>
                       <textarea
@@ -398,7 +398,7 @@ export default function ContactUs() {
                         required
                         rows={6}
                         placeholder="Please provide details about your inquiry..."
-                        className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 resize-none"
+                        className="w-full px-4 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 resize-none"
                         value={formData.message}
                         onChange={handleInputChange}
                       />
@@ -430,30 +430,30 @@ export default function ContactUs() {
           </section>
 
           {/* FAQ Preview */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">Frequently Asked </span>
+                  <span className="text-gray-800 dark:text-gray-100">Frequently Asked </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Questions
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   Quick answers to common questions. Can't find what you're looking for? Contact us!
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                 {faqCategories.map((category, index) => (
-                  <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-lg md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100">
-                    <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-3 md:mb-4">{category.category}</h3>
+                  <div key={index} className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-700 dark:to-gray-800 rounded-lg md:rounded-2xl p-4 md:p-6 shadow-lg border border-gray-100 dark:border-gray-600 transition-colors duration-300">
+                    <h3 className="text-base md:text-lg lg:text-xl font-bold text-gray-800 dark:text-gray-100 mb-3 md:mb-4">{category.category}</h3>
                     <ul className="space-y-3">
                       {category.questions.map((question, qIndex) => (
                         <li key={qIndex} className="flex items-start gap-3">
                           <div className="w-2 h-2 bg-[#FF6B2C] rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-gray-600 text-sm">{question}</span>
+                          <span className="text-gray-600 dark:text-gray-300 text-sm">{question}</span>
                         </li>
                       ))}
                     </ul>

@@ -7,8 +7,8 @@ import DashboardLayout from '@/components/DashboardLayout';
 import Tooltip from '@/components/Tooltip';
 import type { NextPageWithLayout } from '../../_app';
 
-const inputClass = "border border-gray-300 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300";
-const labelClass = "text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1";
+const inputClass = "border border-gray-300 dark:border-gray-600 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300 dark:bg-gray-700 dark:text-gray-200";
+const labelClass = "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1";
 
 const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
   <Tooltip content={tooltip}>
@@ -296,10 +296,10 @@ const SelfEducation: NextPageWithLayout = () => {
 
   if (loading) {
     return (
-      <div className="flex-1 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-orange-50">
+      <div className="flex-1 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 font-medium">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-400 font-medium">Loading...</p>
         </div>
       </div>
     );
@@ -317,7 +317,7 @@ const SelfEducation: NextPageWithLayout = () => {
       {/* Content Area - Only this part will reload */}
       <div className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
           {/* Left Side - Form */}
-          <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 border-r-0 lg:border-r border-gray-200 lg:overflow-y-auto flex flex-col">
+          <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border-r-0 lg:border-r border-gray-200 lg:overflow-y-auto flex flex-col">
             {/* Breadcrumb & Header Section */}
             <div className="bg-gradient-to-r from-purple-600 to-orange-500 py-6 md:py-8 px-4 md:px-6 relative overflow-hidden">
               {/* Decorative Elements */}
@@ -354,8 +354,8 @@ const SelfEducation: NextPageWithLayout = () => {
             {/* Form Content */}
             <div className="p-6">
               {/* Basic Information Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
@@ -388,16 +388,16 @@ const SelfEducation: NextPageWithLayout = () => {
                   </div>
                 </div>
 
-                <div className="bg-purple-50 p-3 rounded-lg mt-2">
-                  <p className="text-sm text-purple-700">
+                <div className="bg-purple-50 dark:bg-purple-900/20 p-3 rounded-lg mt-2">
+                  <p className="text-sm text-purple-700 dark:text-purple-300">
                     Planning Timeline: <span className="font-semibold">{formData.targetAge - formData.currentAge} years</span>
                   </p>
                 </div>
               </div>
 
               {/* Education Costs Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
@@ -411,7 +411,7 @@ const SelfEducation: NextPageWithLayout = () => {
                       <InfoIcon tooltip="Total tuition fee for the course at current prices. We'll adjust for inflation." />
                     </label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         type="number"
                         value={formData.courseFee}
@@ -437,7 +437,7 @@ const SelfEducation: NextPageWithLayout = () => {
                         max="100"
                         step="0.1"
                       />
-                      <span className="absolute right-3 top-2 text-gray-500">%</span>
+                      <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                     </div>
                   </div>
 
@@ -456,7 +456,7 @@ const SelfEducation: NextPageWithLayout = () => {
                         max="100"
                         step="0.1"
                       />
-                      <span className="absolute right-3 top-2 text-gray-500">%</span>
+                      <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                     </div>
                   </div>
 
@@ -475,15 +475,15 @@ const SelfEducation: NextPageWithLayout = () => {
                         max="100"
                         step="0.1"
                       />
-                      <span className="absolute right-3 top-2 text-gray-500">%</span>
+                      <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Financial Details Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -494,7 +494,7 @@ const SelfEducation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Current Savings for Education</label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         type="number"
                         value={formData.currentSavings}
@@ -508,7 +508,7 @@ const SelfEducation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Monthly Income</label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         type="number"
                         value={formData.monthlyIncome}
@@ -522,15 +522,15 @@ const SelfEducation: NextPageWithLayout = () => {
               </div>
 
               {/* Education Loan Option Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                   Education Loan Option
                 </div>
 
-                <div className="flex items-center justify-between p-4 bg-purple-50 rounded-lg border-2 border-purple-200">
+                <div className="flex items-center justify-between p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border-2 border-purple-200 dark:border-purple-600">
                   <div className="flex items-center space-x-3">
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl ${formData.wantLoan ? 'bg-purple-600' : 'bg-gray-300'}`}>
                       <svg className="text-white w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -538,8 +538,8 @@ const SelfEducation: NextPageWithLayout = () => {
                       </svg>
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">Take Education Loan</p>
-                      <p className="text-sm text-gray-600">90% loan coverage, tax benefits on interest</p>
+                      <p className="font-medium text-gray-900 dark:text-gray-100">Take Education Loan</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">90% loan coverage, tax benefits on interest</p>
                     </div>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
@@ -554,7 +554,7 @@ const SelfEducation: NextPageWithLayout = () => {
                 </div>
 
                 {formData.wantLoan && (
-                  <div className="space-y-4 p-4 bg-purple-50 rounded-lg border border-purple-200 mt-2">
+                  <div className="space-y-4 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-700 mt-2">
                     <div>
                       <label className={labelClass}>
                         Loan Tenure (Years)
@@ -585,7 +585,7 @@ const SelfEducation: NextPageWithLayout = () => {
                           max="20"
                           step="0.1"
                         />
-                        <span className="absolute right-3 top-2 text-gray-500">%</span>
+                        <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                       </div>
                     </div>
                   </div>
@@ -593,8 +593,8 @@ const SelfEducation: NextPageWithLayout = () => {
               </div>
 
               {/* Investment Parameters Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
@@ -616,7 +616,7 @@ const SelfEducation: NextPageWithLayout = () => {
                         min="0"
                         step="0.1"
                       />
-                      <span className="absolute right-3 top-2 text-gray-500">%</span>
+                      <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                     </div>
                   </div>
 
@@ -634,7 +634,7 @@ const SelfEducation: NextPageWithLayout = () => {
                         min="0"
                         step="0.1"
                       />
-                      <span className="absolute right-3 top-2 text-gray-500">%</span>
+                      <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                     </div>
                   </div>
                 </div>
@@ -660,12 +660,12 @@ const SelfEducation: NextPageWithLayout = () => {
           </div>
 
           {/* Right Side - Results */}
-          <div className="w-full lg:w-1/2 bg-white lg:overflow-y-auto">
+          <div className="w-full lg:w-1/2 bg-white dark:bg-gray-900 lg:overflow-y-auto">
             <div className="p-6">
               {!results ? (
                 /* Instructions Panel */
                 <div className="w-full mx-auto space-y-6">
-                  <div className="bg-white rounded-2xl shadow-xl p-8 border border-purple-200">
+                  <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-purple-200 dark:border-purple-700 dark:border-purple-700">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-5xl">
                         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -673,13 +673,13 @@ const SelfEducation: NextPageWithLayout = () => {
                         </svg>
                       </div>
                       <div>
-                        <h2 className="text-3xl font-bold text-gray-800">Ready to Plan Your Education?</h2>
-                        <p className="text-gray-600">Fill in your details and click &quot;Calculate Plan&quot; to see personalized recommendations for achieving your education goals.</p>
+                        <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Ready to Plan Your Education?</h2>
+                        <p className="text-gray-600 dark:text-gray-400">Fill in your details and click &quot;Calculate Plan&quot; to see personalized recommendations for achieving your education goals.</p>
                       </div>
                     </div>
 
-                    <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                      <p className="text-sm text-purple-700">
+                    <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border border-purple-200 dark:border-purple-700">
+                      <p className="text-sm text-purple-700 dark:text-purple-300">
                         <strong>Tip:</strong> Education is one of the best investments. Average ROI through career growth: 15-30% annually!
                       </p>
                     </div>
@@ -689,9 +689,9 @@ const SelfEducation: NextPageWithLayout = () => {
                 /* Results Section */
                 <div className="max-w-3xl mx-auto space-y-6">
                   {/* Goal Achievability Card */}
-                  <div className="bg-white rounded-xl border border-purple-100 p-6 shadow-sm">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border border-purple-100 dark:border-gray-700 p-6 shadow-sm">
                     <div className="flex items-center justify-between mb-4">
-                      <h2 className="text-xl font-semibold text-gray-800">Goal Achievability</h2>
+                      <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Goal Achievability</h2>
                       <div className={`px-4 py-2 rounded-full ${
                         results.achievabilityRatio >= 100 ? 'bg-green-100 text-green-700' :
                         results.achievabilityRatio >= 80 ? 'bg-yellow-100 text-yellow-700' :
@@ -716,46 +716,46 @@ const SelfEducation: NextPageWithLayout = () => {
 
                     <div className="mt-6 grid grid-cols-2 gap-4">
                       <div className="bg-purple-50 p-4 rounded-lg">
-                        <p className="text-sm text-gray-600 mb-1">Total Required</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Required</p>
                         <p className="text-lg font-bold text-purple-600">₹{formatIndianNumber(results.totalRequiredAtStart)}</p>
                       </div>
                       <div className="bg-blue-50 p-4 rounded-lg">
-                        <p className="text-sm text-gray-600 mb-1">Future Value</p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Future Value</p>
                         <p className="text-lg font-bold text-blue-600">₹{formatIndianNumber(results.futureValue)}</p>
                       </div>
                     </div>
 
                     {results.shortfall > 0 && (
-                      <div className="mt-4 bg-red-50 p-4 rounded-lg border border-red-200">
-                        <p className="text-sm text-gray-600 mb-1">Shortfall</p>
+                      <div className="mt-4 bg-red-50 p-4 rounded-lg border border-red-200 dark:border-red-700">
+                        <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Shortfall</p>
                         <p className="text-lg font-bold text-red-600">₹{formatIndianNumber(results.shortfall)}</p>
                       </div>
                     )}
                   </div>
 
                   {/* Education Cost Breakdown Card */}
-                  <div className="bg-white rounded-xl border border-purple-100 p-6 shadow-sm">
-                    <h2 className="text-xl font-semibold text-gray-800 mb-4">Education Cost Breakdown</h2>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border border-purple-100 dark:border-gray-700 p-6 shadow-sm">
+                    <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Education Cost Breakdown</h2>
 
                     <div className="space-y-3">
-                      <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                        <span className="text-gray-700">Course Fee</span>
+                      <div className="flex justify-between items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-300">Course Fee</span>
                         <span className="font-semibold text-purple-600">₹{formatIndianNumber(results.courseFeeAmount)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                        <span className="text-gray-700">Study Materials</span>
+                      <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-300">Study Materials</span>
                         <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.studyMaterialAmount)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                        <span className="text-gray-700">Exam Fees</span>
+                      <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-300">Exam Fees</span>
                         <span className="font-semibold text-green-600">₹{formatIndianNumber(results.examFeesAmount)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                        <span className="text-gray-700">Other Costs</span>
+                      <div className="flex justify-between items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-300">Other Costs</span>
                         <span className="font-semibold text-yellow-600">₹{formatIndianNumber(results.otherCostAmount)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-gray-100 rounded-lg border-2 border-purple-300">
-                        <span className="text-gray-900 font-semibold">Total Education Cost</span>
+                      <div className="flex justify-between items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg border-2 border-purple-300 dark:border-purple-600">
+                        <span className="text-gray-900 dark:text-gray-100 font-semibold">Total Education Cost</span>
                         <span className="font-bold text-purple-700 text-lg">₹{formatIndianNumber(results.totalEducationCost)}</span>
                       </div>
                     </div>
@@ -763,34 +763,34 @@ const SelfEducation: NextPageWithLayout = () => {
 
                   {/* Loan Details Card (if loan selected) */}
                   {formData.wantLoan && results.loanAmount > 0 && (
-                    <div className="bg-white rounded-xl border border-purple-100 p-6 shadow-sm">
-                      <h2 className="text-xl font-semibold text-gray-800 mb-4">Education Loan Details</h2>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border border-purple-100 dark:border-gray-700 p-6 shadow-sm">
+                      <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Education Loan Details</h2>
 
                       <div className="space-y-3">
-                        <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                          <span className="text-gray-700">Loan Amount (90%)</span>
+                        <div className="flex justify-between items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                          <span className="text-gray-700 dark:text-gray-300">Loan Amount (90%)</span>
                           <span className="font-semibold text-purple-600">₹{formatIndianNumber(results.loanAmount)}</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                          <span className="text-gray-700">Your Contribution (10%)</span>
+                        <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                          <span className="text-gray-700 dark:text-gray-300">Your Contribution (10%)</span>
                           <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.totalRequiredAtStart)}</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                          <span className="text-gray-700">Monthly EMI</span>
+                        <div className="flex justify-between items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                          <span className="text-gray-700 dark:text-gray-300">Monthly EMI</span>
                           <span className="font-semibold text-yellow-600">₹{formatIndianNumber(results.emiAmount)}/month</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
-                          <span className="text-gray-700">Total Repayment</span>
+                        <div className="flex justify-between items-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                          <span className="text-gray-700 dark:text-gray-300">Total Repayment</span>
                           <span className="font-semibold text-red-600">₹{formatIndianNumber(results.totalLoanRepayment)}</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg border border-orange-200">
-                          <span className="text-gray-700">Total Interest</span>
+                        <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-200 dark:border-orange-700">
+                          <span className="text-gray-700 dark:text-gray-300">Total Interest</span>
                           <span className="font-semibold text-orange-600">₹{formatIndianNumber(results.totalLoanRepayment - results.loanAmount)}</span>
                         </div>
                       </div>
 
-                      <div className="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
-                        <p className="text-sm text-green-700">
+                      <div className="mt-4 p-3 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-200 dark:border-green-700">
+                        <p className="text-sm text-green-700 dark:text-green-300">
                           <strong>Tax Benefit:</strong> Interest paid on education loan is tax-deductible under Section 80E (no upper limit).
                         </p>
                       </div>
@@ -798,46 +798,46 @@ const SelfEducation: NextPageWithLayout = () => {
                   )}
 
                   {/* Investment Plan Card */}
-                  <div className="bg-white rounded-xl border border-purple-100 p-6 shadow-sm">
-                    <h2 className="text-xl font-semibold text-gray-800 mb-4">Investment Plan</h2>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border border-purple-100 dark:border-gray-700 p-6 shadow-sm">
+                    <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Investment Plan</h2>
 
                     <div className="space-y-3">
-                      <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                        <span className="text-gray-700">Current Savings</span>
+                      <div className="flex justify-between items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-300">Current Savings</span>
                         <span className="font-semibold text-purple-600">₹{formatIndianNumber(formData.currentSavings)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                        <span className="text-gray-700">Monthly SIP Required</span>
+                      <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-300">Monthly SIP Required</span>
                         <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.sipRequired)}/month</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                        <span className="text-gray-700">Total Investment</span>
+                      <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-300">Total Investment</span>
                         <span className="font-semibold text-green-600">₹{formatIndianNumber(results.totalInvestment)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                        <span className="text-gray-700">Future Value</span>
+                      <div className="flex justify-between items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-300">Future Value</span>
                         <span className="font-semibold text-yellow-600">₹{formatIndianNumber(results.futureValue)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-indigo-50 rounded-lg border-2 border-indigo-300">
-                        <span className="text-gray-900 font-semibold">Net Gains</span>
+                      <div className="flex justify-between items-center p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border-2 border-indigo-300 dark:border-indigo-600">
+                        <span className="text-gray-900 dark:text-gray-100 font-semibold">Net Gains</span>
                         <span className="font-bold text-indigo-700">₹{formatIndianNumber(results.futureValue - results.totalInvestment)}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Recommendations Card */}
-                  <div className="bg-white rounded-xl border border-purple-100 p-6 shadow-sm">
-                    <h2 className="text-xl font-semibold text-gray-800 mb-4">Recommendations</h2>
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border border-purple-100 dark:border-gray-700 p-6 shadow-sm">
+                    <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Recommendations</h2>
 
                     <div className="space-y-3">
                       {results.recommendations.map((rec, index) => (
                         <div
                           key={index}
                           className={`p-4 rounded-lg border-l-4 ${
-                            rec.type === 'success' ? 'bg-green-50 border-green-500' :
-                            rec.type === 'warning' ? 'bg-orange-50 border-orange-500' :
-                            rec.type === 'error' ? 'bg-red-50 border-red-500' :
-                            'bg-blue-50 border-blue-500'
+                            rec.type === 'success' ? 'bg-green-50 dark:bg-green-900/20 border-green-500 dark:border-green-600' :
+                            rec.type === 'warning' ? 'bg-orange-50 dark:bg-orange-900/20 border-orange-500 dark:border-orange-600' :
+                            rec.type === 'error' ? 'bg-red-50 dark:bg-red-900/20 border-red-500 dark:border-red-600' :
+                            'bg-blue-50 dark:bg-blue-900/20 border-blue-500 dark:border-blue-600'
                           }`}
                         >
                           <div className="flex items-start gap-3">
@@ -855,7 +855,7 @@ const SelfEducation: NextPageWithLayout = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                               )}
                             </svg>
-                            <p className="text-sm text-gray-700 flex-1">{rec.text}</p>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 flex-1">{rec.text}</p>
                           </div>
                         </div>
                       ))}

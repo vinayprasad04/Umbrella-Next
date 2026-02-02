@@ -292,12 +292,12 @@ export default function BrokersKnowledge() {
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-10 left-10 w-48 h-48 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 right-10 w-64 h-64 bg-gradient-to-r from-purple-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
@@ -313,10 +313,10 @@ export default function BrokersKnowledge() {
                   Best Stock Brokers in India
                 </span>
                 <br />
-                <span className="text-gray-800">Compare & Choose 2025</span>
+                <span className="text-gray-800 dark:text-gray-200">Compare & Choose 2025</span>
               </h1>
-              
-              <p className="text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-6 md:mb-8">
+
+              <p className="text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto mb-6 md:mb-8">
                 Compare top stock brokers in India based on brokerage rates, features, reviews and trading platforms. Find the perfect broker for your investment needs.
               </p>
 
@@ -329,7 +329,7 @@ export default function BrokersKnowledge() {
                 </button>
                 <button
                   onClick={() => document.getElementById('comparison-table')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-gray-100 text-gray-700 px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:bg-gray-200 transition-all duration-300"
+                  className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-6 md:px-8 py-3 md:py-4 rounded-xl text-base md:text-lg font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
                 >
                   Compare Brokers
                 </button>
@@ -338,11 +338,11 @@ export default function BrokersKnowledge() {
           </section>
 
           {/* Filter Section */}
-          <section className="py-6 md:py-8 bg-gray-50">
+          <section className="py-6 md:py-8 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
               <div className="flex flex-col lg:flex-row gap-4 md:gap-6 items-center justify-between">
                 <div className="flex flex-wrap gap-3 md:gap-4 justify-center lg:justify-start">
-                  <span className="text-sm md:text-base text-gray-700 font-medium">Filter by:</span>
+                  <span className="text-sm md:text-base text-gray-700 dark:text-gray-300 font-medium">Filter by:</span>
                   {categories.map((category) => (
                     <button
                       key={category.id}
@@ -350,7 +350,7 @@ export default function BrokersKnowledge() {
                       className={`px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 ${
                         selectedCategory === category.id
                           ? 'bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white'
-                          : 'bg-white text-gray-600 hover:bg-gray-100'
+                          : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600'
                       }`}
                     >
                       {category.icon} {category.name}
@@ -359,11 +359,11 @@ export default function BrokersKnowledge() {
                 </div>
                 
                 <div className="flex items-center gap-3 md:gap-4">
-                  <span className="text-sm md:text-base text-gray-700 font-medium">Sort by:</span>
+                  <span className="text-sm md:text-base text-gray-700 dark:text-gray-300 font-medium">Sort by:</span>
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    className="px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   >
                     <option value="rating">Rating</option>
                     <option value="reviews">Reviews</option>
@@ -374,43 +374,43 @@ export default function BrokersKnowledge() {
           </section>
 
           {/* Comparison Table */}
-          <section id="comparison-table" className="py-12 md:py-16 bg-white">
+          <section id="comparison-table" className="py-12 md:py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8 md:mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-8 md:mb-12">
                 Stock Broker Comparison Table
               </h2>
 
-              <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+              <div className="bg-white dark:bg-gray-800 rounded-xl md:rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-gray-50">
+                    <thead className="bg-gray-50 dark:bg-gray-700">
                       <tr>
-                        <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Broker</th>
-                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">Rating</th>
-                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">Delivery</th>
-                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">Intraday</th>
-                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">Account Opening</th>
-                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">Mutual Funds</th>
-                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">IPO</th>
-                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900">Action</th>
+                        <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900 dark:text-gray-200">Broker</th>
+                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Rating</th>
+                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Delivery</th>
+                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Intraday</th>
+                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Account Opening</th>
+                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Mutual Funds</th>
+                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">IPO</th>
+                        <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Action</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-200">
+                    <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                       {getFilteredBrokers().map((broker) => (
-                        <tr key={broker.name} className={`hover:bg-gray-50 ${broker.featured ? 'bg-orange-50' : ''}`}>
+                        <tr key={broker.name} className={`hover:bg-gray-50 dark:hover:bg-gray-700/50 ${broker.featured ? 'bg-orange-50 dark:bg-orange-900/20' : ''}`}>
                           <td className="px-6 py-4">
                             <div className="flex items-center space-x-4">
                               <div className="text-3xl">{broker.logo}</div>
                               <div>
                                 <div className="flex items-center gap-2">
-                                  <h3 className="text-lg font-semibold text-gray-900">{broker.name}</h3>
+                                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200">{broker.name}</h3>
                                   {broker.featured && (
                                     <span className="text-xs bg-orange-500 text-white px-2 py-1 rounded-full font-semibold">
                                       FEATURED
                                     </span>
                                   )}
                                 </div>
-                                <p className="text-sm text-gray-600">
+                                <p className="text-sm text-gray-600 dark:text-gray-400">
                                   ⭐ {broker.rating} ({broker.reviews.toLocaleString()} reviews)
                                 </p>
                               </div>
@@ -418,8 +418,8 @@ export default function BrokersKnowledge() {
                           </td>
                           <td className="px-6 py-4 text-center">
                             <div className="flex flex-col items-center">
-                              <div className="text-lg font-bold text-gray-900">{broker.rating}</div>
-                              <div className="text-xs text-gray-500">{broker.reviews.toLocaleString()}</div>
+                              <div className="text-lg font-bold text-gray-900 dark:text-gray-200">{broker.rating}</div>
+                              <div className="text-xs text-gray-500 dark:text-gray-400">{broker.reviews.toLocaleString()}</div>
                             </div>
                           </td>
                           <td className="px-6 py-4 text-center">
@@ -475,36 +475,36 @@ export default function BrokersKnowledge() {
           </section>
 
           {/* Featured Brokers Section */}
-          <section className="py-16 bg-gray-50">
+          <section className="py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+              <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-12">
                 Top Recommended Stock Brokers
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {brokers.filter(broker => broker.featured).map((broker) => (
-                  <div key={broker.name} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300">
+                  <div key={broker.name} className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
                     <div className="text-center">
                       <div className="text-6xl mb-4">{broker.logo}</div>
-                      <h3 className="text-2xl font-bold text-gray-800 mb-2">{broker.name}</h3>
+                      <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">{broker.name}</h3>
                       <div className="flex items-center justify-center gap-2 mb-4">
                         <span className="text-yellow-500 text-lg">⭐</span>
-                        <span className="text-lg font-semibold">{broker.rating}</span>
-                        <span className="text-gray-500">({broker.reviews.toLocaleString()})</span>
+                        <span className="text-lg font-semibold dark:text-gray-200">{broker.rating}</span>
+                        <span className="text-gray-500 dark:text-gray-400">({broker.reviews.toLocaleString()})</span>
                       </div>
-                      
+
                       <div className="space-y-3 mb-6">
-                        <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                          <span className="text-gray-600">Delivery Brokerage:</span>
-                          <span className="font-semibold text-green-600">{broker.deliveryBrokerage}</span>
+                        <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                          <span className="text-gray-600 dark:text-gray-300">Delivery Brokerage:</span>
+                          <span className="font-semibold text-green-600 dark:text-green-400">{broker.deliveryBrokerage}</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                          <span className="text-gray-600">Intraday Brokerage:</span>
-                          <span className="font-semibold text-green-600">{broker.intradayBrokerage}</span>
+                        <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                          <span className="text-gray-600 dark:text-gray-300">Intraday Brokerage:</span>
+                          <span className="font-semibold text-green-600 dark:text-green-400">{broker.intradayBrokerage}</span>
                         </div>
-                        <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                          <span className="text-gray-600">Account Opening:</span>
-                          <span className="font-semibold text-green-600">{broker.accountOpening}</span>
+                        <div className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                          <span className="text-gray-600 dark:text-gray-300">Account Opening:</span>
+                          <span className="font-semibold text-green-600 dark:text-green-400">{broker.accountOpening}</span>
                         </div>
                       </div>
                       
@@ -524,36 +524,36 @@ export default function BrokersKnowledge() {
           </section>
 
           {/* Features Comparison */}
-          <section className="py-16 bg-white">
+          <section className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+              <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-12">
                 Detailed Features Comparison
               </h2>
-              
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+
+              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
                 <div className="overflow-x-auto">
                   <table className="w-full">
-                    <thead className="bg-gray-50">
+                    <thead className="bg-gray-50 dark:bg-gray-700">
                       <tr>
-                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 sticky left-0 bg-gray-50">Broker</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">Equity Delivery</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">Equity Intraday</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">Equity Futures</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">Equity Options</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">Currency F&O</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">Commodity F&O</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">Mutual Funds</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">IPO</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900">Bonds</th>
+                        <th className="px-4 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-200 sticky left-0 bg-gray-50 dark:bg-gray-700">Broker</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Equity Delivery</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Equity Intraday</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Equity Futures</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Equity Options</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Currency F&O</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Commodity F&O</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Mutual Funds</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">IPO</th>
+                        <th className="px-4 py-3 text-center text-sm font-semibold text-gray-900 dark:text-gray-200">Bonds</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-200">
+                    <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                       {brokers.map((broker) => (
-                        <tr key={broker.name} className="hover:bg-gray-50">
-                          <td className="px-4 py-3 sticky left-0 bg-white">
+                        <tr key={broker.name} className="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                          <td className="px-4 py-3 sticky left-0 bg-white dark:bg-gray-800">
                             <div className="flex items-center space-x-3">
                               <span className="text-xl">{broker.logo}</span>
-                              <span className="font-medium text-gray-900">{broker.name}</span>
+                              <span className="font-medium text-gray-900 dark:text-gray-200">{broker.name}</span>
                             </div>
                           </td>
                           <td className="px-4 py-3 text-center text-lg">{broker.equityDelivery}</td>
@@ -579,57 +579,57 @@ export default function BrokersKnowledge() {
           </section>
 
           {/* How to Choose Section */}
-          <section className="py-16 bg-gradient-to-r from-gray-50 to-blue-50">
+          <section className="py-16 bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
-              <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+              <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-12">
                 How to Choose the Right Stock Broker
               </h2>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
                   <div className="text-4xl mb-4 text-center">💰</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">Brokerage Charges</h3>
-                  <p className="text-gray-600 text-center">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">Brokerage Charges</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-center">
                     Compare delivery and intraday brokerage rates. Zero brokerage brokers can save significant costs for frequent traders.
                   </p>
                 </div>
-                
-                <div className="bg-white rounded-2xl p-8 shadow-lg">
+
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
                   <div className="text-4xl mb-4 text-center">📱</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">Trading Platform</h3>
-                  <p className="text-gray-600 text-center">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">Trading Platform</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-center">
                     Look for user-friendly mobile apps and web platforms with advanced charting tools and real-time data.
                   </p>
                 </div>
-                
-                <div className="bg-white rounded-2xl p-8 shadow-lg">
+
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
                   <div className="text-4xl mb-4 text-center">🛡️</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">Regulatory Compliance</h3>
-                  <p className="text-gray-600 text-center">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">Regulatory Compliance</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-center">
                     Ensure the broker is registered with SEBI and offers investor protection through depositories.
                   </p>
                 </div>
-                
-                <div className="bg-white rounded-2xl p-8 shadow-lg">
+
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
                   <div className="text-4xl mb-4 text-center">📞</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">Customer Support</h3>
-                  <p className="text-gray-600 text-center">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">Customer Support</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-center">
                     24/7 customer support through multiple channels including phone, email, and live chat is essential.
                   </p>
                 </div>
-                
-                <div className="bg-white rounded-2xl p-8 shadow-lg">
+
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
                   <div className="text-4xl mb-4 text-center">📊</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">Research & Analysis</h3>
-                  <p className="text-gray-600 text-center">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">Research & Analysis</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-center">
                     Access to research reports, market analysis, and educational content can help make informed decisions.
                   </p>
                 </div>
-                
-                <div className="bg-white rounded-2xl p-8 shadow-lg">
+
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
                   <div className="text-4xl mb-4 text-center">🚀</div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">Additional Services</h3>
-                  <p className="text-gray-600 text-center">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4 text-center">Additional Services</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-center">
                     Mutual funds, IPO applications, insurance, and other financial services under one roof.
                   </p>
                 </div>

@@ -145,20 +145,20 @@ export default function SIP() {
         </script>
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-blue-400/10 to-green-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
             </div>
 
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-green-50 rounded-full border border-blue-200 mb-3 md:mb-4 lg:mb-6">
-                <span className="text-sm font-semibold text-blue-600">📊 SIP Calculator</span>
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/30 dark:to-green-900/30 rounded-full border border-blue-200 dark:border-blue-700 mb-3 md:mb-4 lg:mb-6 transition-colors duration-300">
+                <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">📊 SIP Calculator</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
@@ -166,65 +166,65 @@ export default function SIP() {
                   SIP Investment
                 </span>
                 <br />
-                <span className="text-gray-800">Calculator</span>
+                <span className="text-gray-800 dark:text-gray-100">Calculator</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
-                Calculate your Systematic Investment Plan returns and see how regular investments 
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
+                Calculate your Systematic Investment Plan returns and see how regular investments
                 can build substantial wealth through the power of compounding.
               </p>
               
               <div className="grid grid-cols-3 gap-3 md:gap-5 lg:gap-8 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Free</div>
-                  <div className="text-xs md:text-sm text-gray-600">Calculator</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1">Free</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Calculator</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Instant</div>
-                  <div className="text-xs md:text-sm text-gray-600">Results</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1">Instant</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Results</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Accurate</div>
-                  <div className="text-xs md:text-sm text-gray-600">Calculations</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1">Accurate</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Calculations</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Calculator Section */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                   {/* Input Form */}
-                  <div className="bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-xl border border-gray-100">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                  <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-800 rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">
                       Calculate Your SIP Returns
                     </h2>
                     
                     <div className="space-y-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Monthly Investment Amount (₹)
                         </label>
                         <input
                           type="number"
                           placeholder="e.g., 5000"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 dark:placeholder-gray-400 transition-all duration-300 text-lg"
                           value={monthlyInvestment}
                           onChange={(e) => setMonthlyInvestment(e.target.value)}
                         />
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Expected Annual Return (%)
                         </label>
                         <input
                           type="number"
                           step="0.1"
                           placeholder="12"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 dark:placeholder-gray-400 transition-all duration-300 text-lg"
                           value={returnRate}
                           onChange={(e) => setReturnRate(e.target.value)}
                         />
@@ -236,7 +236,7 @@ export default function SIP() {
                               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                                 returnRate === rate
                                   ? 'bg-[#FF6B2C] text-white'
-                                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                               }`}
                             >
                               {rate}%
@@ -246,13 +246,13 @@ export default function SIP() {
                       </div>
                       
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
                           Investment Period (Years)
                         </label>
                         <input
                           type="number"
                           placeholder="e.g., 10"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 dark:placeholder-gray-400 transition-all duration-300 text-lg"
                           value={timePeriod}
                           onChange={(e) => setTimePeriod(e.target.value)}
                         />
@@ -264,7 +264,7 @@ export default function SIP() {
                               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                                 timePeriod === period
                                   ? 'bg-[#FF6B2C] text-white'
-                                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                               }`}
                             >
                               {period}Y
@@ -286,39 +286,39 @@ export default function SIP() {
                   </div>
                   
                   {/* Results */}
-                  <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-3xl p-8 border border-[#FF6B2C]/20">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                  <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 dark:from-[#FF6B2C]/20 dark:to-[#FF8A50]/20 rounded-3xl p-8 border border-[#FF6B2C]/20 dark:border-[#FF6B2C]/30 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">
                       Investment Summary
                     </h3>
                     
                     {result ? (
                       <div className="space-y-6">
-                        <div className="bg-white/80 rounded-2xl p-6 shadow-lg">
+                        <div className="bg-white/80 dark:bg-gray-800/80 rounded-2xl p-6 shadow-lg transition-colors duration-300">
                           <div className="text-center">
-                            <div className="text-sm text-gray-600 mb-2">Maturity Amount</div>
+                            <div className="text-sm text-gray-600 dark:text-gray-400 mb-2">Maturity Amount</div>
                             <div className="text-4xl font-bold text-[#FF6B2C] mb-4">
                               ₹{result.maturityAmount.toLocaleString()}
                             </div>
                           </div>
                         </div>
-                        
+
                         <div className="grid grid-cols-1 gap-4">
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Total Invested</div>
-                            <div className="text-xl font-bold text-gray-800">
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Total Invested</div>
+                            <div className="text-xl font-bold text-gray-800 dark:text-gray-100">
                               ₹{result.totalInvested.toLocaleString()}
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Total Returns</div>
-                            <div className="text-xl font-bold text-green-600">
+
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Total Returns</div>
+                            <div className="text-xl font-bold text-green-600 dark:text-green-400">
                               ₹{result.totalReturns.toLocaleString()}
                             </div>
                           </div>
-                          
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Return Percentage</div>
+
+                          <div className="bg-white/60 dark:bg-gray-800/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400">Return Percentage</div>
                             <div className="text-xl font-bold text-[#FF6B2C]">
                               {result.returnPercentage}%
                             </div>
@@ -336,12 +336,12 @@ export default function SIP() {
                       </div>
                     ) : (
                       <div className="text-center py-12">
-                        <div className="w-20 h-20 bg-gradient-to-r from-gray-200 to-gray-300 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                          <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-20 h-20 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+                          <svg className="w-10 h-10 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                           </svg>
                         </div>
-                        <p className="text-gray-500 text-lg">
+                        <p className="text-gray-500 dark:text-gray-400 text-lg">
                           Enter your SIP details to see projected returns
                         </p>
                       </div>
@@ -353,17 +353,17 @@ export default function SIP() {
           </section>
 
           {/* How It Works */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 dark:bg-gray-800 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">How </span>
+                  <span className="text-gray-800 dark:text-gray-100">How </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     SIP Works
                   </span>
                 </h2>
 
-                <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                   Systematic Investment Plan helps you build wealth through regular, disciplined investments
                 </p>
               </div>
@@ -401,12 +401,12 @@ export default function SIP() {
                         {item.step}
                       </div>
                     </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4">
                       {item.title}
                     </h3>
-                    
-                    <p className="text-gray-600 leading-relaxed">
+
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                       {item.description}
                     </p>
                   </div>

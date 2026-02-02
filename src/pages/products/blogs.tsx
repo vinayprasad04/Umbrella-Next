@@ -155,12 +155,12 @@ export default function Blogs() {
         />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Compact Hero Section */}
-          <section className="relative py-6 md:py-8 lg:py-10 bg-gradient-to-br from-gray-50 via-white to-indigo-50 overflow-hidden">
+          <section className="relative py-6 md:py-8 lg:py-10 bg-gradient-to-br from-gray-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-r from-indigo-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 right-10 w-64 h-64 bg-gradient-to-r from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
@@ -178,10 +178,10 @@ export default function Blogs() {
                     <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                       Expert Insights
                     </span>
-                    <span className="text-gray-800"> & Market Updates</span>
+                    <span className="text-gray-800 dark:text-gray-200"> & Market Updates</span>
                   </h1>
 
-                  <p className="text-base md:text-lg text-gray-600 leading-relaxed mb-4 max-w-2xl mx-auto lg:mx-0">
+                  <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-4 max-w-2xl mx-auto lg:mx-0">
                     Stay ahead with expert analysis, investment strategies, and financial news.
                   </p>
 
@@ -200,21 +200,21 @@ export default function Blogs() {
 
                 {/* Right Stats */}
                 <div className="flex lg:grid lg:grid-cols-2 gap-4 lg:gap-6">
-                  <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
-                    <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">500+</div>
-                    <div className="text-xs md:text-sm text-gray-600">Articles</div>
+                  <div className="text-center bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
+                    <div className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-1">500+</div>
+                    <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Articles</div>
                   </div>
-                  <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
-                    <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">50K+</div>
-                    <div className="text-xs md:text-sm text-gray-600">Readers</div>
+                  <div className="text-center bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
+                    <div className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-1">50K+</div>
+                    <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Readers</div>
                   </div>
-                  <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
-                    <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">15+</div>
-                    <div className="text-xs md:text-sm text-gray-600">Writers</div>
+                  <div className="text-center bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
+                    <div className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-1">15+</div>
+                    <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Writers</div>
                   </div>
-                  <div className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
-                    <div className="text-2xl md:text-3xl font-bold text-gray-800 mb-1">Daily</div>
-                    <div className="text-xs md:text-sm text-gray-600">Updates</div>
+                  <div className="text-center bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl p-4 shadow-sm">
+                    <div className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-1">Daily</div>
+                    <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Updates</div>
                   </div>
                 </div>
               </div>
@@ -222,7 +222,7 @@ export default function Blogs() {
           </section>
 
           {/* Categories Section */}
-          <section className="py-4 md:py-6 bg-white border-b border-gray-100">
+          <section className="py-4 md:py-6 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
               <div className="flex flex-wrap justify-center gap-2 md:gap-3">
                 {categories.map((category) => (
@@ -232,14 +232,14 @@ export default function Blogs() {
                     className={`px-3 md:px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
                       selectedCategory === category.id
                         ? 'bg-[#FF6B2C] text-white shadow-md scale-105'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                     }`}
                   >
                     {category.name}
                     <span className={`px-2 py-0.5 rounded-full text-xs ${
                       selectedCategory === category.id
                         ? 'bg-white/20 text-white'
-                        : 'bg-gray-200 text-gray-600'
+                        : 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400'
                     }`}>
                       {category.count}
                     </span>
@@ -250,16 +250,16 @@ export default function Blogs() {
           </section>
 
           {/* Blog Posts Section */}
-          <section className="py-8 md:py-12 bg-gray-50 relative overflow-hidden">
+          <section className="py-8 md:py-12 bg-gray-50 dark:bg-gray-800 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
               <div className="flex items-center justify-between mb-6 md:mb-8">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
-                  <span className="text-gray-800">Latest </span>
+                  <span className="text-gray-800 dark:text-gray-200">Latest </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Articles
                   </span>
                 </h2>
-                <p className="text-sm text-gray-600 hidden sm:block">
+                <p className="text-sm text-gray-600 dark:text-gray-400 hidden sm:block">
                   {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'}
                 </p>
               </div>
@@ -275,26 +275,26 @@ export default function Blogs() {
               {isLoading ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   {[1, 2, 3, 4, 5, 6].map((i) => (
-                    <div key={i} className="bg-white rounded-2xl p-5 shadow-md animate-pulse">
-                      <div className="w-14 h-14 bg-gray-200 rounded-2xl mb-3"></div>
+                    <div key={i} className="bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-md animate-pulse">
+                      <div className="w-14 h-14 bg-gray-200 dark:bg-gray-700 rounded-2xl mb-3"></div>
                       <div className="space-y-2 mb-3">
-                        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                        <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+                        <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
                       </div>
-                      <div className="h-6 bg-gray-200 rounded mb-3"></div>
+                      <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded mb-3"></div>
                       <div className="space-y-2 mb-4">
-                        <div className="h-3 bg-gray-200 rounded"></div>
-                        <div className="h-3 bg-gray-200 rounded w-5/6"></div>
+                        <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded"></div>
+                        <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-5/6"></div>
                       </div>
-                      <div className="h-10 bg-gray-200 rounded"></div>
+                      <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded"></div>
                     </div>
                   ))}
                 </div>
               ) : filteredPosts.length === 0 ? (
                 <div className="text-center py-8 md:py-12 lg:py-16">
                   <div className="text-4xl md:text-5xl lg:text-6xl mb-3 md:mb-4">📝</div>
-                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-2">No articles found</h3>
-                  <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">No articles found</h3>
+                  <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-4 md:mb-6">
                     {selectedCategory === 'all'
                       ? 'No blog posts available at the moment.'
                       : `No articles found in the ${categories.find(c => c.id === selectedCategory)?.name || selectedCategory} category.`
@@ -310,7 +310,7 @@ export default function Blogs() {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                   {filteredPosts.map((post) => (
-                  <article key={post.id} className="group bg-white rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border border-gray-100 cursor-pointer" onClick={() => router.push(`/products/blogs/${post.slug}`)}>
+                  <article key={post.id} className="group bg-white dark:bg-gray-800 rounded-2xl p-5 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] border border-gray-100 dark:border-gray-700 cursor-pointer" onClick={() => router.push(`/products/blogs/${post.slug}`)}>
                     {/* Post Header */}
                     <div className="mb-4">
                       <div className={`w-14 h-14 bg-gradient-to-r ${post.color} rounded-2xl flex items-center justify-center mb-3 text-2xl shadow-md group-hover:scale-110 transition-transform duration-300`}>
@@ -319,12 +319,12 @@ export default function Blogs() {
 
                       <div className="flex flex-wrap gap-2 mb-2">
                         {post.tags.slice(0, 2).map((tag, index) => (
-                          <span key={index} className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                          <span key={index} className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs rounded-full">
                             {tag}
                           </span>
                         ))}
                         {post.tags.length > 2 && (
-                          <span className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
+                          <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-xs rounded-full">
                             +{post.tags.length - 2}
                           </span>
                         )}
@@ -333,27 +333,27 @@ export default function Blogs() {
 
                     {/* Post Content */}
                     <div className="space-y-3">
-                      <h3 className="text-lg md:text-xl font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-300 line-clamp-2">
+                      <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-200 group-hover:text-[#FF6B2C] transition-colors duration-300 line-clamp-2">
                         {post.title}
                       </h3>
 
-                      <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">
+                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-2">
                         {post.excerpt}
                       </p>
 
                       {/* Post Meta */}
-                      <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                      <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-gray-700">
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full flex items-center justify-center text-white font-bold text-xs">
                             {post.author.split(' ').map(n => n[0]).join('')}
                           </div>
                           <div>
-                            <div className="text-xs font-semibold text-gray-800">{post.author}</div>
-                            <div className="text-xs text-gray-500">{post.date}</div>
+                            <div className="text-xs font-semibold text-gray-800 dark:text-gray-200">{post.author}</div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400">{post.date}</div>
                           </div>
                         </div>
 
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs text-gray-500 dark:text-gray-400">
                           {post.readTime}
                         </div>
                       </div>
@@ -377,7 +377,7 @@ export default function Blogs() {
               {/* Load More Button */}
               {!isLoading && filteredPosts.length > 6 && (
                 <div className="text-center mt-8">
-                  <button className="bg-white text-gray-700 px-6 py-3 border-2 border-gray-200 rounded-xl text-base font-semibold cursor-pointer hover:bg-gray-50 hover:shadow-md hover:border-gray-300 transition-all duration-300">
+                  <button className="bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-6 py-3 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-base font-semibold cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 hover:shadow-md hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300">
                     Load More Articles
                   </button>
                 </div>

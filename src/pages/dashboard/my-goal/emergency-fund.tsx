@@ -6,12 +6,12 @@ import DashboardLayout from '@/components/DashboardLayout';
 import Tooltip from '@/components/Tooltip';
 import type { NextPageWithLayout } from '../../_app';
 
-const inputClass = "border border-gray-300 rounded-xl px-4 py-3 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 transition-all";
-const labelClass = "text-sm font-semibold text-gray-700 mb-2 flex items-center gap-1";
+const inputClass = "border border-gray-300 dark:border-gray-600 rounded-xl px-4 py-3 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-400 dark:bg-gray-700 dark:text-gray-200 focus:border-purple-400 transition-all";
+const labelClass = "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-1";
 
 const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
   <Tooltip content={tooltip}>
-    <svg className="ml-1 text-gray-400 w-4 h-4 hover:text-purple-600 transition-colors cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="ml-1 text-gray-400 dark:text-gray-500 w-4 h-4 hover:text-purple-600 transition-colors cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   </Tooltip>
@@ -119,10 +119,10 @@ const EmergencyFund: NextPageWithLayout = () => {
 
   if (isLoading) {
     return (
-      <div className="flex-1 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-orange-50">
+      <div className="flex-1 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 font-medium">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-300 font-medium">Loading...</p>
         </div>
       </div>
     );
@@ -137,7 +137,7 @@ const EmergencyFund: NextPageWithLayout = () => {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
 
-      <div className="flex-1 px-4 md:px-6 lg:px-8 py-4 md:py-6 lg:py-8 bg-gradient-to-br from-purple-50 via-white to-orange-50">
+      <div className="flex-1 px-4 md:px-6 lg:px-8 py-4 md:py-6 lg:py-8 bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         {/* Header Section */}
         <div className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-500 rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-6 lg:p-8 mb-4 md:mb-6 lg:mb-8 text-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full -mr-32 -mt-32"></div>
@@ -157,25 +157,25 @@ const EmergencyFund: NextPageWithLayout = () => {
         </div>
 
         {/* Progress Overview Card */}
-        <div className="bg-gradient-to-br from-white to-green-50 rounded-2xl md:rounded-3xl shadow-xl p-4 md:p-6 border-2 border-green-200 mb-4 md:mb-6">
-          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center gap-2">
+        <div className="bg-gradient-to-br from-white to-green-50 dark:from-gray-800 dark:to-green-900/20 rounded-2xl md:rounded-3xl shadow-xl p-4 md:p-6 border-2 border-green-200 dark:border-green-700 mb-4 md:mb-6">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 md:mb-6 flex items-center gap-2">
             <span className="text-2xl">📊</span>
             Emergency Fund Status
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
-            <div className="bg-gradient-to-br from-green-50 to-white p-4 rounded-xl border-2 border-green-200">
-              <div className="text-sm text-gray-600 mb-1 font-medium">Required Fund</div>
+            <div className="bg-gradient-to-br from-green-50 to-white dark:from-green-900/20 dark:to-gray-800 p-4 rounded-xl border-2 border-green-200 dark:border-green-700">
+              <div className="text-sm text-gray-600 dark:text-gray-400 mb-1 font-medium">Required Fund</div>
               <div className="text-2xl md:text-3xl font-bold text-green-600">₹{requiredFund.toLocaleString('en-IN')}</div>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-white p-4 rounded-xl border-2 border-blue-200">
-              <div className="text-sm text-gray-600 mb-1 font-medium">Current Savings</div>
+            <div className="bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-800 p-4 rounded-xl border-2 border-blue-200 dark:border-blue-700">
+              <div className="text-sm text-gray-600 dark:text-gray-400 mb-1 font-medium">Current Savings</div>
               <div className="text-2xl md:text-3xl font-bold text-blue-600">₹{formData.currentSavings.toLocaleString('en-IN')}</div>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-50 to-white p-4 rounded-xl border-2 border-orange-200">
-              <div className="text-sm text-gray-600 mb-1 font-medium">Shortfall</div>
+            <div className="bg-gradient-to-br from-orange-50 to-white dark:from-orange-900/20 dark:to-gray-800 p-4 rounded-xl border-2 border-orange-200 dark:border-orange-700">
+              <div className="text-sm text-gray-600 dark:text-gray-400 mb-1 font-medium">Shortfall</div>
               <div className="text-2xl md:text-3xl font-bold text-orange-600">₹{shortfall.toLocaleString('en-IN')}</div>
             </div>
           </div>
@@ -183,10 +183,10 @@ const EmergencyFund: NextPageWithLayout = () => {
           {/* Progress Bar */}
           <div className="mb-4">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-sm font-semibold text-gray-700">Fund Completion</span>
+              <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Fund Completion</span>
               <span className="text-lg font-bold text-green-600">{fundingPercentage.toFixed(1)}%</span>
             </div>
-            <div className="h-6 bg-gray-200 rounded-full overflow-hidden">
+            <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-green-500 to-emerald-600 rounded-full transition-all duration-500 flex items-center justify-center"
                 style={{ width: `${fundingPercentage}%` }}
@@ -199,11 +199,11 @@ const EmergencyFund: NextPageWithLayout = () => {
           </div>
 
           {monthsToReach > 0 && (
-            <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-200">
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-4 border border-purple-200 dark:border-purple-700">
               <div className="flex items-center gap-3">
                 <span className="text-3xl">⏱️</span>
                 <div>
-                  <div className="text-sm text-gray-600 font-medium">Time to Reach Goal</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">Time to Reach Goal</div>
                   <div className="text-xl font-bold text-purple-600">
                     {monthsToReach} {monthsToReach === 1 ? 'month' : 'months'}
                     {monthsToReach >= 12 && ` (${(monthsToReach / 12).toFixed(1)} years)`}
@@ -215,21 +215,21 @@ const EmergencyFund: NextPageWithLayout = () => {
         </div>
 
         {/* Input Form */}
-        <div className="bg-white rounded-2xl md:rounded-3xl shadow-xl p-4 md:p-6 lg:p-8 border-2 border-gray-100">
-          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center gap-2">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl md:rounded-3xl shadow-xl p-4 md:p-6 lg:p-8 border-2 border-gray-100 dark:border-gray-700">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4 md:mb-6 flex items-center gap-2">
             <span className="text-2xl">💰</span>
             Calculate Your Emergency Fund
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {/* Monthly Expenses */}
-            <div className="bg-gradient-to-br from-blue-50 to-white p-4 md:p-6 rounded-xl border-2 border-blue-200">
+            <div className="bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-800 p-4 md:p-6 rounded-xl border-2 border-blue-200 dark:border-blue-700">
               <label className={labelClass}>
                 Monthly Expenses
                 <InfoIcon tooltip="Your average monthly living expenses including rent, groceries, utilities, etc." />
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-semibold">₹</span>
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 font-semibold">₹</span>
                 <input
                   type="text"
                   name="monthlyExpenses"
@@ -241,7 +241,7 @@ const EmergencyFund: NextPageWithLayout = () => {
             </div>
 
             {/* Number of Months */}
-            <div className="bg-gradient-to-br from-green-50 to-white p-4 md:p-6 rounded-xl border-2 border-green-200">
+            <div className="bg-gradient-to-br from-green-50 to-white dark:from-green-900/20 dark:to-gray-800 p-4 md:p-6 rounded-xl border-2 border-green-200 dark:border-green-700">
               <label className={labelClass}>
                 Number of Months Coverage
                 <InfoIcon tooltip="Recommended: 3-6 months for stable jobs, 6-12 months for unstable income" />
@@ -260,13 +260,13 @@ const EmergencyFund: NextPageWithLayout = () => {
             </div>
 
             {/* Current Savings */}
-            <div className="bg-gradient-to-br from-purple-50 to-white p-4 md:p-6 rounded-xl border-2 border-purple-200">
+            <div className="bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-gray-800 p-4 md:p-6 rounded-xl border-2 border-purple-200 dark:border-purple-700">
               <label className={labelClass}>
                 Current Emergency Savings
                 <InfoIcon tooltip="Amount you have already saved for emergencies" />
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-semibold">₹</span>
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 font-semibold">₹</span>
                 <input
                   type="text"
                   name="currentSavings"
@@ -278,13 +278,13 @@ const EmergencyFund: NextPageWithLayout = () => {
             </div>
 
             {/* Monthly Contribution */}
-            <div className="bg-gradient-to-br from-orange-50 to-white p-4 md:p-6 rounded-xl border-2 border-orange-200">
+            <div className="bg-gradient-to-br from-orange-50 to-white dark:from-orange-900/20 dark:to-gray-800 p-4 md:p-6 rounded-xl border-2 border-orange-200 dark:border-orange-700">
               <label className={labelClass}>
                 Monthly Contribution
                 <InfoIcon tooltip="How much you plan to save each month towards emergency fund" />
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 font-semibold">₹</span>
+                <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 font-semibold">₹</span>
                 <input
                   type="text"
                   name="monthlyContribution"
@@ -321,7 +321,7 @@ const EmergencyFund: NextPageWithLayout = () => {
 
           {/* Success Message */}
           {successMessage && (
-            <div className="mt-4 bg-green-50 border-2 border-green-500 text-green-700 px-4 py-3 rounded-xl flex items-center gap-2">
+            <div className="mt-4 bg-green-50 dark:bg-green-900/20 border-2 border-green-500 dark:border-green-600 text-green-700 dark:text-green-300 px-4 py-3 rounded-xl flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>

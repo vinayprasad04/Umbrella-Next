@@ -92,10 +92,10 @@ const ForgotPassword = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FF6B2C] mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-300">Loading...</p>
         </div>
       </div>
     );
@@ -110,11 +110,11 @@ const ForgotPassword = () => {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900">
         <Header />
         
         {/* Main Forgot Password Section */}
-        <div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+        <div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
           {/* Background Decorations */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-r from-blue-400/5 to-[#FF6B2C]/5 rounded-full blur-3xl animate-pulse"></div>
@@ -129,7 +129,7 @@ const ForgotPassword = () => {
               <div className="flex justify-center lg:justify-end">
                 <div className="w-full">
                   {/* Forgot Password Card */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 p-8 md:p-10">
+                  <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 dark:border-gray-700/20 p-8 md:p-10">
                     {/* Header */}
                     <div className="text-center mb-8">
                       <div className="flex items-center justify-center gap-3 mb-6">
@@ -145,55 +145,55 @@ const ForgotPassword = () => {
                         </div>
                         <div>
                           <span className="text-2xl font-bold bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">IncomeGrow</span>
-                          <div className="text-xs text-gray-500 font-medium">Financial Freedom</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">Financial Freedom</div>
                         </div>
                       </div>
                       
                       {!isSubmitted ? (
                         <>
-                          <div className="w-20 h-20 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                          <div className="w-20 h-20 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                             <svg className="w-10 h-10 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                           </div>
-                          <h1 className="text-3xl font-bold text-gray-800 mb-2">Forgot Password?</h1>
-                          <p className="text-gray-600">No worries, we&apos;ll send you reset instructions</p>
+                          <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">Forgot Password?</h1>
+                          <p className="text-gray-600 dark:text-gray-300">No worries, we&apos;ll send you reset instructions</p>
                         </>
                       ) : (
                         <>
-                          <div className="w-20 h-20 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                          <div className="w-20 h-20 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                             <svg className="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                             </svg>
                           </div>
-                          <h1 className="text-3xl font-bold text-gray-800 mb-2">Check Your Email</h1>
-                          <p className="text-gray-600">We&apos;ve sent password reset instructions</p>
+                          <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">Check Your Email</h1>
+                          <p className="text-gray-600 dark:text-gray-300">We&apos;ve sent password reset instructions</p>
                         </>
                       )}
                     </div>
                     
                     {isSubmitted ? (
                       <div className="text-center space-y-6">
-                        <div className="bg-green-50 border border-green-200 rounded-2xl p-6">
-                          <div className="text-green-700 font-semibold mb-3 flex items-center justify-center gap-2">
+                        <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-2xl p-6">
+                          <div className="text-green-700 dark:text-green-300 font-semibold mb-3 flex items-center justify-center gap-2">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             Reset Link Sent Successfully!
                           </div>
-                          <p className="text-green-600 leading-relaxed">
+                          <p className="text-green-600 dark:text-green-400 leading-relaxed">
                             We&apos;ve sent a password reset link to <strong>{email}</strong>. 
                             Please check your inbox and follow the instructions to reset your password.
                           </p>
                         </div>
                         
-                        <div className="bg-blue-50 border border-blue-200 rounded-2xl p-4">
-                          <p className="text-blue-700 text-sm">
+                        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-2xl p-4">
+                          <p className="text-blue-700 dark:text-blue-300 text-sm">
                             <strong>Didn&apos;t receive the email?</strong> Check your spam folder or try again in a few minutes.
                           </p>
                         </div>
                         
-                        <div className="flex items-center justify-center gap-2 text-gray-500 text-sm">
+                        <div className="flex items-center justify-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#FF6B2C]"></div>
                           Redirecting to login page in a few seconds...
                         </div>
@@ -201,7 +201,7 @@ const ForgotPassword = () => {
                     ) : (
                       <>
                         <div className="mb-8">
-                          <p className="text-gray-600 leading-relaxed text-center">
+                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center">
                             Enter the email address associated with your account and we&apos;ll send you 
                             a secure link to reset your password.
                           </p>
@@ -209,13 +209,13 @@ const ForgotPassword = () => {
                         
                         <form onSubmit={handleSubmit} className="space-y-6">
                           <div className="space-y-1">
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
                             <div className="relative">
                               <input
                                 type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className={`w-full border-2 rounded-xl px-4 py-4 pl-12 text-gray-900 bg-white/50 backdrop-blur-sm focus:outline-none focus:border-[#FF6B2C] focus:ring-4 focus:ring-[#FF6B2C]/10 transition-all duration-300 ${errors.email ? 'border-red-400 focus:border-red-400 focus:ring-red-100' : 'border-gray-200'}`}
+                                className={`w-full border-2 rounded-xl px-4 py-4 pl-12 text-gray-900 dark:text-gray-200 bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm focus:outline-none focus:border-[#FF6B2C] focus:ring-4 focus:ring-[#FF6B2C]/10 transition-all duration-300 ${errors.email ? 'border-red-400 focus:border-red-400 focus:ring-red-100' : 'border-gray-200 dark:border-gray-700'}`}
                                 placeholder="Enter your email address"
                                 autoComplete="username"
                               />
@@ -232,7 +232,7 @@ const ForgotPassword = () => {
                           </div>
                           
                           {submitError && (
-                            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
+                            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-300 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
                               <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                               </svg>
@@ -263,8 +263,8 @@ const ForgotPassword = () => {
                       </>
                     )}
                     
-                    <div className="text-center mt-8 pt-6 border-t border-gray-200">
-                      <p className="text-gray-600 flex items-center justify-center gap-2">
+                    <div className="text-center mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+                      <p className="text-gray-600 dark:text-gray-300 flex items-center justify-center gap-2">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
                         </svg>
@@ -277,14 +277,14 @@ const ForgotPassword = () => {
                     
                     {/* Help Section */}
                     {!isSubmitted && (
-                      <div className="mt-6 p-4 bg-gray-50 rounded-2xl">
+                      <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-2xl">
                         <div className="flex items-start gap-3">
                           <svg className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                           <div>
-                            <p className="text-sm font-medium text-gray-700 mb-1">Need Help?</p>
-                            <p className="text-xs text-gray-600">
+                            <p className="text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">Need Help?</p>
+                            <p className="text-xs text-gray-600 dark:text-gray-300">
                               If you&apos;re having trouble accessing your account, contact our{' '}
                               <Link href="/support/contact-us" className="text-[#FF6B2C] hover:underline">
                                 support team
@@ -313,14 +313,14 @@ const ForgotPassword = () => {
                 </div>
                 
                 <div className="max-w-lg space-y-6">
-                  <h2 className="text-4xl font-bold text-gray-800 leading-tight">
+                  <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-100 leading-tight">
                     Secure Account
                     <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent block">
                       Recovery
                     </span>
                   </h2>
                   
-                  <p className="text-lg text-gray-600 leading-relaxed">
+                  <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                     Your account security is our priority. We use industry-standard encryption 
                     to protect your data and ensure safe password recovery.
                   </p>
@@ -331,11 +331,11 @@ const ForgotPassword = () => {
                       { icon: '⚡', title: 'Quick Recovery', desc: 'Reset password in minutes' },
                       { icon: '🛡️', title: 'Protected Data', desc: 'Your information stays safe' }
                     ].map((item, index) => (
-                      <div key={index} className="flex items-center gap-4 p-3 bg-white/60 backdrop-blur-sm rounded-xl border border-white/30">
+                      <div key={index} className="flex items-center gap-4 p-3 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-xl border border-white/30 dark:border-gray-600/30">
                         <div className="text-2xl">{item.icon}</div>
                         <div className="text-left">
-                          <div className="font-semibold text-gray-800">{item.title}</div>
-                          <div className="text-sm text-gray-600">{item.desc}</div>
+                          <div className="font-semibold text-gray-800 dark:text-gray-100">{item.title}</div>
+                          <div className="text-sm text-gray-600 dark:text-gray-300">{item.desc}</div>
                         </div>
                       </div>
                     ))}

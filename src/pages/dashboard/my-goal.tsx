@@ -306,10 +306,10 @@ const Recipe: NextPageWithLayout = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#fafbfc]">
+      <div className="min-h-screen flex items-center justify-center bg-[#fafbfc] dark:bg-gray-900">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FF6B2C] mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-300">Loading...</p>
         </div>
       </div>
     );
@@ -325,7 +325,7 @@ const Recipe: NextPageWithLayout = () => {
       </Head>
 
       {/* Content Area - Only this part will reload */}
-      <section className="flex-1 flex flex-col gap-6 px-8 py-8 overflow-y-auto bg-gradient-to-br from-purple-50 via-white to-orange-50">
+      <section className="flex-1 flex flex-col gap-6 px-8 py-8 overflow-y-auto bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
             {/* Header Card */}
             <div className="bg-gradient-to-r from-purple-600 to-orange-500 rounded-3xl shadow-xl p-8 text-white relative overflow-hidden">
               {/* Background decorative elements */}
@@ -368,7 +368,7 @@ const Recipe: NextPageWithLayout = () => {
 
               <div className="flex flex-wrap gap-2 mb-4 hidden">
                 {/* <span
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium cursor-pointer ${!filter ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 text-gray-700'}`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium cursor-pointer ${!filter ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 dark:bg-gray-600 text-gray-700'}`}
                   onClick={() => setFilter('')}
                 >
                   Show All
@@ -376,7 +376,7 @@ const Recipe: NextPageWithLayout = () => {
                 {goals.map((goal) => (
                   <span
                     key={goal.label}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium cursor-pointer ${filter === goal.label ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 text-gray-700'}`}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium cursor-pointer ${filter === goal.label ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 dark:bg-gray-600 text-gray-700'}`}
                     onClick={() => setFilter(goal.label)}
                   >
                     <span className="w-4 h-4 text-purple-500">{goal.icon}</span>
@@ -384,7 +384,7 @@ const Recipe: NextPageWithLayout = () => {
                   </span>
                 ))} */}
                 {/* <span
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium cursor-pointer ${filter === 'Custom Goal' ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 text-gray-700'}`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium cursor-pointer ${filter === 'Custom Goal' ? 'bg-orange-100 text-orange-600' : 'bg-gray-100 dark:bg-gray-600 text-gray-700'}`}
                   onClick={() => setFilter('Custom Goal')}
                 >
                   <span className="w-4 h-4 text-purple-500">➕</span>
@@ -428,16 +428,16 @@ const Recipe: NextPageWithLayout = () => {
 
                 // Determine goal status color
                 let statusColor = 'border-2 border-gray-300'; // Not created yet
-                let cardBorderColor = 'border-gray-200';
-                let cardBgGradient = 'bg-white';
+                let cardBorderColor = 'border-gray-200 dark:border-gray-700';
+                let cardBgGradient = 'bg-white dark:bg-gray-800';
 
                 const checkGoalStatus = (goalPossibility: string) => {
                   if (goalPossibility?.toLowerCase().includes('possible') || goalPossibility?.toLowerCase().includes('achievable')) {
-                    return { status: 'bg-green-400 shadow-lg shadow-green-200', border: 'border-green-100', bg: 'bg-gradient-to-br from-green-50 to-white' };
+                    return { status: 'bg-green-400 shadow-lg shadow-green-200', border: 'border-green-100 dark:border-green-700', bg: 'bg-gradient-to-br from-green-50 to-white dark:from-green-900/20 dark:to-gray-800' };
                   } else if (goalPossibility?.toLowerCase().includes('not')) {
-                    return { status: 'bg-red-400 shadow-lg shadow-red-200', border: 'border-red-100', bg: 'bg-gradient-to-br from-red-50 to-white' };
+                    return { status: 'bg-red-400 shadow-lg shadow-red-200', border: 'border-red-100 dark:border-red-700', bg: 'bg-gradient-to-br from-red-50 to-white dark:from-red-900/20 dark:to-gray-800' };
                   } else {
-                    return { status: 'bg-green-400 shadow-lg shadow-green-200', border: 'border-green-100', bg: 'bg-gradient-to-br from-green-50 to-white' };
+                    return { status: 'bg-green-400 shadow-lg shadow-green-200', border: 'border-green-100 dark:border-green-700', bg: 'bg-gradient-to-br from-green-50 to-white dark:from-green-900/20 dark:to-gray-800' };
                   }
                 };
 
@@ -492,31 +492,31 @@ const Recipe: NextPageWithLayout = () => {
                       <div className="bg-gradient-to-br from-purple-500 to-orange-500 p-4 rounded-2xl shadow-lg">
                         <span className="text-5xl">{goal.icon}</span>
                       </div>
-                      <div className="font-bold text-xl text-gray-800 mb-1 text-center">{goal.label}</div>
-                      <div className={`text-xs font-semibold px-3 py-1 rounded-full ${hasData ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
+                      <div className="font-bold text-xl text-gray-800 dark:text-gray-100 mb-1 text-center">{goal.label}</div>
+                      <div className={`text-xs font-semibold px-3 py-1 rounded-full ${hasData ? 'bg-green-100 dark:bg-green-900/30 text-green-700' : 'bg-gray-100 dark:bg-gray-600 text-gray-500'}`}>
                         {hasData ? '✓ Created' : '○ Not created yet'}
                       </div>
-                      <div className="flex flex-col gap-2 w-full text-sm bg-white/50 rounded-xl p-4 border border-gray-100">
+                      <div className="flex flex-col gap-2 w-full text-sm bg-white/50 dark:bg-gray-700/50 rounded-xl p-4 border border-gray-100 dark:border-gray-600">
                         {isWealthCreation && (
                           <>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">💰 Budget</span>
+                              <span className="text-gray-600 dark:text-gray-400">💰 Budget</span>
                               <span className="font-bold text-purple-600">{wealthHasData ? `₹${(wealthData.goalAmount / 10000000).toFixed(2)} Cr` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">📅 Target Year</span>
-                              <span className="font-semibold text-gray-800">{wealthHasData ? wealthData.targetYear : '-'}</span>
+                              <span className="text-gray-600 dark:text-gray-400">📅 Target Year</span>
+                              <span className="font-semibold text-gray-800 dark:text-gray-100">{wealthHasData ? wealthData.targetYear : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="text-gray-600 dark:text-gray-400">⏰ Required in</span>
                               <span className="font-semibold text-orange-600">{wealthHasData ? `${wealthYearsRequired} years` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🎯 Status</span>
-                              <span className="font-bold text-green-600">
+                              <span className="text-gray-600 dark:text-gray-400">🎯 Status</span>
+                              <span className="font-bold text-green-600 dark:text-green-400">
                                 {wealthHasData ? wealthData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -525,23 +525,23 @@ const Recipe: NextPageWithLayout = () => {
                         {isRetirement && (
                           <>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">👤 Current Age</span>
-                              <span className="font-semibold text-gray-800">{retirementHasData ? retirementData.currentAge : '-'}</span>
+                              <span className="text-gray-600 dark:text-gray-400">👤 Current Age</span>
+                              <span className="font-semibold text-gray-800 dark:text-gray-100">{retirementHasData ? retirementData.currentAge : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🎂 Retirement Age</span>
-                              <span className="font-semibold text-gray-800">{retirementHasData ? retirementData.retirementAge : '-'}</span>
+                              <span className="text-gray-600 dark:text-gray-400">🎂 Retirement Age</span>
+                              <span className="font-semibold text-gray-800 dark:text-gray-100">{retirementHasData ? retirementData.retirementAge : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">⏰ Years to Retire</span>
+                              <span className="text-gray-600 dark:text-gray-400">⏰ Years to Retire</span>
                               <span className="font-semibold text-orange-600">{retirementHasData ? `${retirementYearsRequired} years` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🎯 Status</span>
-                              <span className="font-bold text-green-600">
+                              <span className="text-gray-600 dark:text-gray-400">🎯 Status</span>
+                              <span className="font-bold text-green-600 dark:text-green-400">
                                 {retirementHasData ? retirementData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -550,23 +550,23 @@ const Recipe: NextPageWithLayout = () => {
                         {isHouse && (
                           <>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🏠 Property Value</span>
+                              <span className="text-gray-600 dark:text-gray-400">🏠 Property Value</span>
                               <span className="font-bold text-purple-600">{houseHasData ? `₹${(houseData.propertyValue / 10000000).toFixed(2)} Cr` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">📅 Target Age</span>
-                              <span className="font-semibold text-gray-800">{houseHasData ? houseData.targetAge : '-'}</span>
+                              <span className="text-gray-600 dark:text-gray-400">📅 Target Age</span>
+                              <span className="font-semibold text-gray-800 dark:text-gray-100">{houseHasData ? houseData.targetAge : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="text-gray-600 dark:text-gray-400">⏰ Required in</span>
                               <span className="font-semibold text-orange-600">{houseHasData ? `${houseYearsRequired} years` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🎯 Status</span>
-                              <span className="font-bold text-green-600">
+                              <span className="text-gray-600 dark:text-gray-400">🎯 Status</span>
+                              <span className="font-bold text-green-600 dark:text-green-400">
                                 {houseHasData ? houseData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -575,23 +575,23 @@ const Recipe: NextPageWithLayout = () => {
                         {isCar && (
                           <>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🚗 Car Value</span>
+                              <span className="text-gray-600 dark:text-gray-400">🚗 Car Value</span>
                               <span className="font-bold text-purple-600">{carHasData ? `₹${(carData.carValue / 100000).toFixed(2)} L` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">📅 Target Age</span>
-                              <span className="font-semibold text-gray-800">{carHasData ? carData.targetAge : '-'}</span>
+                              <span className="text-gray-600 dark:text-gray-400">📅 Target Age</span>
+                              <span className="font-semibold text-gray-800 dark:text-gray-100">{carHasData ? carData.targetAge : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="text-gray-600 dark:text-gray-400">⏰ Required in</span>
                               <span className="font-semibold text-orange-600">{carHasData ? `${carYearsRequired} year${carYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🎯 Status</span>
-                              <span className="font-bold text-green-600">
+                              <span className="text-gray-600 dark:text-gray-400">🎯 Status</span>
+                              <span className="font-bold text-green-600 dark:text-green-400">
                                 {carHasData ? carData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -600,23 +600,23 @@ const Recipe: NextPageWithLayout = () => {
                         {isSelfEducation && (
                           <>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">📚 Course Fee</span>
+                              <span className="text-gray-600 dark:text-gray-400">📚 Course Fee</span>
                               <span className="font-bold text-purple-600">{selfEducationHasData ? `₹${(selfEducationData.courseFee / 100000).toFixed(2)} L` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">📅 Target Age</span>
-                              <span className="font-semibold text-gray-800">{selfEducationHasData ? selfEducationData.targetAge : '-'}</span>
+                              <span className="text-gray-600 dark:text-gray-400">📅 Target Age</span>
+                              <span className="font-semibold text-gray-800 dark:text-gray-100">{selfEducationHasData ? selfEducationData.targetAge : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="text-gray-600 dark:text-gray-400">⏰ Required in</span>
                               <span className="font-semibold text-orange-600">{selfEducationHasData ? `${selfEducationYearsRequired} year${selfEducationYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🎯 Status</span>
-                              <span className="font-bold text-green-600">
+                              <span className="text-gray-600 dark:text-gray-400">🎯 Status</span>
+                              <span className="font-bold text-green-600 dark:text-green-400">
                                 {selfEducationHasData ? selfEducationData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -625,23 +625,23 @@ const Recipe: NextPageWithLayout = () => {
                         {isChildEducation && (
                           <>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🎓 Education Cost</span>
+                              <span className="text-gray-600 dark:text-gray-400">🎓 Education Cost</span>
                               <span className="font-bold text-purple-600">{childEducationHasData ? `₹${(childEducationData.educationCost / 10000000).toFixed(2)} Cr` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">👶 Child's Age</span>
-                              <span className="font-semibold text-gray-800">{childEducationHasData ? `${childEducationData.childCurrentAge} → ${childEducationData.targetAge}` : '-'}</span>
+                              <span className="text-gray-600 dark:text-gray-400">👶 Child's Age</span>
+                              <span className="font-semibold text-gray-800 dark:text-gray-100">{childEducationHasData ? `${childEducationData.childCurrentAge} → ${childEducationData.targetAge}` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="text-gray-600 dark:text-gray-400">⏰ Required in</span>
                               <span className="font-semibold text-orange-600">{childEducationHasData ? `${childEducationYearsRequired} year${childEducationYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🎯 Status</span>
-                              <span className="font-bold text-green-600">
+                              <span className="text-gray-600 dark:text-gray-400">🎯 Status</span>
+                              <span className="font-bold text-green-600 dark:text-green-400">
                                 {childEducationHasData ? childEducationData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -650,23 +650,23 @@ const Recipe: NextPageWithLayout = () => {
                         {isChildWedding && (
                           <>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">💒 Wedding Budget</span>
+                              <span className="text-gray-600 dark:text-gray-400">💒 Wedding Budget</span>
                               <span className="font-bold text-purple-600">{childWeddingHasData ? `₹${(childWeddingData.weddingBudget / 10000000).toFixed(2)} Cr` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">👶 Child's Age</span>
-                              <span className="font-semibold text-gray-800">{childWeddingHasData ? `${childWeddingData.childCurrentAge} → ${childWeddingData.targetAge}` : '-'}</span>
+                              <span className="text-gray-600 dark:text-gray-400">👶 Child's Age</span>
+                              <span className="font-semibold text-gray-800 dark:text-gray-100">{childWeddingHasData ? `${childWeddingData.childCurrentAge} → ${childWeddingData.targetAge}` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="text-gray-600 dark:text-gray-400">⏰ Required in</span>
                               <span className="font-semibold text-orange-600">{childWeddingHasData ? `${childWeddingYearsRequired} year${childWeddingYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🎯 Status</span>
-                              <span className="font-bold text-green-600">
+                              <span className="text-gray-600 dark:text-gray-400">🎯 Status</span>
+                              <span className="font-bold text-green-600 dark:text-green-400">
                                 {childWeddingHasData ? childWeddingData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>
@@ -675,23 +675,23 @@ const Recipe: NextPageWithLayout = () => {
                         {isVacation && (
                           <>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🏖️ Vacation Budget</span>
+                              <span className="text-gray-600 dark:text-gray-400">🏖️ Vacation Budget</span>
                               <span className="font-bold text-purple-600">{vacationHasData ? `₹${(vacationData.vacationBudget / 100000).toFixed(2)} L` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">📅 Target Age</span>
-                              <span className="font-semibold text-gray-800">{vacationHasData ? vacationData.targetAge : '-'}</span>
+                              <span className="text-gray-600 dark:text-gray-400">📅 Target Age</span>
+                              <span className="font-semibold text-gray-800 dark:text-gray-100">{vacationHasData ? vacationData.targetAge : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">⏰ Required in</span>
+                              <span className="text-gray-600 dark:text-gray-400">⏰ Required in</span>
                               <span className="font-semibold text-orange-600">{vacationHasData ? `${vacationYearsRequired} year${vacationYearsRequired !== 1 ? 's' : ''}` : '-'}</span>
                             </div>
-                            <div className="h-px bg-gray-200"></div>
+                            <div className="h-px bg-gray-200 dark:bg-gray-600"></div>
                             <div className="flex justify-between items-center">
-                              <span className="text-gray-600">🎯 Status</span>
-                              <span className="font-bold text-green-600">
+                              <span className="text-gray-600 dark:text-gray-400">🎯 Status</span>
+                              <span className="font-bold text-green-600 dark:text-green-400">
                                 {vacationHasData ? vacationData.goalPossibility || 'Calculated' : '-'}
                               </span>
                             </div>

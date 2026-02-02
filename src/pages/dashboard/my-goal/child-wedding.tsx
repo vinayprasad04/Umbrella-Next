@@ -7,8 +7,8 @@ import DashboardLayout from '@/components/DashboardLayout';
 import Tooltip from '@/components/Tooltip';
 import type { NextPageWithLayout} from '../../_app';
 
-const inputClass = "border border-gray-300 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300";
-const labelClass = "text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1";
+const inputClass = "border border-gray-300 dark:border-gray-600 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300 dark:bg-gray-700 dark:text-gray-200";
+const labelClass = "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1";
 
 const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
   <Tooltip content={tooltip}>
@@ -332,10 +332,10 @@ const ChildWedding: NextPageWithLayout = () => {
 
   if (loading) {
     return (
-      <div className="flex-1 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-orange-50">
+      <div className="flex-1 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 font-medium">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-400 font-medium">Loading...</p>
         </div>
       </div>
     );
@@ -353,7 +353,7 @@ const ChildWedding: NextPageWithLayout = () => {
       {/* Content Area - Only this part will reload */}
       <div className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
           {/* Left Side - Form */}
-          <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 border-r-0 lg:border-r border-gray-200 lg:overflow-y-auto flex flex-col">
+          <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border-r-0 lg:border-r border-gray-200 lg:overflow-y-auto flex flex-col">
             {/* Breadcrumb & Header Section */}
             <div className="bg-gradient-to-r from-purple-600 to-orange-500 py-6 md:py-8 px-4 md:px-6 relative overflow-hidden">
               {/* Decorative Elements */}
@@ -389,10 +389,10 @@ const ChildWedding: NextPageWithLayout = () => {
             <div className="p-6">
               <div className="space-y-6">
             {/* Basic Information Card */}
-            <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center space-x-2 mb-4">
                 <span className="text-xl">👨‍👩‍👧</span>
-                <h2 className="text-xl font-semibold text-gray-800">Family Information</h2>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Family Information</h2>
               </div>
 
               <div className="space-y-4">
@@ -441,8 +441,8 @@ const ChildWedding: NextPageWithLayout = () => {
                   />
                 </div>
 
-                <div className="bg-purple-50 p-3 rounded-lg">
-                  <p className="text-sm text-purple-700">
+                <div className="bg-purple-50 dark:bg-purple-900/20 p-3 rounded-lg">
+                  <p className="text-sm text-purple-700 dark:text-purple-300">
                     Planning Timeline: <span className="font-semibold">{formData.targetAge - formData.childCurrentAge} years</span>
                   </p>
                   <p className="text-xs text-purple-600 mt-1">
@@ -453,10 +453,10 @@ const ChildWedding: NextPageWithLayout = () => {
             </div>
 
             {/* Wedding Costs Card */}
-            <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center space-x-2 mb-4">
                 <span className="text-xl">💒</span>
-                <h2 className="text-xl font-semibold text-gray-800">Wedding Budget</h2>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Wedding Budget</h2>
               </div>
 
               <div className="space-y-4">
@@ -466,7 +466,7 @@ const ChildWedding: NextPageWithLayout = () => {
                     <InfoIcon tooltip="Base budget at current prices. We&apos;ll adjust for inflation. Includes catering, decorations, photography, etc." />
                   </label>
                   <div className="flex items-center gap-2">
-                    <span className="text-xl text-gray-500">₹</span>
+                    <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                     <input
                       type="number"
                       value={formData.weddingBudget}
@@ -495,7 +495,7 @@ const ChildWedding: NextPageWithLayout = () => {
                       max="100"
                       step="0.1"
                     />
-                    <span className="absolute right-3 top-2 text-gray-500">%</span>
+                    <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                   </div>
                 </div>
 
@@ -514,7 +514,7 @@ const ChildWedding: NextPageWithLayout = () => {
                       max="100"
                       step="0.1"
                     />
-                    <span className="absolute right-3 top-2 text-gray-500">%</span>
+                    <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                   </div>
                 </div>
 
@@ -533,17 +533,17 @@ const ChildWedding: NextPageWithLayout = () => {
                       max="100"
                       step="0.1"
                     />
-                    <span className="absolute right-3 top-2 text-gray-500">%</span>
+                    <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Financial Details Card */}
-            <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center space-x-2 mb-4">
                 <span className="text-xl">💰</span>
-                <h2 className="text-xl font-semibold text-gray-800">Financial Details</h2>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Financial Details</h2>
               </div>
 
               <div className="space-y-4">
@@ -553,7 +553,7 @@ const ChildWedding: NextPageWithLayout = () => {
                     <InfoIcon tooltip="Amount you have already saved specifically for the wedding. This will grow with your expected return rate." />
                   </label>
                   <div className="flex items-center gap-2">
-                    <span className="text-xl text-gray-500">₹</span>
+                    <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                     <input
                       type="number"
                       value={formData.currentSavings}
@@ -570,7 +570,7 @@ const ChildWedding: NextPageWithLayout = () => {
                     <InfoIcon tooltip="Your total monthly income. Used to calculate EMI affordability and savings potential." />
                   </label>
                   <div className="flex items-center gap-2">
-                    <span className="text-xl text-gray-500">₹</span>
+                    <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                     <input
                       type="number"
                       value={formData.monthlyIncome}
@@ -584,21 +584,21 @@ const ChildWedding: NextPageWithLayout = () => {
             </div>
 
             {/* Personal Loan Option Card */}
-            <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center space-x-2 mb-4">
                 <span className="text-xl">🏢</span>
-                <h2 className="text-xl font-semibold text-gray-800">Personal Loan Option</h2>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Personal Loan Option</h2>
               </div>
 
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 bg-yellow-50 rounded-lg border-2 border-yellow-300">
+                <div className="flex items-center justify-between p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border-2 border-yellow-300">
                   <div className="flex items-center space-x-3">
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl ${formData.wantLoan ? 'bg-yellow-600' : 'bg-gray-300'}`}>
                       💵
                     </div>
                     <div>
-                      <p className="font-medium text-gray-900">Take Personal Loan</p>
-                      <p className="text-sm text-gray-600">50% loan coverage (not recommended due to high interest)</p>
+                      <p className="font-medium text-gray-900 dark:text-gray-100">Take Personal Loan</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">50% loan coverage (not recommended due to high interest)</p>
                     </div>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
@@ -613,9 +613,9 @@ const ChildWedding: NextPageWithLayout = () => {
                 </div>
 
                 {formData.wantLoan && (
-                  <div className="space-y-4 p-4 bg-yellow-50 rounded-lg border border-yellow-300">
-                    <div className="bg-red-50 p-3 rounded border border-red-200">
-                      <p className="text-xs text-red-700">
+                  <div className="space-y-4 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-300">
+                    <div className="bg-red-50 dark:bg-red-900/20 p-3 rounded border border-red-200 dark:border-red-700">
+                      <p className="text-xs text-red-700 dark:text-red-300">
                         <strong>Warning:</strong> Personal loans for weddings have high interest rates (11-16%). Plan early to avoid loans.
                       </p>
                     </div>
@@ -650,7 +650,7 @@ const ChildWedding: NextPageWithLayout = () => {
                           max="20"
                           step="0.1"
                         />
-                        <span className="absolute right-3 top-2 text-gray-500">%</span>
+                        <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                       </div>
                     </div>
                   </div>
@@ -659,10 +659,10 @@ const ChildWedding: NextPageWithLayout = () => {
             </div>
 
             {/* Investment Parameters Card */}
-            <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+            <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex items-center space-x-2 mb-4">
                 <span className="text-xl">📈</span>
-                <h2 className="text-xl font-semibold text-gray-800">Investment Parameters</h2>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Investment Parameters</h2>
               </div>
 
               <div className="space-y-4">
@@ -680,7 +680,7 @@ const ChildWedding: NextPageWithLayout = () => {
                       min="0"
                       step="0.1"
                     />
-                    <span className="absolute right-3 top-2 text-gray-500">%</span>
+                    <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                   </div>
                 </div>
 
@@ -698,7 +698,7 @@ const ChildWedding: NextPageWithLayout = () => {
                       min="0"
                       step="0.1"
                     />
-                    <span className="absolute right-3 top-2 text-gray-500">%</span>
+                    <span className="absolute right-3 top-2 text-gray-500 dark:text-gray-400">%</span>
                   </div>
                 </div>
               </div>
@@ -726,14 +726,14 @@ const ChildWedding: NextPageWithLayout = () => {
           </div>
 
           {/* Right Side - Results */}
-          <div className="w-full lg:w-1/2 bg-white lg:overflow-y-auto">
+          <div className="w-full lg:w-1/2 bg-white dark:bg-gray-900 lg:overflow-y-auto">
             <div className="p-4 md:p-6">
             {results ? (
               <>
                 {/* Goal Achievability Card */}
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-xl font-semibold text-gray-800">Goal Achievability</h2>
+                    <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Goal Achievability</h2>
                     <div className={`px-4 py-2 rounded-full ${
                       results.achievabilityRatio >= 100 ? 'bg-green-100 text-green-700' :
                       results.achievabilityRatio >= 80 ? 'bg-yellow-100 text-yellow-700' :
@@ -758,54 +758,54 @@ const ChildWedding: NextPageWithLayout = () => {
 
                   <div className="mt-6 grid grid-cols-2 gap-4">
                     <div className="bg-purple-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Total Required</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Total Required</p>
                       <p className="text-lg font-bold text-purple-600">₹{formatIndianNumber(results.totalRequiredAtWedding)}</p>
                     </div>
                     <div className="bg-blue-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Future Value</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Future Value</p>
                       <p className="text-lg font-bold text-blue-600">₹{formatIndianNumber(results.futureValue)}</p>
                     </div>
                     <div className="bg-green-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Years to Goal</p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Years to Goal</p>
                       <p className="text-lg font-bold text-green-600">{results.yearsToGoal} years</p>
                     </div>
-                    <div className="bg-yellow-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Child&apos;s Age</p>
+                    <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Child&apos;s Age</p>
                       <p className="text-lg font-bold text-yellow-600">{formData.childCurrentAge} → {formData.targetAge}</p>
                     </div>
                   </div>
 
                   {results.shortfall > 0 && (
-                    <div className="mt-4 bg-red-50 p-4 rounded-lg border border-red-200">
-                      <p className="text-sm text-gray-600 mb-1">Shortfall</p>
+                    <div className="mt-4 bg-red-50 p-4 rounded-lg border border-red-200 dark:border-red-700">
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">Shortfall</p>
                       <p className="text-lg font-bold text-red-600">₹{formatIndianNumber(results.shortfall)}</p>
                     </div>
                   )}
                 </div>
 
                 {/* Wedding Cost Breakdown Card */}
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-4">Wedding Cost Breakdown</h2>
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
+                  <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Wedding Cost Breakdown</h2>
 
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                      <span className="text-gray-700">Base Wedding Budget</span>
+                    <div className="flex justify-between items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Base Wedding Budget</span>
                       <span className="font-semibold text-purple-600">₹{formatIndianNumber(results.weddingBudgetAmount)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                      <span className="text-gray-700">Venue & Catering</span>
+                    <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Venue & Catering</span>
                       <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.venueAmount)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                      <span className="text-gray-700">Jewellery & Gifts</span>
+                    <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Jewellery & Gifts</span>
                       <span className="font-semibold text-green-600">₹{formatIndianNumber(results.jewelleryAmount)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                      <span className="text-gray-700">Other Costs</span>
+                    <div className="flex justify-between items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Other Costs</span>
                       <span className="font-semibold text-yellow-600">₹{formatIndianNumber(results.otherCostAmount)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-gray-100 rounded-lg border-2 border-purple-300">
-                      <span className="text-gray-900 font-semibold">Total Wedding Cost</span>
+                    <div className="flex justify-between items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg border-2 border-purple-300 dark:border-purple-600">
+                      <span className="text-gray-900 dark:text-gray-100 font-semibold">Total Wedding Cost</span>
                       <span className="font-bold text-purple-700 text-lg">₹{formatIndianNumber(results.totalWeddingCost)}</span>
                     </div>
                   </div>
@@ -814,32 +814,32 @@ const ChildWedding: NextPageWithLayout = () => {
                 {/* Loan Details Card (if loan selected) */}
                 {formData.wantLoan && results.loanAmount > 0 && (
                   <div className="bg-white rounded-xl shadow-lg p-6 border border-yellow-200 bg-yellow-50">
-                    <h2 className="text-xl font-semibold text-gray-800 mb-4">Personal Loan Details</h2>
+                    <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Personal Loan Details</h2>
 
                     <div className="space-y-3">
                       <div className="flex justify-between items-center p-3 bg-yellow-100 rounded-lg">
-                        <span className="text-gray-700">Loan Amount (50%)</span>
+                        <span className="text-gray-700 dark:text-gray-300">Loan Amount (50%)</span>
                         <span className="font-semibold text-yellow-700">₹{formatIndianNumber(results.loanAmount)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                        <span className="text-gray-700">Your Contribution (50%)</span>
+                      <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                        <span className="text-gray-700 dark:text-gray-300">Your Contribution (50%)</span>
                         <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.totalRequiredAtWedding)}</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg border border-orange-300">
-                        <span className="text-gray-700">Monthly EMI</span>
+                      <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg border border-orange-300">
+                        <span className="text-gray-700 dark:text-gray-300">Monthly EMI</span>
                         <span className="font-semibold text-orange-700">₹{formatIndianNumber(results.emiAmount)}/month</span>
                       </div>
-                      <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg border border-red-300">
-                        <span className="text-gray-700">Total Repayment</span>
+                      <div className="flex justify-between items-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-300">
+                        <span className="text-gray-700 dark:text-gray-300">Total Repayment</span>
                         <span className="font-semibold text-red-700">₹{formatIndianNumber(results.totalLoanRepayment)}</span>
                       </div>
                       <div className="flex justify-between items-center p-3 bg-red-100 rounded-lg border-2 border-red-400">
-                        <span className="text-gray-900 font-semibold">Total Interest</span>
+                        <span className="text-gray-900 dark:text-gray-100 font-semibold">Total Interest</span>
                         <span className="font-bold text-red-700">₹{formatIndianNumber(results.totalLoanRepayment - results.loanAmount)}</span>
                       </div>
                     </div>
 
-                    <div className="mt-4 p-3 bg-red-50 rounded-lg border border-red-300">
+                    <div className="mt-4 p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-300">
                       <p className="text-sm text-red-700">
                         <strong>Note:</strong> Personal loans have high interest with no tax benefits. Plan early to avoid loans!
                       </p>
@@ -848,46 +848,46 @@ const ChildWedding: NextPageWithLayout = () => {
                 )}
 
                 {/* Investment Plan Card */}
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-4">Investment Plan</h2>
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
+                  <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Investment Plan</h2>
 
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center p-3 bg-purple-50 rounded-lg">
-                      <span className="text-gray-700">Current Savings</span>
+                    <div className="flex justify-between items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Current Savings</span>
                       <span className="font-semibold text-purple-600">₹{formatIndianNumber(formData.currentSavings)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                      <span className="text-gray-700">Monthly SIP Required</span>
+                    <div className="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Monthly SIP Required</span>
                       <span className="font-semibold text-blue-600">₹{formatIndianNumber(results.sipRequired)}/month</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                      <span className="text-gray-700">Total Investment</span>
+                    <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Total Investment</span>
                       <span className="font-semibold text-green-600">₹{formatIndianNumber(results.totalInvestment)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                      <span className="text-gray-700">Future Value</span>
+                    <div className="flex justify-between items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                      <span className="text-gray-700 dark:text-gray-300">Future Value</span>
                       <span className="font-semibold text-yellow-600">₹{formatIndianNumber(results.futureValue)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-3 bg-indigo-50 rounded-lg border-2 border-indigo-300">
-                      <span className="text-gray-900 font-semibold">Net Gains</span>
+                    <div className="flex justify-between items-center p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg border-2 border-indigo-300 dark:border-indigo-600">
+                      <span className="text-gray-900 dark:text-gray-100 font-semibold">Net Gains</span>
                       <span className="font-bold text-indigo-700">₹{formatIndianNumber(results.futureValue - results.totalInvestment)}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Recommendations Card */}
-                <div className="bg-white rounded-xl shadow-lg p-6 border border-purple-100">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-4">Recommendations</h2>
+                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
+                  <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">Recommendations</h2>
 
                   <div className="space-y-3">
                     {results.recommendations.map((rec, index) => (
                       <div
                         key={index}
                         className={`p-4 rounded-lg border-l-4 ${
-                          rec.type === 'success' ? 'bg-green-50 border-green-500' :
-                          rec.type === 'warning' ? 'bg-yellow-50 border-yellow-500' :
-                          rec.type === 'error' ? 'bg-red-50 border-red-500' :
-                          'bg-blue-50 border-blue-500'
+                          rec.type === 'success' ? 'bg-green-50 dark:bg-green-900/20 border-green-500 dark:border-green-600' :
+                          rec.type === 'warning' ? 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-500 dark:border-yellow-600' :
+                          rec.type === 'error' ? 'bg-red-50 dark:bg-red-900/20 border-red-500 dark:border-red-600' :
+                          'bg-blue-50 dark:bg-blue-900/20 border-blue-500 dark:border-blue-600'
                         }`}
                       >
                         <div className="flex items-start space-x-3">
@@ -914,10 +914,10 @@ const ChildWedding: NextPageWithLayout = () => {
                 <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-4 text-5xl">
                   💒
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Plan Your Child&apos;s Wedding</h3>
+                <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-2">Plan Your Child&apos;s Wedding</h3>
                 <p className="text-gray-600 mb-6">Fill in your details and click &quot;Calculate Plan&quot; to see personalized recommendations for your child&apos;s special day.</p>
-                <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                  <p className="text-sm text-purple-700">
+                <div className="bg-purple-50 p-4 rounded-lg border border-purple-200 dark:border-purple-700">
+                  <p className="text-sm text-purple-700 dark:text-purple-300">
                     <strong>Tip:</strong> Start saving early! Wedding costs inflate 6-8% annually. Planning 10+ years ahead significantly reduces the financial burden.
                   </p>
                 </div>

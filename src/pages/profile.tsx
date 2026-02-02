@@ -105,10 +105,10 @@ const Profile = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-900">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FF6B2C] mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-300">Loading...</p>
         </div>
       </div>
     );
@@ -123,25 +123,25 @@ const Profile = () => {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900">
         <Header />
         
-        <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-orange-50">
+        <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
           <div className="w-full max-w-[1600px] mx-auto px-4 py-8">
             {/* Breadcrumb */}
             <nav className="mb-8">
-              <div className="flex items-center space-x-2 text-sm bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg w-fit">
-                <Link href="/dashboard" className="text-gray-600 hover:text-purple-600 font-semibold transition-colors">
+              <div className="flex items-center space-x-2 text-sm bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg w-fit">
+                <Link href="/dashboard" className="text-gray-600 dark:text-gray-300 hover:text-purple-600 font-semibold transition-colors">
                   Dashboard
                 </Link>
                 <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-                <span className="text-purple-600 font-bold">Profile</span>
+                <span className="text-purple-600 dark:text-purple-400 font-bold">Profile</span>
               </div>
             </nav>
 
-            <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-200">
+            <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-200 dark:border-purple-700">
               {/* Profile Header */}
               <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-orange-500 px-8 py-16 relative overflow-hidden">
                 {/* Background decorative elements */}
@@ -175,35 +175,35 @@ const Profile = () => {
               {/* Profile Content */}
               <div className="p-8">
                 {saveMessage && (
-                  <div className="mb-6 p-5 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-2xl shadow-lg animate-pulse">
+                  <div className="mb-6 p-5 bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-2 border-green-300 dark:border-green-700 rounded-2xl shadow-lg animate-pulse">
                     <div className="flex items-center gap-3">
                       <div className="bg-green-500 rounded-full p-2">
                         <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <div className="text-green-700 font-bold text-lg">{saveMessage}</div>
+                      <div className="text-green-700 dark:text-green-300 font-bold text-lg">{saveMessage}</div>
                     </div>
                   </div>
                 )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Personal Information */}
-                  <div className="space-y-6 bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-2xl border-2 border-purple-200 shadow-xl">
-                    <div className="flex items-center gap-3 pb-4 border-b-2 border-purple-300">
+                  <div className="space-y-6 bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 p-6 rounded-2xl border-2 border-purple-200 dark:border-purple-700 shadow-xl">
+                    <div className="flex items-center gap-3 pb-4 border-b-2 border-purple-300 dark:border-purple-600">
                       <div className="bg-gradient-to-br from-purple-500 to-blue-500 p-2 rounded-xl">
                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                       </div>
-                      <h2 className="text-2xl font-bold text-gray-900">
+                      <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
                         Personal Information
                       </h2>
                     </div>
                     
                     <div className="space-y-5">
-                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-purple-200">
-                        <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+                      <div className="bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-xl p-4 border border-purple-200 dark:border-purple-700">
+                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
                           <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                           </svg>
@@ -214,16 +214,16 @@ const Profile = () => {
                             type="text"
                             value={editedName}
                             onChange={(e) => setEditedName(e.target.value)}
-                            className="w-full border-2 border-purple-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent font-semibold transition-all"
+                            className="w-full border-2 border-purple-300 dark:border-purple-600 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-700 dark:text-gray-200 focus:border-transparent font-semibold transition-all"
                             placeholder="Enter your full name"
                           />
                         ) : (
-                          <p className="text-gray-900 py-3 font-bold text-lg">{userName || 'Not provided'}</p>
+                          <p className="text-gray-900 dark:text-gray-100 py-3 font-bold text-lg">{userName || 'Not provided'}</p>
                         )}
                       </div>
 
-                      <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 border border-gray-300">
-                        <label className="block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+                      <div className="bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-xl p-4 border border-gray-300 dark:border-gray-600">
+                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 flex items-center gap-2">
                           <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
@@ -234,7 +234,7 @@ const Profile = () => {
                             type="email"
                             value={userEmail}
                             disabled
-                            className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 bg-gray-100 text-gray-600 cursor-not-allowed font-semibold"
+                            className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 bg-gray-100 dark:bg-gray-600 dark:text-gray-300 text-gray-600 cursor-not-allowed font-semibold"
                             placeholder="Enter your email"
                           />
                           <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
@@ -243,7 +243,7 @@ const Profile = () => {
                             </svg>
                           </div>
                         </div>
-                        <p className="text-xs text-gray-600 mt-2 font-semibold flex items-center gap-1">
+                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-2 font-semibold flex items-center gap-1">
                           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
@@ -283,30 +283,30 @@ const Profile = () => {
                   </div>
 
                   {/* Account Settings */}
-                  <div className="space-y-6 bg-gradient-to-br from-orange-50 to-pink-50 p-6 rounded-2xl border-2 border-orange-200 shadow-xl">
-                    <div className="flex items-center gap-3 pb-4 border-b-2 border-orange-300">
+                  <div className="space-y-6 bg-gradient-to-br from-orange-50 to-pink-50 dark:from-orange-900/20 dark:to-pink-900/20 p-6 rounded-2xl border-2 border-orange-200 dark:border-orange-700 shadow-xl">
+                    <div className="flex items-center gap-3 pb-4 border-b-2 border-orange-300 dark:border-orange-600">
                       <div className="bg-gradient-to-br from-orange-500 to-pink-500 p-2 rounded-xl">
                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                       </div>
-                      <h2 className="text-2xl font-bold text-gray-900">
+                      <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
                         Account Settings
                       </h2>
                     </div>
 
                     <div className="space-y-4">
-                      <div className="bg-white/80 backdrop-blur-sm border-2 border-red-200 rounded-xl p-5 transform hover:scale-105 transition-all shadow-lg">
+                      <div className="bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border-2 border-red-200 dark:border-red-700 rounded-xl p-5 transform hover:scale-105 transition-all shadow-lg">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="bg-red-500 p-2 rounded-xl">
                             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                           </div>
-                          <h3 className="font-bold text-gray-900 text-lg">🔒 Security</h3>
+                          <h3 className="font-bold text-gray-900 dark:text-gray-100 text-lg">🔒 Security</h3>
                         </div>
-                        <p className="text-sm text-gray-600 mb-3 font-semibold">
+                        <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 font-semibold">
                           Manage your account security settings
                         </p>
                         <button className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-2 rounded-xl text-sm font-bold hover:from-red-600 hover:to-pink-600 transition-all transform hover:scale-105 shadow-md">
@@ -314,16 +314,16 @@ const Profile = () => {
                         </button>
                       </div>
 
-                      <div className="bg-white/80 backdrop-blur-sm border-2 border-blue-200 rounded-xl p-5 transform hover:scale-105 transition-all shadow-lg">
+                      <div className="bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border-2 border-blue-200 dark:border-blue-700 rounded-xl p-5 transform hover:scale-105 transition-all shadow-lg">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="bg-blue-500 p-2 rounded-xl">
                             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                             </svg>
                           </div>
-                          <h3 className="font-bold text-gray-900 text-lg">🔔 Preferences</h3>
+                          <h3 className="font-bold text-gray-900 dark:text-gray-100 text-lg">🔔 Preferences</h3>
                         </div>
-                        <p className="text-sm text-gray-600 mb-3 font-semibold">
+                        <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 font-semibold">
                           Customize your IncomeGrow experience
                         </p>
                         <button className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-xl text-sm font-bold hover:from-blue-600 hover:to-cyan-600 transition-all transform hover:scale-105 shadow-md">
@@ -331,16 +331,16 @@ const Profile = () => {
                         </button>
                       </div>
 
-                      <div className="bg-white/80 backdrop-blur-sm border-2 border-green-200 rounded-xl p-5 transform hover:scale-105 transition-all shadow-lg">
+                      <div className="bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm border-2 border-green-200 dark:border-green-700 rounded-xl p-5 transform hover:scale-105 transition-all shadow-lg">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="bg-green-500 p-2 rounded-xl">
                             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                           </div>
-                          <h3 className="font-bold text-gray-900 text-lg">🔐 Data & Privacy</h3>
+                          <h3 className="font-bold text-gray-900 dark:text-gray-100 text-lg">🔐 Data & Privacy</h3>
                         </div>
-                        <p className="text-sm text-gray-600 mb-3 font-semibold">
+                        <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 font-semibold">
                           Control your data and privacy settings
                         </p>
                         <button className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-xl text-sm font-bold hover:from-green-600 hover:to-emerald-600 transition-all transform hover:scale-105 shadow-md">
@@ -352,17 +352,17 @@ const Profile = () => {
                 </div>
 
                 {/* Quick Stats */}
-                <div className="mt-8 pt-8 border-t-2 border-purple-200">
+                <div className="mt-8 pt-8 border-t-2 border-purple-200 dark:border-purple-700">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="bg-gradient-to-br from-purple-600 to-blue-600 p-3 rounded-xl">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                       </svg>
                     </div>
-                    <h2 className="text-3xl font-bold text-gray-900">Account Overview</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Account Overview</h2>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-gradient-to-br from-orange-50 to-pink-50 rounded-2xl p-6 border-2 border-orange-200 shadow-xl transform hover:scale-105 transition-all">
+                    <div className="bg-gradient-to-br from-orange-50 to-pink-50 dark:from-orange-900/20 dark:to-pink-900/20 rounded-2xl p-6 border-2 border-orange-200 dark:border-orange-700 shadow-xl transform hover:scale-105 transition-all">
                       <div className="flex items-center gap-4">
                         <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
                           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -370,13 +370,13 @@ const Profile = () => {
                           </svg>
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-gray-600 mb-1">Active Plans</p>
-                          <p className="text-4xl font-bold text-gray-900">3</p>
+                          <p className="text-sm font-bold text-gray-600 dark:text-gray-400 mb-1">Active Plans</p>
+                          <p className="text-4xl font-bold text-gray-900 dark:text-gray-100">3</p>
                         </div>
                       </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border-2 border-blue-200 shadow-xl transform hover:scale-105 transition-all">
+                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl p-6 border-2 border-blue-200 dark:border-blue-700 shadow-xl transform hover:scale-105 transition-all">
                       <div className="flex items-center gap-4">
                         <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg">
                           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -384,13 +384,13 @@ const Profile = () => {
                           </svg>
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-gray-600 mb-1">Total Savings</p>
-                          <p className="text-4xl font-bold text-gray-900">₹2.45L</p>
+                          <p className="text-sm font-bold text-gray-600 dark:text-gray-400 mb-1">Total Savings</p>
+                          <p className="text-4xl font-bold text-gray-900 dark:text-gray-100">₹2.45L</p>
                         </div>
                       </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-2 border-green-200 shadow-xl transform hover:scale-105 transition-all">
+                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-6 border-2 border-green-200 dark:border-green-700 shadow-xl transform hover:scale-105 transition-all">
                       <div className="flex items-center gap-4">
                         <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-lg">
                           <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -398,8 +398,8 @@ const Profile = () => {
                           </svg>
                         </div>
                         <div>
-                          <p className="text-sm font-bold text-gray-600 mb-1">Goals Achieved</p>
-                          <p className="text-4xl font-bold text-gray-900">7</p>
+                          <p className="text-sm font-bold text-gray-600 dark:text-gray-400 mb-1">Goals Achieved</p>
+                          <p className="text-4xl font-bold text-gray-900 dark:text-gray-100">7</p>
                         </div>
                       </div>
                     </div>
@@ -407,8 +407,8 @@ const Profile = () => {
                 </div>
 
                 {/* Recent Activity */}
-                <div className="mt-8 pt-8 border-t border-gray-200">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-6">Recent Activity</h2>
+                <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                  <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Recent Activity</h2>
                   {activitiesLoading ? (
                     <div className="flex items-center justify-center py-8">
                       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#FF6B2C]"></div>
@@ -477,7 +477,7 @@ const Profile = () => {
                         }
 
                         return (
-                          <div key={activity._id || index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                          <div key={activity._id || index} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
                             <div className="flex items-center space-x-3">
                               <div className={`w-8 h-8 ${iconColor} rounded-full flex items-center justify-center`}>
                                 <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -485,8 +485,8 @@ const Profile = () => {
                                 </svg>
                               </div>
                               <div>
-                                <p className="font-medium text-gray-900">{activity.description}</p>
-                                <p className="text-sm text-gray-500">{formatRelativeTime(activity.createdAt)}</p>
+                                <p className="font-medium text-gray-900 dark:text-gray-100">{activity.description}</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">{formatRelativeTime(activity.createdAt)}</p>
                               </div>
                             </div>
                           </div>
@@ -498,7 +498,7 @@ const Profile = () => {
                       <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                       </svg>
-                      <p className="mt-2 text-sm text-gray-500">No recent activity</p>
+                      <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">No recent activity</p>
                     </div>
                   )}
                 </div>

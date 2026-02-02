@@ -25,7 +25,7 @@ export default function Home() {
     <>
       <SEO />
 
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
  
    
@@ -34,7 +34,7 @@ export default function Home() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-6 sm:py-8 md:py-10 lg:py-12 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden flex items-center">
+          <section className="relative py-6 sm:py-8 md:py-10 lg:py-12 bg-gradient-to-br from-gray-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 overflow-hidden flex items-center transition-colors duration-300">
             {/* Background decoration - Hidden on mobile */}
             <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
               <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
@@ -53,14 +53,14 @@ export default function Home() {
                     Empowering
                   </span>
                   <br />
-                  <span className="text-gray-800">Your Financial</span>
+                  <span className="text-gray-800 dark:text-gray-200">Your Financial</span>
                   <br />
-                  <span className="bg-gradient-to-r from-gray-700 to-gray-900 bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-300 dark:to-gray-100 bg-clip-text text-transparent">
                     Journey
                   </span>
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">
                   IncomeGrow brings you the best tools, research, and knowledge to
                   achieve your financial goals. Plan, invest, and grow with confidence
                   using our comprehensive platform.
@@ -79,7 +79,7 @@ export default function Home() {
 
                   <button
                     onClick={() => router.push('/products')}
-                    className="group bg-white/80 backdrop-blur-sm text-gray-700 px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-200 rounded-xl text-base sm:text-lg font-semibold cursor-pointer hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2"
+                    className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-base sm:text-lg font-semibold cursor-pointer hover:bg-white dark:hover:bg-gray-800 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     Explore Platform
                     <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -91,16 +91,16 @@ export default function Home() {
 
                 <div className="flex items-center justify-between sm:justify-start gap-4 sm:gap-8 pt-2 sm:pt-4">
                   <div className="text-center">
-                    <div className="text-xl sm:text-2xl font-bold text-gray-800">10K+</div>
-                    <div className="text-xs sm:text-sm text-gray-500">Active Users</div>
+                    <div className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">10K+</div>
+                    <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Active Users</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-xl sm:text-2xl font-bold text-gray-800">₹50Cr+</div>
-                    <div className="text-xs sm:text-sm text-gray-500">Managed</div>
+                    <div className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">₹50Cr+</div>
+                    <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Managed</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-xl sm:text-2xl font-bold text-gray-800">99%</div>
-                    <div className="text-xs sm:text-sm text-gray-500">Satisfaction</div>
+                    <div className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">99%</div>
+                    <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Satisfaction</div>
                   </div>
                 </div>
               </div>
@@ -286,23 +286,23 @@ export default function Home() {
           </section>
 
           {/* About IncomeGrow Section */}
-          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 relative">
+          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 relative transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
               <div className="space-y-6 md:space-y-8">
                 <div>
-                  <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-50 rounded-full border border-blue-200 mb-4 sm:mb-6">
-                    <span className="text-xs sm:text-sm font-semibold text-blue-600">🚀 About Our Mission</span>
+                  <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-blue-50 dark:bg-blue-900/30 rounded-full border border-blue-200 dark:border-blue-800 mb-4 sm:mb-6">
+                    <span className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400">🚀 About Our Mission</span>
                   </div>
 
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                    <span className="text-gray-800">Why Choose </span>
+                    <span className="text-gray-800 dark:text-gray-200">Why Choose </span>
                     <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                       IncomeGrow?
                     </span>
                   </h2>
                 </div>
 
-                <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                   IncomeGrow is dedicated to making financial knowledge accessible and
                   actionable for everyone. Our platform combines expert research,
                   powerful calculators, and a vibrant community to help you make smarter
@@ -317,11 +317,11 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-1">Expert Research & Analysis</h4>
-                      <p className="text-gray-600 text-sm">Get access to comprehensive market research and professional insights</p>
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-1">Expert Research & Analysis</h4>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">Get access to comprehensive market research and professional insights</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                       <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -329,11 +329,11 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-1">Powerful Calculators</h4>
-                      <p className="text-gray-600 text-sm">Plan your investments with our advanced calculation tools</p>
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-1">Powerful Calculators</h4>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">Plan your investments with our advanced calculation tools</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                       <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -341,8 +341,8 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-800 mb-1">Vibrant Community</h4>
-                      <p className="text-gray-600 text-sm">Connect with like-minded investors and financial experts</p>
+                      <h4 className="font-semibold text-gray-800 dark:text-gray-200 mb-1">Vibrant Community</h4>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm">Connect with like-minded investors and financial experts</p>
                     </div>
                   </div>
                 </div>
@@ -358,9 +358,9 @@ export default function Home() {
                     </svg>
                   </button>
                   
-                  <button 
+                  <button
                     onClick={() => router.push('/about')}
-                    className="bg-white/80 backdrop-blur-sm text-gray-700 px-6 py-3 border-2 border-gray-200 rounded-xl text-base font-semibold cursor-pointer hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300"
+                    className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 px-6 py-3 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-base font-semibold cursor-pointer hover:bg-white dark:hover:bg-gray-800 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300"
                   >
                     Our Story
                   </button>
@@ -387,19 +387,19 @@ export default function Home() {
                   </div>
                   
                   {/* Floating stats */}
-                  <div className="absolute -top-4 -left-4 bg-white/95 backdrop-blur-sm p-3 rounded-2xl shadow-lg border border-white/50">
-                    <div className="text-lg font-bold text-gray-800">2019</div>
-                    <div className="text-xs text-gray-500">Founded</div>
+                  <div className="absolute -top-4 -left-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm p-3 rounded-2xl shadow-lg border border-white/50 dark:border-gray-700">
+                    <div className="text-lg font-bold text-gray-800 dark:text-gray-200">2019</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">Founded</div>
                   </div>
-                  
-                  <div className="absolute -bottom-4 -right-4 bg-white/95 backdrop-blur-sm p-3 rounded-2xl shadow-lg border border-white/50">
-                    <div className="text-lg font-bold text-gray-800">4.9★</div>
-                    <div className="text-xs text-gray-500">Rating</div>
+
+                  <div className="absolute -bottom-4 -right-4 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm p-3 rounded-2xl shadow-lg border border-white/50 dark:border-gray-700">
+                    <div className="text-lg font-bold text-gray-800 dark:text-gray-200">4.9★</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">Rating</div>
                   </div>
-                  
-                  <div className="absolute top-1/2 -right-8 bg-white/95 backdrop-blur-sm p-3 rounded-2xl shadow-lg border border-white/50">
-                    <div className="text-lg font-bold text-gray-800">ISO</div>
-                    <div className="text-xs text-gray-500">Certified</div>
+
+                  <div className="absolute top-1/2 -right-8 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm p-3 rounded-2xl shadow-lg border border-white/50 dark:border-gray-700">
+                    <div className="text-lg font-bold text-gray-800 dark:text-gray-200">ISO</div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400">Certified</div>
                   </div>
                 </div>
               </div>
@@ -407,42 +407,42 @@ export default function Home() {
           </section>
 
           {/* Our Products Section */}
-          <section className="py-12 md:py-16 lg:py-24 bg-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-transparent to-purple-50/50"></div>
+          <section className="py-12 md:py-16 lg:py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-transparent to-purple-50/50 dark:from-blue-900/20 dark:via-transparent dark:to-purple-900/20"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 text-center">
               <div className="mb-12 md:mb-16">
-                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-purple-50 to-pink-50 rounded-full border border-purple-200 mb-4 sm:mb-6">
-                  <span className="text-xs sm:text-sm font-semibold text-purple-600">💼 Our Solutions</span>
+                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 rounded-full border border-purple-200 dark:border-purple-800 mb-4 sm:mb-6">
+                  <span className="text-xs sm:text-sm font-semibold text-purple-600 dark:text-purple-400">💼 Our Solutions</span>
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                  <span className="text-gray-800">Comprehensive </span>
+                  <span className="text-gray-800 dark:text-gray-200">Comprehensive </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Financial Tools
                   </span>
                 </h2>
 
-                <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
                   Everything you need to make informed financial decisions, all in one place
                 </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
                 {[
-                  { 
-                    icon: '🎯', 
-                    title: 'Goal Planning', 
+                  {
+                    icon: '🎯',
+                    title: 'Goal Planning',
                     description: 'Set and track your financial goals',
                     color: 'from-blue-400 to-blue-600',
-                    bgColor: 'from-blue-50 to-blue-100',
+                    bgColor: 'from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-800/30',
                     href: '/products/goal'
                   },
-                  { 
-                    icon: '🎓', 
-                    title: 'Educational Courses', 
+                  {
+                    icon: '🎓',
+                    title: 'Educational Courses',
                     description: 'Learn from financial experts',
                     color: 'from-green-400 to-green-600',
-                    bgColor: 'from-green-50 to-green-100',
+                    bgColor: 'from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30',
                     href: '/products/course'
                   },
                   {
@@ -450,49 +450,49 @@ export default function Home() {
                     title: 'Market Research',
                     description: 'In-depth stock analysis',
                     color: 'from-purple-400 to-purple-600',
-                    bgColor: 'from-purple-50 to-purple-100',
+                    bgColor: 'from-purple-50 to-purple-100 dark:from-purple-900/30 dark:to-purple-800/30',
                     href: 'https://www.stock.incomegrow.in/',
                     external: true
                   },
-                  { 
-                    icon: '📰', 
-                    title: 'Expert Insights', 
+                  {
+                    icon: '📰',
+                    title: 'Expert Insights',
                     description: 'Latest financial news & blogs',
                     color: 'from-orange-400 to-orange-600',
-                    bgColor: 'from-orange-50 to-orange-100',
+                    bgColor: 'from-orange-50 to-orange-100 dark:from-orange-900/30 dark:to-orange-800/30',
                     href: '/products/blogs'
                   },
-                  { 
-                    icon: '🏛️', 
-                    title: 'Broker Knowledge', 
+                  {
+                    icon: '🏛️',
+                    title: 'Broker Knowledge',
                     description: 'Compare and choose brokers',
                     color: 'from-indigo-400 to-indigo-600',
-                    bgColor: 'from-indigo-50 to-indigo-100',
+                    bgColor: 'from-indigo-50 to-indigo-100 dark:from-indigo-900/30 dark:to-indigo-800/30',
                     href: '/products/brokers-knowledge'
                   }
                 ].map((product, index) => (
                   <div
                     key={index}
                     onClick={() => product.external ? window.open(product.href, '_blank', 'noopener,noreferrer') : router.push(product.href)}
-                    className={`group relative bg-gradient-to-br ${product.bgColor} backdrop-blur-sm border border-white/50 rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer`}
+                    className={`group relative bg-gradient-to-br ${product.bgColor} backdrop-blur-sm border border-white/50 dark:border-gray-700 rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer`}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
                     <div className="relative z-10">
                       <div className={`w-16 h-16 bg-gradient-to-r ${product.color} rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                         <span className="drop-shadow-sm">{product.icon}</span>
                       </div>
-                      
-                      <h3 className="text-lg font-bold text-gray-800 mb-2">
+
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-2 transition-colors duration-300">
                         {product.title}
                       </h3>
-                      
-                      <p className="text-sm text-gray-600 leading-relaxed">
+
+                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed transition-colors duration-300">
                         {product.description}
                       </p>
-                      
+
                       <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="inline-flex items-center text-sm font-semibold text-gray-700 group-hover:text-gray-800">
+                        <div className="inline-flex items-center text-sm font-semibold text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">
                           Explore
                           <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -519,7 +519,7 @@ export default function Home() {
           </section>
 
           {/* What Our Users Say Section */}
-          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-10 right-20 w-64 h-64 bg-gradient-to-r from-yellow-200/20 to-orange-200/20 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 left-20 w-80 h-80 bg-gradient-to-r from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"></div>
@@ -528,18 +528,18 @@ export default function Home() {
 
             <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 text-center">
               <div className="mb-12 md:mb-16">
-                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-full border border-yellow-200 mb-4 sm:mb-6">
-                  <span className="text-xs sm:text-sm font-semibold text-orange-600">⭐ Testimonials</span>
+                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/30 dark:to-orange-900/30 rounded-full border border-yellow-200 dark:border-yellow-800 mb-4 sm:mb-6">
+                  <span className="text-xs sm:text-sm font-semibold text-orange-600 dark:text-orange-400">⭐ Testimonials</span>
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                  <span className="text-gray-800">What Our </span>
+                  <span className="text-gray-800 dark:text-gray-200">What Our </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Users Say
                   </span>
                 </h2>
 
-                <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
                   Discover how IncomeGrow has transformed financial journeys across India
                 </p>
               </div>
@@ -571,9 +571,9 @@ export default function Home() {
                     avatar: "RM"
                   }
                 ].map((testimonial, index) => (
-                  <div key={index} className="group bg-white/80 backdrop-blur-md rounded-2xl p-8 relative text-left shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/50">
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    
+                  <div key={index} className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 relative text-left shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/50 dark:border-gray-700">
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 dark:from-gray-700/40 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
                     <div className="relative z-10">
                       <div className="flex items-center mb-4">
                         {[...Array(testimonial.rating)].map((_, i) => (
@@ -582,25 +582,25 @@ export default function Home() {
                           </svg>
                         ))}
                       </div>
-                      
-                      <div className="absolute top-4 right-4 text-4xl text-[#FF6B2C]/20 font-bold">
+
+                      <div className="absolute top-4 right-4 text-4xl text-[#FF6B2C]/20 dark:text-[#FF6B2C]/30 font-bold">
                         &ldquo;
                       </div>
-                      
-                      <p className="text-gray-700 leading-relaxed mb-6 italic text-lg">
+
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 italic text-lg">
                         {testimonial.text}
                       </p>
-                      
+
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
                           {testimonial.avatar}
                         </div>
-                        
+
                         <div>
-                          <div className="text-lg font-bold text-gray-800">
+                          <div className="text-lg font-bold text-gray-800 dark:text-gray-200">
                             {testimonial.author}
                           </div>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-sm text-gray-600 dark:text-gray-400">
                             {testimonial.role} • {testimonial.location}
                           </div>
                         </div>
@@ -611,7 +611,7 @@ export default function Home() {
               </div>
               
               <div className="mt-16 flex flex-col items-center gap-6">
-                <div className="flex items-center gap-2 text-lg font-semibold text-gray-700">
+                <div className="flex items-center gap-2 text-lg font-semibold text-gray-700 dark:text-gray-300">
                   <span className="text-2xl">⭐</span>
                   <span>4.9/5 average rating from 1,200+ reviews</span>
                 </div>
@@ -630,23 +630,23 @@ export default function Home() {
           </section>
 
           {/* Trusted by Industry Leaders */}
-          <section className="py-12 md:py-16 lg:py-24 bg-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/30 via-transparent to-green-50/30"></div>
+          <section className="py-12 md:py-16 lg:py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/30 via-transparent to-green-50/30 dark:from-indigo-900/20 dark:via-transparent dark:to-green-900/20"></div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 text-center">
               <div className="mb-12 md:mb-16">
-                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-full border border-indigo-200 mb-4 sm:mb-6">
-                  <span className="text-xs sm:text-sm font-semibold text-indigo-600">🤝 Our Partners</span>
+                <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-full border border-indigo-200 dark:border-indigo-800 mb-4 sm:mb-6">
+                  <span className="text-xs sm:text-sm font-semibold text-indigo-600 dark:text-indigo-400">🤝 Our Partners</span>
                 </div>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
-                  <span className="text-gray-800">Trusted by </span>
+                  <span className="text-gray-800 dark:text-gray-200">Trusted by </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Industry Leaders
                   </span>
                 </h2>
 
-                <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-4">
                   Join thousands of professionals and organizations who trust IncomeGrow for their financial needs
                 </p>
               </div>
@@ -664,37 +664,37 @@ export default function Home() {
                     <div className={`w-20 h-20 bg-gradient-to-br ${partner.color} rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 cursor-pointer`}>
                       {partner.logo}
                     </div>
-                    <span className="text-sm font-semibold text-gray-600 group-hover:text-gray-800 transition-colors duration-200">
+                    <span className="text-sm font-semibold text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-200">
                       {partner.name}
                     </span>
                   </div>
                 ))}
               </div>
               
-              <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-3xl p-12 border border-white/50">
+              <div className="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-12 border border-white/50 dark:border-gray-700">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                   <div className="space-y-2">
                     <div className="text-4xl font-bold bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                       500+
                     </div>
-                    <div className="text-lg font-semibold text-gray-800">Companies</div>
-                    <div className="text-sm text-gray-600">Trust our platform</div>
+                    <div className="text-lg font-semibold text-gray-800 dark:text-gray-200">Companies</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Trust our platform</div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <div className="text-4xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                       99.9%
                     </div>
-                    <div className="text-lg font-semibold text-gray-800">Uptime</div>
-                    <div className="text-sm text-gray-600">Reliable service</div>
+                    <div className="text-lg font-semibold text-gray-800 dark:text-gray-200">Uptime</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Reliable service</div>
                   </div>
-                  
+
                   <div className="space-y-2">
                     <div className="text-4xl font-bold bg-gradient-to-r from-green-500 to-teal-500 bg-clip-text text-transparent">
                       24/7
                     </div>
-                    <div className="text-lg font-semibold text-gray-800">Support</div>
-                    <div className="text-sm text-gray-600">Always available</div>
+                    <div className="text-lg font-semibold text-gray-800 dark:text-gray-200">Support</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Always available</div>
                   </div>
                 </div>
               </div>

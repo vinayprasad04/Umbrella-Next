@@ -18,16 +18,16 @@ export default function CalculatorFAQ({ faqs, title = "Frequently Asked Question
   };
 
   return (
-    <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 transition-colors duration-300">
       <div className="w-full max-w-[1200px] mx-auto px-6">
         <div className="text-center mb-8 md:mb-12">
-          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 rounded-full border border-blue-200 mb-4">
-            <span className="text-sm font-semibold text-blue-600">❓ FAQ</span>
+          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 rounded-full border border-blue-200 dark:border-blue-700 mb-4">
+            <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">❓ FAQ</span>
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-gray-800">{title}</span>
+            <span className="text-gray-800 dark:text-gray-100">{title}</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Find answers to common questions about this calculator
           </p>
         </div>
@@ -36,13 +36,13 @@ export default function CalculatorFAQ({ faqs, title = "Frequently Asked Question
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
+              className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300"
             >
               <button
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-5 flex items-center justify-between text-left"
               >
-                <span className="font-semibold text-gray-800 pr-4 text-base md:text-lg">
+                <span className="font-semibold text-gray-800 dark:text-gray-100 pr-4 text-base md:text-lg">
                   {faq.question}
                 </span>
                 <svg
@@ -68,8 +68,8 @@ export default function CalculatorFAQ({ faqs, title = "Frequently Asked Question
                 }`}
               >
                 <div className="px-6 pb-5">
-                  <div className="pt-2 border-t border-gray-100">
-                    <p className="text-gray-600 leading-relaxed mt-3">{faq.answer}</p>
+                  <div className="pt-2 border-t border-gray-100 dark:border-gray-700">
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mt-3">{faq.answer}</p>
                   </div>
                 </div>
               </div>
@@ -78,7 +78,7 @@ export default function CalculatorFAQ({ faqs, title = "Frequently Asked Question
         </div>
 
         {/* Additional Info Box */}
-        <div className="mt-12 max-w-4xl mx-auto bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-2xl p-6 md:p-8 border border-[#FF6B2C]/20">
+        <div className="mt-12 max-w-4xl mx-auto bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 dark:from-[#FF6B2C]/20 dark:to-[#FF8A50]/20 rounded-2xl p-6 md:p-8 border border-[#FF6B2C]/20 dark:border-[#FF6B2C]/30">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] rounded-xl flex items-center justify-center flex-shrink-0">
               <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -86,8 +86,8 @@ export default function CalculatorFAQ({ faqs, title = "Frequently Asked Question
               </svg>
             </div>
             <div>
-              <h3 className="text-lg font-bold text-gray-800 mb-2">Still have questions?</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-2">Still have questions?</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
                 Our support team is here to help you with any queries about our calculators and financial planning tools.
               </p>
               <a

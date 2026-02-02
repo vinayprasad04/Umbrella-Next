@@ -10,13 +10,13 @@ interface BusinessDeductionsProps {
 
 const BusinessDeductions: React.FC<BusinessDeductionsProps> = ({entityType, section80C, setSection80C, section80DSelf, setSection80DSelf}) => {
     return(
-        <div className="bg-purple-50 rounded-2xl p-6 border border-purple-200">
+        <div className="bg-purple-50 dark:bg-purple-900/20 rounded-2xl p-6 border border-purple-200">
             <h3 className="text-lg font-bold text-purple-800 mb-4">
                 {entityType === 'firm' ? 'Partnership Firm Deductions' : 'Corporate Deductions'}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         {entityType === 'firm' ? 'Partner Remuneration (₹)' : 'Depreciation (₹)'}
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -47,13 +47,13 @@ const BusinessDeductions: React.FC<BusinessDeductionsProps> = ({entityType, sect
                     <input
                         type="number"
                         placeholder={entityType === 'firm' ? 'e.g., 500000' : 'e.g., 200000'}
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={section80C}
                         onChange={(e) => setSection80C(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
                         {entityType === 'firm' ? 'Interest on Capital (₹)' : 'CSR Expenses (₹)'}
                         <div className="group relative inline-block ml-1">
                             <span className="w-4 h-4 bg-purple-100 text-purple-600 rounded-full text-xs flex items-center justify-center cursor-help">?</span>
@@ -84,7 +84,7 @@ const BusinessDeductions: React.FC<BusinessDeductionsProps> = ({entityType, sect
                     <input
                         type="number"
                         placeholder={entityType === 'firm' ? 'e.g., 100000' : 'e.g., 300000'}
-                        className="w-full px-3 py-3 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] text-sm"
+                        className="w-full px-3 py-3 bg-white dark:bg-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] dark:focus:border-[#FF6B2C] text-sm transition-colors duration-300"
                         value={section80DSelf}
                         onChange={(e) => setSection80DSelf(e.target.value)}
                     />

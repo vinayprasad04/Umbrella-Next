@@ -7,12 +7,12 @@ import DashboardLayout from '@/components/DashboardLayout';
 import Tooltip from '@/components/Tooltip';
 import type { NextPageWithLayout } from '../../_app';
 
-const inputClass = "border border-gray-300 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300";
-const labelClass = "text-sm font-semibold text-gray-700 mb-1 flex items-center gap-1";
+const inputClass = "border border-gray-300 dark:border-gray-600 rounded px-4 py-2 w-full text-base focus:outline-none focus:ring-2 focus:ring-purple-300 dark:bg-gray-700 dark:text-gray-200";
+const labelClass = "text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1 flex items-center gap-1";
 
 const InfoIcon: React.FC<{ tooltip: string }> = ({ tooltip }) => (
   <Tooltip content={tooltip}>
-    <svg className="ml-1 text-gray-400 w-3 h-3 hover:text-purple-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="ml-1 text-gray-400 dark:text-gray-500 w-3 h-3 hover:text-purple-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   </Tooltip>
@@ -384,10 +384,10 @@ const WealthCreation: NextPageWithLayout = () => {
 
   if (isLoading) {
     return (
-      <div className="flex-1 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-orange-50">
+      <div className="flex-1 w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600 mx-auto mb-4"></div>
-          <p className="text-gray-600 font-medium">Loading...</p>
+          <p className="text-gray-600 dark:text-gray-300 font-medium">Loading...</p>
         </div>
       </div>
     );
@@ -405,7 +405,7 @@ const WealthCreation: NextPageWithLayout = () => {
       {/* Content Area - Only this part will reload */}
       <div className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
           {/* Left Side - Breadcrumb, Heading & Form */}
-          <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 border-r-0 lg:border-r border-gray-200 lg:overflow-y-auto flex flex-col">
+          <div className="w-full lg:w-1/2 bg-gradient-to-br from-purple-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border-r-0 lg:border-r border-gray-200 dark:border-gray-700 lg:overflow-y-auto flex flex-col">
             {/* Breadcrumb & Header Section */}
             <div className="bg-gradient-to-r from-purple-600 to-orange-500 py-6 md:py-8 px-4 md:px-6 relative overflow-hidden">
               {/* Decorative Elements */}
@@ -443,18 +443,18 @@ const WealthCreation: NextPageWithLayout = () => {
             <div className="p-6">
               {/* Success/Error Messages */}
               {successMessage && (
-                <div className="mb-4 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-xl">
+                <div className="mb-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 text-green-700 dark:text-green-300 px-4 py-3 rounded-xl">
                   {successMessage}
                 </div>
               )}
               {errorMessage && (
-                <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
+                <div className="mb-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-300 px-4 py-3 rounded-xl">
                   {errorMessage}
                 </div>
               )}
 
               {/* Smart Link Card */}
-              <div className="bg-gradient-to-br from-purple-50 to-orange-50 rounded-2xl border-2 border-purple-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-purple-900/20 dark:to-orange-900/20 rounded-2xl border-2 border-purple-200 dark:border-purple-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-lg font-bold bg-gradient-to-r from-purple-600 to-orange-500 bg-clip-text text-transparent mb-1 flex items-center gap-2">
                   <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-orange-500 rounded-lg flex items-center justify-center">
                     <svg className="text-white w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -463,14 +463,14 @@ const WealthCreation: NextPageWithLayout = () => {
                   </div>
                   <div>
                     Smart Link
-                    <span className="text-sm text-gray-500 font-normal block">Your income, savings & EMI details</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400 font-normal block">Your income, savings & EMI details</span>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
                     <label className={labelClass}>Monthly Income <InfoIcon tooltip="Your total monthly income from all sources including salary, business income, rental income, etc." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -483,7 +483,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Monthly Savings <InfoIcon tooltip="The amount you save or set aside each month after all expenses. This is the money available for investments." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -496,7 +496,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>EMIs <InfoIcon tooltip="Total monthly EMI payments for all your loans (home loan, car loan, personal loan, credit cards, etc.)" /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -510,7 +510,7 @@ const WealthCreation: NextPageWithLayout = () => {
               </div>
 
               {/* Goal Planning Card */}
-              <div className="bg-gradient-to-br from-orange-50 to-purple-50 rounded-2xl border-2 border-orange-200 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-gradient-to-br from-orange-50 to-purple-50 dark:from-orange-900/20 dark:to-purple-900/20 rounded-2xl border-2 border-orange-200 dark:border-orange-700 mb-6 p-6 flex flex-col gap-4 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-lg font-bold bg-gradient-to-r from-orange-500 to-purple-600 bg-clip-text text-transparent mb-1 flex items-center gap-2">
                   <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-purple-600 rounded-lg flex items-center justify-center">
                     <svg className="text-white w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -519,14 +519,14 @@ const WealthCreation: NextPageWithLayout = () => {
                   </div>
                   <div>
                     Goal Planning
-                    <span className="text-sm text-gray-500 font-normal block">Set your financial goals and targets</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400 font-normal block">Set your financial goals and targets</span>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
                     <label className={labelClass}>Goal Amount <span className="text-red-500">*</span> <InfoIcon tooltip="The total wealth you want to accumulate. For example, ₹1 Crore for retirement or ₹50 Lakhs for your child's education." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="e.g., 10000000 (1 Crore)"
@@ -563,8 +563,8 @@ const WealthCreation: NextPageWithLayout = () => {
               </div>
 
               {/* Loans Card */}
-              <div className="bg-white rounded-xl border mb-4 p-4 flex flex-col gap-2 shadow-sm">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 mb-4 p-4 flex flex-col gap-2 shadow-sm">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
@@ -576,7 +576,7 @@ const WealthCreation: NextPageWithLayout = () => {
                     Total Loan Amount <span className="text-red-500">*</span> <InfoIcon tooltip="The total outstanding principal amount of all your loans (home loan, car loan, personal loan, education loan, etc.)" />
                   </label>
                   <div className="flex items-center gap-2">
-                    <span className="text-xl text-gray-500">₹</span>
+                    <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                     <input
                       className={inputClass}
                       placeholder="0"
@@ -589,8 +589,8 @@ const WealthCreation: NextPageWithLayout = () => {
               </div>
 
               {/* Assets Card */}
-              <div className="bg-white rounded-xl border mb-4 p-4 flex flex-col gap-2 shadow-sm">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 mb-4 p-4 flex flex-col gap-2 shadow-sm">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -601,7 +601,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Stocks <InfoIcon tooltip="Current value of all your direct equity investments in individual company stocks." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -614,7 +614,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Equity MF <InfoIcon tooltip="Current value of your equity mutual fund investments including index funds and sectoral funds." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -627,7 +627,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Debt MF & Bonds <InfoIcon tooltip="Value of debt mutual funds, corporate bonds, government bonds, and other fixed-income securities." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -640,7 +640,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Fixed Deposits <InfoIcon tooltip="Total amount in bank FDs, RDs, and other fixed deposit schemes like Post Office FDs, company FDs." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -653,7 +653,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Gold <InfoIcon tooltip="Value of physical gold, digital gold, gold ETFs, sovereign gold bonds, and gold mutual funds you own." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -666,7 +666,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Real Estate <InfoIcon tooltip="Current market value of properties you own (residential, commercial) minus any outstanding mortgage." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -679,7 +679,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Cash, Bank, etc. <InfoIcon tooltip="Cash in hand, savings account balance, and other liquid assets not invested elsewhere." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -692,9 +692,9 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Total Assets <InfoIcon tooltip="Automatically calculated sum of all your assets. This represents your total wealth before deducting loans." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
-                        className={`${inputClass} bg-gray-50 font-bold text-purple-600`}
+                        className={`${inputClass} bg-gray-50 dark:bg-gray-700 font-bold text-purple-600`}
                         placeholder="0"
                         type="text"
                         value={formatNumber(totalAssets)}
@@ -706,8 +706,8 @@ const WealthCreation: NextPageWithLayout = () => {
               </div>
 
               {/* Monthly Investments Card */}
-              <div className="bg-white rounded-xl border mb-4 p-4 flex flex-col gap-2 shadow-sm">
-                <div className="text-base font-semibold text-purple-700 mb-2 flex items-center gap-2">
+              <div className="bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 mb-4 p-4 flex flex-col gap-2 shadow-sm">
+                <div className="text-base font-semibold text-purple-700 dark:text-purple-400 mb-2 flex items-center gap-2">
                   <svg className="text-purple-500 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
@@ -718,7 +718,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Monthly Stocks <InfoIcon tooltip="Amount you invest every month in buying individual stocks. This is your regular monthly equity investment." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -731,7 +731,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>SIP In Equity MF <InfoIcon tooltip="Monthly SIP (Systematic Investment Plan) amount in equity mutual funds. SIPs help you invest regularly and benefit from rupee cost averaging." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -744,7 +744,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>SIP In Debt MF <InfoIcon tooltip="Monthly SIP amount in debt mutual funds. These provide stable returns with lower risk compared to equity funds." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -757,7 +757,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Monthly RD/FD <InfoIcon tooltip="Amount you deposit monthly in Recurring Deposits (RD) or Fixed Deposits (FD). These are safe, guaranteed return instruments." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -770,7 +770,7 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Monthly Gold <InfoIcon tooltip="Amount you invest monthly in gold (physical gold, digital gold, gold ETFs, or sovereign gold bonds)." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
                         className={inputClass}
                         placeholder="0"
@@ -783,9 +783,9 @@ const WealthCreation: NextPageWithLayout = () => {
                   <div>
                     <label className={labelClass}>Total Monthly Investments <InfoIcon tooltip="Automatically calculated sum of all your monthly investments. This shows your total monthly contribution towards wealth creation." /></label>
                     <div className="flex items-center gap-2">
-                      <span className="text-xl text-gray-500">₹</span>
+                      <span className="text-xl text-gray-500 dark:text-gray-400">₹</span>
                       <input
-                        className={`${inputClass} bg-gray-50 font-bold text-purple-600`}
+                        className={`${inputClass} bg-gray-50 dark:bg-gray-700 font-bold text-purple-600`}
                         placeholder="0"
                         type="text"
                         value={formatNumber(totalMonthlyInvestments)}
@@ -816,12 +816,12 @@ const WealthCreation: NextPageWithLayout = () => {
           </div>
 
           {/* Right Side - Results/Instructions */}
-          <div className="w-full lg:w-1/2 bg-white lg:overflow-y-auto">
+          <div className="w-full lg:w-1/2 bg-white dark:bg-gray-900 lg:overflow-y-auto">
             <div className="p-4 md:p-6">
               {!showResults ? (
                 /* Instructions Panel */
                 <div className="w-full mx-auto space-y-6">
-                  <div className="bg-white rounded-2xl shadow-xl p-8 border border-purple-200">
+                  <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-purple-200 dark:border-purple-700">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
                         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -829,47 +829,47 @@ const WealthCreation: NextPageWithLayout = () => {
                         </svg>
                       </div>
                       <div>
-                        <h2 className="text-3xl font-bold text-gray-800">Wealth Creation Calculator</h2>
-                        <p className="text-gray-600">Plan your financial future with precision</p>
+                        <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Wealth Creation Calculator</h2>
+                        <p className="text-gray-600 dark:text-gray-400">Plan your financial future with precision</p>
                       </div>
                     </div>
 
                     <div className="space-y-6">
                       <div>
-                        <h3 className="text-xl font-bold text-purple-700 mb-3">How It Works</h3>
-                        <ol className="space-y-3 text-gray-700">
+                        <h3 className="text-xl font-bold text-purple-700 dark:text-purple-400 mb-3">How It Works</h3>
+                        <ol className="space-y-3 text-gray-700 dark:text-gray-300">
                           <li className="flex items-start gap-3">
-                            <span className="flex-shrink-0 w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-sm">1</span>
+                            <span className="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 rounded-full flex items-center justify-center font-bold text-sm">1</span>
                             <div>
                               <strong>Enter Your Financial Details</strong>
-                              <p className="text-sm text-gray-600 mt-1">Fill in your monthly income, savings, current assets, loans, and monthly investments</p>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Fill in your monthly income, savings, current assets, loans, and monthly investments</p>
                             </div>
                           </li>
                           <li className="flex items-start gap-3">
-                            <span className="flex-shrink-0 w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-sm">2</span>
+                            <span className="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 rounded-full flex items-center justify-center font-bold text-sm">2</span>
                             <div>
                               <strong>Set Your Financial Goal</strong>
-                              <p className="text-sm text-gray-600 mt-1">Define your target amount (e.g., ₹1 Crore) and target year (e.g., 2035)</p>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Define your target amount (e.g., ₹1 Crore) and target year (e.g., 2035)</p>
                             </div>
                           </li>
                           <li className="flex items-start gap-3">
-                            <span className="flex-shrink-0 w-8 h-8 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center font-bold text-sm">3</span>
+                            <span className="flex-shrink-0 w-8 h-8 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-300 rounded-full flex items-center justify-center font-bold text-sm">3</span>
                             <div>
                               <strong>Calculate & Get Recommendations</strong>
-                              <p className="text-sm text-gray-600 mt-1">Click &quot;Calculate Goal&quot; to see if your goal is achievable and get personalized investment advice</p>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Click &quot;Calculate Goal&quot; to see if your goal is achievable and get personalized investment advice</p>
                             </div>
                           </li>
                         </ol>
                       </div>
 
-                      <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-6 border border-purple-200">
-                        <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center gap-2">
+                      <div className="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl p-6 border border-purple-200 dark:border-purple-700">
+                        <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-3 flex items-center gap-2">
                           <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                           </svg>
                           What You&apos;ll Get
                         </h3>
-                        <ul className="space-y-2 text-sm text-gray-700">
+                        <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                           <li className="flex items-center gap-2">
                             <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -903,7 +903,7 @@ const WealthCreation: NextPageWithLayout = () => {
                         </ul>
                       </div>
 
-                      <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                      <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded">
                         <div className="flex items-start gap-3">
                           <svg className="w-5 h-5 text-yellow-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -922,18 +922,18 @@ const WealthCreation: NextPageWithLayout = () => {
                 <div className="max-w-3xl mx-auto space-y-6">
                   {/* Goal Status Banner */}
                   <div className={`bg-gradient-to-r ${
-                    results.goalStatus === 'Highly Achievable' ? 'from-green-50 to-green-100 border-green-300' :
-                    results.goalStatus === 'Achievable' ? 'from-blue-50 to-blue-100 border-blue-300' :
-                    results.goalStatus === 'Challenging' ? 'from-orange-50 to-orange-100 border-orange-300' :
-                    'from-red-50 to-red-100 border-red-300'
+                    results.goalStatus === 'Highly Achievable' ? 'from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border-green-300 dark:border-green-700' :
+                    results.goalStatus === 'Achievable' ? 'from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border-blue-300 dark:border-blue-700' :
+                    results.goalStatus === 'Challenging' ? 'from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 border-orange-300 dark:border-orange-700' :
+                    'from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-red-300 dark:border-red-700'
                   } rounded-xl border-2 p-6 shadow-lg`}>
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-800 mb-2">Goal Analysis Results</h3>
-                        <p className="text-gray-600">Based on your current financial data and investment strategy</p>
+                        <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">Goal Analysis Results</h3>
+                        <p className="text-gray-600 dark:text-gray-400">Based on your current financial data and investment strategy</p>
                       </div>
                       <div className="text-right">
-                        <div className="text-sm text-gray-600 mb-1">Goal Status</div>
+                        <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">Goal Status</div>
                         <div className={`text-3xl font-bold ${results.goalColor}`}>{results.goalStatus}</div>
                       </div>
                     </div>
@@ -941,30 +941,30 @@ const WealthCreation: NextPageWithLayout = () => {
 
                   {/* Key Metrics Grid */}
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-white rounded-xl border p-6 shadow-sm">
-                      <div className="text-sm text-gray-500 mb-2">Current Net Worth</div>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 p-6 shadow-sm">
+                      <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">Current Net Worth</div>
                       <div className="text-2xl font-bold text-purple-600">₹{results.currentNetWorth.toLocaleString('en-IN')}</div>
-                      <div className="text-xs text-gray-400 mt-1">Assets - Loans</div>
+                      <div className="text-xs text-gray-400 dark:text-gray-500 mt-1">Assets - Loans</div>
                     </div>
-                    <div className="bg-white rounded-xl border p-6 shadow-sm">
-                      <div className="text-sm text-gray-500 mb-2">Target Amount</div>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 p-6 shadow-sm">
+                      <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">Target Amount</div>
                       <div className="text-2xl font-bold text-blue-600">₹{results.targetAmount.toLocaleString('en-IN')}</div>
-                      <div className="text-xs text-gray-400 mt-1">In {results.yearsToTarget} years</div>
+                      <div className="text-xs text-gray-400 dark:text-gray-500 mt-1">In {results.yearsToTarget} years</div>
                     </div>
-                    <div className="bg-white rounded-xl border p-6 shadow-sm">
-                      <div className="text-sm text-gray-500 mb-2">Projected Wealth</div>
+                    <div className="bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 p-6 shadow-sm">
+                      <div className="text-sm text-gray-500 dark:text-gray-400 mb-2">Projected Wealth</div>
                       <div className="text-2xl font-bold text-green-600">₹{Math.round(results.projectedWealth).toLocaleString('en-IN')}</div>
-                      <div className="text-xs text-gray-400 mt-1">With current investments</div>
+                      <div className="text-xs text-gray-400 dark:text-gray-500 mt-1">With current investments</div>
                     </div>
                   </div>
 
                   {/* Progress Bar */}
-                  <div className="bg-white rounded-xl border p-6 shadow-sm">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 p-6 shadow-sm">
                     <div className="flex justify-between items-center mb-3">
-                      <span className="text-sm font-semibold text-gray-700">Goal Achievement Progress</span>
+                      <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Goal Achievement Progress</span>
                       <span className="text-sm font-bold text-purple-600">{Math.round(results.achievabilityRatio * 100)}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 overflow-hidden">
                       <div
                         className={`h-4 rounded-full ${
                           results.achievabilityRatio >= 1 ? 'bg-green-500' :
@@ -977,8 +977,8 @@ const WealthCreation: NextPageWithLayout = () => {
                   </div>
 
                   {/* Monthly Investment Requirements */}
-                  <div className="bg-white rounded-xl border p-6 shadow-sm">
-                    <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 p-6 shadow-sm">
+                    <h4 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
                       <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                       </svg>
@@ -986,22 +986,22 @@ const WealthCreation: NextPageWithLayout = () => {
                     </h4>
                     <div className="space-y-3">
                       <div className="flex justify-between items-center">
-                        <span className="text-gray-600">Current Monthly Investment:</span>
+                        <span className="text-gray-600 dark:text-gray-400">Current Monthly Investment:</span>
                         <span className="font-bold text-lg">₹{results.currentMonthlyInvestment.toLocaleString('en-IN')}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span className="text-gray-600">Required Monthly Investment:</span>
+                        <span className="text-gray-600 dark:text-gray-400">Required Monthly Investment:</span>
                         <span className="font-bold text-lg text-purple-600">₹{results.requiredMonthlySIP.toLocaleString('en-IN')}</span>
                       </div>
                       {results.shortfall > 0 && (
-                        <div className="flex justify-between items-center p-3 bg-orange-50 rounded-lg">
-                          <span className="text-orange-700 font-semibold">Additional Investment Needed:</span>
+                        <div className="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                          <span className="text-orange-700 dark:text-orange-300 font-semibold">Additional Investment Needed:</span>
                           <span className="font-bold text-lg text-orange-600">₹{Math.round(results.requiredMonthlySIP - results.currentMonthlyInvestment).toLocaleString('en-IN')}/month</span>
                         </div>
                       )}
                       {results.surplus > 0 && (
-                        <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                          <span className="text-green-700 font-semibold">Surplus on Target:</span>
+                        <div className="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                          <span className="text-green-700 dark:text-green-300 font-semibold">Surplus on Target:</span>
                           <span className="font-bold text-lg text-green-600">₹{Math.round(results.surplus).toLocaleString('en-IN')}</span>
                         </div>
                       )}
@@ -1009,8 +1009,8 @@ const WealthCreation: NextPageWithLayout = () => {
                   </div>
 
                   {/* Asset Allocation */}
-                  <div className="bg-white rounded-xl border p-6 shadow-sm">
-                    <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 p-6 shadow-sm">
+                    <h4 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
                       <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
@@ -1023,19 +1023,19 @@ const WealthCreation: NextPageWithLayout = () => {
                         <div className="space-y-3">
                           <div>
                             <div className="flex justify-between mb-1">
-                              <span className="text-sm text-gray-600">Equity</span>
+                              <span className="text-sm text-gray-600 dark:text-gray-400">Equity</span>
                               <span className="text-sm font-bold text-purple-600">{results.equityAllocation}%</span>
                             </div>
-                            <div className="w-full bg-gray-200 rounded-full h-3">
+                            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
                               <div className="bg-purple-600 h-3 rounded-full" style={{ width: `${results.equityAllocation}%` }}></div>
                             </div>
                           </div>
                           <div>
                             <div className="flex justify-between mb-1">
-                              <span className="text-sm text-gray-600">Debt</span>
+                              <span className="text-sm text-gray-600 dark:text-gray-400">Debt</span>
                               <span className="text-sm font-bold text-blue-600">{results.debtAllocation}%</span>
                             </div>
-                            <div className="w-full bg-gray-200 rounded-full h-3">
+                            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
                               <div className="bg-blue-600 h-3 rounded-full" style={{ width: `${results.debtAllocation}%` }}></div>
                             </div>
                           </div>
@@ -1046,19 +1046,19 @@ const WealthCreation: NextPageWithLayout = () => {
                         <div className="space-y-3">
                           <div>
                             <div className="flex justify-between mb-1">
-                              <span className="text-sm text-gray-600">Equity</span>
+                              <span className="text-sm text-gray-600 dark:text-gray-400">Equity</span>
                               <span className="text-sm font-bold text-purple-600">{results.currentEquityPercent}%</span>
                             </div>
-                            <div className="w-full bg-gray-200 rounded-full h-3">
+                            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
                               <div className="bg-purple-600 h-3 rounded-full" style={{ width: `${results.currentEquityPercent}%` }}></div>
                             </div>
                           </div>
                           <div>
                             <div className="flex justify-between mb-1">
-                              <span className="text-sm text-gray-600">Debt</span>
+                              <span className="text-sm text-gray-600 dark:text-gray-400">Debt</span>
                               <span className="text-sm font-bold text-blue-600">{results.currentDebtPercent}%</span>
                             </div>
-                            <div className="w-full bg-gray-200 rounded-full h-3">
+                            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
                               <div className="bg-blue-600 h-3 rounded-full" style={{ width: `${results.currentDebtPercent}%` }}></div>
                             </div>
                           </div>
@@ -1068,8 +1068,8 @@ const WealthCreation: NextPageWithLayout = () => {
                   </div>
 
                   {/* Recommendations */}
-                  <div className="bg-white rounded-xl border p-6 shadow-sm">
-                    <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl border dark:border-gray-700 p-6 shadow-sm">
+                    <h4 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
                       <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                       </svg>
@@ -1080,9 +1080,9 @@ const WealthCreation: NextPageWithLayout = () => {
                         <div
                           key={index}
                           className={`p-4 rounded-lg border-l-4 ${
-                            rec.type === 'success' ? 'bg-green-50 border-green-500' :
-                            rec.type === 'warning' ? 'bg-orange-50 border-orange-500' :
-                            'bg-blue-50 border-blue-500'
+                            rec.type === 'success' ? 'bg-green-50 dark:bg-green-900/20 border-green-500 dark:border-green-600' :
+                            rec.type === 'warning' ? 'bg-orange-50 dark:bg-orange-900/20 border-orange-500 dark:border-orange-600' :
+                            'bg-blue-50 dark:bg-blue-900/20 border-blue-500 dark:border-blue-600'
                           }`}
                         >
                           <div className="flex items-start gap-3">
@@ -1099,7 +1099,7 @@ const WealthCreation: NextPageWithLayout = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                               )}
                             </svg>
-                            <p className="text-sm text-gray-700 flex-1">{rec.text}</p>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 flex-1">{rec.text}</p>
                           </div>
                         </div>
                       ))}
@@ -1107,38 +1107,38 @@ const WealthCreation: NextPageWithLayout = () => {
                   </div>
 
                   {/* Suggested Investment Breakdown */}
-                  <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl border border-purple-200 p-6 shadow-sm">
-                    <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                  <div className="bg-gradient-to-br from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-xl border border-purple-200 dark:border-purple-700 p-6 shadow-sm">
+                    <h4 className="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 flex items-center gap-2">
                       <svg className="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                       Suggested Monthly Investment Breakdown
-                      <span className="text-xs text-gray-500 font-normal ml-2">
+                      <span className="text-xs text-gray-500 dark:text-gray-400 font-normal ml-2">
                         ({results.investmentStrategy === 'aggressive' ? 'Aggressive Strategy' :
                           results.investmentStrategy === 'moderate' ? 'Moderate Strategy' :
                           'Conservative Strategy'})
                       </span>
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="bg-white rounded-lg p-4 border border-purple-200">
-                        <div className="text-xs text-gray-500 mb-1">Stocks / Direct Equity</div>
+                      <div className="bg-white dark:bg-gray-700 rounded-lg p-4 border border-purple-200 dark:border-purple-700">
+                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Stocks / Direct Equity</div>
                         <div className="text-xl font-bold text-purple-600">₹{Math.round(results.requiredMonthlySIP * results.directStockAllocation / 100).toLocaleString('en-IN')}</div>
-                        <div className="text-xs text-gray-400 mt-1">{results.directStockAllocation}% allocation</div>
+                        <div className="text-xs text-gray-400 dark:text-gray-500 mt-1">{results.directStockAllocation}% allocation</div>
                       </div>
-                      <div className="bg-white rounded-lg p-4 border border-purple-200">
-                        <div className="text-xs text-gray-500 mb-1">Equity Mutual Funds (SIP)</div>
+                      <div className="bg-white dark:bg-gray-700 rounded-lg p-4 border border-purple-200 dark:border-purple-700">
+                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Equity Mutual Funds (SIP)</div>
                         <div className="text-xl font-bold text-purple-600">₹{Math.round(results.requiredMonthlySIP * results.equityMFAllocation / 100).toLocaleString('en-IN')}</div>
-                        <div className="text-xs text-gray-400 mt-1">{results.equityMFAllocation}% allocation</div>
+                        <div className="text-xs text-gray-400 dark:text-gray-500 mt-1">{results.equityMFAllocation}% allocation</div>
                       </div>
-                      <div className="bg-white rounded-lg p-4 border border-blue-200">
-                        <div className="text-xs text-gray-500 mb-1">Debt MF / Bonds</div>
+                      <div className="bg-white dark:bg-gray-700 rounded-lg p-4 border border-blue-200 dark:border-blue-700">
+                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Debt MF / Bonds</div>
                         <div className="text-xl font-bold text-blue-600">₹{Math.round(results.requiredMonthlySIP * (results.debtAllocation * 0.6) / 100).toLocaleString('en-IN')}</div>
-                        <div className="text-xs text-gray-400 mt-1">{Math.round(results.debtAllocation * 0.6)}% allocation</div>
+                        <div className="text-xs text-gray-400 dark:text-gray-500 mt-1">{Math.round(results.debtAllocation * 0.6)}% allocation</div>
                       </div>
-                      <div className="bg-white rounded-lg p-4 border border-blue-200">
-                        <div className="text-xs text-gray-500 mb-1">FD / RD / Gold</div>
+                      <div className="bg-white dark:bg-gray-700 rounded-lg p-4 border border-blue-200 dark:border-blue-700">
+                        <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">FD / RD / Gold</div>
                         <div className="text-xl font-bold text-blue-600">₹{Math.round(results.requiredMonthlySIP * (results.debtAllocation * 0.4) / 100).toLocaleString('en-IN')}</div>
-                        <div className="text-xs text-gray-400 mt-1">{Math.round(results.debtAllocation * 0.4)}% allocation</div>
+                        <div className="text-xs text-gray-400 dark:text-gray-500 mt-1">{Math.round(results.debtAllocation * 0.4)}% allocation</div>
                       </div>
                     </div>
                   </div>

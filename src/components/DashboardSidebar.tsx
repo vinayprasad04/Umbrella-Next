@@ -69,8 +69,8 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
       <aside className={`
         fixed lg:static inset-y-0 left-0 z-40
         w-80 lg:w-96
-        bg-gradient-to-br from-purple-50 via-blue-50 to-orange-50
-        border-r-2 border-purple-200 shadow-2xl
+        bg-gradient-to-br from-purple-50 via-blue-50 to-orange-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900
+        border-r-2 border-purple-200 dark:border-gray-700 shadow-2xl
         transform transition-transform duration-300 ease-in-out
         ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         overflow-y-auto lg:overflow-y-visible
@@ -106,7 +106,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
               className={`flex items-center gap-3 px-5 py-4 rounded-2xl transition-all duration-300 hover:shadow-xl group border-2 transform hover:scale-105 ${
                 isDashboardActive
                   ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 text-white font-bold shadow-2xl scale-105 border-transparent'
-                  : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-white border-purple-200 shadow-lg'
+                  : 'bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-600 border-purple-200 dark:border-gray-600 shadow-lg'
               }`}
             >
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all group-hover:scale-110 ${
@@ -128,13 +128,13 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
           </div>
 
           {/* My Goal Dropdown */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border-2 border-purple-200 overflow-hidden transform hover:shadow-2xl transition-all duration-300">
+          <div className="bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm rounded-2xl shadow-xl border-2 border-purple-200 dark:border-gray-600 overflow-hidden transform hover:shadow-2xl transition-all duration-300">
             <button
               onClick={() => setMyGoalOpen(!myGoalOpen)}
               className={`flex items-center justify-between w-full px-5 py-4 font-bold rounded-t-2xl transition-all duration-300 group ${
                 isMyGoalActive
                   ? 'bg-gradient-to-r from-purple-500 to-orange-500 text-white shadow-lg'
-                  : 'text-gray-700 hover:bg-gradient-to-r hover:from-purple-100 hover:to-orange-100'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-purple-100 hover:to-orange-100'
               }`}
             >
               <div className="flex items-center gap-3">
@@ -172,7 +172,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
                 myGoalOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="px-4 py-3 bg-gradient-to-b from-purple-100/50 via-blue-50/30 to-orange-50/30 space-y-2">
+              <div className="px-4 py-3 bg-gradient-to-b from-purple-100/50 via-blue-50/30 to-orange-50/30 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 space-y-2">
                 {/* Goal Dashboard Link */}
                 <Link
                   href="/dashboard/my-goal"
@@ -180,7 +180,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group border-2 transform hover:scale-105 ${
                     router.pathname === '/dashboard/my-goal'
                       ? 'bg-gradient-to-r from-purple-500 to-orange-500 text-white border-transparent font-bold shadow-lg'
-                      : 'text-gray-700 hover:text-purple-600 bg-white/80 backdrop-blur-sm border-purple-200 hover:shadow-lg font-semibold'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 bg-white/80 dark:bg-gray-600/80 backdrop-blur-sm border-purple-200 dark:border-gray-500 hover:shadow-lg font-semibold'
                   }`}
                 >
                   <span className="text-2xl group-hover:scale-125 transition-transform duration-200">🎯</span>
@@ -193,7 +193,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
                 {/* Divider */}
                 <div className="flex items-center gap-2 my-3">
                   <div className="h-px flex-1 bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
-                  <span className="text-xs font-bold text-purple-600">GOALS</span>
+                  <span className="text-xs font-bold text-purple-600 dark:text-purple-400">GOALS</span>
                   <div className="h-px flex-1 bg-gradient-to-r from-transparent via-purple-300 to-transparent"></div>
                 </div>
 
@@ -205,7 +205,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
                     className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-200 group border-2 transform hover:scale-105 ${
                       router.pathname === item.href
                         ? 'bg-gradient-to-r from-purple-500 to-orange-500 text-white border-transparent font-bold shadow-lg'
-                        : 'text-gray-700 hover:text-purple-600 bg-white/60 backdrop-blur-sm border-transparent hover:border-purple-200 hover:shadow-md'
+                        : 'text-gray-700 dark:text-gray-300 hover:text-purple-600 bg-white/60 dark:bg-gray-600/60 backdrop-blur-sm border-transparent hover:border-purple-200 dark:hover:border-gray-500 hover:shadow-md'
                     }`}
                     style={{ transitionDelay: myGoalOpen ? `${(index + 1) * 30}ms` : '0ms' }}
                   >
@@ -222,10 +222,10 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentPage = 'dash
 
           {/* Admin Panel Link (if admin) */}
           {isAdmin && (
-            <div className="pt-6 mt-6 border-t-2 border-purple-200">
+            <div className="pt-6 mt-6 border-t-2 border-purple-200 dark:border-gray-700">
               <Link
                 href="/admin"
-                className="flex items-center gap-3 px-5 py-4 rounded-2xl transition-all duration-300 font-bold group border-2 transform hover:scale-105 bg-white/80 backdrop-blur-sm text-gray-700 hover:text-red-600 border-red-200 hover:bg-gradient-to-r hover:from-red-50 hover:to-orange-50 hover:border-red-400 shadow-lg hover:shadow-2xl"
+                className="flex items-center gap-3 px-5 py-4 rounded-2xl transition-all duration-300 font-bold group border-2 transform hover:scale-105 bg-white/80 dark:bg-gray-700/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 hover:text-red-600 border-red-200 dark:border-red-700 hover:bg-gradient-to-r hover:from-red-50 hover:to-orange-50 hover:border-red-400 shadow-lg hover:shadow-2xl"
               >
                 <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-orange-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all group-hover:scale-110">
                   <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

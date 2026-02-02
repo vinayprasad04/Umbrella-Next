@@ -115,12 +115,12 @@ export default function Course() {
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-purple-400/10 to-pink-400/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-blue-400/10 to-indigo-400/10 rounded-full blur-3xl"></div>
@@ -136,10 +136,10 @@ export default function Course() {
                   Master Finance
                 </span>
                 <br />
-                <span className="text-gray-800">With Expert Guidance</span>
+                <span className="text-gray-800 dark:text-gray-200">With Expert Guidance</span>
               </h1>
 
-              <p className="text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6 px-2">
+              <p className="text-sm md:text-base lg:text-lg xl:text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6 px-2">
                 Learn from industry experts through our comprehensive courses designed to help you
                 become a confident investor and achieve financial independence.
               </p>
@@ -157,7 +157,7 @@ export default function Course() {
                 
                 <button
                   onClick={handleCoursePreview}
-                  className="group bg-white/80 backdrop-blur-sm text-gray-700 px-6 md:px-8 py-3 md:py-4 border-2 border-gray-200 rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:bg-white hover:shadow-lg hover:border-gray-300 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 px-6 md:px-8 py-3 md:py-4 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-base md:text-lg font-semibold cursor-pointer hover:bg-white dark:hover:bg-gray-800 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   Course Preview
                   <svg className="w-4 h-4 md:w-5 md:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,23 +169,23 @@ export default function Course() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-3 md:gap-5 lg:gap-8 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">50+</div>
-                  <div className="text-xs md:text-sm lg:text-base text-gray-600">Expert Instructors</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-1">50+</div>
+                  <div className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400">Expert Instructors</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">10,000+</div>
-                  <div className="text-xs md:text-sm lg:text-base text-gray-600">Students Enrolled</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-1">10,000+</div>
+                  <div className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400">Students Enrolled</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">4.8★</div>
-                  <div className="text-xs md:text-sm lg:text-base text-gray-600">Average Rating</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-200 mb-1">4.8★</div>
+                  <div className="text-xs md:text-sm lg:text-base text-gray-600 dark:text-gray-400">Average Rating</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Courses Section */}
-          <section id="courses-section" className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
+          <section id="courses-section" className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <div className="inline-flex items-center px-3 md:px-4 py-1 md:py-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-full border border-blue-200 mb-3 md:mb-4">
@@ -193,20 +193,20 @@ export default function Course() {
                 </div>
 
                 <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 md:mb-4">
-                  <span className="text-gray-800">Popular </span>
+                  <span className="text-gray-800 dark:text-gray-200">Popular </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Courses
                   </span>
                 </h2>
 
-                <p className="text-sm md:text-base lg:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-sm md:text-base lg:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                   Choose from our expertly crafted courses designed for every skill level
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
                 {courses.map((course) => (
-                  <div key={course.id} className="group bg-gradient-to-br from-white to-gray-50 rounded-xl md:rounded-2xl p-4 md:p-5 lg:p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-100">
+                  <div key={course.id} className="group bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-800 rounded-xl md:rounded-2xl p-4 md:p-5 lg:p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-gray-100 dark:border-gray-700">
                     <div className="relative overflow-hidden">
                       {/* Course Image/Icon */}
                       <div className={`w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 bg-gradient-to-r ${course.color} rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 text-2xl md:text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
@@ -215,31 +215,31 @@ export default function Course() {
                       
                       {/* Course Info */}
                       <div className="space-y-3 md:space-y-4">
-                        <div className="flex items-center gap-2 text-xs md:text-sm text-gray-500">
-                          <span className="px-2 py-1 bg-gray-100 rounded-full text-xs">{course.level}</span>
+                        <div className="flex items-center gap-2 text-xs md:text-sm text-gray-500 dark:text-gray-400">
+                          <span className="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-xs">{course.level}</span>
                           <span>•</span>
                           <span>{course.duration}</span>
                         </div>
-                        
-                        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 group-hover:text-[#FF6B2C] transition-colors duration-300">
+
+                        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 dark:text-gray-200 group-hover:text-[#FF6B2C] transition-colors duration-300">
                           {course.title}
                         </h3>
-                        
-                        <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+
+                        <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                           {course.description}
                         </p>
-                        
+
                         {/* Rating and Students */}
-                        <div className="flex items-center justify-between text-xs md:text-sm text-gray-500">
+                        <div className="flex items-center justify-between text-xs md:text-sm text-gray-500 dark:text-gray-400">
                           <div className="flex items-center gap-1">
                             <span className="text-yellow-400">★</span>
                             <span>{course.rating}</span>
                             <span>({course.students} students)</span>
                           </div>
                         </div>
-                        
+
                         {/* Enroll Button */}
-                        <div className="flex justify-center pt-3 md:pt-4 border-t border-gray-100">
+                        <div className="flex justify-center pt-3 md:pt-4 border-t border-gray-100 dark:border-gray-700">
                           <button
                             onClick={() => handleEnrollCourse(course.udemyUrl)}
                             className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 md:px-8 py-2.5 md:py-3 rounded-xl text-base md:text-base font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 w-full"
@@ -256,11 +256,11 @@ export default function Course() {
           </section>
 
           {/* Features Section */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-4 md:px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 md:mb-4">
-                  <span className="text-gray-800">Why Choose Our </span>
+                  <span className="text-gray-800 dark:text-gray-200">Why Choose Our </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Courses?
                   </span>
@@ -298,10 +298,10 @@ export default function Course() {
                     <div className={`w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-gradient-to-r ${feature.color} rounded-2xl flex items-center justify-center mx-auto mb-3 md:mb-4 text-xl md:text-2xl shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       <span className="drop-shadow-sm">{feature.icon}</span>
                     </div>
-                    <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-2 md:mb-3">
+                    <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2 md:mb-3">
                       {feature.title}
                     </h3>
-                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                       {feature.description}
                     </p>
                   </div>

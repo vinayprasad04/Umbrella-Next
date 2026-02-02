@@ -68,20 +68,20 @@ export default function NationalPensionScheme() {
         <link rel="canonical" href="https://www.incomegrow.in/calculation/nps" />
       </Head>
 
-      <div className="font-sans m-0 p-0 bg-white">
+      <div className="font-sans m-0 p-0 bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-emerald-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-emerald-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-emerald-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-green-400/10 to-emerald-400/10 rounded-full blur-3xl"></div>
+              <div className="absolute top-20 left-10 w-64 h-64 bg-gradient-to-r from-emerald-400/10 to-blue-400/10 dark:from-emerald-400/20 dark:to-blue-400/20 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-r from-green-400/10 to-emerald-400/10 dark:from-green-400/20 dark:to-emerald-400/20 rounded-full blur-3xl"></div>
             </div>
 
             <div className="relative w-full max-w-[1600px] mx-auto px-6 text-center">
-              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-50 to-green-50 rounded-full border border-emerald-200 mb-3 md:mb-4 lg:mb-6">
-                <span className="text-sm font-semibold text-emerald-600">🏛️ National Pension Scheme Calculator</span>
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/30 dark:to-green-900/30 rounded-full border border-emerald-200 dark:border-emerald-700 mb-3 md:mb-4 lg:mb-6 transition-colors duration-300">
+                <span className="text-sm font-semibold text-emerald-600 dark:text-emerald-400">🏛️ National Pension Scheme Calculator</span>
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
@@ -89,82 +89,82 @@ export default function NationalPensionScheme() {
                   National Pension Scheme
                 </span>
                 <br />
-                <span className="text-gray-800">Calculator</span>
+                <span className="text-gray-800 dark:text-gray-100">Calculator</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6">
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-5 lg:mb-6 transition-colors duration-300">
                 Calculate your NPS returns and monthly pension. Plan your retirement with government-backed pension scheme and enjoy additional tax benefits.
               </p>
 
               <div className="grid grid-cols-3 gap-3 md:gap-5 lg:gap-8 max-w-2xl mx-auto">
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">₹50,000</div>
-                  <div className="text-xs md:text-sm text-gray-600">Extra Tax Benefit</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1 transition-colors duration-300">₹50,000</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Extra Tax Benefit</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Market</div>
-                  <div className="text-xs md:text-sm text-gray-600">Linked Returns</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1 transition-colors duration-300">Market</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Linked Returns</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-1">Monthly</div>
-                  <div className="text-xs md:text-sm text-gray-600">Pension</div>
+                  <div className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-1 transition-colors duration-300">Monthly</div>
+                  <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Pension</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Calculator Section */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-gray-50 dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="max-w-6xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
                   {/* Input Form */}
-                  <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                  <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 transition-colors duration-300">
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center transition-colors duration-300">
                       Calculate Your NPS Returns
                     </h2>
 
                     <div className="space-y-6">
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 transition-colors duration-300">
                           Monthly Investment (₹)
                         </label>
                         <input
                           type="number"
                           placeholder="e.g., 5000"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg text-gray-900 dark:text-gray-200 dark:placeholder-gray-400"
                           value={investment}
                           onChange={(e) => setInvestment(e.target.value)}
                         />
-                        <p className="text-xs text-gray-500 mt-2">
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 transition-colors duration-300">
                           Minimum ₹1,000 per month for regular contribution
                         </p>
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 transition-colors duration-300">
                           Expected Return Rate (% per annum)
                         </label>
                         <input
                           type="number"
                           step="0.1"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg text-gray-900 dark:text-gray-200 dark:placeholder-gray-400"
                           value={returnRate}
                           onChange={(e) => setReturnRate(e.target.value)}
                         />
-                        <p className="text-sm text-gray-500 mt-2">
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 transition-colors duration-300">
                           Historical average: 9-12% (market-linked)
                         </p>
                       </div>
 
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 transition-colors duration-300">
                           Investment Period (Years)
                         </label>
                         <input
                           type="number"
                           placeholder="e.g., 30"
-                          className="w-full px-4 py-4 bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg"
+                          className="w-full px-4 py-4 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:border-[#FF6B2C] focus:ring-2 focus:ring-[#FF6B2C]/20 transition-all duration-300 text-lg text-gray-900 dark:text-gray-200 dark:placeholder-gray-400"
                           value={timePeriod}
                           onChange={(e) => setTimePeriod(e.target.value)}
                         />
@@ -175,8 +175,8 @@ export default function NationalPensionScheme() {
                               onClick={() => setTimePeriod(period)}
                               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                                 timePeriod === period
-                                  ? 'bg-[#FF6B2C] text-white'
-                                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                                  ? 'bg-[#FF6B2C] text-white dark:bg-[#FF6B2C] dark:text-white'
+                                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                               }`}
                             >
                               {period}Y
@@ -198,16 +198,16 @@ export default function NationalPensionScheme() {
                   </div>
 
                   {/* Results */}
-                  <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-3xl p-8 border border-[#FF6B2C]/20">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                  <div className="bg-gradient-to-br from-[#FF6B2C]/10 to-[#FF8A50]/10 dark:from-[#FF6B2C]/20 dark:to-[#FF8A50]/20 rounded-3xl p-8 border border-[#FF6B2C]/20 dark:border-[#FF6B2C]/30 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center transition-colors duration-300">
                       Retirement Summary
                     </h3>
 
                     {result ? (
                       <div className="space-y-6">
-                        <div className="bg-white/80 rounded-2xl p-6 shadow-lg">
+                        <div className="bg-white/80 dark:bg-gray-700/80 rounded-2xl p-6 shadow-lg transition-colors duration-300">
                           <div className="text-center">
-                            <div className="text-sm text-gray-600 mb-2">Lump Sum (60%)</div>
+                            <div className="text-sm text-gray-600 dark:text-gray-400 mb-2 transition-colors duration-300">Lump Sum (60%)</div>
                             <div className="text-4xl font-bold text-[#FF6B2C] mb-4">
                               ₹{result.maturityAmount.toLocaleString()}
                             </div>
@@ -215,32 +215,32 @@ export default function NationalPensionScheme() {
                         </div>
 
                         <div className="grid grid-cols-1 gap-4">
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Monthly Pension</div>
-                            <div className="text-xl font-bold text-purple-600">
+                          <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Monthly Pension</div>
+                            <div className="text-xl font-bold text-purple-600 dark:text-purple-400 transition-colors duration-300">
                               ₹{result.monthlyPension.toLocaleString()}
                             </div>
-                            <div className="text-xs text-gray-500">From annuity (40% corpus)</div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">From annuity (40% corpus)</div>
                           </div>
 
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Total Investment</div>
-                            <div className="text-xl font-bold text-gray-800">
+                          <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Total Investment</div>
+                            <div className="text-xl font-bold text-gray-800 dark:text-gray-100 transition-colors duration-300">
                               ₹{result.totalInvestment.toLocaleString()}
                             </div>
                           </div>
 
-                          <div className="bg-white/60 rounded-xl p-4">
-                            <div className="text-sm text-gray-600">Total Returns</div>
-                            <div className="text-xl font-bold text-green-600">
+                          <div className="bg-white/60 dark:bg-gray-700/60 rounded-xl p-4 transition-colors duration-300">
+                            <div className="text-sm text-gray-600 dark:text-gray-400 transition-colors duration-300">Total Returns</div>
+                            <div className="text-xl font-bold text-green-600 dark:text-green-400 transition-colors duration-300">
                               ₹{result.totalReturns.toLocaleString()}
                             </div>
                           </div>
                         </div>
 
-                        <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
-                          <h4 className="font-semibold text-blue-800 mb-2">💡 NPS Tax Benefits:</h4>
-                          <ul className="text-xs text-blue-700 space-y-1">
+                        <div className="bg-blue-50 dark:bg-blue-900/30 rounded-xl p-4 border border-blue-200 dark:border-blue-700 transition-colors duration-300">
+                          <h4 className="font-semibold text-blue-800 dark:text-blue-300 mb-2 transition-colors duration-300">💡 NPS Tax Benefits:</h4>
+                          <ul className="text-xs text-blue-700 dark:text-blue-300 space-y-1 transition-colors duration-300">
                             <li>• Section 80CCD(1): Up to ₹1.5 lakh deduction</li>
                             <li>• Section 80CCD(1B): Additional ₹50,000 deduction</li>
                             <li>• Section 80CCD(2): Employer contribution benefit</li>
@@ -259,12 +259,12 @@ export default function NationalPensionScheme() {
                       </div>
                     ) : (
                       <div className="text-center py-12">
-                        <div className="w-20 h-20 bg-gradient-to-r from-gray-200 to-gray-300 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                          <svg className="w-10 h-10 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-20 h-20 bg-gradient-to-r from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-600 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+                          <svg className="w-10 h-10 text-gray-500 dark:text-gray-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                           </svg>
                         </div>
-                        <p className="text-gray-500 text-lg">
+                        <p className="text-gray-500 dark:text-gray-400 text-lg transition-colors duration-300">
                           Enter your details to see projected returns
                         </p>
                       </div>
@@ -276,35 +276,35 @@ export default function NationalPensionScheme() {
           </section>
 
           {/* Features Section */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white relative overflow-hidden">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
             <div className="w-full max-w-[1600px] mx-auto px-6">
               <div className="text-center mb-6 md:mb-8 lg:mb-12">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 lg:mb-6">
-                  <span className="text-gray-800">Why Choose </span>
+                  <span className="text-gray-800 dark:text-gray-100 transition-colors duration-300">Why Choose </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     NPS?
                   </span>
                 </h2>
 
-                <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto transition-colors duration-300">
                   National Pension Scheme offers market-linked returns with additional tax benefits
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 lg:gap-8">
-                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Extra Tax Benefits</h3>
-                  <p className="text-gray-600">Get additional ₹50,000 tax deduction over 80C limit</p>
+                <div className="group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">Extra Tax Benefits</h3>
+                  <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Get additional ₹50,000 tax deduction over 80C limit</p>
                 </div>
 
-                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Market-Linked Returns</h3>
-                  <p className="text-gray-600">Potentially higher returns with professional fund management</p>
+                <div className="group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">Market-Linked Returns</h3>
+                  <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Potentially higher returns with professional fund management</p>
                 </div>
 
-                <div className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                  <h3 className="text-xl font-bold text-gray-800 mb-4">Portable Account</h3>
-                  <p className="text-gray-600">Single account that works across jobs and locations</p>
+                <div className="group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-4 transition-colors duration-300">Portable Account</h3>
+                  <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">Single account that works across jobs and locations</p>
                 </div>
               </div>
             </div>
