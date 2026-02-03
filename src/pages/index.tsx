@@ -32,11 +32,11 @@ export default function Home() {
 
 
 
-        <main>
+        <main role="main">
           {/* Hero Section */}
-          <section className="relative py-6 sm:py-8 md:py-10 lg:py-12 bg-gradient-to-br from-gray-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 overflow-hidden flex items-center transition-colors duration-300">
+          <section className="relative py-6 sm:py-8 md:py-10 lg:py-12 bg-gradient-to-br from-gray-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 overflow-hidden flex items-center transition-colors duration-300" aria-label="Hero section">
             {/* Background decoration - Hidden on mobile */}
-            <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
               <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
             </div>
@@ -69,37 +69,39 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <button
                     onClick={handleGetStarted}
+                    aria-label={isLoggedIn ? 'Navigate to Dashboard' : 'Get Started with IncomeGrow'}
                     className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 sm:px-8 py-3 sm:py-4 border-none rounded-xl text-base sm:text-lg font-semibold cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     {isLoggedIn ? 'Go to Dashboard' : 'Get Started'}
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </button>
 
                   <button
                     onClick={() => router.push('/products')}
+                    aria-label="Explore IncomeGrow Platform and Products"
                     className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 px-6 sm:px-8 py-3 sm:py-4 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-base sm:text-lg font-semibold cursor-pointer hover:bg-white dark:hover:bg-gray-800 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     Explore Platform
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
                   </button>
                 </div>
 
-                <div className="flex items-center justify-between sm:justify-start gap-4 sm:gap-8 pt-2 sm:pt-4">
-                  <div className="text-center">
-                    <div className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">10K+</div>
+                <div className="flex items-center justify-between sm:justify-start gap-4 sm:gap-8 pt-2 sm:pt-4" role="list" aria-label="Platform Statistics">
+                  <div className="text-center" role="listitem">
+                    <div className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200" aria-label="10,000 plus active users">10K+</div>
                     <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Active Users</div>
                   </div>
-                  <div className="text-center">
-                    <div className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">₹50Cr+</div>
+                  <div className="text-center" role="listitem">
+                    <div className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200" aria-label="50 crore rupees plus managed">₹50Cr+</div>
                     <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Managed</div>
                   </div>
-                  <div className="text-center">
-                    <div className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200">99%</div>
+                  <div className="text-center" role="listitem">
+                    <div className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200" aria-label="99 percent satisfaction rate">99%</div>
                     <div className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Satisfaction</div>
                   </div>
                 </div>
@@ -108,10 +110,10 @@ export default function Home() {
               <div className="hidden lg:flex justify-center lg:justify-end order-1 lg:order-2">
                 <div className="relative w-full max-w-lg xl:max-w-xl">
                   {/* SVG Rocket Dream Banner */}
-                  <div className="relative w-full aspect-[11/9] xl:w-[550px] xl:h-[450px] bg-gradient-to-b from-indigo-900 via-purple-800 to-pink-700 rounded-2xl lg:rounded-3xl shadow-2xl overflow-hidden">
+                  <div className="relative w-full aspect-[11/9] xl:w-[550px] xl:h-[450px] bg-gradient-to-b from-indigo-900 via-purple-800 to-pink-700 rounded-2xl lg:rounded-3xl shadow-2xl overflow-hidden" role="img" aria-label="Rocket launching towards financial goals with dream home, car, and world tour aspirations">
                     
                     {/* Stars Background */}
-                    <div className="absolute inset-0">
+                    <div className="absolute inset-0" aria-hidden="true">
                       {/* Twinkling stars */}
                       <div className="absolute top-8 left-12 w-2 h-2 bg-white rounded-full animate-pulse opacity-80"></div>
                       <div className="absolute top-16 right-20 w-1 h-1 bg-yellow-300 rounded-full animate-pulse opacity-60" style={{animationDelay: '0.5s'}}></div>
@@ -122,8 +124,8 @@ export default function Home() {
                     </div>
                     
                     {/* Small SVG Rockets floating - Hidden on small mobile */}
-                    <div className="hidden sm:block absolute top-8 sm:top-12 left-4 sm:left-8 animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}}>
-                      <svg width="40" height="60" viewBox="0 0 40 60" className="transform rotate-12">
+                    <div className="hidden sm:block absolute top-8 sm:top-12 left-4 sm:left-8 animate-bounce" style={{animationDelay: '1s', animationDuration: '4s'}} aria-hidden="true">
+                      <svg width="40" height="60" viewBox="0 0 40 60" className="transform rotate-12" aria-hidden="true">
                         <defs>
                           <linearGradient id="rocketGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style={{stopColor:"#FF6B2C", stopOpacity:1}} />
@@ -143,9 +145,9 @@ export default function Home() {
                         <ellipse cx="20" cy="45" rx="6" ry="15" fill="url(#fireGrad1)" className="animate-pulse"/>
                       </svg>
                     </div>
-                    
-                    <div className="hidden sm:block absolute top-16 sm:top-20 right-8 sm:right-12 animate-bounce" style={{animationDelay: '2s', animationDuration: '3s'}}>
-                      <svg width="35" height="50" viewBox="0 0 35 50" className="transform -rotate-6">
+
+                    <div className="hidden sm:block absolute top-16 sm:top-20 right-8 sm:right-12 animate-bounce" style={{animationDelay: '2s', animationDuration: '3s'}} aria-hidden="true">
+                      <svg width="35" height="50" viewBox="0 0 35 50" className="transform -rotate-6" aria-hidden="true">
                         <defs>
                           <linearGradient id="rocketGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style={{stopColor:"#3B82F6", stopOpacity:1}} />
@@ -286,7 +288,7 @@ export default function Home() {
           </section>
 
           {/* About IncomeGrow Section */}
-          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 relative transition-colors duration-300">
+          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 relative transition-colors duration-300" aria-labelledby="about-heading">
             <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
               <div className="space-y-6 md:space-y-8">
                 <div>
@@ -294,7 +296,7 @@ export default function Home() {
                     <span className="text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400">🚀 About Our Mission</span>
                   </div>
 
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                  <h2 id="about-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                     <span className="text-gray-800 dark:text-gray-200">Why Choose </span>
                     <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                       IncomeGrow?
@@ -348,18 +350,20 @@ export default function Home() {
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <button 
+                  <button
                     onClick={() => router.push('/about')}
+                    aria-label="Learn more about IncomeGrow"
                     className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-6 py-3 border-none rounded-xl text-base font-semibold cursor-pointer hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                   >
                     Learn More
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </button>
-                  
+
                   <button
                     onClick={() => router.push('/about')}
+                    aria-label="Read our story and company history"
                     className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-gray-700 dark:text-gray-300 px-6 py-3 border-2 border-gray-200 dark:border-gray-700 rounded-xl text-base font-semibold cursor-pointer hover:bg-white dark:hover:bg-gray-800 hover:shadow-lg hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300"
                   >
                     Our Story
@@ -407,7 +411,7 @@ export default function Home() {
           </section>
 
           {/* Our Products Section */}
-          <section className="py-12 md:py-16 lg:py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
+          <section className="py-12 md:py-16 lg:py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300" aria-labelledby="products-heading">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 via-transparent to-purple-50/50 dark:from-blue-900/20 dark:via-transparent dark:to-purple-900/20"></div>
             <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 text-center">
               <div className="mb-12 md:mb-16">
@@ -415,7 +419,7 @@ export default function Home() {
                   <span className="text-xs sm:text-sm font-semibold text-purple-600 dark:text-purple-400">💼 Our Solutions</span>
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                <h2 id="products-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                   <span className="text-gray-800 dark:text-gray-200">Comprehensive </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Financial Tools
@@ -474,6 +478,15 @@ export default function Home() {
                   <div
                     key={index}
                     onClick={() => product.external ? window.open(product.href, '_blank', 'noopener,noreferrer') : router.push(product.href)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        product.external ? window.open(product.href, '_blank', 'noopener,noreferrer') : router.push(product.href);
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`${product.title}: ${product.description}`}
                     className={`group relative bg-gradient-to-br ${product.bgColor} backdrop-blur-sm border border-white/50 dark:border-gray-700 rounded-2xl p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer`}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 dark:from-white/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -505,12 +518,13 @@ export default function Home() {
               </div>
               
               <div className="mt-12">
-                <button 
+                <button
                   onClick={() => router.push('/products')}
+                  aria-label="View all IncomeGrow products and services"
                   className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
                 >
                   View All Products
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>
@@ -519,7 +533,7 @@ export default function Home() {
           </section>
 
           {/* What Our Users Say Section */}
-          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden transition-colors duration-300">
+          <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden transition-colors duration-300" aria-labelledby="testimonials-heading">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-10 right-20 w-64 h-64 bg-gradient-to-r from-yellow-200/20 to-orange-200/20 rounded-full blur-3xl"></div>
               <div className="absolute bottom-10 left-20 w-80 h-80 bg-gradient-to-r from-blue-200/20 to-purple-200/20 rounded-full blur-3xl"></div>
@@ -532,7 +546,7 @@ export default function Home() {
                   <span className="text-xs sm:text-sm font-semibold text-orange-600 dark:text-orange-400">⭐ Testimonials</span>
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                <h2 id="testimonials-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                   <span className="text-gray-800 dark:text-gray-200">What Our </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Users Say
@@ -571,19 +585,19 @@ export default function Home() {
                     avatar: "RM"
                   }
                 ].map((testimonial, index) => (
-                  <div key={index} className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 relative text-left shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/50 dark:border-gray-700">
+                  <article key={index} className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-2xl p-8 relative text-left shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 border border-white/50 dark:border-gray-700">
                     <div className="absolute inset-0 bg-gradient-to-br from-white/40 dark:from-gray-700/40 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                     <div className="relative z-10">
-                      <div className="flex items-center mb-4">
+                      <div className="flex items-center mb-4" role="img" aria-label={`${testimonial.rating} out of 5 stars`}>
                         {[...Array(testimonial.rating)].map((_, i) => (
-                          <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                          <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20" aria-hidden="true">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                           </svg>
                         ))}
                       </div>
 
-                      <div className="absolute top-4 right-4 text-4xl text-[#FF6B2C]/20 dark:text-[#FF6B2C]/30 font-bold">
+                      <div className="absolute top-4 right-4 text-4xl text-[#FF6B2C]/20 dark:text-[#FF6B2C]/30 font-bold" aria-hidden="true">
                         &ldquo;
                       </div>
 
@@ -592,7 +606,7 @@ export default function Home() {
                       </p>
 
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-xl flex items-center justify-center text-white font-bold shadow-lg">
+                        <div className="w-12 h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-xl flex items-center justify-center text-white font-bold shadow-lg" aria-hidden="true">
                           {testimonial.avatar}
                         </div>
 
@@ -606,22 +620,23 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
-              
+
               <div className="mt-16 flex flex-col items-center gap-6">
                 <div className="flex items-center gap-2 text-lg font-semibold text-gray-700 dark:text-gray-300">
-                  <span className="text-2xl">⭐</span>
+                  <span className="text-2xl" role="img" aria-label="star">⭐</span>
                   <span>4.9/5 average rating from 1,200+ reviews</span>
                 </div>
-                
-                <button 
+
+                <button
                   onClick={() => router.push('/testimonials')}
+                  aria-label="Read more customer reviews and testimonials"
                   className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   Read More Reviews
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>
@@ -630,7 +645,7 @@ export default function Home() {
           </section>
 
           {/* Trusted by Industry Leaders */}
-          <section className="py-12 md:py-16 lg:py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
+          <section className="py-12 md:py-16 lg:py-24 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-300" aria-labelledby="partners-heading">
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-50/30 via-transparent to-green-50/30 dark:from-indigo-900/20 dark:via-transparent dark:to-green-900/20"></div>
             
             <div className="relative w-full max-w-[1600px] mx-auto px-4 sm:px-6 text-center">
@@ -639,7 +654,7 @@ export default function Home() {
                   <span className="text-xs sm:text-sm font-semibold text-indigo-600 dark:text-indigo-400">🤝 Our Partners</span>
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
+                <h2 id="partners-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
                   <span className="text-gray-800 dark:text-gray-200">Trusted by </span>
                   <span className="bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] bg-clip-text text-transparent">
                     Industry Leaders
@@ -700,12 +715,13 @@ export default function Home() {
               </div>
               
               <div className="mt-12">
-                <button 
+                <button
                   onClick={() => router.push('/become-partner')}
+                  aria-label="Become a partner with IncomeGrow"
                   className="group bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] text-white px-8 py-4 border-none rounded-xl text-lg font-semibold cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 mx-auto"
                 >
                   Become a Partner
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </button>
