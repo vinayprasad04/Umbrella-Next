@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import AuthManager from "@/components/AuthManager";
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { ThemeProvider } from 'next-themes';
-import { clarity } from '@microsoft/clarity';
+import clarity from '@microsoft/clarity';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
