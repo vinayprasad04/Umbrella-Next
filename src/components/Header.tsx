@@ -178,7 +178,7 @@ export default function Header({dashboard=false}: {dashboard?: boolean}) {
                   href="/"
                   className={`no-underline font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-1 ${
                     router.pathname === '/'
-                      ? 'text-[#FF6B2C] bg-orange-50 dark:bg-orange-900/30 shadow-sm'
+                      ? 'text-[rgb(146,56,17)] bg-orange-50 dark:bg-orange-900/30 shadow-sm'
                       : 'text-gray-700 dark:text-gray-300 hover:text-[#FF6B2C] hover:bg-gray-50 dark:hover:bg-gray-800'
                   }`}
                 >
@@ -189,7 +189,7 @@ export default function Header({dashboard=false}: {dashboard?: boolean}) {
                   href="/products"
                   className={`no-underline font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-1 ${
                     router.pathname === '/products' || router.pathname.startsWith('/products')
-                      ? 'text-[#FF6B2C] bg-orange-50 dark:bg-orange-900/30 shadow-sm'
+                      ? 'text-[rgb(146,56,17)] bg-orange-50 dark:bg-orange-900/30 shadow-sm'
                       : 'text-gray-700 dark:text-gray-300 hover:text-[#FF6B2C] hover:bg-gray-50 dark:hover:bg-gray-800'
                   }`}
                 >
@@ -273,7 +273,7 @@ export default function Header({dashboard=false}: {dashboard?: boolean}) {
               href="/dashboard"
               className={`no-underline font-medium px-4 py-2 rounded-lg transition-all duration-200 flex items-center gap-1 ${
                 router.pathname === '/dashboard' || router.pathname.startsWith('/recipe')
-                  ? 'text-[#FF6B2C] bg-orange-50 dark:bg-orange-900/30 shadow-sm'
+                  ? 'text-[rgb(146,56,17)] bg-orange-50 dark:bg-orange-900/30 shadow-sm'
                   : 'text-gray-700 dark:text-gray-300 hover:text-[#FF6B2C] hover:bg-gray-50 dark:hover:bg-gray-800'
               }`}
             >
