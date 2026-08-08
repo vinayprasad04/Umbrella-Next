@@ -162,11 +162,11 @@ export default function Products() {
                         </div>
 
                         <div className="flex-1 min-w-0">
-                          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2 md:mb-3">
+                          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 dark:text-gray-800 mb-2 md:mb-3">
                             {product.title}
                           </h3>
 
-                          <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-3 md:mb-4">
+                          <p className="text-sm md:text-base text-gray-600 dark:text-gray-600 leading-relaxed mb-3 md:mb-4">
                             {product.description}
                           </p>
                         </div>
@@ -176,14 +176,14 @@ export default function Products() {
                         {product.features.map((feature, featureIndex) => (
                           <div key={featureIndex} className="flex items-center gap-2">
                             <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-gradient-to-r from-[#FF6B2C] to-[#FF8A50] rounded-full flex-shrink-0"></div>
-                            <span className="text-xs md:text-sm text-gray-700 dark:text-gray-300 font-medium">{feature}</span>
+                            <span className="text-xs md:text-sm text-gray-700 dark:text-gray-700 font-medium">{feature}</span>
                           </div>
                         ))}
                       </div>
 
                       <div className="flex items-center justify-between gap-2">
                         <div className="opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="inline-flex items-center text-sm md:text-base font-semibold text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                          <div className="inline-flex items-center text-sm md:text-base font-semibold text-gray-700 dark:text-gray-900 group-hover:text-gray-900 dark:group-hover:text-gray-900">
                             <span className="hidden md:inline">Explore {product.title}</span>
                             <span className="md:hidden">Explore</span>
                             {product.external ? (
@@ -198,7 +198,7 @@ export default function Products() {
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-gray-500 dark:text-gray-400">
+                        <div className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm text-gray-500 dark:text-gray-500">
                           <span>Free to start</span>
                           <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-green-400 rounded-full"></div>
                         </div>

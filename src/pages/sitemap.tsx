@@ -73,7 +73,7 @@ export default function Sitemap() {
       pages: [
         { name: "Tax Knowledge", href: "/tax-knowledge/tax-haven", description: "Tax planning and knowledge" },
         { name: "My Goals", href: "/dashboard/my-goal", description: "Plan and track your financial goals" },
-        { name: "All Icons", href: "/all-icons", description: "Icon library and resources" }
+        // { name: "All Icons", href: "/all-icons", description: "Icon library and resources" }
       ]
     },
     {
@@ -84,7 +84,7 @@ export default function Sitemap() {
       pages: [
         { name: "Contact Us", href: "/support/contact-us", description: "Get in touch with our team" },
         { name: "FAQ", href: "/support/faq", description: "Frequently asked questions" },
-        { name: "Sample Page", href: "/sample-page", description: "Sample content page" }
+        // { name: "Sample Page", href: "/sample-page", description: "Sample content page" }
       ]
     },
     {
@@ -96,7 +96,7 @@ export default function Sitemap() {
         { name: "Privacy Policy", href: "/privacy-policy", description: "How we protect your privacy" },
         { name: "Terms of Service", href: "/terms-of-service", description: "Terms and conditions of use" },
         { name: "Cookie Policy", href: "/cookie-policy", description: "Information about our cookie usage" },
-        { name: "Sitemap", href: "/sitemap", description: "Complete site navigation map" }
+        // { name: "Sitemap", href: "/sitemap", description: "Complete site navigation map" }
       ]
     }
   ];
@@ -115,7 +115,7 @@ export default function Sitemap() {
 
         <main>
           {/* Hero Section */}
-          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-orange-50 overflow-hidden">
+          <section className="relative py-8 md:py-12 lg:py-16 xl:py-20 bg-gradient-to-br from-gray-50 via-white to-orange-50 dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 overflow-hidden transition-colors duration-300">
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-[#FF6B2C]/10 to-[#FF8A50]/10 rounded-full blur-3xl"></div>
               <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-400/10 to-purple-400/10 rounded-full blur-3xl"></div>
@@ -132,33 +132,33 @@ export default function Sitemap() {
                 </span>
               </h1>
 
-              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6 lg:mb-8">
+              <p className="text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto mb-4 md:mb-6 lg:mb-8 dark:text-gray-300">
                 Explore all the pages and features available on IncomeGrow Financial Platform.
                 Find exactly what you're looking for with our comprehensive site navigation.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 lg:gap-8">
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">{siteStructure.length}</div>
-                  <div className="text-xs md:text-sm text-gray-500">Categories</div>
+                  <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-300">{siteStructure.length}</div>
+                  <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Categories</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">
+                  <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-300">
                     {siteStructure.reduce((total, category) => total + category.pages.length, 0)}+
                   </div>
-                  <div className="text-xs md:text-sm text-gray-500">Total Pages</div>
+                  <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Total Pages</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xl md:text-2xl font-bold text-gray-800">100%</div>
-                  <div className="text-xs md:text-sm text-gray-500">Coverage</div>
+                  <div className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-300">100%</div>
+                  <div className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Coverage</div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Sitemap Content */}
-          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white">
-            <div className="w-full max-w-[1400px] mx-auto px-4 md:px-6">
+          <section className="py-8 md:py-12 lg:py-16 xl:py-20 bg-white transition-colors duration-300 dark:bg-gray-900  inset-0 bg-gradient-to-r from-blue-50/30 via-transparent to-purple-50/30 dark:from-blue-900/20 dark:via-transparent dark:to-purple-900/20">
+            <div className="w-full max-w-[1400px] mx-auto px-4 md:px-6 ">
               <div className="space-y-6 md:space-y-8">
                 {siteStructure.map((section, sectionIndex) => (
                   <div key={sectionIndex} className={`bg-gradient-to-br ${section.bgColor} rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-6 lg:p-8 border border-white/50`}>
