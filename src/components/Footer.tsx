@@ -138,7 +138,7 @@ export default function Footer() {
                   </div>
                   <div>
                    <Image
-                      src="/logo_white.svg"
+                      src="/logo_dark.png"
                       alt="incomeGrow Financial Logo"
                       width={150}
                       height={50}

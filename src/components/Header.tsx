@@ -135,9 +135,9 @@ export default function Header({dashboard=false}: {dashboard?: boolean}) {
   };
 
   return (
-    <header className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md py-3 sm:py-4 shadow-sm border-b border-gray-100 dark:border-gray-800 sticky top-0 z-[1000] transition-all duration-300">
+    <header className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md py-2 sm:py-2 shadow-sm border-b border-gray-100 dark:border-gray-800 sticky top-0 z-[1000] transition-all duration-300">
       <div className={`w-full mx-auto px-4 sm:px-6 flex items-center justify-between ${dashboard ? '' : ' max-w-[1600px]'} `}>
-        <Link href="/" className="flex items-center gap-2 sm:gap-3 no-underline group">
+        <Link href="/" className="flex items-center gap-1 sm:gap-1 no-underline group">
           <div className="relative">
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#FF6B2C] to-[#FF8A50] rounded-lg sm:rounded-xl shadow-lg flex items-center justify-center group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
               <Image
@@ -152,12 +152,20 @@ export default function Header({dashboard=false}: {dashboard?: boolean}) {
           </div>
           <div className="flex flex-col">
              <Image
-                src="/logo.svg"
+                src="/logo1.png"
                 alt="incomeGrow Financial Logo"
-                width={150}
-                height={50}
+                width={200}
+                height={40}
                 priority
-                className="h-8 sm:h-auto w-auto"
+                className="block dark:hidden"
+              />
+              <Image
+                src="/logo_dark.png"
+                alt="incomeGrow Financial Logo"
+                width={200}
+                height={40}
+                priority
+                className="hidden dark:block"
               />
           </div>
         </Link>
