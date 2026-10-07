@@ -71,6 +71,16 @@ export default function handler(
 ${urls}
 </urlset>`;
 
-  res.setHeader("Content-Type", "application/xml");
-  res.status(200).send(sitemap);
+  // Explicit XML response
+  res.setHeader("Content-Type", "application/xml; charset=utf-8");
+
+  // Prevent cached 304 responses
+  res.setHeader(
+    "Cache-Control",
+    "no-store, no-cache, must-revalidate, proxy-revalidate"
+  );
+  res.setHeader("Pragma", "no-cache");
+  res.setHeader("Expires", "0");
+
+  return res.status(200).send(sitemap);
 }
